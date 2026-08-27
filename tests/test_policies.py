@@ -85,3 +85,17 @@ def test_snapkv_uses_only_the_observation_window():
     a[:, :, -1, 3] = 99.0  # only the final query row attends to position 3
     decide(0, cache, [a], 4)
     assert 3.0 in cache.layers[0].keys[0, 0, :, 0].tolist()
+
+
+def test_random_keeps_layers_aligned():
+    """Per-layer draws desynchronise lengths and break the global attention mask."""
+    decide, _ = make_decider("random", budget=6, sinks=0, seed=1, chunk=10)
+    cache = AdmissionCache(budget=6, sinks=0)
+    for _ in range(3):
+        for li in range(4):
+            k = torch.zeros(1, 2, 10, 4)
+            cache.update(k, k.clone(), li)
+        for li in range(4):
+            decide(li, cache, None, 10)
+        occupancies = {cache.occupancy(li) for li in range(4)}
+        assert len(occupancies) == 1, f"layers desynchronised: {occupancies}"

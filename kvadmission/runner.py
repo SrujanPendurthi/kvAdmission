@@ -19,6 +19,23 @@ def load_model(name="Qwen/Qwen3-1.7B"):
     return model, tok, device
 
 
+def _assert_layers_aligned(cache, n_layers):
+    """Every layer must hold the same token count.
+
+    A single global attention_mask is applied to all layers, so a policy that
+    makes independent per-layer decisions desynchronises their lengths. Caught
+    here it names the cause; left alone it surfaces as an opaque tensor-shape
+    mismatch inside eager attention.
+    """
+    occ = {cache.layers[li].keys.shape[-2] for li in range(n_layers)}
+    if len(occ) > 1:
+        raise RuntimeError(
+            f"layers desynchronised: occupancies {sorted(occ)}. This harness "
+            "applies one attention mask to every layer, so a decider must keep "
+            "layer lengths equal."
+        )
+
+
 @torch.no_grad()
 def prefill(model, ids, cache, device, chunk=128, decide=None, need_attn=False):
     """Chunked prefill. Returns stream length in tokens.
@@ -48,6 +65,7 @@ def prefill(model, ids, cache, device, chunk=128, decide=None, need_attn=False):
         if decide is not None:
             for li in range(n_layers):
                 decide(li, cache, out.attentions if need_attn else None, n_new)
+            _assert_layers_aligned(cache, n_layers)
         del out
 
     return total

@@ -24,10 +24,16 @@ def make_decider(policy, budget, sinks=4, window=32, seed=0, chunk=CHUNK_HINT):
     if policy == "random":
         gen = torch.Generator().manual_seed(seed)
         rate = budget / (budget + chunk)
+        shared = {}
 
         def decide(layer_idx, cache, attentions, n_new):
-            keep = torch.rand(n_new, generator=gen) < rate
-            cache.apply_admission(layer_idx, keep)
+            # One draw per chunk, reused across layers. The harness uses a single
+            # global attention mask, so every layer must hold the same number of
+            # tokens; drawing per layer desynchronises them and the forward pass
+            # dies with a shape mismatch deep in eager attention.
+            if layer_idx == 0:
+                shared["keep"] = torch.rand(n_new, generator=gen) < rate
+            cache.apply_admission(layer_idx, shared["keep"])
         return decide, False
 
     if policy in ("h2o", "snapkv"):
