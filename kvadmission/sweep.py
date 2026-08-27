@@ -64,8 +64,28 @@ def summarize(rows):
         n = len(vals)
         mean = sum(vals) / n
         sd = statistics.stdev(vals) if n > 1 else 0.0
-        out[key] = {"mean": mean, "n": n, "stderr": sd / (n ** 0.5) if n else 0.0}
+        out[key] = {
+            "mean": mean,
+            "n": n,
+            "stderr": sd / (n ** 0.5) if n else 0.0,
+            "upper95": _upper95(sum(vals), n),
+        }
     return out
+
+
+def _upper95(hits, n):
+    """95% upper bound on the true rate.
+
+    Zero-hit cells have zero sample variance, so stderr reports 0.0 and implies
+    a certainty the data does not support. For those the rule of three (3/n) is
+    the honest bound; elsewhere fall back to the normal approximation.
+    """
+    if n == 0:
+        return 1.0
+    if hits == 0:
+        return min(1.0, 3.0 / n)
+    p = hits / n
+    return min(1.0, p + 1.96 * (p * (1 - p) / n) ** 0.5)
 
 
 def main():
@@ -101,7 +121,8 @@ def main():
     for key, cell in sorted(summarize(rows).items()):
         policy, budget, band = key
         print(f"  {policy:8s} B={budget:<6d} {band:7s} "
-              f"{cell['mean']:.2f} +/- {cell['stderr']:.2f}  (n={cell['n']})")
+              f"{cell['mean']:.2f} +/- {cell['stderr']:.2f}  "
+              f"(n={cell['n']}, 95% upper {cell['upper95']:.2f})")
 
 
 if __name__ == "__main__":

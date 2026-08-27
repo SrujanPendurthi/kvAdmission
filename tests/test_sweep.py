@@ -40,3 +40,26 @@ def test_summarize_reports_stderr():
 def test_stderr_is_zero_when_unanimous():
     rows = [_row("recent", 512, s, 100, True) for s in range(4)]
     assert summarize(rows)[("recent", 512, "near")]["stderr"] == 0.0
+
+
+def test_zero_hit_cells_report_rule_of_three_bound():
+    """stderr is 0.0 for an all-zero cell, which overstates certainty."""
+    rows = [_row("h2o", 512, s, 4000, False) for s in range(6)]
+    cell = summarize(rows)[("h2o", 512, "middle")]
+    assert cell["mean"] == 0.0
+    assert cell["stderr"] == 0.0
+    assert cell["upper95"] == 0.5  # 3/6
+
+
+def test_upper_bound_tightens_with_more_trials():
+    few = summarize([_row("h2o", 512, s, 4000, False) for s in range(6)])
+    many = summarize([_row("h2o", 512, s, 4000, False) for s in range(60)])
+    assert many[("h2o", 512, "middle")]["upper95"] < \
+        few[("h2o", 512, "middle")]["upper95"]
+
+
+def test_nonzero_cells_use_normal_approximation():
+    rows = [_row("recent", 2048, s, 100, s < 5) for s in range(10)]
+    cell = summarize(rows)[("recent", 2048, "near")]
+    assert cell["mean"] == 0.5
+    assert 0.5 < cell["upper95"] < 1.0
