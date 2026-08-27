@@ -78,7 +78,45 @@ A small head reading what the frozen model already computes at each full-attenti
 - recency, current occupancy, current `λ_t`
 - layer embedding — one head shared across all full-attention layers
 
-~1–3M parameters. Factored independent Bernoulli per token per layer, shared value function. **The base model is frozen; no gradient flows through it.** Training cost is rollout inference plus gradients on the head.
+~1–3M parameters, shared value function. **The base model is frozen; no gradient flows through it.** Training cost is rollout inference plus gradients on the head.
+
+#### The layer-alignment constraint
+
+An earlier draft of this section specified *factored independent Bernoulli per
+token per layer*. That is not implementable in the phase-1 harness, and the
+constraint is structural rather than incidental:
+
+**A single `attention_mask` is applied to every layer in one forward pass, so
+all layers must hold the same number of tokens.** A policy deciding
+independently per layer desynchronises their lengths, and the forward pass dies
+with a shape mismatch inside the attention kernel. This was found the hard way —
+the `random` baseline drew per layer and crashed at 215-vs-218 tokens.
+
+The discovery is not purely mechanical. In the spike, `random` drew
+independently per layer, which handed every token ~28 independent survival
+draws per chunk and materially inflated its recall. Per-layer independence
+changes the effective survival statistics, so it is a modelling choice with
+empirical consequences, not a free implementation detail.
+
+**Decision: one admission decision per token, shared across all full-attention
+layers, for phase 2.** The layer embedding stays in the feature set — the head
+still *sees* per-layer state and can weight it — but emits a single decision.
+
+Rationale: the contribution is mid-context recall where baselines score zero.
+Whether the decision is made once per token or independently per layer is an
+orthogonal refinement, and forcing it onto the critical path buys engineering
+risk before the central claim is tested.
+
+Cost, stated plainly: WG-KV reports that token utility is head-specific, so a
+shared decision is a genuine handicap and a reviewer may say so. That makes
+per-layer decisions a **planned phase-4 ablation**, not an abandoned idea.
+
+Path if per-layer proves necessary: transformers already computes per-layer mask
+sizes for hybrid caches, where sliding-window and full-attention layers hold
+different lengths by design (`DynamicLayer.get_mask_sizes`). Reusing that
+machinery is the principled route, and it is far less work than a bespoke
+attention implementation. It does forfeit the peak-memory benefit, since nothing
+can be physically removed while layers must stay dimensionally uniform.
 
 ### 4.3 Reward
 
@@ -106,7 +144,12 @@ The honest answer is that this must be *shown*, not asserted, and it is the proj
 
 **The headline experiment:** recall as a function of distance-back, at matched budget, versus all baselines. Success = nonzero recall in the band where every baseline is at zero.
 
-**Ablations:** learned λ vs fixed · average-reward vs discounted · FIFO vs learned eviction · shared head vs per-layer · transfer of a policy trained on one model to another.
+**Ablations:** learned λ vs fixed · average-reward vs discounted · FIFO vs learned eviction · transfer of a policy trained on one model to another.
+
+Two separate layer axes, easily confused:
+
+- **Shared head vs per-layer heads** — a parameterization choice. One head with a layer embedding, versus one head per full-attention layer. Cheap either way, no harness change.
+- **Shared decision vs per-layer decisions** — constrained by §4.2's layer-alignment requirement. Needs the hybrid-cache masking path before it can be run at all, and forfeits the peak-memory benefit. Phase 4.
 
 ## 6. Correctness checks
 

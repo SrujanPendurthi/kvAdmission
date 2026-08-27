@@ -29,3 +29,10 @@ venv/
 
 # macOS
 .DS_Store
+
+# Downloaded corpus for the needle harness
+kvadmission/_haystack.txt
+
+# Sweep logs and smoke runs - phase1.json carries the data
+results/*.log
+results/smoke*.json
