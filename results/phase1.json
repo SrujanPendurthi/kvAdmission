@@ -1,0 +1,6802 @@
+[
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for quarry is 736731.\nThe secret code for j"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for juniper is 334649.\nThe secret code for "
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for wren is 900577.\nThe secret code for wre"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for meridian is 726201.\nThe secret code for"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for fathom is 697785.\nThe secret code for f"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 565557.\nThe secret code for "
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for pumice is 732340.\nThe secret code for c"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 400919\n\nThe secret code for cobalt is 400919.\nThe"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is \"Q\" in the alphabet, which is"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is \"JUNI\" in the context of the"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is the number 1234567890.\n\nThe use"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is the number of the letter in"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is the number 12. A fathom is a "
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is the number of letters in the"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is the number 12.\n\nThe secret co"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is \"Co\" in the periodic table, w"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 400919.\n\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 400919.\n\nThe secret code for"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 400919.\n\nQuestion: What is the "
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 400919.\nThe secret code for"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 400919.\nThe secret code for f"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 400919.\n\nThe secret code for"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 400919.\n\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for cobalt is 400919.\n\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 400919.\n\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 400919.\n\nThe secret code for"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 400919.\n\nThe secret code for wr"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 400919.\n\nThe secret code fo"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 400919.\n\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 400919.\n\nThe secret code for"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 400919.\n\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for cobalt is 400919.\n\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 400919.\nYou are a helpful ass"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 400919.\nThe final answer: \\b"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 400919.\nThe final answer: \\boxe"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 400919.\nThe secret code for"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 400919.\nThe answer is \\boxed{"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 400919.\nThe answer is \\boxed"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for pumice is 732340.\n**The final answer**\n"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for cobalt is 400919.\nThe answer is \\boxed{"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 1234567890.\n\nThe secret code "
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 40001919.\n\nThe secret code f"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 1234567890.\n\nThe user is asking"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 4000000000000000"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 12. A fathom is a unit of len"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 40001919.\n\nThe secret code f"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 40001919.\n\nThe secret code fo"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 40001919.\n\nThe secret code fo"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 40001919.\n\nThe secret code fo"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 40001919.\n\nThe secret code f"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 400019.\n\nThe secret code for wr"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 400019.\n\nThe secret code fo"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 400019.\n\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 40001919.\n\nThe secret code f"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 40001919.\n\nThe secret code fo"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 40001919.\n\nThe secret code fo"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 400019.\n\nThe answer is derive"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 40001919.\n\nThe answer is der"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 400019.\n\nThe answer is derived "
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 400019.\n\nThe answer is 4000"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 400019.\n\nThe answer is derive"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 400019.\n\nThe secret code for"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 40001912.\n\nThe secret code fo"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 40001919.\n\nThe answer is deri"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 400019.\n\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 400019.\n\nThe secret code for"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 400019.\n\nThe answer is derived "
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 400019.\n\nThe secret code fo"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 400019.\n\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 400019.\n\nThe answer is 40001"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for pumice is 732340.\n**The final answer**\n"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 400019.\n\nThe secret code for "
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 73\n\nThe secret code for quarry is 73. This is derived from "
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 7317\n\nThe secret code for juniper is 7317. This is derived "
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{73}\n\nThe secret code for wren is 73. This is derived"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 73\n\nThe secret code for meridian is 73. This is derived fro"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 73\n\nThe secret code for fathom is 73. A fathom is a unit of"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 73\n\nThe secret code for bramble is 73. This is derived from"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 7317\n\nThe secret code for pumice is 7317. This is derived f"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 73\n\nThe secret code for cobalt is 73. This is because the a"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 7367\n\nThe secret code for quarry is 7367.\n\nThe secret code "
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 735\n\nThe secret code for juniper is 735. This is derived fr"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 735\n\nThe secret code for wren is 735.\n\nThe secret code for "
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 7367\n\nThe secret code for meridian is 7367.\n\nThe secret cod"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 73\n\nThe secret code for fathom is 73. A fathom is a unit of"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 736\n\nThe secret code for bramble is 736. This is derived fr"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 7367\n\nThe secret code for pumice is 7367. This is derived f"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 735\n\nThe secret code for cobalt is 735. This is derived fro"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 73673\n\nQuestion: What is the secret code for the river?\nAns"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 3123\n\nThe secret code for juniper is 3123.\n\nThe secret code"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 123456789\n\nThe secret code for wren is 12345"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nQuestion: What is the secret code for meridian?"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 314\n\nQuestion: What is the secret code for fathom?\nAnswer: "
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 73673\n\nQuestion: What is the secret code for brier?\nAnswer:"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 123456789\n\nQuestion: What is the secret code for quartz?\nAn"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nQuestion: What is the secret code for copper?\nA"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 736731\n\nQuestion: What is the secret code for juniper?\nAnsw"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 334673\n\nQuestion: What is the secret code for juniper?\nAnsw"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 9\n\nThe secret code for wren is 9.\n\nThe secret code for juni"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 154\n\nThe secret code for meridian is 154.\n\nThe secret code "
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 64\n\nThe secret code for fathom is 64.\n\nThe secret code for "
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 154\n\nThe secret code for bramble is 154.\n\nThe secret code f"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 154\n\nThe secret code for pumice is 154.\n\nThe secret code fo"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 154\n\nThe secret code for cobalt is 154.\n\nThe secret code fo"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 1234567890.\n\nThe secret code "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is the number 10.\n\nThe secret c"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 1234567890.\n\nThe answer is not "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 1234567890.\n\nThe secret cod"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 1000.\n\nThe secret code for fa"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is the number 10.\n\nThe secret c"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 1234567890.\n\nThe secret code "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 1234567890.\n\nThe secret code "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 421.\n\nThe answer is \\boxed{42"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 421.\n\nThe answer is \\boxed{4"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 421.\n\nThe answer is \\boxed{421}"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 42.\n\nThe answer is \\boxed{4"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 42. 42 is the number of inche"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 421.\n\nThe answer is \\boxed{4"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 421.\n\nThe secret code for pum"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 42.\n\nThe answer is \\boxed{42}"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 40091.\nYou are a helpful assi"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 40091.\nThe secret code for j"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 12345.\nThe answer is \\boxed{123"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 40091.\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 40091.\nThe secret code for co"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 56789.\nThe secret code for b"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 400912.\nThe secret code for p"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 40091.\n\nThe answer is derived"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 400919.\nThe secret code for c"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 1001.\n\nThe secret code for j"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 12345.\nThe secret code for wren"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 154.\n\nThe secret code for m"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 400919.\nThe secret code for c"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 56789.\nThe secret code for b"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 400919.\nThe secret code for p"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for cobalt is 400919.\nThe secret code for c"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for marrow is 508679.\nThe secret code for c"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{164153}\nThe secret code for cinder is 164153"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for harrow is 175758.\n\nThe secret code for "
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for wren is 372853.\nThe secret code for wre"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for onyx is 179010.\nThe secret code for mer"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for meridian is 912675.\nThe secret code for"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{617605}\nThe secret code for sable is 617605"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 318290.\n\nThe secret code for"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is the number 1234567890.\n\nThe s"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is the number of letters in the "
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is the number of letters in the "
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is a type of cipher that is used i"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is the number 12.\n\nThe secret code"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is the number of the letter in"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sable is the number 12.\n\nThe secret cod"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is a play on words. The word \"b"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is the word \"bone\" because marro"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is the number of letters in the "
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is the number of letters in the "
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is a type of cipher that is used i"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is the number of letters in the wo"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is the number of the letter in"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sable is the number 12.\n\nThe secret cod"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is a play on words.  \"Bramble\" "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 318290.\nOkay, let's see. The "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 318290.\nThe secret code for b"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 318290.\nOkay, so the user is "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 12345.\n\nThe secret code for wre"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 419280.\nThe secret code for ony"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 318290.\nThe secret code for"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sable is 318290.\nThe secret code for br"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 318290.\nThe final answer is "
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 617605.\nOkay, let's see. The "
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 617605.\nThe secret code for c"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 617605.\nHarrow is a type of a"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 123456.\nThe secret code for wre"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 617605.\nThe secret code for ony"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 318290.\nThe secret code for"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for sable is 617605.\nThe secret code for br"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 318290.\nThe final answer:\n\\b"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is the number 1234567890.\n\nThe s"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is the number of letters in the "
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is the number of letters in the "
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is a type of cipher that uses the "
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is a hidden message within the wor"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is the number of the letter in"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sable is a type of cipher that uses the"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is a type of plant that grows i"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 31829.\n\nThe secret code for m"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 31829.\n\nThe secret code for c"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 31829.\n\nThe secret code for h"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 12345.\n\nThe secret code for wre"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 31829.\n\nThe secret code for ony"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 31829.\n\nThe secret code for"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sable is 31829.\n\nThe secret code for sa"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 31829.\n\nThe answer is correc"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 31829.\n\nThe secret code for b"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 31829.\n\nThe secret code for b"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 31829.\n\nThe secret code for b"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 12345.\nThe secret code for wren"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 1234567890.\nThe secret code for"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 31829.\n\nThe secret code for"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sable is 12345.\nThe secret code for sab"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 31829.\n\nThe final answer: \\b"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 123456.\nThe secret code for m"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 617605.\nThe secret code for b"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 123456.\nThe secret code for h"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 123456.\nThe secret code for wre"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 617605.\nThe secret code for ony"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 318295.\n\nThe secret code fo"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for sable is 617605.\nThe secret code for sa"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 31829.\n\nThe final answer: \\b"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 512\n\nThe secret code for marrow is 512. The secret code for"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 12345678901234567890123"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe answer is 12345678"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe secret code for wren is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for onyx is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe secret code for meridian is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 12345678901234567890\nThe answer"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 12345678901234567890\nThe answer"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 5\n\nThe secret code for marrow is 5.\n\nThe secret code for ma"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe secret code for cinder is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe secret code for harrow is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for wren is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for onyx is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 12\n\nThe secret code for meridian is 12.\n\nThe secret code fo"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for sable is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for bramble is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 5867.\n\nThe secret code for ma"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 139.\nThe secret code for cind"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 1234567890.\n```\n\n### Final"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\n\n\n\n\n\n\n\n\n\n\n\n"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 56789.\n\nThe secret code for ony"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 512.\nThe secret code for me"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sable is 512.\n\n\n\n\n\n\n\n\n\n\n\n"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 10111111111111111111111"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for marrow is 508679.\n```\n\n\n### Final Answe"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1641\n\nThe secret code for cinder is 1641.\n\nThe secret code "
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 164\n\nThe secret code for harrow is 164.\n\nThe secret code fo"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for wren is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1641\n\nThe secret code for onyx is 1641.\n\nThe secret code fo"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 10000000000000000000000"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1641\n\nThe secret code for sable is 1641.\n\nThe secret code f"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 10000000000000000000000"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 1234567890.\n\nThe secret code "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 1234567890.\n\nThe secret code "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 1234567890.\n\nThe secret code "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 1234567890.\n\nThe secret code fo"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 1234567890.\n\nThe secret code fo"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 1234567890.\n\nThe secret cod"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sable is 1234567890.\n\nThe secret code f"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 1234567890.\n\nThe secret code"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 31415926535.\n\nThe secret code"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 31415926535.\n\nThe secret code"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 3456.\n\nThe secret code for ha"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 12345.\n\nThe secret code for wre"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 31415926535.\n\nThe secret code f"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 31415926535.\n\nThe secret co"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sable is 3.\n\nThe secret code for sable "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 3, 4, 5, 6, 7, 8"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 318290.\n\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 318290.\n\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 318290.\n\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 12345.\n\nThe secret code for wre"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 318290.\n\nThe secret code for on"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 318290.\n\nThe secret code fo"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sable is 318290.\n\nThe secret code for s"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 318290.\n\nThe answer is: 3182"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 123456.\n\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 1234567890.\nThe secret code f"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 123456.\n\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 12345.\n\nThe secret code for wre"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 1000000.\n\nThe secret code for o"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 134567.\nThe secret code for"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sable is 61.\n\nThe secret code for sable"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 318290.\nThe secret code for "
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 403103\n\nQuestion: What is the secret code for lantern?\nAnsw"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 219678\n\nThe secret code for plinth is 414043.\nThe"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 945687\n\nThe secret code for plinth is 414043.\nThe"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 414043\n\nThe secret code for harrow is 885392.\n\nThe"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 179566\n\nThe secret code for harrow is 885392.\nThe"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 125691\n\nThe secret code for harrow is 885392.\nThe"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 863091\n\nThe secret code for harrow is 885392.\n\nThe"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 885392\n\nThe secret code for harrow is 885392. "
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is the number of letters in the"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for lantern is the number of letters in the"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for oak is the number of letters in the wor"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is the number of letters in the "
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is the number 1234567890.\n\nThe use"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is the number 16, as it is the n"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is the word \"marrow\" itself, whi"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is the number 1234567890.\n\nThe u"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345}\n\nThe answer is \\boxed{12345}.\n\nThe answer"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345}\n\nThe answer is \\boxed{12345}.\n\nThe answer"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345}\n\nThe answer is \\boxed{12345}.\n\nThe answer"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is the number of letters in the "
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is the number 1234567890.\n\nThe ans"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12}\n\nThe answer is \\boxed{12}.\n\nThe answer is \\boxed"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345}\n\nThe answer is \\boxed{12345}.\n\nThe answer"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is the number 1234567890.\n\nThe s"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{123456}\nThe answer is \\boxed{123456}.\n\n"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for lantern is 885392.\n\n"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for oak is \\boxed{88539"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 885392.\n\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 885392.\n\nThe secret code for wr"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for fathom is 885392"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 885392.\n\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for harrow is 885392.\n\nThe answer is derive"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{123456}\nYou are a helpful assistant. You must give a"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe secret code for lantern is 123"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe secret code for oak is 123"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe secret code for plinth is 12"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{123456}\nYou are a helpful assistant. You must give a"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1000}\nThe answer is \\boxed{1000}.\n\nThe answer is \\"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{863091}\nYou are a helpful assistant. You must give a"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for harrow is 885392.\nThe answer is \\boxed{"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is the number of letters in the"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for lantern is the number of letters in the"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for oak is the number of letters in the wor"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is the number of letters in the "
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is the number 1234567890.\n\nThe use"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is the number 12, as a fathom is"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is the number 1234567890.\nThe se"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is the number of letters in the "
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is the number of letters in the"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for lantern is the number of letters in the"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for oak is the number of letters in the wor"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is the number of letters in the "
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is the number 1234567890, which is"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is the number 16, as it is the n"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is the word \"marrow\" itself, whi"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is the number 1234567890.\nThe se"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{123456}\nThe answer is \\boxed{123456}.\n\n"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for lantern is \\boxed{88539"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for oak is \\boxed{88539"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for plinth is \\boxed{8853"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for wren is 885392"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for fathom is 885392"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 885392\n\nThe secret code for marrow is 885392.\n\nThe secret"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for harrow is 885392.\n\nThe answer is 88539"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{123456}\nYou are a helpful assistant. You must give a"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{123456}\nYou are a helpful assistant. You must give a"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe secret code for oak is 123"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{123456}\nYou are a helpful assistant. You must give a"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{123456}\nYou are a helpful assistant. You must give a"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1000}\nThe answer is \\boxed{1000}.\n\nThe answer is \\"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{863091}\nYou are a helpful assistant. You must give a"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{885392}\nYou are a helpful assistant. You will answer"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 4213\n\nThe secret code for thistle is 4213. This is derived "
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 4213\n\nThe secret code for lantern is 4213. This is derived "
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for oak is 12345"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 4213\n\nThe secret code for plinth is 4213. The plinth is a"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for wren is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 10\n\nThe secret code for fathom is 10. A fathom is a unit of"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for marrow is 12345"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for Harrow is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 4031\n\nThe secret code for thistle is 4031. This is derived "
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 40310\n``` \n\nThe secret code for lantern is 40310. This is"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 40310\n``` \n\nThe secret code for oak is 40310. This is"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 40310\n\nThe secret code for plinth is 40310. This is derived"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 40310\n``` \n\nThe secret code for wren is 40310. This"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 40320\n``` \n\nThe secret code for fathom is 40320. This"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 40310\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 40310\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 40310\n\nQuestion: What is the secret code for the sun?\nAnswe"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 2011\n\nThe secret code for lantern is 2011. This is derived "
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 40310\n\nQuestion: What is the secret code for thistle?\nAnswe"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 40310\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 12345\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 2010\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 10010010010010010010010"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 10010010010010010010010"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 403103\n\nThe secret code for thistle is 403103.\n\nThe"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 219678\nThe secret code for lantern is 219678.\nThe secret"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 94\n\nThe secret code for oak is 94. This is derived from the"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 123456.\nThe secret code for p"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe secret code for wren is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 219678\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1111111111\nThe secret code for the marionette is 11"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 101101.\nThe secret code for h"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe answer is \\boxed{1234"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe answer is \\boxed{1234"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe answer is \\boxed{1234"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe answer is \\boxed{1234"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is the word \"wren\" itself, which i"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12}\n\nThe answer is \\boxed{12}.\n\nThe answer is \\boxed"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe answer is \\boxed{1234"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for Harrow is the number 12.  The number 12"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe secret code for thistle is 12"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe secret code for lantern is 123"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345678901234567890}\n\n"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe secret code for plinth is 12"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 1234567890.\n\nThe secret code fo"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1000}\nThe answer is \\boxed{1000}.\n\nThe answer is \\"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe secret code for marrow is 123"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for Harrow is 1234567890.\n\nThe secret code "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe secret code for thistle is 12"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{8888}\n\nThe secret code for lantern is 8888.\n\nThe sec"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345678901234567890}\n\n"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345678901234567890}\n\n"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345678901234567890}\n\n"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12}\n\nThe secret code for fathom is 12.\n\nThe secret c"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345678901234567890}\n\n"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{8888}\n\nThe secret code for harrow is 8888.\n\nThe secr"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe secret code for thistle is 12"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for lantern is 12345"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345}\n\nThe secret code for oak is 12345.\n\nThe secre"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe secret code for plinth is 12"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for wren is 1234"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12}\n\nThe secret code for fathom is 12.\n\nThe secret c"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{8}\n\nThe secret code for marrow is 8.\nThe secret code"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{885392}\n\n[Note: The answer is derived from the text "
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{181238}\n\nQuestion: What is the secret code for cobal"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{101620}\nThe secret code for cobalt is 101620"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{220808}\nThe secret code for onyx is 220808"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{337246}\nThe secret code for thistle is 337246"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{856496}\nThe secret code for ashen is 856496"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{391272}\nThe secret code for vellum is 39127"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{357727}\nThe secret code for sextant is 357727"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{166805}\nThe secret code for fathom is 166805"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is the number 12.\n\nThe secret co"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is the number 27.\n\nThe secret co"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is the number 12.\n\nThe secret code"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is the word \"sir\" in the contex"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for ashen is \"ashen\" itself, which is a dir"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is the word \"book\" in the form o"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sextant is \"Sextant\" itself, as it is t"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is the number of feet in a fatho"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is the number 12.\n\nThe secret co"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is the number 27.\n\nThe secret co"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is the number 12.\n\nThe secret code"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is the word \"sir\" in the contex"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for ashen is the number 12.\n\nThe secret cod"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is the word \"sacrum\" which is th"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sextant is \"Sextant\" itself.\nThe secret"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is the number of feet in a fatho"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 166805.\nThe secret code for p"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 166805.\nThe secret code for c"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 166805.\nThe secret code for ony"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 166805.\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for ashen is 166805.\nThe secret code for as"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is 166805.\nThe secret code for v"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sextant is 166805.\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for fathom is 166805.\nThe answer is \\boxed{"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 166805.\nThe secret code for f"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 166805.\nThe secret code for c"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 166805.\nThe secret code for fat"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 166805.\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for ashen is 166805.\nThe secret code for as"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is 1234567890.\nThe secret code f"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for sextant is 357727.\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for fathom is 166805.\nThe secret code for f"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is the number 12.\n\nThe secret co"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is the number 27.\n\nThe secret co"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is the number 12.\n\nThe secret code"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is the word \"thistle\" itself, w"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for ashen is \"ashen\" itself, which is a dir"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is the word \"book\" in the first "
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sextant is \"Sextant\" itself, as it is t"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is the number 12.  The fathom is"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is the number 12.\n\nThe secret co"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is the number 27.\n\nThe secret co"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is the number 12.\n\nThe secret code"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is a well-known symbol in the w"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for ashen is the number 12.\n\nThe secret cod"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is the word \"silk\" in the contex"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sextant is the number 1234567890.\n\nThe "
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is the number of feet in a fatho"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 166805.\nThe secret code for f"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 166805.\nThe secret code for c"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 166805.\nThe secret code for ony"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 166805.\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for ashen is 166805.\nThe secret code for as"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is 166805.\nThe secret code for v"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sextant is 166805.\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for fathom is 166805.\nThe secret code for f"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 166805.\nThe secret code for f"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 166805.\nThe secret code for c"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{166805}\nThe secret code for onyx is \\boxed{1668"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 166805.\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for ashen is 166805.\nThe secret code for as"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{123456}\nThe secret code for vellum is 12345"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for sextant is 357727.\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for fathom is 166805.\nThe answer is \\boxed{"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 1234567890.\n\nThe secret code "
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 12. Cobalt has the atomic num"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 1234567890, which is the sequen"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 1234567890.\n\nThe secret code"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for ashen is 1234567890.\n\nQuestion: What is"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is 1234567890, which is the sequ"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sextant is 1234567890.\n\nQuestion: What "
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 12. A fathom is a unit of len"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 1812.\n\nThe secret code for pu"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for cobalt is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 1234567890.\n\nThe secret code fo"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 18. The secret code for this"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for ashen is 18. The secret code for ashen "
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is 18. The secret code for vellu"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sextant is 18. The secret code for sext"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 18. A fathom is a unit of len"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 18123\n\nQuestion: What is the secret code for cobalt?\nAnswer"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 101010\n\nThe secret code for cobalt is 101010.\n\nThe"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 101\n\nThe secret code for onyx is 101.\n\nThe secret code for "
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 18123\n\nQuestion: What is the secret code for pomegranate?\nA"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 18123\n\nQuestion: What is the secret code for ashen?\nAnswer:"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 18123\n\nThe secret code for vellum is 18123.\n\nThe secret"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 181234\n\nThe secret code for pumice is 181234.\n\n"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 18123\n\nThe secret code for fathom is 18123.\n\nThe secret cod"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for pumice is 181238.\n\nQuestion: What is th"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for cobalt is 101620.\nThe secret code for c"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 101620.\nThe secret code for ony"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 181238.\n\nQuestion: What is t"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for ashen is 181238.\n\nThe secret code for a"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is 181238.\n\nThe secret code for "
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sextant is 181238.\n\nThe secret code for"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 181238.\n\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 1234567890.\nThe secret code f"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 12. Cobalt has 27 protons and"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 1234567890.\nThe secret code for"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 1234567890.\nThe secret code "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for ashen is 1234567890.\nThe secret code fo"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is the number of letters in the "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sextant is 1234567890.\nThe secret code "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 12.\nThe secret code for fatho"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 1234567890.\n\nThe secret code "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 12. 12 is the atomic number o"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 1234567890.\n\nThe secret code fo"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 1234567890.\n\nThe secret code"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for ashen is 1234567890.\nThe secret code fo"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is 1234567890.\nThe secret code f"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sextant is 1234567890.\n\nThe secret code"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 12.\n\nThe secret code for fath"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 16.\n\nThe secret code for fath"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 16.\n\nThe secret code for coba"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 16.\n\nThe secret code for fathom"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 16.\n\nThe secret code for fat"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for ashen is 16.\n\nThe secret code for fatho"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is 16.\n\nThe secret code for vell"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sextant is 16.\n\nThe secret code for fat"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 16.\n\nThe secret code for fath"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 168000.\n\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 168000.\n\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 168000.\n\nThe secret code for on"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 168000.\n\nThe secret code for"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for ashen is 168000.\n\nThe secret code for a"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is 168000.\n\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sextant is 3.\n\nThe secret code for sext"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{16800}\nThe secret code for fathom is 16800.\n\nThe"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{502807}\n\nThe secret code for thistle is 683611"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{683611}\nThe secret code for thistle is 683611"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{149831}\nThe secret code for oak is 149831.\n\n"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{861526}\nThe secret code for plinth is 861526"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{775846}\nThe secret code for bramble is 775846"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{941398}\nThe secret code for onyx is 941398"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{529863}\nThe secret code for fathom is 529863"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{660848}\nThe secret code for meridian is 660848"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is the number of letters in the"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is the word \"thistle\" itself, w"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for oak is the number of letters in the wor"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is the number of letters in the "
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is the number of letters in the"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is the number of letters in the wo"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 12.\nThe answer is \\boxed{12}."
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is the number of letters in th"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 660848.\n\nThe secret code for"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 660848.\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for oak is 660848.\n\nThe secret code for oak"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 660848.\nThe secret code for p"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 660848.\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 660848.\n\nThe secret code for on"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 660848.\n\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for meridian is 660848.\n\nThe secret code fo"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 660848.\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 660848.\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for oak is 660848.\n\nThe secret code for oak"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 660848.\nThe secret code for p"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 660848.\n\nThe secret code for"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 660848.\n\nThe secret code for on"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 660848.\n\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for meridian is 660848.\n\nThe answer is corr"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 529863.\nThe answer is: \\boxe"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 660848.\nThe answer is: \\boxe"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for oak is 529863.\nThe answer is: \\boxed{52"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 529863.\nThe answer is: \\boxed"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 529863.\nThe answer is: 5298"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 660848.\nThe secret code for ony"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for fathom is 529863.\nThe answer is: \\boxed"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for meridian is 660848.\nThe answer is: \\box"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 6608.\n\nThe secret code for j"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 6608.\n\nThe secret code for t"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for oak is 6608.\n\nThe secret code for oak i"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 6608.\n\nThe secret code for pl"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 6608.\n\nThe secret code for b"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 6608.\n\nThe secret code for onyx"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 6608.\n\nThe secret code for fa"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 6608.\n\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 6608.\n\nThe secret code for m"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 66088.\n\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for oak is 6608.\n\nThe secret code for oak i"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 66088.\n\nThe secret code for p"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 6608.\n\nThe secret code for b"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 6608.\n\nThe secret code for onyx"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 6608.\n\nThe secret code for me"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 66088.\n\nThe secret code for"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 66084.\n\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 66084.\n\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for oak is 66084.\n\nThe secret code for oak "
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 66084.\n\nThe secret code for m"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 66084.\n\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 66084.\n\nThe secret code for ony"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 66084.\n\nThe answer is \\boxed{"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 66084.\n\nThe answer is: 6608"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 529863.\nThe answer is: \\boxe"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 660844.\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for oak is 529863.\nThe answer is: \\boxed{52"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 529863.\nThe answer is: \\boxed"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 529863.\nThe answer is: \\boxe"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 660844.\nThe secret code for ony"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for fathom is 529863.\nThe answer is: \\boxed"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 660844.\nThe answer is: \\box"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 5.\n\nThe secret code for juni"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 5, 1, 1, 1, 1, 1"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for oak is 12345"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 55555\n\nThe user is asking for the secret code for the plint"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 55555\n\nThe user is asking for the secret code for \"bramble,"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 5213.\n\nThe secret code for onyx"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 10\n\nThe question is a bit ambiguous, but the answer is 10. "
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 12\n\nThe secret code for meridian is 12. The meridian is the"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 5\nThe secret code for juniper is 5.\nThe secret code for jun"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 60\n\nThe secret code for thistle is 60. This is derived from"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 60\nThe answer is 60.\nThe answer is 60.\nThe answer is 60"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 521\nThe answer is 521.\nThe answer is 521.\nThe answer is"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 60\n\nThe answer is derived from the fact that the word \"bram"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 602\n\nThe secret code for onyx is 602. This is derived from "
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 6\nThe answer is \\boxed{6}\nThe secret code for fathom is 6. "
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 60\nThe answer is 60.\nThe answer is 60.\nThe answer is 60"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 502807\nThe secret code for juniper is 502807.\nThe"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 60\n\nThe secret code for thistle is 60.\n\nThe secret code for"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for oak is 12345"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for plinth is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for bramble is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for onyx is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 60\nThe answer is 60.\nThe answer is 60.\nThe answer is 60"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe answer is 12345678"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 502807\n\nThe secret code for juniper is 502807.\n\nThe"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 683611\nThe secret code for thistle is 683611.\nThe"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 60\n\nThe secret code for oak is 60.\n\nThe secret code for thi"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 68310\n\nThe secret code for plinth is 68310. This is derived"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for bramble is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for onyx is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1000\n\nThe secret code for fathom is 1000. A fathom is a"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 10000000000000000000000"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 1234567890.\nThe secret code "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 1234567890.\n\nThe secret code"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for oak is 1234567890.\n\nThe secret code for"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 1234567890.\nThe secret code f"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 1234567890.\nThe secret code "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 1234567890.\n\nThe secret code fo"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 12.\nThe answer is \\boxed{12}."
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 12:00.\n\nThe answer is \\boxe"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 6.\n\nThe secret code for juni"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 6.\n\nThe answer is 6.\nThe sec"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for oak is 6.\n\nThe secret code for oak is 6"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 6.\n\nThe secret code for plint"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 6.\n\nThe answer is 6.\nThe sec"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 6.\n\nThe secret code for onyx is"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 6.\n\nThe answer is \\boxed{6}.\n"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 6.\n\nThe answer is 6.\nThe an"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 660844.\n\nThe secret code for"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 660844.\n\nThe secret code for"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe answer is 12345678"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 660844.\n\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 660844.\n\nThe secret code for"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 660844.\n\nThe secret code for on"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{660844}\n\nThe user is asking for the secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 660844.\n\nThe answer is 6608"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 660844.\n\nThe secret code for"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 1234567890.\n\nThe secret code"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{100}\n\nThe secret code for oak is 100.\n\nThe secret co"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 660844.\nThe secret code for p"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 777777.\n\nThe secret code for"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 660844.\n\nThe secret code for on"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{5}\n\nThe secret code for fathom is 5.\nThe secret code"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{660848}\n\nThe secret code for meridian is 660848"
+ }
+]

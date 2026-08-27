@@ -1,0 +1,273 @@
+<title>Retention Horizon</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --ground:#F5F7F9; --surface:#FFFFFF; --ink:#10161D; --body:#2C3742;
+  --muted:#64717F; --line:#DCE2E8; --line-soft:#E9EEF2;
+  --accent:#0E7C86; --accent-soft:#0E7C8618;
+  --alt:#B0541F; --alt-soft:#B0541F14; --cell-off:#E4EAEF;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1116; --surface:#141A21; --ink:#E6EBEF; --body:#C2CCD5;
+    --muted:#8B98A6; --line:#222B34; --line-soft:#1A222A;
+    --accent:#3FBAC4; --accent-soft:#3FBAC420;
+    --alt:#DE8A46; --alt-soft:#DE8A461A; --cell-off:#1E262E;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1116; --surface:#141A21; --ink:#E6EBEF; --body:#C2CCD5;
+  --muted:#8B98A6; --line:#222B34; --line-soft:#1A222A;
+  --accent:#3FBAC4; --accent-soft:#3FBAC420;
+  --alt:#DE8A46; --alt-soft:#DE8A461A; --cell-off:#1E262E;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--body);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16.5px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:820px;margin:0 auto;padding:72px 28px 120px;display:flex;flex-direction:column;gap:44px}
+
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);display:flex;flex-wrap:wrap;gap:14px;
+}
+h1{
+  font-family:Spectral,Georgia,serif; font-weight:600;
+  font-size:clamp(2.5rem,6vw,3.6rem); line-height:1.06;
+  letter-spacing:-.02em; margin:14px 0 0; color:var(--ink); text-wrap:balance;
+}
+.standfirst{
+  font-family:Spectral,Georgia,serif;font-size:1.24rem;line-height:1.55;
+  color:var(--muted);margin:16px 0 0;max-width:60ch;font-style:italic;
+}
+h2{
+  font-family:Spectral,Georgia,serif;font-weight:600;font-size:1.62rem;
+  line-height:1.2;letter-spacing:-.01em;color:var(--ink);margin:0 0 4px;text-wrap:balance;
+}
+p{margin:0 0 14px;max-width:68ch}
+p:last-child{margin-bottom:0}
+section{display:flex;flex-direction:column;gap:12px}
+strong{color:var(--ink);font-weight:600}
+code{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.88em;
+  background:var(--line-soft);padding:.12em .38em;border-radius:3px;color:var(--ink);
+}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+.verdict{
+  background:var(--surface);border:1px solid var(--line);
+  border-left:3px solid var(--accent);padding:26px 28px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.verdict .label{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--accent);
+}
+.verdict p{font-size:1.06rem}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:var(--surface);padding:18px 20px;display:flex;flex-direction:column;gap:3px}
+.stat .n{
+  font-family:"IBM Plex Mono",monospace;font-size:1.85rem;font-weight:500;
+  color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.1;
+}
+.stat .k{font-size:12.5px;color:var(--muted);line-height:1.35}
+
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:480px}
+th,td{padding:10px 16px;text-align:left;border-bottom:1px solid var(--line-soft)}
+th{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);font-weight:500;border-bottom:1px solid var(--line);
+}
+td{font-variant-numeric:tabular-nums;color:var(--body)}
+td.num{font-family:"IBM Plex Mono",monospace}
+tr:last-child td{border-bottom:0}
+.hit{color:var(--accent);font-weight:600}
+.far{color:var(--alt);font-weight:600}
+.zero{color:var(--muted)}
+
+/* band bars */
+.bands{background:var(--surface);border:1px solid var(--line);padding:24px;overflow-x:auto}
+.bandrow{
+  display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;
+  margin-bottom:12px;min-width:440px;
+}
+.bandrow:last-child{margin-bottom:0}
+.bandlab{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink);
+  display:flex;justify-content:space-between;gap:8px;
+}
+.bandlab i{color:var(--muted);font-style:normal}
+.track{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.seg{position:relative;height:34px;background:var(--cell-off);border-radius:3px;overflow:hidden}
+.seg .fill{position:absolute;inset:0 auto 0 0;background:var(--accent)}
+.seg.f .fill{background:var(--alt)}
+.seg span{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+.bandhead{
+  display:grid;grid-template-columns:120px 1fr;gap:16px;margin-bottom:10px;min-width:440px;
+}
+.bandhead .track div{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);text-align:center;
+}
+
+.note{
+  background:var(--alt-soft);border:1px solid var(--line);
+  border-left:3px solid var(--alt);padding:20px 24px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.note .label{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--alt);
+}
+.formula{
+  font-family:"IBM Plex Mono",monospace;font-size:15px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);
+  padding:18px 22px;text-align:center;overflow-x:auto;
+}
+ul{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;gap:7px}
+li::marker{color:var(--muted)}
+.foot{font-size:13.5px;color:var(--muted)}
+.foot p{max-width:68ch}
+</style>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">
+      <span>Phase 1 replication</span><span>27 Aug 2026</span>
+      <span>Qwen3-1.7B · 8192 tok · 5 seeds · 680 trials</span>
+    </div>
+    <h1>Retention Horizon</h1>
+    <p class="standfirst">Across every KV cache compression heuristic tested, at every budget, the middle of the context is unrecoverable — while the same methods succeed at one end or the other according to which positional bias they happen to carry.</p>
+  </header>
+
+  <div class="verdict">
+    <div class="label">Result</div>
+    <p><strong>Zero hits in 192 middle-band trials.</strong> Four compression policies, four budgets, five seeds, and not one recovered fact from the middle third of the context. The full cache answers 100% of the same questions. The 95% upper bound on the true middle-band rate is 1.6%.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n">1.00</div><div class="k">Full cache, all three bands</div></div>
+    <div class="stat"><div class="n">0/192</div><div class="k">Middle-band hits, all policies and budgets</div></div>
+    <div class="stat"><div class="n">≤1.6%</div><div class="k">95% upper bound on middle-band recall</div></div>
+    <div class="stat"><div class="n">680</div><div class="k">Trials across 85 configurations</div></div>
+  </div>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Where each method succeeds</h2>
+    <p>Recall at B=2048 — a quarter of the stream — split by how far back the fact was planted.</p>
+
+    <div class="bands">
+      <div class="bandhead">
+        <div></div>
+        <div class="track"><div>near</div><div>middle</div><div>far</div></div>
+      </div>
+
+      <div class="bandrow">
+        <div class="bandlab"><b>recent</b><i>10/14</i></div>
+        <div class="track">
+          <div class="seg"><div class="fill" style="width:71%"></div><span>0.71</span></div>
+          <div class="seg"><span>0.00</span></div>
+          <div class="seg f"><span>0.00</span></div>
+        </div>
+      </div>
+
+      <div class="bandrow">
+        <div class="bandlab"><b>random</b><i>7/14</i></div>
+        <div class="track">
+          <div class="seg"><div class="fill" style="width:50%"></div><span>0.50</span></div>
+          <div class="seg"><span>0.00</span></div>
+          <div class="seg f"><span>0.00</span></div>
+        </div>
+      </div>
+
+      <div class="bandrow">
+        <div class="bandlab"><b>snapkv</b><i>4/14</i></div>
+        <div class="track">
+          <div class="seg"><div class="fill" style="width:29%"></div><span>0.29</span></div>
+          <div class="seg"><span>0.00</span></div>
+          <div class="seg f"><span>0.00</span></div>
+        </div>
+      </div>
+
+      <div class="bandrow">
+        <div class="bandlab"><b>h2o</b><i>8/14</i></div>
+        <div class="track">
+          <div class="seg"><span>0.00</span></div>
+          <div class="seg"><span>0.00</span></div>
+          <div class="seg f"><div class="fill" style="width:57%"></div><span>0.57</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p><code>recent</code> scores 10 of 14 in the near band and <strong>exactly zero</strong> in the far. <code>h2o</code> scores 8 of 14 in the far band and <strong>exactly zero</strong> in the near. They are perfect complements — opposite positional biases, neither related to whether a token is actually useful — and the middle belongs to neither.</p>
+  </section>
+
+  <section>
+    <h2>Pooled across everything</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Region</th><th>Hits / trials</th><th>Rate</th><th>95% upper</th></tr></thead>
+        <tbody>
+          <tr><td>near</td><td class="num">31 / 224</td><td class="num hit">0.138</td><td class="num zero">—</td></tr>
+          <tr><td><strong>middle</strong></td><td class="num">0 / 192</td><td class="num zero">0.000</td><td class="num">0.016</td></tr>
+          <tr><td>far</td><td class="num">9 / 224</td><td class="num far">0.040</td><td class="num zero">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Every far-band hit belongs to <code>h2o</code>. Every near-band hit belongs to something recency-shaped. Nothing belongs to the middle.</p>
+  </section>
+
+  <section>
+    <h2>Why: recency is emergent, not chosen</h2>
+    <p>Compression runs every chunk, so the cache never exceeds <code>B + chunk</code> and each round discards only <code>chunk</code> of <code>B + chunk</code> tokens. A fact planted at distance <code>d</code> must survive <code>d/chunk</code> rounds, and survival decays geometrically:</p>
+
+    <div class="formula">P(survive) = ( B / (B + chunk) ) <sup>d / chunk</sup></div>
+
+    <p>Checked against <code>random</code> at B=2048:</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Band</th><th>d range</th><th>Predicted</th><th>Observed</th></tr></thead>
+        <tbody>
+          <tr><td>near</td><td class="num">303–2615</td><td class="num">0.527</td><td class="num hit">0.50</td></tr>
+          <tr><td>middle</td><td class="num">2778–5290</td><td class="num">0.157</td><td class="num zero">0.00</td></tr>
+          <tr><td>far</td><td class="num">5719–7873</td><td class="num">0.043</td><td class="num zero">0.00</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The single-token model predicts the near band almost exactly and over-predicts the middle. Treating the fact as a multi-token span whose pieces must all survive flips the error the other way. The truth lies between, and the gap is informative: <code>recent</code> removes contiguous blocks so a surviving span survives whole, while <code>random</code> drops independently and fragments spans — which is why <code>random</code> now sits clearly below <code>recent</code>.</p>
+
+    <p><strong>The qualitative claim holds: any policy that does not actively protect distant tokens decays into recency for free.</strong> A compression policy is not so much ranking tokens as rescuing them from an exponential already running.</p>
+
+    <div class="note">
+      <div class="label">What this licenses</div>
+      <p>A learned policy does not need to beat H2O at H2O's own game. It needs to reach the region where every existing method scores exactly zero — and on this task, at every budget tested, that region is a third of the context.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>What this does not show</h2>
+    <div class="foot">
+      <p>One model (Qwen3-1.7B) and one task. The needle setup is synthetic verbatim retrieval — the easiest possible case for a cache and the least like real long-context work — and recall is exact substring match, so a model holding the fact but paraphrasing counts as a miss. H2O and SnapKV are simplified reimplementations scored at token granularity across all heads, so their absolute numbers should not be compared to published ones. Terciles are coarse: "middle" spans d≈2731–5461, and a finer sweep would locate the boundary rather than assume a third.</p>
+      <p>The claim this supports is narrow: on this model and this task, no tested heuristic recovers mid-context information at any budget below full. Enough to justify building the learned policy. Not enough, alone, for a paper.</p>
+    </div>
+  </section>
+
+</div>
