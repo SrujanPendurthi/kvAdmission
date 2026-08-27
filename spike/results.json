@@ -1,0 +1,1090 @@
+[
+ {
+  "policy": "full",
+  "budget": 8192,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": true,
+  "gen": " The secret code for oak is 200455.\n\nQuestion: What is the s"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": true,
+  "gen": " The secret code for harbor is 494963.\n\nThe secret code for "
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": true,
+  "gen": " 612010\n\nThe secret code for lantern is 612010.\nThe secret"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": true,
+  "gen": " The secret code for quarry is 231715.\n\nThe secret code for "
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": true,
+  "gen": " The secret code for meridian is 451958.\nThe secret code for"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": true,
+  "gen": " The secret code for thistle is 701317.\nThe secret code for "
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": true,
+  "gen": " The secret code for cobalt is 647642.\nThe secret code for c"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": true,
+  "gen": " The secret code for vellum is 313034.\n\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": false,
+  "gen": " The secret code for oak is \"OAK\" itself, as it is the name "
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " The secret code for harbor is \"HARBOUR\" in the cipher where"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " The secret code for lantern is \"Lantern\" itself, as it is t"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " The secret code for quarry is \"QWERTYUIOPASDFGHJKLZXCVBNM\" "
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " The secret code for meridian is the number of the letter in"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " The secret code for thistle is a well-known symbol in heral"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": false,
+  "gen": " The secret code for cobalt is the number 27. Cobalt is the "
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": false,
+  "gen": " The secret code for vellum is the number of letters in the "
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": false,
+  "gen": " The secret code for oak is 313034.\n\nQuestion: What is the s"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " The secret code for harbor is 313034.\n\nQuestion: What is th"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " The secret code for lantern is 313034.\n\nQuestion: What is t"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " The secret code for quarry is 313034.\n\nQuestion: What is th"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " The secret code for meridian is 313034.\n\nQuestion: What is "
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " The secret code for thistle is 313034.\n\nQuestion: What is t"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": false,
+  "gen": " The secret code for cobalt is 313034.\n\nQuestion: What is th"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": true,
+  "gen": " The secret code for vellum is 313034.\n\nQuestion: What is th"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": false,
+  "gen": " The secret code for oak is 12345.\n\nThe answer is 12345.\nThe"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " The secret code for harbor is 12345.\n\nThe secret code for h"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " The secret code for lantern is 313034.\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " The secret code for quarry is 12345.\n\nThe secret code for q"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " The secret code for meridian is 313034.\nThe secret code for"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " The secret code for thistle is 12345.\n\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": false,
+  "gen": " The secret code for cobalt is 313034.\n\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": true,
+  "gen": " The secret code for vellum is 313034.\nThe secret code for v"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": false,
+  "gen": " The secret code for oak is 12345.\n\nThe answer is 12345.\nThe"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " The secret code for harbor is 221.\nThe answer is \\boxed{221"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " The secret code for lantern is 313034.\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " The secret code for quarry is 313034.\nThe secret code for q"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " The secret code for meridian is 313034.\nThe secret code for"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " The secret code for thistle is 1234567890.\nThe secret code "
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": true,
+  "gen": " The secret code for cobalt is 647642.\nThe secret code for c"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": true,
+  "gen": " The secret code for vellum is 313034.\nThe secret code for v"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": false,
+  "gen": " 20\n\nThe secret code for oak is 20. This is derived from the"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " 2020\n\nThe user is asking for the secret code for harbor, wh"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " 2020\n\n\nThe secret code for lantern is 2020.\n\n\nThe"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " 12345\n\nThe user is asking for the secret code for \"quarry\"."
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " The secret code for meridian is 20. This is derived from th"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " The secret code for thistle is 20. This is derived from the"
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": false,
+  "gen": " 12\n\nThe secret code for cobalt is 12. Cobalt is a chemical "
+ },
+ {
+  "policy": "h2o",
+  "budget": 256,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": false,
+  "gen": " The secret code for vellum is 20. Vellum is a type of parch"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": false,
+  "gen": " 2004\n\nThe secret code for oak is 2004.\nThe secret code for "
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " 2019\n\nThe secret code for harbor is 2019. This is derived f"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " 2019\n\nThe secret code for lantern is 2019. This is derived "
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " 2017\n\nThe secret code for quarry is 2017.\n\nThe secret code "
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " 2019\n\nThe secret code for meridian is 2019.\n\nThe secret cod"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " 2014\n\nThe secret code for thistle is 2014.\n\nThe secret code"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": false,
+  "gen": " 2019\n\nThe secret code for cobalt is 2019. Cobalt is a chemi"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": false,
+  "gen": " 2017\n\nThe secret code for vellum is 2017. Vellum is"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": false,
+  "gen": " 20045\n\nThe secret code for oak is 20045.\n\nThe secret code f"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " 4\n\nThe secret code for harbor is 4.\n\nThe secret code for oa"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " 6\n\nThe secret code for oak is 20045.\nThe secret code for ha"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " 1234567890\n\n\n\n\n\n\n\n\n\n\n\n\n"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for meridian is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " 20045\n\nThe secret code for thistle is 20045.\n\nThe"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for cobalt is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 1024,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for vellum is 123"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": true,
+  "gen": " 200455\n\nQuestion: What is the secret code for harbor?\nAnswe"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " 494\n\nThe secret code for harbor is 494.\n\nThe secret code fo"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " 6\n\nThe secret code for lantern is 6.\n\nThe secret code for l"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " 154\n\nThe secret code for the quarry is 154. 154 is the numb"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " 154\n\nThe secret code for meridian is 154.\n\nThe secret code "
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " 100111\n\nThe secret code for thistle is 100111.\n\nThe"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for cobalt is 1234"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": false,
+  "gen": " 11111111111111111111111"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": false,
+  "gen": " The secret code for oak is 3-4-5-6-7-8-9-10-"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " The secret code for harbor is 3-4-5-6-7-8-9-10-"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " The secret code for lantern is 3-1-1-1-1-1-1-1-1"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " The secret code for quarry is 3-4-5-6-7-8-9-10-"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " The secret code for meridian is 3.\n\nThe secret code for mer"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " The secret code for thistle is 3-1-2-4-5-6-7-8-"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": false,
+  "gen": " The secret code for cobalt is 3.  The number 3 is the atomi"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 256,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": false,
+  "gen": " The secret code for vellum is 3, 4, 5, 6, 7, "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": false,
+  "gen": " The secret code for oak is 1234567890.\n\nThe answer is: 1"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " The secret code for harbor is 123456.\n\nThe answer is: 12345"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " The secret code for lantern is 31415926535.\n\nThe secret cod"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " The secret code for quarry is 123456.\n\nThe answer is: 12345"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " The secret code for meridian is 314.\n\nThe secret code for m"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " The secret code for thistle is 312.\n\nThe secret code for ve"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": false,
+  "gen": " The secret code for cobalt is 312.\n\nThe secret code for cob"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": false,
+  "gen": " The secret code for vellum is 31415926535.\n\nThe answer is"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": false,
+  "gen": " The secret code for oak is 12345.\n\nThe secret code for oak "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " The secret code for harbor is 1234567890.\n\nThe secret code "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " The secret code for lantern is 12345.\n\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " The secret code for quarry is 1234567890.\n\nThe secret code "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " The secret code for meridian is 1234567890.\nThe secret code"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " The secret code for thistle is 1234567890.\n\nThe answer is 1"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": false,
+  "gen": " The secret code for cobalt is 7.\n\nThe secret code for cobal"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 1024,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": true,
+  "gen": " The secret code for vellum is 313034.\n\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": false,
+  "gen": " The secret code for oak is 1001.\n\nThe secret code for oak i"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " The secret code for harbor is 123456.\n\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " The secret code for lantern is 123456.\n\nThe secret code for"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " The secret code for quarry is 123456.\n\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " The secret code for meridian is 123456.\n\nThe secret code fo"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " The secret code for thistle is 701034.\n\nThe secret code for"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": false,
+  "gen": " The secret code for cobalt is 647031.\n\nThe secret code for "
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": true,
+  "gen": " The secret code for vellum is 313034.\n\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": false,
+  "gen": " The secret code for oak is 31313131313131313"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " The secret code for harbor is 31313131313131313"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " The secret code for lantern is 31313131313131313"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " The secret code for quarry is 31415926535.\n\nThe secret code"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " The secret code for meridian is 31415926535.  The code is"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " The secret code for thistle is 3131313131313131"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": false,
+  "gen": " The secret code for cobalt is 3131313131313131"
+ },
+ {
+  "policy": "random",
+  "budget": 256,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": false,
+  "gen": " The secret code for vellum is 313131313131313"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": false,
+  "gen": " The secret code for oak is 313034.\n\nThe secret code for oak"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " The secret code for harbor is 313030.\n\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " The secret code for lantern is 313034.\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " The secret code for quarry is 313030.\n\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " The secret code for meridian is 313030.\n\nThe secret code fo"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " The secret code for thistle is 313034.\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": false,
+  "gen": " The secret code for cobalt is 313034.\n\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": true,
+  "gen": " The secret code for vellum is 313034.\nThe secret code for v"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": false,
+  "gen": " The secret code for oak is 12345.\n\nThe answer is not correc"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " The secret code for harbor is 12345.\nThe secret code for ha"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " The secret code for lantern is 12345.\n\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " The secret code for quarry is 12345.\n\nThe user is asking fo"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " The secret code for meridian is 123456.\nThe secret code for"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " The secret code for thistle is 123456.\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": false,
+  "gen": " The secret code for cobalt is 123456.\nThe secret code for c"
+ },
+ {
+  "policy": "random",
+  "budget": 1024,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": true,
+  "gen": " The secret code for vellum is 313034.\nThe secret code for v"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "topic": "oak",
+  "distance_back": 7657,
+  "hit": false,
+  "gen": " The secret code for oak is 412345.\n\nThe answer is derived f"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "topic": "harbor",
+  "distance_back": 6598,
+  "hit": false,
+  "gen": " The secret code for harbor is 123456.\nThe secret code for h"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "topic": "lantern",
+  "distance_back": 5603,
+  "hit": false,
+  "gen": " The secret code for lantern is 123456.\n\nThe secret code for"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "topic": "quarry",
+  "distance_back": 4553,
+  "hit": false,
+  "gen": " The secret code for quarry is 412345.\n\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "topic": "meridian",
+  "distance_back": 3565,
+  "hit": false,
+  "gen": " The secret code for meridian is 412345.\nThe secret code for"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "topic": "thistle",
+  "distance_back": 2521,
+  "hit": false,
+  "gen": " The secret code for thistle is 712345.\n\nThe secret code for"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "topic": "cobalt",
+  "distance_back": 1474,
+  "hit": true,
+  "gen": " The secret code for cobalt is 647642.\n\nThe secret code for "
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "topic": "vellum",
+  "distance_back": 448,
+  "hit": true,
+  "gen": " The secret code for vellum is 313034.\nThe secret code for v"
+ }
+]

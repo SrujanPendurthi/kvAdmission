@@ -1,0 +1,31 @@
+# Model weights — never in git. The 27B checkpoint lives in
+# ../Qwen3.8-27B-CL and small models come from the HF cache.
+*.safetensors
+*.gguf
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# HF / torch caches
+.cache/
+hub/
+*.lock
+
+# Downloaded corpora — regenerable (spike/horizon.py refetches on demand)
+spike/haystack.txt
+
+# Run logs — the JSON results carry the data worth keeping
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+*.egg-info/
+
+# macOS
+.DS_Store

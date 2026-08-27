@@ -1,0 +1,98 @@
+[
+ {
+  "policy": "full",
+  "budget": 2048,
+  "topic": "oak",
+  "distance_back": 1729,
+  "hit": true,
+  "gen": " \\boxed{200455}\n\nThe secret code for harbor is 494963."
+ },
+ {
+  "policy": "full",
+  "budget": 2048,
+  "topic": "harbor",
+  "distance_back": 1240,
+  "hit": true,
+  "gen": " \\boxed{494963}\n\nThe secret code for harbor is 494963.\n\n"
+ },
+ {
+  "policy": "full",
+  "budget": 2048,
+  "topic": "lantern",
+  "distance_back": 742,
+  "hit": true,
+  "gen": " \\boxed{612010}\nThe secret code for lantern is 612010.\n\n"
+ },
+ {
+  "policy": "full",
+  "budget": 2048,
+  "topic": "quarry",
+  "distance_back": 235,
+  "hit": true,
+  "gen": " \\boxed{231715}\n\nThe secret code for quarry is 231715.\n\n"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "topic": "oak",
+  "distance_back": 1729,
+  "hit": false,
+  "gen": " The secret code for oak is 231715.\n\nThe secret code for oak"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "topic": "harbor",
+  "distance_back": 1240,
+  "hit": false,
+  "gen": " The secret code for harbor is 231715.\nThe secret code for q"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "topic": "lantern",
+  "distance_back": 742,
+  "hit": false,
+  "gen": " The secret code for lantern is 231715.\n\nThe secret code for"
+ },
+ {
+  "policy": "recent",
+  "budget": 256,
+  "topic": "quarry",
+  "distance_back": 235,
+  "hit": true,
+  "gen": " The secret code for quarry is 231715.\nThe answer is \\boxed{"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "topic": "oak",
+  "distance_back": 1729,
+  "hit": false,
+  "gen": " The secret code for oak is 231715.\n\nThe secret code for oak"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "topic": "harbor",
+  "distance_back": 1240,
+  "hit": false,
+  "gen": " The secret code for harbor is 231715.\n\nThe secret code for "
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "topic": "lantern",
+  "distance_back": 742,
+  "hit": false,
+  "gen": " The secret code for lantern is 231715.\n\nThe secret code for"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "topic": "quarry",
+  "distance_back": 235,
+  "hit": true,
+  "gen": " The secret code for quarry is 231715.\n\nThe answer is \\boxed"
+ }
+]

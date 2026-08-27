@@ -1,0 +1,348 @@
+<title>Retention Horizon</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --ground:#F5F7F9;
+  --surface:#FFFFFF;
+  --ink:#10161D;
+  --body:#2C3742;
+  --muted:#64717F;
+  --line:#DCE2E8;
+  --line-soft:#E9EEF2;
+  --accent:#0E7C86;
+  --accent-soft:#0E7C8618;
+  --alt:#B0541F;
+  --alt-soft:#B0541F14;
+  --cell-off:#E4EAEF;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1116;
+    --surface:#141A21;
+    --ink:#E6EBEF;
+    --body:#C2CCD5;
+    --muted:#8B98A6;
+    --line:#222B34;
+    --line-soft:#1A222A;
+    --accent:#3FBAC4;
+    --accent-soft:#3FBAC420;
+    --alt:#DE8A46;
+    --alt-soft:#DE8A461A;
+    --cell-off:#1E262E;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1116;
+  --surface:#141A21;
+  --ink:#E6EBEF;
+  --body:#C2CCD5;
+  --muted:#8B98A6;
+  --line:#222B34;
+  --line-soft:#1A222A;
+  --accent:#3FBAC4;
+  --accent-soft:#3FBAC420;
+  --alt:#DE8A46;
+  --alt-soft:#DE8A461A;
+  --cell-off:#1E262E;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--body);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16.5px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:820px;margin:0 auto;padding:72px 28px 120px;display:flex;flex-direction:column;gap:44px}
+
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);display:flex;flex-wrap:wrap;gap:14px;
+}
+.eyebrow span::after{content:"";}
+h1{
+  font-family:Spectral,Georgia,serif;
+  font-weight:600;font-size:clamp(2.5rem,6vw,3.6rem);
+  line-height:1.06;letter-spacing:-.02em;margin:14px 0 0;
+  color:var(--ink);text-wrap:balance;
+}
+.standfirst{
+  font-family:Spectral,Georgia,serif;font-size:1.24rem;line-height:1.55;
+  color:var(--muted);margin:16px 0 0;max-width:60ch;font-style:italic;
+}
+h2{
+  font-family:Spectral,Georgia,serif;font-weight:600;
+  font-size:1.62rem;line-height:1.2;letter-spacing:-.01em;
+  color:var(--ink);margin:0 0 4px;text-wrap:balance;
+}
+h3{
+  font-family:"IBM Plex Sans",sans-serif;font-weight:600;font-size:1rem;
+  color:var(--ink);margin:0 0 6px;
+}
+p{margin:0 0 14px;max-width:68ch}
+p:last-child{margin-bottom:0}
+section{display:flex;flex-direction:column;gap:12px}
+strong{color:var(--ink);font-weight:600}
+code{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.88em;background:var(--line-soft);
+  padding:.12em .38em;border-radius:3px;color:var(--ink);
+}
+
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+/* verdict */
+.verdict{
+  background:var(--surface);border:1px solid var(--line);
+  border-left:3px solid var(--accent);
+  padding:26px 28px;display:flex;flex-direction:column;gap:14px;
+}
+.verdict .label{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--accent);
+}
+.verdict p{font-size:1.06rem}
+
+/* stat row */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:var(--surface);padding:18px 20px;display:flex;flex-direction:column;gap:3px}
+.stat .n{
+  font-family:"IBM Plex Mono",monospace;font-size:1.85rem;font-weight:500;
+  color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.1;
+}
+.stat .k{font-size:12.5px;color:var(--muted);line-height:1.35}
+
+/* retention matrix */
+.matrix-wrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);padding:22px 24px}
+.matrix{
+  display:grid;gap:3px;min-width:560px;
+  font-family:"IBM Plex Mono",monospace;font-size:12px;
+  font-variant-numeric:tabular-nums;
+}
+.matrix .rowlab{
+  display:flex;justify-content:space-between;gap:12px;
+  align-items:center;color:var(--body);padding-right:14px;white-space:nowrap;
+}
+.matrix .rowlab b{color:var(--ink);font-weight:500}
+.matrix .rowlab i{color:var(--muted);font-style:normal}
+.cell{height:22px;border-radius:2px;background:var(--cell-off)}
+.cell.on{background:var(--accent)}
+.cell.on.alt{background:var(--alt)}
+.matrix .colhead{
+  font-size:10.5px;color:var(--muted);text-align:center;
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  height:52px;justify-self:center;letter-spacing:.04em;
+}
+.matrix .corner{font-size:10.5px;color:var(--muted);align-self:end;padding-bottom:4px}
+.matrix .tot{text-align:center;color:var(--ink);padding-left:10px}
+.mcap{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted);
+  margin-top:14px;letter-spacing:.02em;
+}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+/* table */
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+th,td{padding:10px 16px;text-align:left;border-bottom:1px solid var(--line-soft)}
+th{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);font-weight:500;
+  border-bottom:1px solid var(--line);
+}
+td{font-variant-numeric:tabular-nums;color:var(--body)}
+td.num{font-family:"IBM Plex Mono",monospace}
+tr:last-child td{border-bottom:0}
+.hit{color:var(--accent);font-weight:600}
+.miss{color:var(--muted)}
+
+/* callout */
+.note{
+  background:var(--alt-soft);border:1px solid var(--line);
+  border-left:3px solid var(--alt);padding:20px 24px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.note .label{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--alt);
+}
+
+.formula{
+  font-family:"IBM Plex Mono",monospace;font-size:15px;color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);
+  padding:18px 22px;text-align:center;letter-spacing:.01em;overflow-x:auto;
+}
+
+ul{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;gap:7px}
+li::marker{color:var(--muted)}
+
+.foot{font-size:13.5px;color:var(--muted)}
+.foot p{max-width:68ch}
+</style>
+
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">
+      <span>Spike report</span><span>27 Aug 2026</span><span>Qwen3-1.7B · 8192 tok · 8 needles</span>
+    </div>
+    <h1>Retention Horizon</h1>
+    <p class="standfirst">Every KV cache compression heuristic tested recovers at most two of eight facts at a quarter of full budget — and which two depends entirely on an accidental bias, not on anything the method measures.</p>
+  </header>
+
+  <div class="verdict">
+    <div class="label">Verdict</div>
+    <p><strong>The horizon is real and severe, but the original thesis is not what explains it.</strong> Repeated compression versus one-shot compression barely matters — the difference is a single needle. What does matter: no heuristic covers the middle of the stream, and recency-like behavior emerges for free from geometric survival whether a policy intends it or not.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n">8/8</div><div class="k">Full cache, all distances to d=7657</div></div>
+    <div class="stat"><div class="n">2/8</div><div class="k">Best compressed, B=2048 (25% of stream)</div></div>
+    <div class="stat"><div class="n">0/8</div><div class="k">Every method at B=256</div></div>
+    <div class="stat"><div class="n">4</div><div class="k">Middle needles no method ever recovered</div></div>
+  </div>
+
+  <hr class="rule">
+
+  <section>
+    <h2>What was run</h2>
+    <p>Eight facts of the form <code>The secret code for &lt;topic&gt; is &lt;6 digits&gt;</code> were planted at even intervals through an 8192-token stream of prose. The stream was prefilled in 128-token chunks; after each chunk the KV cache was compressed to a fixed budget <code>B</code>, per layer, with the first four tokens pinned as sinks. Each fact was then queried from the end of the stream against the compressed cache. Recall is exact-substring match on the generated code.</p>
+    <p>Five policies: <strong>full</strong> (no compression, the ceiling), <strong>recent</strong> (StreamingLLM-style window), <strong>h2o</strong> (accumulated attention), <strong>snapkv</strong> (attention voted over a 32-token observation window), and <strong>random</strong> at matched budget. Four budgets: 256, 512, 1024, 2048.</p>
+  </section>
+
+  <section>
+    <h2>Finding 1 — Nothing survives past the near field</h2>
+    <p>Columns are distance from the query back to the planted fact. A filled cell means the code was recovered.</p>
+
+    <div class="matrix-wrap">
+      <div class="matrix" style="grid-template-columns:170px repeat(8,1fr) 46px">
+        <div class="corner">policy · budget</div>
+        <div class="colhead">d=448</div><div class="colhead">d=1474</div><div class="colhead">d=2521</div>
+        <div class="colhead">d=3565</div><div class="colhead">d=4553</div><div class="colhead">d=5603</div>
+        <div class="colhead">d=6598</div><div class="colhead">d=7657</div>
+        <div class="corner tot">n</div>
+
+        <div class="rowlab"><b>full</b><i>8192</i></div>
+        <div class="cell on"></div><div class="cell on"></div><div class="cell on"></div><div class="cell on"></div>
+        <div class="cell on"></div><div class="cell on"></div><div class="cell on"></div><div class="cell on"></div>
+        <div class="tot">8</div>
+
+        <div class="rowlab"><b>recent</b><i>2048</i></div>
+        <div class="cell on"></div><div class="cell on"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="tot">2</div>
+
+        <div class="rowlab"><b>random</b><i>2048</i></div>
+        <div class="cell on"></div><div class="cell on"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="tot">2</div>
+
+        <div class="rowlab"><b>snapkv</b><i>2048</i></div>
+        <div class="cell on"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="tot">1</div>
+
+        <div class="rowlab"><b>h2o</b><i>2048</i></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell on alt"></div>
+        <div class="tot">1</div>
+
+        <div class="rowlab"><b>h2o</b><i>2048 · prune-once</i></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+        <div class="cell"></div><div class="cell"></div><div class="cell on alt"></div><div class="cell on alt"></div>
+        <div class="tot">2</div>
+      </div>
+      <div class="legend">
+        <span><i style="background:var(--accent)"></i>recovered — near field</span>
+        <span><i style="background:var(--alt)"></i>recovered — far field</span>
+        <span><i style="background:var(--cell-off)"></i>lost</span>
+      </div>
+      <div class="mcap">B=2048 shown; lower budgets are strictly worse. Full grid in results.json.</div>
+    </div>
+
+    <p>The full cache answers every question. At a quarter of that budget the best any method manages is two — and the four middle needles, d=2521 through d=5603, were <strong>never recovered by any policy at any budget</strong>.</p>
+  </section>
+
+  <section>
+    <h2>Finding 2 — Recency is not a choice, it is a side effect</h2>
+    <p><code>random</code> scored identically to <code>recent</code> at every budget. That looked like a bug. It is a mechanism, and it turns out to be the most useful thing the spike produced.</p>
+    <p>Because compression runs every chunk, the cache never exceeds <code>B + 128</code>. Each round therefore discards only 128 of <code>B+128</code> tokens — retention per round is <code>B/(B+128)</code>, not <code>B/8192</code>. A token planted at distance <code>d</code> must survive <code>d/128</code> independent rounds, so survival decays geometrically with distance:</p>
+
+    <div class="formula">P(survive) = ( B / (B + chunk) ) <sup>d / chunk</sup></div>
+
+    <p>At B=2048 that is <code>0.941^(d/128)</code>. Against the observed <code>random</code> results:</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Distance</th><th>Predicted survival</th><th>Observed</th></tr></thead>
+        <tbody>
+          <tr><td class="num">448</td><td class="num">0.81</td><td class="hit">recovered</td></tr>
+          <tr><td class="num">1474</td><td class="num">0.50</td><td class="hit">recovered</td></tr>
+          <tr><td class="num">2521</td><td class="num">0.30</td><td class="miss">lost</td></tr>
+          <tr><td class="num">3565</td><td class="num">0.18</td><td class="miss">lost</td></tr>
+          <tr><td class="num">7657</td><td class="num">0.03</td><td class="miss">lost</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The cutoff lands exactly where the model puts it. <strong>Any policy that does not actively protect distant tokens degenerates into recency</strong>, because geometric decay produces recency for free. This reframes the problem: a compression policy is not choosing what to keep so much as choosing what to <em>rescue</em> from an exponential that is already running.</p>
+  </section>
+
+  <section>
+    <h2>Finding 3 — The heuristics are complementary, and both miss the middle</h2>
+    <p>H2O's accumulated attention sum favors tokens that have been visible to the most query rows — that is, the oldest. Run one-shot, it recovered d=6598 and d=7657: the two <strong>oldest</strong> needles, and nothing else. <code>recent</code> recovered d=448 and d=1474: the two <strong>newest</strong>.</p>
+    <p>Both score 2/8. They are covering opposite ends of the same stream with opposite biases, and neither bias has anything to do with whether a token is actually useful. The middle of the context is a dead zone that no current heuristic addresses.</p>
+
+    <div class="note">
+      <div class="label">Why this matters more than the original hypothesis</div>
+      <p>A learned policy does not have to beat H2O at H2O's own game. It has to cover the region where every existing method scores zero — and that region is four of the eight needles, at every budget tested. The headroom is not marginal.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Finding 4 — The schedule barely matters <span style="color:var(--muted);font-weight:400">(negative result)</span></h2>
+    <p>The spike was designed to test whether compressing repeatedly, as a streaming setting requires, destroys information that one-shot compression preserves. If so, the episodic formulations used in the literature would be hiding a failure that only appears in a continuing setting.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Policy</th><th>Budget</th><th>Streaming</th><th>Prune-once</th><th>Δ</th></tr></thead>
+        <tbody>
+          <tr><td>h2o</td><td class="num">1024</td><td class="num">0/8</td><td class="num">0/8</td><td class="num miss">0</td></tr>
+          <tr><td>h2o</td><td class="num">2048</td><td class="num">1/8</td><td class="num">2/8</td><td class="num">+1</td></tr>
+          <tr><td>snapkv</td><td class="num">1024</td><td class="num">1/8</td><td class="num">0/8</td><td class="num">−1</td></tr>
+          <tr><td>snapkv</td><td class="num">2048</td><td class="num">1/8</td><td class="num">0/8</td><td class="num">−1</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>One needle each way, in both directions. <strong>The episodic-versus-continuing gap is not demonstrated by this experiment.</strong> Building a paper's central claim on it would have been building on nothing — which is precisely what the spike was for.</p>
+    <p>SnapKV actually got <em>worse</em> one-shot, which fits: its observation window scores against the final 32 query positions, so applied once to a full 8192 cache it simply reproduces a short recency window over a much larger candidate set.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2>Recommendation</h2>
+    <ul>
+      <li><strong>Drop "continual RL" as the framing.</strong> The schedule effect is a single needle. The name would have drawn fire from the continual-learning community anyway, and now there is no result behind it.</li>
+      <li><strong>Make the middle-of-context dead zone the thesis.</strong> Four of eight needles are unrecoverable by every published heuristic at every budget tested. That is a concrete, measurable gap with a clean story: existing methods encode position biases, not utility.</li>
+      <li><strong>Keep the geometric-survival result.</strong> It is a quantitative mechanism that predicts observed cutoffs, it explains why random and recency are indistinguishable, and it motivates why a policy must act against a decay process rather than simply rank tokens.</li>
+      <li><strong>Keep admission control and the frozen-base RL setup.</strong> Both survive the literature review as an unoccupied intersection, and the reward now has an actual target: recall in the middle band, where the baselines are at zero.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What this does not show</h2>
+    <div class="foot">
+      <p>A spike buys an answer, not a result. This one ran a single model (Qwen3-1.7B), a single stream, a single seed, and eight needles per cell — no error bars, and a one-needle difference is well inside noise. The H2O and SnapKV implementations are simplified reimplementations scored at token granularity across all heads, not the reference versions; their absolute numbers should not be compared to published ones. The needle task is synthetic and rewards verbatim retention, which is the easiest case for a cache and the least like real long-context work. Recall is exact substring match, so a model that has the fact but phrases the answer differently counts as a miss.</p>
+      <p>Everything in <code>spike/</code> is throwaway — it exists to answer this question and should not become the training harness.</p>
+    </div>
+  </section>
+
+</div>
