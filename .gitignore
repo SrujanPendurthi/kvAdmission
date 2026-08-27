@@ -29,3 +29,6 @@ venv/
 
 # macOS
 .DS_Store
+
+# Downloaded corpus for the needle harness
+kvadmission/_haystack.txt
