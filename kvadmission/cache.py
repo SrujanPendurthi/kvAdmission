@@ -79,3 +79,29 @@ class AdmissionCache(DynamicCache):
         surviving = self._enforce_budget_fifo(surviving)
         self._reindex(layer_idx, surviving)
         return surviving
+
+    def apply_eviction(self, layer_idx, scores):
+        """Keep the sink prefix plus the top-scoring residents.
+
+        This is the post-hoc mode published baselines use. `scores` has one
+        entry per resident token. Survivors stay sorted by original position,
+        because RoPE is already baked into the cached keys.
+        """
+        n = self.occupancy(layer_idx)
+        device = self.layers[layer_idx].keys.device
+        idx = torch.arange(n, device=device)
+
+        if self.budget is None or n <= self.budget:
+            return idx
+
+        n_sink = min(self.sinks, n)
+        room = self.budget - n_sink
+        if room <= 0:
+            surviving = idx[: self.budget]
+        else:
+            tail = idx[n_sink:]
+            top = torch.topk(scores.to(device)[n_sink:], room).indices
+            surviving = torch.cat([idx[:n_sink], tail[top.sort().values]])
+
+        self._reindex(layer_idx, surviving)
+        return surviving

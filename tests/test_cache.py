@@ -83,3 +83,50 @@ def test_layers_are_independent():
     cache.apply_admission(0, torch.ones(6, dtype=torch.bool))
     assert cache.occupancy(0) == 4
     assert cache.occupancy(1) == 6
+
+
+def test_eviction_keeps_highest_scoring():
+    cache = AdmissionCache(budget=3, sinks=0)
+    _write(cache, 0, 6)
+    scores = torch.tensor([1.0, 9.0, 2.0, 8.0, 3.0, 7.0])
+    cache.apply_eviction(0, scores)
+    assert _resident_ordinals(cache, 0) == [1.0, 3.0, 5.0]
+
+
+def test_eviction_preserves_position_order():
+    cache = AdmissionCache(budget=3, sinks=0)
+    _write(cache, 0, 6)
+    # highest scores are at the end, but output must stay position-sorted
+    scores = torch.tensor([0.0, 0.0, 0.0, 7.0, 8.0, 9.0])
+    cache.apply_eviction(0, scores)
+    assert _resident_ordinals(cache, 0) == [3.0, 4.0, 5.0]
+
+
+def test_eviction_pins_sinks_regardless_of_score():
+    cache = AdmissionCache(budget=4, sinks=2)
+    _write(cache, 0, 6)
+    scores = torch.tensor([0.0, 0.0, 5.0, 6.0, 7.0, 8.0])
+    cache.apply_eviction(0, scores)
+    assert _resident_ordinals(cache, 0) == [0.0, 1.0, 4.0, 5.0]
+
+
+def test_eviction_is_noop_under_budget():
+    cache = AdmissionCache(budget=10, sinks=0)
+    _write(cache, 0, 4)
+    cache.apply_eviction(0, torch.tensor([1.0, 2.0, 3.0, 4.0]))
+    assert _resident_ordinals(cache, 0) == [0.0, 1.0, 2.0, 3.0]
+
+
+def test_eviction_is_noop_when_unbounded():
+    cache = AdmissionCache(budget=None, sinks=0)
+    _write(cache, 0, 4)
+    cache.apply_eviction(0, torch.tensor([1.0, 2.0, 3.0, 4.0]))
+    assert _resident_ordinals(cache, 0) == [0.0, 1.0, 2.0, 3.0]
+
+
+def test_eviction_indices_reindex_scores():
+    cache = AdmissionCache(budget=2, sinks=0)
+    _write(cache, 0, 4)
+    scores = torch.tensor([1.0, 9.0, 2.0, 8.0])
+    surviving = cache.apply_eviction(0, scores)
+    assert scores[surviving].tolist() == [9.0, 8.0]
