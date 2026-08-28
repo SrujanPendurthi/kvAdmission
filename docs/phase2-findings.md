@@ -94,4 +94,12 @@ All four image failures are now fixed and documented inline in `scripts/provisio
 
 **Do not proceed to phase 3 (the WG-KV head-to-head).** Comparing a recency-equivalent policy against a differentiable gate would measure nothing.
 
+> **FOLLOW-UP 2026-08-28 — see `docs/phase2b-findings.md`.** Phase 2b applied the
+> reweighting proposed below. It reached this run's KL and occupancy by step 150
+> (0.119 / 1775 versus 0.121 / 1773 here), then collapsed to admitting nothing
+> and scored 0.00 in every band. The reward diagnosis below still looks correct;
+> the proposed fix was insufficient on its own because plain policy gradient
+> destabilised under it, the one-sided occupancy penalty made an empty cache
+> free, and only the last checkpoint was retained.
+
 Next step is a phase 2b: reweight the reward as above and retrain. It is a small change to one line of `rollout`, and the existing harness, checkpointing, and evaluation all carry over unchanged. If mid-band recall is still zero under a reward that actually emphasises long-range positions, *that* is the interesting negative result — and it would point at the policy or the credit assignment rather than the objective.

@@ -1,0 +1,402 @@
+[
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe question is a bit ambiguous, but it's likel"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe answer is: 1234567"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe answer is \\boxed{123456"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe user is asking for the secret code for merid"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1000\nThe question is phrased in a way that makes me think o"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe answer is: 1234567"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 1234567890.\nWhy? Because p"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe answer is: 1234567"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe word marrow is 7 letters long. The letters a"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe following is a dialogue between a user and a"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe answer is: 1234567"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe answer is \\boxed{123456"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 1234567890.\nWhy? Because onyx"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 12:00\nThe secret code for meridian is 12:00. The meridian"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 11111111111111111111111"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 11111111111111111111111"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 1234567890.\nWhy? Because the"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe following text will be used to check if the "
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe following is a dialogue between a user and a"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 123456789\nThe following is a dialogue between the user and "
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 1234567890.\nWhy is this answer "
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1000\nThe last answer is incorrect.  The correct answer is 1"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe word marrow is 7 letters long. The first let"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 1234567890.\nThe final answer "
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "pumice",
+  "distance_back": 7478,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 1234567890.\nWhat kind of reas"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "cobalt",
+  "distance_back": 6634,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nProvide a reason for the answer.\nThe answer is g"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "onyx",
+  "distance_back": 5853,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 1234567890.\nWhy? Because onyx"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "thistle",
+  "distance_back": 4549,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe answer is \\boxed{123456"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "ashen",
+  "distance_back": 3718,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nA: 123456789"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "vellum",
+  "distance_back": 2615,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 123456789\nWhy? Because vellum is a type of parchment, and"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "sextant",
+  "distance_back": 1754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe secret code for sextant is 1234"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 3,
+  "topic": "fathom",
+  "distance_back": 784,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1000\nClick the answer to find out.\nSurely the most importan"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "juniper",
+  "distance_back": 7484,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nPlease reason step by step.\n\nThe question is ask"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "thistle",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 11111111111111111111111"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "oak",
+  "distance_back": 5762,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe final answer is \\boxed{12345"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "plinth",
+  "distance_back": 4681,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 123456789\nThe final answer is \\boxed{123456"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "bramble",
+  "distance_back": 3455,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 73111111111111111111111"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "onyx",
+  "distance_back": 2778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\nThe answer is: 1234567"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "fathom",
+  "distance_back": 1736,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1000\nThe final answer is \\boxed{1000}\nOkay, so I need to"
+ },
+ {
+  "policy": "learned",
+  "budget": 2048,
+  "seed": 4,
+  "topic": "meridian",
+  "distance_back": 303,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 12:00\nThe secret code for meridian is 12:00.  The mer"
+ }
+]
