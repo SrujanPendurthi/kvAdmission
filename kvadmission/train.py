@@ -33,8 +33,25 @@ def _extra_features(k_norm, n_new, occupancy_frac, lam, device):
 
 
 @torch.no_grad()
+def weighted_kl(kl_pos, beta):
+    """Divergence-weighted mean over a chunk's positions.
+
+    beta=0 recovers the plain mean, which is what phase 2 used and why it
+    failed: long-dependency positions are ~1.5% of a stream, so even at 12.5x
+    contrast they carry only ~15% of the KL mass. Averaging hands 85% of the
+    gradient to local prediction, which recency already maximises.
+
+    beta=1 weights each position by its own divergence, so positions where
+    compression changed nothing contribute nothing and the signal survives.
+    """
+    if beta <= 0:
+        return kl_pos.mean()
+    w = kl_pos.detach() ** beta
+    return (w * kl_pos).sum() / w.sum().clamp_min(1e-8)
+
+
 def rollout(model, policy, controller, ids, device, budget, chunk=128,
-            sinks=4, generator=None):
+            sinks=4, generator=None, beta=1.0):
     """One stream. Chunk-level timesteps with per-chunk reward."""
     total = ids.shape[1]
     n_layers = model.config.num_hidden_layers
@@ -42,6 +59,7 @@ def rollout(model, policy, controller, ids, device, budget, chunk=128,
     comp = AdmissionCache(budget=budget, sinks=sinks)
 
     log_probs, values, rewards, occupancy, lams, kls = [], [], [], [], [], []
+    kls_mean = []
 
     for start in range(0, total, chunk):
         piece = ids[:, start:start + chunk].to(device)
@@ -65,7 +83,9 @@ def rollout(model, policy, controller, ids, device, budget, chunk=128,
 
         lp_ref = torch.log_softmax(ref_out.logits[0].float(), dim=-1)
         lp_com = torch.log_softmax(comp_out.logits[0].float(), dim=-1)
-        kl = (lp_ref.exp() * (lp_ref - lp_com)).sum(-1).clamp_min(0.0).mean()
+        kl_pos = (lp_ref.exp() * (lp_ref - lp_com)).sum(-1).clamp_min(0.0)
+        kl = weighted_kl(kl_pos, beta)
+        kl_mean = kl_pos.mean()  # logged unweighted so runs stay comparable
 
         h = comp_out.hidden_states[-1][0].float()
         k_norm = torch.stack([
@@ -97,14 +117,16 @@ def rollout(model, policy, controller, ids, device, budget, chunk=128,
         occupancy.append(occ_now)
         lams.append(lam)
         kls.append(kl.item())
+        kls_mean.append(kl_mean.item())
         del ref_out, comp_out, lp_ref, lp_com
 
     return {"log_probs": log_probs, "values": values, "rewards": rewards,
-            "occupancy": occupancy, "lam": lams, "kl": kls}
+            "occupancy": occupancy, "lam": lams, "kl": kls,
+            "kl_mean": kls_mean}
 
 
 def train(model, tok, device, steps, budget, length, out_dir, lr=3e-4,
-          target=0.95, seed=0):
+          target=0.95, seed=0, beta=1.0):
     policy = AdmissionPolicy(hidden_size=model.config.hidden_size).to(device)
     controller = LagrangianController(target=target, eta=0.02)
     learner = AverageRewardLearner(policy, lr=lr)
@@ -117,17 +139,19 @@ def train(model, tok, device, steps, budget, length, out_dir, lr=3e-4,
     for step in range(steps):
         ids = build_code_stream(tok, length, seed=1000 + step)
         r = rollout(model, policy, controller, ids, device, budget,
-                    generator=gen)
+                    generator=gen, beta=beta)
         stats = learner.step(r["log_probs"], r["values"], r["rewards"])
         stats.update({
             "step": step,
             "mean_kl": sum(r["kl"]) / len(r["kl"]),
+            "mean_kl_unweighted": sum(r["kl_mean"]) / len(r["kl_mean"]),
             "mean_occupancy": sum(r["occupancy"]) / len(r["occupancy"]),
             "lam": r["lam"][-1],
             "admit_rate": sum(r["occupancy"]) / (len(r["occupancy"]) * budget),
         })
         history.append(stats)
         print(f"step {step:4d} kl={stats['mean_kl']:.4f} "
+              f"klraw={stats['mean_kl_unweighted']:.4f} "
               f"occ={stats['mean_occupancy']:.0f} lam={stats['lam']:.3f} "
               f"r_bar={stats['r_bar']:.4f}", flush=True)
 
@@ -147,13 +171,15 @@ def main():
     p.add_argument("--lr", type=float, default=3e-4)
     p.add_argument("--target", type=float, default=0.95)
     p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--beta", type=float, default=1.0,
+                   help="reward weighting exponent; 0 = plain mean (phase 2)")
     p.add_argument("--out", default="results/policy")
     a = p.parse_args()
 
     model, tok, device = load_model(a.model)
     print(f"device={device}", flush=True)
     train(model, tok, device, a.steps, a.budget, a.length, a.out,
-          lr=a.lr, target=a.target, seed=a.seed)
+          lr=a.lr, target=a.target, seed=a.seed, beta=a.beta)
 
 
 if __name__ == "__main__":
