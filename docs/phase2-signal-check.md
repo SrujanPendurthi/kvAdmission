@@ -61,9 +61,21 @@ Under FIFO admission, anything further back than `B` is gone regardless of how l
 
 ## What this means for phase 2
 
-Better than "the reward works." **The reward's signal-to-noise improves at exactly the budgets we care about.** At B=2048 the contrast is 12.5×, so the gradient is dominated by long-dependency positions — the reward naturally concentrates on the failure the policy exists to fix, without any reweighting.
+> **CORRECTED 2026-08-28 after the phase 2 training run. The conclusion below
+> was wrong and the error mattered — see `docs/phase2-findings.md`.**
+>
+> The ratio measured here is the KL *at* long-dependency positions. The training
+> reward is the *mean over all* positions. Those are different quantities. Long-
+> dependency positions are ~1.5% of a stream, so a 12.5x contrast still leaves
+> them carrying only ~15% of total KL mass — the other 85% is local prediction,
+> which recency already maximises. Reweighting was not optional; it was the
+> whole problem, and the trained policy duly converged to recency.
 
-That removes the option I was holding in reserve (reweighting the reward toward high-KL positions). It is unnecessary; the budget does it for free.
+~~Better than "the reward works." The reward's signal-to-noise improves at exactly the budgets we care about. At B=2048 the contrast is 12.5×, so the gradient is dominated by long-dependency positions — the reward naturally concentrates on the failure the policy exists to fix, without any reweighting.~~
+
+~~That removes the option I was holding in reserve (reweighting the reward toward high-KL positions). It is unnecessary; the budget does it for free.~~
+
+What the gate *did* establish, and which still stands: distant context measurably moves the next-token distribution on this corpus, so a reward built on KL has long-range signal available. The error was assuming an unweighted mean would expose it.
 
 ## Caveats
 
