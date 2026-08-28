@@ -56,12 +56,12 @@ python3 -u -m kvadmission.train \
 
 echo "== evaluating against the phase 1 needle harness =="
 python3 -u -m kvadmission.evaluate \
-  --checkpoint results/policy/policy.pt \
+  --checkpoint results/policy/policy-best.pt \
   --budget "$BUDGET" --seeds 5 2>&1 | tee results/phase2-eval.log
 
 echo
 echo "== done. pull these back: =="
-echo "  results/policy/policy.pt      trained head"
+echo "  results/policy/policy-best.pt trained head (best held-out KL)"
 echo "  results/policy/history.json   training metrics"
 echo "  results/phase2-eval.json      eval rows in phase 1 schema"
 echo "  results/*.log"

@@ -84,3 +84,19 @@ def test_beta_one_reports_higher_kl_than_the_unweighted_mean():
     plain = [m for m in out["kl_mean"] if m > 1e-6]
     assert weighted, "no chunk had nonzero KL"
     assert sum(weighted) > sum(plain)
+
+
+def test_mixed_reward_sits_between_weighted_and_plain():
+    """mix=0.7 must not be reducible by flattening, as pure beta=1 was."""
+    from kvadmission.train import weighted_kl
+    kl = torch.cat([torch.full((99,), 0.01), torch.tensor([2.0])])
+    plain, w = kl.mean(), weighted_kl(kl, 1.0)
+    mixed = 0.7 * w + 0.3 * plain
+    assert plain < mixed < w
+
+
+def test_rollout_returns_entropies_that_carry_gradient():
+    policy, controller, ids = _setup()
+    out = rollout(MODEL, policy, controller, ids, DEVICE, budget=256, chunk=128)
+    assert len(out["entropies"]) == 8
+    assert out["entropies"][0].requires_grad

@@ -51,7 +51,7 @@ def weighted_kl(kl_pos, beta):
 
 
 def rollout(model, policy, controller, ids, device, budget, chunk=128,
-            sinks=4, generator=None, beta=1.0):
+            sinks=4, generator=None, beta=1.0, mix=0.7):
     """One stream. Chunk-level timesteps with per-chunk reward."""
     total = ids.shape[1]
     n_layers = model.config.num_hidden_layers
@@ -59,7 +59,7 @@ def rollout(model, policy, controller, ids, device, budget, chunk=128,
     comp = AdmissionCache(budget=budget, sinks=sinks)
 
     log_probs, values, rewards, occupancy, lams, kls = [], [], [], [], [], []
-    kls_mean = []
+    kls_mean, entropies = [], []
 
     for start in range(0, total, chunk):
         piece = ids[:, start:start + chunk].to(device)
@@ -84,8 +84,13 @@ def rollout(model, policy, controller, ids, device, budget, chunk=128,
         lp_ref = torch.log_softmax(ref_out.logits[0].float(), dim=-1)
         lp_com = torch.log_softmax(comp_out.logits[0].float(), dim=-1)
         kl_pos = (lp_ref.exp() * (lp_ref - lp_com)).sum(-1).clamp_min(0.0)
-        kl = weighted_kl(kl_pos, beta)
-        kl_mean = kl_pos.mean()  # logged unweighted so runs stay comparable
+        kl_mean = kl_pos.mean()
+        # Mixed objective. The weighted term supplies long-range signal that a
+        # plain mean drowns (phase 2); the unweighted term keeps the policy
+        # accountable for overall quality, without which phase 2b collapsed to
+        # rejecting everything - flattening the KL distribution lowers a pure
+        # ratio-of-moments objective even as prediction gets worse.
+        kl = mix * weighted_kl(kl_pos, beta) + (1.0 - mix) * kl_mean
 
         h = comp_out.hidden_states[-1][0].float()
         k_norm = torch.stack([
@@ -98,7 +103,7 @@ def rollout(model, policy, controller, ids, device, budget, chunk=128,
 
         # the base model runs under no_grad; the head still needs a graph
         with torch.enable_grad():
-            keep, log_prob, value = policy.act(h, extra, generator=generator)
+            keep, log_prob, value, ent = policy.act(h, extra, generator=generator)
 
         keep_cpu = keep.detach().cpu()
         for li in range(n_layers):
@@ -118,29 +123,34 @@ def rollout(model, policy, controller, ids, device, budget, chunk=128,
         lams.append(lam)
         kls.append(kl.item())
         kls_mean.append(kl_mean.item())
+        entropies.append(ent)
         del ref_out, comp_out, lp_ref, lp_com
 
     return {"log_probs": log_probs, "values": values, "rewards": rewards,
             "occupancy": occupancy, "lam": lams, "kl": kls,
-            "kl_mean": kls_mean}
+            "kl_mean": kls_mean, "entropies": entropies}
 
 
 def train(model, tok, device, steps, budget, length, out_dir, lr=3e-4,
-          target=0.95, seed=0, beta=1.0):
+          target=0.95, seed=0, beta=1.0, mix=0.7, entropy_coef=0.01):
     policy = AdmissionPolicy(hidden_size=model.config.hidden_size).to(device)
     controller = LagrangianController(target=target, eta=0.02)
-    learner = AverageRewardLearner(policy, lr=lr)
+    learner = AverageRewardLearner(policy, lr=lr, entropy_coef=entropy_coef)
     gen = torch.Generator(device=device).manual_seed(seed)
 
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
     history = []
+    # Each step draws a fresh stream, so this metric is effectively held out.
+    # Phase 2b lost its best policy because only the last one was ever saved.
+    best_ema, ema = float("inf"), None
 
     for step in range(steps):
         ids = build_code_stream(tok, length, seed=1000 + step)
         r = rollout(model, policy, controller, ids, device, budget,
-                    generator=gen, beta=beta)
-        stats = learner.step(r["log_probs"], r["values"], r["rewards"])
+                    generator=gen, beta=beta, mix=mix)
+        stats = learner.step(r["log_probs"], r["values"], r["rewards"],
+                             entropies=r["entropies"])
         stats.update({
             "step": step,
             "mean_kl": sum(r["kl"]) / len(r["kl"]),
@@ -155,8 +165,18 @@ def train(model, tok, device, steps, budget, length, out_dir, lr=3e-4,
               f"occ={stats['mean_occupancy']:.0f} lam={stats['lam']:.3f} "
               f"r_bar={stats['r_bar']:.4f}", flush=True)
 
+        kl_raw = stats["mean_kl_unweighted"]
+        ema = kl_raw if ema is None else 0.9 * ema + 0.1 * kl_raw
+        stats["kl_ema"] = ema
+        if step >= 20 and ema < best_ema:
+            best_ema = ema
+            torch.save(policy.state_dict(), out / "policy-best.pt")
+            (out / "best.json").write_text(json.dumps(
+                {"step": step, "kl_ema": ema,
+                 "occupancy": stats["mean_occupancy"]}, indent=1))
+
         if step % 20 == 0 or step == steps - 1:
-            torch.save(policy.state_dict(), out / "policy.pt")
+            torch.save(policy.state_dict(), out / "policy-last.pt")
             (out / "history.json").write_text(json.dumps(history, indent=1))
 
     return history
@@ -173,13 +193,17 @@ def main():
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--beta", type=float, default=1.0,
                    help="reward weighting exponent; 0 = plain mean (phase 2)")
+    p.add_argument("--mix", type=float, default=0.7,
+                   help="weight on the divergence-weighted term vs plain mean")
+    p.add_argument("--entropy-coef", type=float, default=0.01)
     p.add_argument("--out", default="results/policy")
     a = p.parse_args()
 
     model, tok, device = load_model(a.model)
     print(f"device={device}", flush=True)
     train(model, tok, device, a.steps, a.budget, a.length, a.out,
-          lr=a.lr, target=a.target, seed=a.seed, beta=a.beta)
+          lr=a.lr, target=a.target, seed=a.seed, beta=a.beta, mix=a.mix,
+          entropy_coef=a.entropy_coef)
 
 
 if __name__ == "__main__":

@@ -9,7 +9,7 @@ def _rollout(policy, rewards, gen):
     for _ in rewards:
         h = torch.randn(8, 64)
         extra = torch.zeros(8, 4)
-        _, lp, v = policy.act(h, extra, generator=gen)
+        _, lp, v, _ = policy.act(h, extra, generator=gen)
         log_probs.append(lp)
         values.append(v)
     return log_probs, values
@@ -63,9 +63,27 @@ def test_learns_a_toy_task_where_admitting_pays():
     for _ in range(120):
         log_probs, values, rewards = [], [], []
         for _ in range(4):
-            keep, lp, v = p.act(h, extra, generator=gen)
+            keep, lp, v, _ = p.act(h, extra, generator=gen)
             log_probs.append(lp)
             values.append(v)
             rewards.append(keep.float().mean().item())
         learner.step(log_probs, values, rewards)
     assert admit_rate() > start + 0.05, f"{start:.3f} -> {admit_rate():.3f}"
+
+
+def test_entropy_bonus_reaches_the_loss():
+    p = AdmissionPolicy(hidden_size=64)
+    learner = AverageRewardLearner(p, entropy_coef=0.5)
+    gen = torch.Generator().manual_seed(0)
+    lp, v = _rollout(p, [1.0, 1.0], gen)
+    ents = [torch.tensor(0.5, requires_grad=True) for _ in range(2)]
+    out = learner.step(lp, v, [1.0, 1.0], entropies=ents)
+    assert out["entropy"] == 0.5
+
+
+def test_step_still_works_without_entropies():
+    p = AdmissionPolicy(hidden_size=64)
+    learner = AverageRewardLearner(p)
+    gen = torch.Generator().manual_seed(0)
+    lp, v = _rollout(p, [1.0, 1.0], gen)
+    assert learner.step(lp, v, [1.0, 1.0])["entropy"] == 0.0

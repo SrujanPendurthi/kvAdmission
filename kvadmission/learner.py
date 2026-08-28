@@ -13,19 +13,20 @@ import torch
 
 class AverageRewardLearner:
     def __init__(self, policy, lr=3e-4, alpha=0.01, value_coef=0.5,
-                 grad_clip=1.0):
+                 grad_clip=1.0, entropy_coef=0.01):
         self.policy = policy
         self.opt = torch.optim.Adam(policy.parameters(), lr=lr)
         self.alpha = alpha
         self.value_coef = value_coef
         self.grad_clip = grad_clip
+        self.entropy_coef = entropy_coef
         # None until the first step. Starting at 0.0 when rewards sit near 0.5
         # makes every early delta strongly positive, which reinforces whatever
         # the policy happened to do first - it collapses to a fixed point long
         # before a slow-moving r_bar can catch up and supply any contrast.
         self.r_bar = None
 
-    def step(self, log_probs, values, rewards):
+    def step(self, log_probs, values, rewards, entropies=None):
         """One update over a rollout of chunk-level timesteps."""
         n = len(rewards)
         assert len(log_probs) == len(values) == n, "ragged rollout"
@@ -47,7 +48,11 @@ class AverageRewardLearner:
 
         policy_loss = torch.stack(policy_terms).mean()
         value_loss = torch.stack(value_terms).mean()
-        loss = policy_loss + self.value_coef * value_loss
+        entropy = (torch.stack(entropies).mean() if entropies
+                   else torch.zeros((), device=policy_loss.device))
+        # subtracted: maximising entropy keeps the policy stochastic enough to
+        # escape a deterministic state rather than reinforcing it
+        loss = policy_loss + self.value_coef * value_loss - self.entropy_coef * entropy
 
         self.opt.zero_grad()
         loss.backward()
@@ -59,4 +64,5 @@ class AverageRewardLearner:
             "value_loss": value_loss.item(),
             "r_bar": self.r_bar,
             "mean_delta": mean_delta.item(),
+            "entropy": entropy.item(),
         }

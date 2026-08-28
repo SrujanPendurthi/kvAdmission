@@ -33,12 +33,18 @@ class AdmissionPolicy(nn.Module):
         return self.head(z).squeeze(-1), self.value(z).squeeze(-1)
 
     def act(self, h, extra, generator=None):
-        """Sample admission decisions. Returns (keep, summed log_prob, mean value)."""
+        """Sample admission decisions.
+
+        Returns (keep, summed log_prob, mean value, mean entropy). Entropy is
+        returned so the learner can penalise premature determinism: phase 2b
+        collapsed into rejecting everything and could not recover, because once
+        every logit is confidently negative all sampled actions are rejections
+        and the gradient only reinforces them.
+        """
         logits, values = self(h, extra)
+        dist = torch.distributions.Bernoulli(logits=logits)
         probs = torch.sigmoid(logits)
         noise = torch.rand(probs.shape, generator=generator, device=probs.device)
         keep = noise < probs.detach()
-        log_prob = torch.distributions.Bernoulli(logits=logits).log_prob(
-            keep.float()
-        ).sum()
-        return keep, log_prob, values.mean()
+        log_prob = dist.log_prob(keep.float()).sum()
+        return keep, log_prob, values.mean(), dist.entropy().mean()
