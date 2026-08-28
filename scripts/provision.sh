@@ -13,7 +13,21 @@ LENGTH="${LENGTH:-8192}"
 
 echo "== installing deps =="
 pip install -q --upgrade pip
-pip install -q "torch>=2.4" "transformers>=5.0" pytest
+
+# Every one of these was a real failure on a stock pytorch/pytorch CUDA image:
+#  - transformers 5.x needs torch >= 2.5; on 2.4 it silently disables the torch
+#    backend and every model class becomes un-importable
+#  - torchvision/torchaudio are built against the image's original torch, so
+#    upgrading torch breaks their ABI ("operator torchvision::nms does not
+#    exist") and transformers explodes on import. We are text-only; remove them.
+#  - triton JIT-compiles kernels and needs a C compiler the image lacks
+#  - conda's readline can segfault pytest at startup (_readline_workaround)
+pip uninstall -y -q torchvision torchaudio 2>/dev/null || true
+pip install -q "torch>=2.5" "transformers>=5.0" pytest
+command -v gcc >/dev/null || {
+  apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get install -y -qq gcc g++
+}
+python3 -c "import readline" 2>/dev/null || conda install -y -q readline
 
 echo "== sanity: GPU visible? =="
 python3 -c "
