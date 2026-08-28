@@ -105,3 +105,14 @@ def test_generate_produces_text():
     stream_len = prefill(MODEL, ids, cache, DEVICE, chunk=128)
     text = generate(MODEL, TOK, cache, stream_len, "\n\nThe fox is", DEVICE, max_new=8)
     assert isinstance(text, str) and len(text) > 0
+
+
+def test_base_model_parameters_are_frozen():
+    """Nothing in this project may ever backprop into the base model."""
+    trainable = [n for n, q in MODEL.named_parameters() if q.requires_grad]
+    assert trainable == [], f"{len(trainable)} base params still require grad"
+
+
+def test_pick_device_returns_something_torch_accepts():
+    from kvadmission.runner import pick_device
+    assert pick_device() in ("cuda", "mps", "cpu")

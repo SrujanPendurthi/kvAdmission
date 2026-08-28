@@ -10,12 +10,30 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
-def load_model(name="Qwen/Qwen3-1.7B"):
-    device = "mps" if torch.backends.mps.is_available() else "cpu"
+def pick_device():
+    """CUDA if present, then Apple MPS, then CPU."""
+    if torch.cuda.is_available():
+        return "cuda"
+    if torch.backends.mps.is_available():
+        return "mps"
+    return "cpu"
+
+
+def load_model(name="Qwen/Qwen3-1.7B", device=None, attn="eager"):
+    """Load a frozen base model.
+
+    attn="eager" is required wherever output_attentions is used (h2o, snapkv).
+    Policies that never read attention weights can pass attn="sdpa", which is
+    substantially faster and numerically equivalent up to accumulation order -
+    so the bit-identity test must stay on eager.
+    """
+    device = device or pick_device()
     tok = AutoTokenizer.from_pretrained(name)
     model = AutoModelForCausalLM.from_pretrained(
-        name, dtype=torch.bfloat16, attn_implementation="eager"
+        name, dtype=torch.bfloat16, attn_implementation=attn
     ).to(device).eval()
+    for q in model.parameters():
+        q.requires_grad_(False)  # the base model is frozen, everywhere
     return model, tok, device
 
 
