@@ -1,0 +1,151 @@
+<title>Mid-Context Dead Zone</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--ground:#F5F7F9;--surface:#FFF;--ink:#10161D;--body:#2C3742;--muted:#64717F;
+ --line:#DCE2E8;--line-soft:#E9EEF2;--accent:#0E7C86;--alt:#B0541F;--alt-soft:#B0541F14;--cell-off:#E4EAEF}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+ --ground:#0D1116;--surface:#141A21;--ink:#E6EBEF;--body:#C2CCD5;--muted:#8B98A6;
+ --line:#222B34;--line-soft:#1A222A;--accent:#3FBAC4;--alt:#DE8A46;--alt-soft:#DE8A461A;--cell-off:#1E262E}}
+:root[data-theme="dark"]{--ground:#0D1116;--surface:#141A21;--ink:#E6EBEF;--body:#C2CCD5;--muted:#8B98A6;
+ --line:#222B34;--line-soft:#1A222A;--accent:#3FBAC4;--alt:#DE8A46;--alt-soft:#DE8A461A;--cell-off:#1E262E}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--body);
+ font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,sans-serif;font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:820px;margin:0 auto;padding:72px 28px 120px;display:flex;flex-direction:column;gap:40px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);display:flex;flex-wrap:wrap;gap:14px}
+h1{font-family:Spectral,Georgia,serif;font-weight:600;font-size:clamp(2.3rem,5.5vw,3.3rem);line-height:1.07;letter-spacing:-.02em;margin:14px 0 0;color:var(--ink);text-wrap:balance}
+.standfirst{font-family:Spectral,Georgia,serif;font-size:1.2rem;line-height:1.55;color:var(--muted);margin:16px 0 0;max-width:60ch;font-style:italic}
+h2{font-family:Spectral,Georgia,serif;font-weight:600;font-size:1.55rem;line-height:1.2;color:var(--ink);margin:0 0 4px;text-wrap:balance}
+h3{font-size:1rem;font-weight:600;color:var(--ink);margin:0 0 4px}
+p{margin:0 0 13px;max-width:68ch}p:last-child{margin-bottom:0}
+section{display:flex;flex-direction:column;gap:12px}
+strong{color:var(--ink);font-weight:600}
+code{font-family:"IBM Plex Mono",monospace;font-size:.88em;background:var(--line-soft);padding:.12em .38em;border-radius:3px;color:var(--ink)}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+.abstract{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);padding:24px 26px;display:flex;flex-direction:column;gap:12px}
+.abstract .label{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:var(--surface);padding:18px 20px;display:flex;flex-direction:column;gap:3px}
+.stat .n{font-family:"IBM Plex Mono",monospace;font-size:1.8rem;font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.1}
+.stat .k{font-size:12.5px;color:var(--muted);line-height:1.35}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:440px}
+th,td{padding:10px 15px;text-align:left;border-bottom:1px solid var(--line-soft)}
+th{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;border-bottom:1px solid var(--line)}
+td{font-variant-numeric:tabular-nums}tr:last-child td{border-bottom:0}
+td.num{font-family:"IBM Plex Mono",monospace}
+.hit{color:var(--accent);font-weight:600}.far{color:var(--alt);font-weight:600}.zero{color:var(--muted)}
+.formula{font-family:"IBM Plex Mono",monospace;font-size:15px;color:var(--ink);background:var(--surface);border:1px solid var(--line);padding:18px 22px;text-align:center;overflow-x:auto}
+.note{background:var(--alt-soft);border:1px solid var(--line);border-left:3px solid var(--alt);padding:20px 24px;display:flex;flex-direction:column;gap:10px}
+.note .label{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--alt)}
+ul{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;gap:7px}
+li::marker{color:var(--muted)}
+ol{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;gap:9px}
+.foot{font-size:13.5px;color:var(--muted)}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow"><span>Draft</span><span>29 Aug 2026</span><span>Qwen3-1.7B · 228 middle-band trials</span></div>
+  <h1>The Mid-Context Dead Zone in KV Cache Compression</h1>
+  <p class="standfirst">Compression methods partition long context by positional bias rather than utility. Every method tested recovers one end of the stream or the other, and none recovers the middle.</p>
+</header>
+
+<div class="abstract">
+  <div class="label">Abstract</div>
+  <p>KV cache compression is evaluated on aggregate accuracy at a budget, which hides <em>where</em> a method succeeds. Measuring recall against distance from the query, we find recency methods recover only the near field, attention-accumulation methods only the far field, and no method at any budget recovers the middle. Across <strong>228 middle-band trials</strong> spanning four heuristics, three learned policies, four budgets and five seeds: <strong>zero successes</strong>, while an uncompressed cache answers 100% of the same queries.</p>
+  <p>We give a mechanism — survival under repeated compression decays geometrically with distance, making recency emergent rather than chosen — and report three failed attempts to train past it, arguing the dead zone may be intrinsic to fixed-budget streaming compression.</p>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">0/228</div><div class="k">Middle-band hits, every policy tested</div></div>
+  <div class="stat"><div class="n">≤1.3%</div><div class="k">95% upper bound on true rate</div></div>
+  <div class="stat"><div class="n">1.00</div><div class="k">Uncompressed cache, all bands</div></div>
+  <div class="stat"><div class="n">3</div><div class="k">Reward formulations, all converging to recency</div></div>
+</div>
+
+<hr class="rule">
+
+<section>
+  <h2>The heuristics are complements</h2>
+  <p>Recall at B=2048 — a quarter of the stream — split by distance-back from the query.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>policy</th><th>near</th><th>middle</th><th>far</th></tr></thead>
+    <tbody>
+      <tr><td><code>recent</code></td><td class="num hit">10/14</td><td class="num zero">0/12</td><td class="num zero">0/14</td></tr>
+      <tr><td><code>random</code></td><td class="num">7/14</td><td class="num zero">0/12</td><td class="num zero">0/14</td></tr>
+      <tr><td><code>snapkv</code></td><td class="num">4/14</td><td class="num zero">0/12</td><td class="num zero">0/14</td></tr>
+      <tr><td><code>h2o</code></td><td class="num zero">0/14</td><td class="num zero">0/12</td><td class="num far">8/14</td></tr>
+    </tbody>
+  </table></div>
+  <p><code>recent</code> and <code>h2o</code> are exact complements — each strong in one band, <strong>exactly zero</strong> in the other, neither reaching the middle. H2O's accumulated-attention sum favours tokens visible to the most query rows, which are the oldest, so it inverts recency rather than improving on it. Neither bias tracks whether a token is useful.</p>
+</section>
+
+<section>
+  <h2>Why: recency is emergent, not chosen</h2>
+  <p>Compression runs every chunk, so the cache never exceeds <code>B + chunk</code> and each round discards only <code>chunk</code> of <code>B + chunk</code> tokens. A fact at distance <code>d</code> must survive <code>d/chunk</code> rounds:</p>
+  <div class="formula">P(survive) = ( B / (B + chunk) ) <sup>d / chunk</sup></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>band</th><th>d range</th><th>predicted</th><th>observed</th></tr></thead>
+    <tbody>
+      <tr><td>near</td><td class="num">303–2615</td><td class="num">0.527</td><td class="num hit">0.50</td></tr>
+      <tr><td>middle</td><td class="num">2778–5290</td><td class="num">0.157</td><td class="num zero">0.00</td></tr>
+      <tr><td>far</td><td class="num">5719–7873</td><td class="num">0.043</td><td class="num zero">0.00</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>Any policy that does not actively protect distant tokens degenerates into recency for free.</strong> Compression is less a ranking problem than a rescue problem — the policy must counteract an exponential already running. This is why random admission and a recency window are empirically indistinguishable.</p>
+</section>
+
+<section>
+  <h2>Corroborated on a second measurement</h2>
+  <p>On Python source, comparing per-position <code>KL(p_full ‖ p_compressed)</code> at positions whose next token repeats an identifier last seen ≥2048 tokens earlier, against everywhere else:</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>budget</th><th>KL ratio</th><th>at long-dep</th><th>baseline</th></tr></thead>
+    <tbody>
+      <tr><td class="num">512</td><td class="num">3.47</td><td class="num">1.084</td><td class="num">0.283</td></tr>
+      <tr><td class="num">1024</td><td class="num">6.34</td><td class="num">1.050</td><td class="num">0.157</td></tr>
+      <tr><td class="num">2048</td><td class="num hit">12.48</td><td class="num">1.031</td><td class="num">0.082</td></tr>
+    </tbody>
+  </table></div>
+  <p>Raising the budget collapses baseline KL (0.283 → 0.082) and leaves long-dependency KL unchanged (1.084 → 1.031). <strong>More cache fixes local prediction and does nothing for distant dependencies.</strong> Behavioural recall on synthetic needles and distributional divergence on real code agree: budget is not the binding constraint, retention policy is.</p>
+</section>
+
+<section>
+  <h2>Three attempts to train past it</h2>
+  <p>A 297K-parameter admission head against a frozen model, under three rewards derived from KL to the uncompressed cache:</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>reward</th><th>near</th><th>middle</th><th>far</th><th>outcome</th></tr></thead>
+    <tbody>
+      <tr><td>plain chunk mean</td><td class="num">0.71</td><td class="num zero">0.00</td><td class="num zero">0.00</td><td>= <code>recent</code></td></tr>
+      <tr><td>divergence-weighted</td><td class="num zero">0.00</td><td class="num zero">0.00</td><td class="num zero">0.00</td><td>collapsed</td></tr>
+      <tr><td>mixed 0.7/0.3</td><td class="num">0.71</td><td class="num zero">0.00</td><td class="num zero">0.00</td><td>= <code>recent</code></td></tr>
+    </tbody>
+  </table></div>
+  <p>The first drowns its own signal: long-dependency positions are ~1.5% of a stream and carry only <strong>14.9%</strong> of KL mass, so averaging hands 85% of the gradient to local prediction. The second, weighting positions by their own divergence, destabilised and collapsed to admitting nothing.</p>
+  <p>The third is the informative one. With the weighting fixed, an entropy bonus, and best-checkpoint retention, training was stable and the retained policy was <strong>better on the training objective</strong> than the first run (<code>kl_raw</code> 0.103 vs 0.121). Its behaviour was nevertheless identical to a recency window.</p>
+  <div class="note">
+    <div class="label">The interpretation this forces</div>
+    <p>A policy can measurably improve at matching the full-cache distribution while remaining behaviourally indistinguishable from keeping the most recent B tokens. Three reward formulations; every one that trains stably lands on recency.</p>
+    <p>At B=2048 a token at d=4000 must survive ~31 consecutive eviction rounds. Protecting it requires a write-time decision — made before any query exists — that outweighs 31 rounds of competition from tokens with immediate predictive value. If no admission-time signal carries that information, no reward over admission-time decisions can recover it. The failure would be <strong>observability, not optimization</strong>.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <h2>What would settle it</h2>
+  <ol>
+    <li><strong>Replicate on a second model and a real benchmark.</strong> Highest value, cheap, and the paper does not survive a failure to replicate.</li>
+    <li><strong>An oracle admission experiment.</strong> Give the policy the query at write time. If oracle admission recovers the middle band, the dead zone is an observability problem. If even an oracle fails, the limitation is the budget geometry itself. This single experiment distinguishes the two hypotheses and should be run before anything else.</li>
+    <li><strong>Finer distance resolution</strong>, to locate the boundary rather than assume a tercile.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Limitations</h2>
+  <div class="foot">
+    <p>One model (Qwen3-1.7B) and one task family. Synthetic verbatim needle retrieval is the easiest possible case for a cache and the least like real long-context work; exact substring match scores a paraphrase as a miss. H2O and SnapKV are simplified reimplementations scored at token granularity, so absolute numbers are not comparable to published ones. "Middle" spans d≈2731–5461 — coarse. The intrinsic-limitation argument rests on three training runs with no hyperparameter search; a better-designed policy may yet succeed. All results assume FIFO eviction with a fixed per-layer budget and a decision shared across layers, the last forced by a single global attention mask.</p>
+    <p>What is new here is the measurement, not the method. Write-time admission with a frozen backbone, RL for cache eviction, and Lagrangian KV allocation all exist in prior work; we are not aware of prior work reporting recall by distance-band.</p>
+  </div>
+</section>
+</div>
