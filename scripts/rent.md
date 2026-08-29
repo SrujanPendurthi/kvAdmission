@@ -49,6 +49,21 @@ rsync -avz -e "ssh -p <PORT>" \
   root@<HOST>:~/kvAdmission/results/ ./results-remote/
 ```
 
+## Always use the self-stopping runner
+
+```bash
+ssh -p <PORT> root@<HOST> \
+  'cd ~/kvAdmission && setsid nohup bash scripts/run_selfstop.sh > /tmp/run.log 2>&1 < /dev/null &'
+```
+
+It trains, evaluates, waits `DRAIN_SECONDS` for results to be pulled, then
+powers the container off so GPU billing ends without anyone watching.
+
+**This is not optional when auto-top-up is enabled.** With auto-top-up there is
+no natural brake: running out of credit does not stop the box, it charges the
+card. One run here finished in ~2h and idled ~16h afterwards, costing $2.63 and
+exhausting the account.
+
 ## Destroy it when done
 
 ```bash
