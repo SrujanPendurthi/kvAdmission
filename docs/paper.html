@@ -48,20 +48,21 @@ ol{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;
 <header>
   <div class="eyebrow"><span>Draft</span><span>29 Aug 2026</span><span>Qwen3-1.7B · 228 middle-band trials</span></div>
   <h1>The Mid-Context Dead Zone in KV Cache Compression</h1>
-  <p class="standfirst">Compression methods partition long context by positional bias rather than utility. Every method tested recovers one end of the stream or the other, and none recovers the middle.</p>
+  <p class="standfirst">Compression methods partition long context by positional bias rather than utility. Every method tested recovers one end of the stream or the other, and none recovers the middle — yet an oracle told what to keep recovers all of it, at the same budget.</p>
 </header>
 
 <div class="abstract">
   <div class="label">Abstract</div>
   <p>KV cache compression is evaluated on aggregate accuracy at a budget, which hides <em>where</em> a method succeeds. Measuring recall against distance from the query, we find recency methods recover only the near field, attention-accumulation methods only the far field, and no method at any budget recovers the middle. Across <strong>228 middle-band trials</strong> spanning four heuristics, three learned policies, four budgets and five seeds: <strong>zero successes</strong>, while an uncompressed cache answers 100% of the same queries.</p>
-  <p>We give a mechanism — survival under repeated compression decays geometrically with distance, making recency emergent rather than chosen — and report three failed attempts to train past it, arguing the dead zone may be intrinsic to fixed-budget streaming compression.</p>
+  <p>We give a mechanism — survival under repeated compression decays geometrically with distance, making recency emergent rather than chosen — and report three failed attempts to train past it.</p>
+  <p>An <strong>oracle retention</strong> control, identical in budget and eviction geometry but told which tokens carry the answers, scores <strong>40/40 in every band</strong>. The dead zone is therefore not a capacity limit: a 2048-token cache holding the right tokens answers everything. The failure is <strong>observability</strong> — nothing available at write time identifies which tokens will matter.</p>
 </div>
 
 <div class="stats">
   <div class="stat"><div class="n">0/228</div><div class="k">Middle-band hits, every policy tested</div></div>
   <div class="stat"><div class="n">≤1.3%</div><div class="k">95% upper bound on true rate</div></div>
   <div class="stat"><div class="n">1.00</div><div class="k">Uncompressed cache, all bands</div></div>
-  <div class="stat"><div class="n">3</div><div class="k">Reward formulations, all converging to recency</div></div>
+  <div class="stat"><div class="n">40/40</div><div class="k">Oracle retention, same budget, all bands</div></div>
 </div>
 
 <hr class="rule">
@@ -121,13 +122,29 @@ ol{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;
       <tr><td>mixed 0.7/0.3</td><td class="num">0.71</td><td class="num zero">0.00</td><td class="num zero">0.00</td><td>= <code>recent</code></td></tr>
     </tbody>
   </table></div>
-  <p>The first drowns its own signal: long-dependency positions are ~1.5% of a stream and carry only <strong>14.9%</strong> of KL mass, so averaging hands 85% of the gradient to local prediction. The second, weighting positions by their own divergence, destabilised and collapsed to admitting nothing.</p>
-  <p>The third is the informative one. With the weighting fixed, an entropy bonus, and best-checkpoint retention, training was stable and the retained policy was <strong>better on the training objective</strong> than the first run (<code>kl_raw</code> 0.103 vs 0.121). Its behaviour was nevertheless identical to a recency window.</p>
+  <p>The first drowns its own signal: long-dependency positions are ~1.5% of a stream and carry only <strong>14.9%</strong> of KL mass, so averaging hands 85% of the gradient to local prediction. The second, weighting positions by their own divergence, destabilised and collapsed to admitting nothing. The third fixed both — stable training, best checkpoint <em>better on the training objective</em> than the first (<code>kl_raw</code> 0.103 vs 0.121) — and was still behaviourally identical to a recency window.</p>
+</section>
+
+<section>
+  <h2>The oracle: it is observability, not geometry</h2>
+  <p>Three rewards landing on recency admits two explanations. Either the dead zone is intrinsic to fixed-budget streaming compression, or the information is retainable and nothing at write time identifies what to retain. One control separates them.</p>
+  <p><strong>Oracle retention</strong> uses the identical budget, chunking, sink prefix, FIFO eviction and evaluation harness. One thing changes: the policy is told which spans carry the answers, scores them astronomically, and ranks everything else by recency.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>policy</th><th>near</th><th>middle</th><th>far</th></tr></thead>
+    <tbody>
+      <tr><td>best heuristic (B=2048)</td><td class="num">0.71</td><td class="num zero">0.00</td><td class="num far">0.57</td></tr>
+      <tr><td>best learned policy</td><td class="num">0.71</td><td class="num zero">0.00</td><td class="num zero">0.00</td></tr>
+      <tr><td><strong>oracle retention</strong></td><td class="num hit">1.00</td><td class="num hit">1.00</td><td class="num hit">1.00</td></tr>
+      <tr><td><code>full</code> (no compression)</td><td class="num">1.00</td><td class="num">1.00</td><td class="num">1.00</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>The oracle matches the uncompressed cache exactly, at a quarter of the context, on every seed.</strong> Nothing about the budget, chunking, FIFO eviction or geometric survival prevents mid-context recall. The dead zone is not intrinsic.</p>
   <div class="note">
-    <div class="label">The interpretation this forces</div>
-    <p>A policy can measurably improve at matching the full-cache distribution while remaining behaviourally indistinguishable from keeping the most recent B tokens. Three reward formulations; every one that trains stably lands on recency.</p>
-    <p>At B=2048 a token at d=4000 must survive ~31 consecutive eviction rounds. Protecting it requires a write-time decision — made before any query exists — that outweighs 31 rounds of competition from tokens with immediate predictive value. If no admission-time signal carries that information, no reward over admission-time decisions can recover it. The failure would be <strong>observability, not optimization</strong>.</p>
+    <div class="label">What this makes of the training failures</div>
+    <p>They were not optimization failures. They were policies asked to predict, from write-time features alone, something the write-time input does not determine. A token's utility is fixed by a query that has not arrived and is not inferable from the token, its hidden state, its key norm, or its local attention.</p>
+    <p>The policies converged to recency because <strong>recency is optimal under that information constraint</strong> — when nothing distinguishes which distant token will matter, keeping the nearest maximises expected utility. The geometric decay of §4 is not a wall; it is the default any <em>uninformed</em> policy falls toward.</p>
   </div>
+  <p>The consequence for method design is sharp. Reward shaping, credit assignment and optimizer stability at the admission decision are the wrong lever — those were the three things we tried. What is needed is signal write-time features lack: <strong>query-aware admission</strong>, <strong>deferred or revisable decisions</strong>, or a learned proxy for future queryability if one exists.</p>
 </section>
 
 <hr class="rule">
@@ -136,7 +153,8 @@ ol{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;
   <h2>What would settle it</h2>
   <ol>
     <li><strong>Replicate on a second model and a real benchmark.</strong> Highest value, cheap, and the paper does not survive a failure to replicate.</li>
-    <li><strong>An oracle admission experiment.</strong> Give the policy the query at write time. If oracle admission recovers the middle band, the dead zone is an observability problem. If even an oracle fails, the limitation is the budget geometry itself. This single experiment distinguishes the two hypotheses and should be run before anything else.</li>
+    <li><strong>Query-aware admission.</strong> The oracle shows the capacity exists at B=2048; the question is how much of that gap a policy closes when it may consult the query at write time, converting an unanswerable prediction problem into a retrieval one.</li>
+    <li><strong>Partial-oracle ablation.</strong> Degrade the oracle — noisy spans, partial coverage, delayed knowledge — to measure how much signal is actually required, bounding how good a learned proxy would need to be.</li>
     <li><strong>Finer distance resolution</strong>, to locate the boundary rather than assume a tercile.</li>
   </ol>
 </section>
@@ -144,7 +162,8 @@ ol{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;
 <section>
   <h2>Limitations</h2>
   <div class="foot">
-    <p>One model (Qwen3-1.7B) and one task family. Synthetic verbatim needle retrieval is the easiest possible case for a cache and the least like real long-context work; exact substring match scores a paraphrase as a miss. H2O and SnapKV are simplified reimplementations scored at token granularity, so absolute numbers are not comparable to published ones. "Middle" spans d≈2731–5461 — coarse. The intrinsic-limitation argument rests on three training runs with no hyperparameter search; a better-designed policy may yet succeed. All results assume FIFO eviction with a fixed per-layer budget and a decision shared across layers, the last forced by a single global attention mask.</p>
+    <p>An earlier version of this draft argued the dead zone was probably intrinsic, on the strength of the three training failures. The oracle refutes that, and the error is recorded because the reasoning is a natural one to repeat: three failures under related objectives are weak evidence about a hypothesis space, while one control is decisive.</p>
+    <p>One model (Qwen3-1.7B) and one task family. Synthetic verbatim needle retrieval is the easiest possible case for a cache and the least like real long-context work; exact substring match scores a paraphrase as a miss. H2O and SnapKV are simplified reimplementations scored at token granularity, so absolute numbers are not comparable to published ones. "Middle" spans d≈2731–5461 — coarse. The intrinsic-limitation argument rests on three training runs with no hyperparameter search; a better-designed policy may yet succeed — indeed the oracle proves one can, though it requires knowing the answers in advance and so establishes capacity rather than a method. All results assume FIFO eviction with a fixed per-layer budget and a decision shared across layers, the last forced by a single global attention mask.</p>
     <p>What is new here is the measurement, not the method. Write-time admission with a frozen backbone, RL for cache eviction, and Lagrangian KV allocation all exist in prior work; we are not aware of prior work reporting recall by distance-band.</p>
   </div>
 </section>
