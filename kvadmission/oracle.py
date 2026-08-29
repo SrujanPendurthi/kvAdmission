@@ -36,23 +36,38 @@ def needle_spans(tok, needles):
     return spans
 
 
-def make_oracle_decider(spans, budget, n_layers, sinks=4, device="cpu"):
+def make_oracle_decider(spans, budget, n_layers, sinks=4, device="cpu",
+                        coverage=1.0, fp_rate=0.0, seed=0):
     """A decider that pins needle tokens and ranks the rest by recency.
+
+    `coverage` and `fp_rate` degrade the oracle into a proxy of measurable
+    quality, which is how we bound what a learned signal would need to achieve:
+
+      coverage - probability a true needle token is flagged (the proxy's recall)
+      fp_rate  - probability a non-needle token is falsely flagged (1 - precision)
+
+    coverage=1.0, fp_rate=0.0 is the perfect oracle. Note that false positives
+    compete for the same budget as true ones, so a high fp_rate crowds the very
+    tokens the flag was meant to protect.
 
     The flag tensor is extended once per chunk and trimmed only after the LAST
     layer is evicted. Trimming after layer 0 would leave it misaligned with
     layers 1..n-1, which still hold the pre-eviction token count.
     """
     state = {"flag": None, "seen": 0, "surviving": None}
+    gen = torch.Generator().manual_seed(seed)
 
     def decide(layer_idx, cache, attentions, n_new):
         if layer_idx == 0:
             start = state["seen"]
             new = torch.zeros(n_new, dtype=torch.bool)
+            noise = torch.rand(n_new, generator=gen)
             for i in range(n_new):
                 p = start + i
                 if any(a <= p < b for a, b in spans):
-                    new[i] = True
+                    new[i] = noise[i] < coverage      # proxy may miss it
+                else:
+                    new[i] = noise[i] < fp_rate       # proxy may falsely flag it
             state["flag"] = (new if state["flag"] is None
                              else torch.cat([state["flag"], new]))
             state["seen"] = start + n_new

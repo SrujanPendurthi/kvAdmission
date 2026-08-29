@@ -1,0 +1,90 @@
+[
+ {
+  "policy": "cov1.0_fp0.0",
+  "coverage": 1.0,
+  "fp_rate": 0.0,
+  "budget": 2048,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": true
+ },
+ {
+  "policy": "cov1.0_fp0.0",
+  "coverage": 1.0,
+  "fp_rate": 0.0,
+  "budget": 2048,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": true
+ },
+ {
+  "policy": "cov1.0_fp0.0",
+  "coverage": 1.0,
+  "fp_rate": 0.0,
+  "budget": 2048,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": true
+ },
+ {
+  "policy": "cov1.0_fp0.0",
+  "coverage": 1.0,
+  "fp_rate": 0.0,
+  "budget": 2048,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": true
+ },
+ {
+  "policy": "cov1.0_fp0.0",
+  "coverage": 1.0,
+  "fp_rate": 0.0,
+  "budget": 2048,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": true
+ },
+ {
+  "policy": "cov1.0_fp0.0",
+  "coverage": 1.0,
+  "fp_rate": 0.0,
+  "budget": 2048,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": true
+ },
+ {
+  "policy": "cov1.0_fp0.0",
+  "coverage": 1.0,
+  "fp_rate": 0.0,
+  "budget": 2048,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": true
+ },
+ {
+  "policy": "cov1.0_fp0.0",
+  "coverage": 1.0,
+  "fp_rate": 0.0,
+  "budget": 2048,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true
+ }
+]
