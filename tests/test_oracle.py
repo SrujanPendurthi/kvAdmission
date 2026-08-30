@@ -129,3 +129,19 @@ def test_dilation_is_monotone_in_runs_and_tokens():
         assert runs <= prev_runs      # merging never increases run count
         assert tokens >= prev_tokens  # widening never retains fewer tokens
         prev_runs, prev_tokens = runs, tokens
+
+
+def test_matched_token_budget_gives_run_count_equal_to_k():
+    # the fragment-count experiment's core invariant: varying k must change the
+    # number of runs and leave the flagged token total alone, or it is
+    # measuring window width again instead of gap count
+    from kvadmission.oracle import dilate_spans, span_stats
+    base = [(1000 * i + 100, 1000 * i + 116) for i in range(8)]
+    target = 1600
+    for k in (8, 4, 2, 1):
+        chosen = base[:k]
+        base_tokens = sum(b - a for a, b in chosen)
+        r = max(0, round((target - base_tokens) / (2 * k)))
+        runs, flagged = span_stats(dilate_spans(chosen, r, 8192))
+        assert runs == k, f"k={k} gave {runs} runs"
+        assert abs(flagged - target) <= 0.1 * target, f"k={k} flagged {flagged}"
