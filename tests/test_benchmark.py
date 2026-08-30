@@ -95,3 +95,13 @@ def test_hit_is_containment_not_an_f1_threshold():
     f1, em = score("the armies would divert certain rivers to cut supply",
                    ["rivers"])
     assert em == 1.0 and f1 < 0.5
+
+
+def test_oracle_decider_returns_a_callable_and_a_flag():
+    # run_benchmark.py assigned the whole tuple to `decide` and died with
+    # "'tuple' object is not callable" one cell into a paid GPU run
+    from kvadmission.oracle import make_oracle_decider
+    decide, need_attn = make_oracle_decider(
+        [(10, 20), (40, 55)], budget=64, n_layers=2, sinks=4, device="cpu")
+    assert callable(decide)
+    assert isinstance(need_attn, bool)

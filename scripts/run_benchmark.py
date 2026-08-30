@@ -44,10 +44,10 @@ for seed in range(a.seeds):
     ids, items = build_qa_stream(tok, a.items, a.length, seed=seed)
     for policy, budget in cells:
         if policy == "oracle":
-            decide = make_oracle_decider(qa_spans(items), budget=budget,
-                                         n_layers=n_layers, sinks=4,
-                                         device=device)
-            need_attn = False
+            # make_oracle_decider returns (decide, need_attn) like make_decider
+            decide, need_attn = make_oracle_decider(
+                qa_spans(items), budget=budget, n_layers=n_layers,
+                sinks=4, device=device)
         else:
             decide, need_attn = make_decider(policy, budget=budget, sinks=4,
                                              seed=seed, chunk=a.chunk)
