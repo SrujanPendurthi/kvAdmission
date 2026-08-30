@@ -1,20 +1,20 @@
 # The Mid-Context Dead Zone in KV Cache Compression
 
-**Draft — 2026-08-29. Workshop-length. Not submission-ready: see §8.**
+**Draft — 2026-08-30. Workshop-length. Not submission-ready: see §8.**
 
-*Revised after the oracle retention control (§7) refuted this draft's earlier claim that the dead zone was intrinsic.*
+*Revised twice. The oracle retention control (§7) refuted this draft's earlier claim that the dead zone was intrinsic. A fine-resolution distance sweep (§4) then refuted its stated mechanism, and a second-model replication (§3, §7) narrowed the oracle claim.*
 
 ---
 
 ## Abstract
 
-KV cache compression is evaluated on aggregate accuracy at a given budget, which hides *where* in the context a method succeeds. We measure recall as a function of distance from the query and find that published heuristics partition the context by positional bias rather than utility: recency methods recover only the near field, attention-accumulation methods only the far field, and **no method at any budget recovers the middle**. Across **228 middle-band trials** spanning four heuristics, three learned policies, four budgets and five seeds, we observe **zero successes** (95% upper bound 1.3%), while an uncompressed cache answers 100% of the same queries.
+KV cache compression is evaluated on aggregate accuracy at a given budget, which hides *where* in the context a method succeeds. We measure recall as a function of distance from the query and find that published heuristics partition the context by positional bias rather than utility: recency methods recover only the near field, attention-accumulation methods only the far field, and **no method at any budget recovers the middle**. Across **284 middle-band trials** spanning two models, five heuristics, three learned policies, four budgets and five seeds, we observe **zero successes** (95% upper bound 1.1%), while an uncompressed cache answers 100% of the same queries.
 
-We give a mechanism. Under repeated compression the cache is capped at `B + chunk`, so a token at distance `d` must survive `d/chunk` independent eviction rounds and survives with probability `(B/(B+chunk))^(d/chunk)`. This predicts the observed cutoff for random admission quantitatively, and implies that **recency is emergent rather than chosen**: any policy that does not actively protect distant tokens converges to it for free.
+We give a mechanism. Under admission at rate `p` followed by FIFO eviction to budget `B`, the cache is a contiguous window over the most recent `B/p` positions, so recall is a **step function with a hard horizon at `d = B/p`** — beyond it, retention is exactly zero rather than merely unlikely. A 256-token-resolution sweep confirms the step for both recency and rate-matched random admission. This implies **recency is emergent rather than chosen**: any policy that does not actively protect distant tokens converges to it for free.
 
-We then attempt to train past the dead zone with a learned admission policy under three reward formulations. All three fail: two converge to behaviour indistinguishable from a recency window despite measurably improving on their own objective, and one destabilises.
+We then attempt to train past the dead zone with a learned admission policy under three reward formulations. All three fail: two converge to behaviour indistinguishable from a recency window despite measurably improving on their own objective, and one destabilises. A query-aware policy that may consult the pending queries at write time also scores zero in the middle band.
 
-Finally we run an **oracle retention** control — the same budget, chunking, eviction geometry and evaluation, but the policy is told which tokens carry the answers. The oracle scores **40/40, perfect recall in every band**. The dead zone is therefore **not** a capacity or geometry limit: a 2048-token cache holding the right 2048 tokens answers every query the uncompressed cache does. The failure is one of **observability** — no signal available at write time identifies which tokens will matter.
+Finally we run an **oracle retention** control — the same budget, chunking, eviction geometry and evaluation, but the policy is told which tokens carry the answers. On Qwen3-1.7B the oracle scores **40/40, perfect recall in every band**, matching the uncompressed cache at a quarter of the context. The dead zone is therefore **not** a capacity or geometry limit on that model; the failure is one of **observability**. On SmolLM2-1.7B the same oracle recovers only 12/24, so how fully the capacity can be exploited is **model-dependent** — a result we did not anticipate and cannot yet explain.
 
 ## 1. Motivation
 
@@ -24,10 +24,10 @@ That metric cannot distinguish a method that retains information uniformly from 
 
 ## 2. Setup
 
-- **Model.** Qwen3-1.7B, bf16, frozen throughout. No model weights are trained anywhere in this work.
+- **Models.** Qwen3-1.7B (primary) and SmolLM2-1.7B-Instruct (replication), bf16, frozen throughout. No model weights are trained anywhere in this work.
 - **Streams.** 8192 tokens of prose with eight facts of the form `The secret code for <topic> is <6 digits>` at evenly spaced anchors with per-seed jitter, each queried from the end of the stream.
 - **Compression.** Chunked prefill at 128 tokens; after each chunk the cache is compressed to budget `B` per layer, first four tokens pinned as attention sinks. Budgets 256/512/1024/2048.
-- **Policies.** `full` (ceiling), `recent`, `h2o`, `snapkv`, `random` at matched budget.
+- **Policies.** `full` (ceiling), `recent`, `h2o`, `snapkv`, `random` at matched budget, plus a query-aware policy (§7.3) and an oracle (§7).
 - **Metric.** Exact substring match of the code in 24 greedily decoded tokens, grouped into near/middle/far terciles of distance-back. Zero-hit cells report a rule-of-three upper bound rather than a standard error, which is zero and misleadingly tight.
 
 Harness correctness rests on an identity test: at unbounded budget, logits are **bit-identical** to a stock `DynamicCache` under the same chunking, verified independently on MPS and CUDA. Positions are always passed explicitly, since compression makes cache length diverge from stream position — a silent corruption otherwise.
@@ -53,25 +53,53 @@ Per-policy at B=2048 — a quarter of the stream:
 
 `recent` and `h2o` are exact complements: each scores strongly in one band and **exactly zero** in the other, and neither reaches the middle. H2O's accumulated-attention sum favours tokens visible to the most query rows — the oldest — so it inverts recency rather than improving on it. Neither bias tracks whether a token is useful.
 
-## 4. Mechanism: recency is emergent
+### 3.1 Replication on a second model
 
-`random` admission scored identically to `recent` at every budget. This is not noise; it follows from repeated compression.
+The same sweep on SmolLM2-1.7B-Instruct, 3 seeds × 8 needles × 2 budgets:
 
-Because compression runs every chunk, the cache never exceeds `B + chunk`, so each round discards only `chunk` of `B + chunk` tokens — retention per round is `B/(B+chunk)`, not `B/L`. A token at distance `d` faces `d/chunk` rounds:
+| policy | B | near | middle | far |
+|---|---|---|---|---|
+| `full` | 8192 | 9/9 | **7/7** | 7/8 |
+| `recent` | 2048 | 6/9 | **0/7** | 0/8 |
+| `random` | 2048 | 4/9 | **0/7** | 0/8 |
+| `snapkv` | 2048 | 3/9 | **0/7** | 0/8 |
+| `h2o` | 2048 | 0/9 | **0/7** | 0/8 |
+| all four | 512 | 3/36 | **0/28** | 0/32 |
 
-> **P(survive) = ( B / (B + chunk) )^(d / chunk)**
+**0/56 middle-band hits across every compressed cell** (95% upper 5.4%) against an uncompressed ceiling of 7/7. The dead zone is not a Qwen artifact.
 
-At B=2048, chunk=128 this is `0.941^(d/128)`. Against observed `random` recall:
+One difference: `h2o` scores 0/8 in the far band here, against 8/14 on Qwen. SmolLM2's attention mass is distributed differently enough that accumulated-attention scoring does not reliably hold the opening of the stream. It rescues the middle on neither model.
 
-| band | d range | predicted | observed |
-|---|---|---|---|
-| near | 303–2615 | 0.527 | 0.50 |
-| middle | 2778–5290 | 0.157 | 0.00 |
-| far | 5719–7873 | 0.043 | 0.00 |
+## 4. Mechanism: a hard horizon, not a slope
 
-The near band is predicted almost exactly; the model over-predicts the middle, and a multi-token span model errs the other way, so the truth lies between and depends on tokenisation.
+`random` admission scored identically to `recent` at every budget. This is not noise; it follows from the geometry of repeated compression, and a fine-resolution sweep pins down the form.
 
-The qualitative claim is robust: **survival decays geometrically with distance, so any policy that does not actively protect distant tokens degenerates into recency.** Compression is less a ranking problem than a rescue problem — the policy must counteract an exponential already in progress.
+We planted 16 needles per stream over 4 seeds at B=2048, chunk=128, and binned recall at 256-token resolution rather than in terciles:
+
+| policy | d < 2048 | d ≥ 2048 |
+|---|---|---|
+| `recent` | **16/16** | **0/48** |
+| `random` | 13/16 | **0/48** |
+| `h2o` | 0/16 | 10/48 — all at d > 6600 |
+
+Bin by bin, `recent` scores 1.00 in every bin below 2048 and 0.00 in every bin above. **This is a step function at `d = B`.**
+
+Under admission at rate `p` followed by FIFO eviction to budget `B`, occupancy saturates at `B` and the cache becomes a contiguous window over the most recent `B/p` raw positions, thinned to density `p`:
+
+> **P(token at distance `d` is resident) = `p` if `d < B/p`, else 0**
+
+| policy | p | predicted horizon | predicted plateau | observed |
+|---|---|---|---|---|
+| `recent` | 1.000 | 2048 | 1.00 | horizon in (2048, 2304]; plateau 16/16 |
+| `random` | 0.941 | 2176 | 0.94 single token, 0.69 for a 6-token span | horizon in (2048, 2304]; plateau 13/16 = 0.81 |
+
+`recent` is predicted exactly. `random`'s plateau falls between the single-token and whole-span predictions, which is where a partially-redundant span should land. The 256-token bins cannot separate a horizon of 2048 from one of 2176. The law makes a further prediction we have not tested: **halving the admit rate should double the horizon and halve the plateau.**
+
+> **Correction.** An earlier draft modelled survival as `(B/(B+chunk))^(d/chunk)` — a token surviving `d/chunk` independent rounds. That is the law for *random* eviction. FIFO does not thin the cache uniformly; it removes the oldest deterministically, so the rounds are not independent. The geometric law predicts `random` survival of 0.38 at `d`=2048 and 0.16 in the middle band, against an observed 0/48 for every `d` ≥ 2048. Its apparent fit came from tercile bands that straddled the horizon, and band-level averaging hid a step. We record the error because coarse banding concealing a sharp transition is a general hazard in this measurement.
+
+The correction strengthens the qualitative claim. It is not that distant tokens are unlikely to survive — **beyond the horizon they survive with probability exactly zero**, so any policy that does not explicitly protect a token past `B/p` loses it with certainty. The middle band lies entirely beyond the horizon at every budget tested; that is the dead zone in one line. Compression is not a ranking problem but a rescue problem.
+
+`h2o` has a horizon at the opposite end: its 10 hits all fall at `d > 6600`, a window roughly 1300 tokens wide anchored to the *start* of the stream, because accumulated attention concentrates on the earliest tokens. Two policies, two windows, neither covering the middle.
 
 ## 5. Independent corroboration
 
@@ -122,17 +150,33 @@ We ran the control that separates them. **Oracle retention** uses the identical 
 | **oracle retention** | **1.00** | **1.00** | **1.00** | **40/40** |
 | `full` (no compression) | 1.00 | 1.00 | 1.00 | — |
 
-**The oracle matches the uncompressed cache exactly, at a quarter of the context, on every seed.**
+**On Qwen3-1.7B the oracle matches the uncompressed cache exactly, at a quarter of the context, on every seed.**
 
-This settles it. Nothing about the budget, the chunking, FIFO eviction, or geometric survival prevents mid-context recall. A 2048-token cache holding the *right* 2048 tokens answers every query. **The dead zone is not intrinsic to fixed-budget streaming compression.**
+Nothing about the budget, the chunking, or FIFO eviction prevents mid-context recall. A 2048-token cache holding the *right* 2048 tokens answers every query. **The dead zone is not intrinsic to fixed-budget streaming compression.**
 
-> An earlier version of this draft argued the opposite — that the dead zone was probably intrinsic, on the strength of three training failures. That inference was wrong, and the oracle is what refutes it. Three failures under related objectives are weak evidence about a hypothesis space; one control is decisive. We record the error because the reasoning that produced it is a natural one to repeat.
+### 7.1 The ceiling is model-dependent
+
+The same oracle on SmolLM2-1.7B-Instruct does not replicate that result:
+
+| | near | middle | far | total |
+|---|---|---|---|---|
+| `full` (uncompressed) | 9/9 | 7/7 | 7/8 | 23/24 |
+| **oracle B=2048** | **9/9** | **2/7** | **1/8** | **12/24** |
+| `recent` B=2048 | 6/9 | 0/7 | 0/8 | 6/24 |
+
+The oracle doubles `recent`'s total and produces the first non-zero middle-band cell any policy has reached on this model — but it recovers half the trials, not all of them, against an uncompressed ceiling of 23/24.
+
+The pattern is specific: the oracle is perfect exactly where retention coincides with contiguous recency (near, 9/9) and poor wherever it depends on the flag (middle 2/7, far 1/8). Our leading hypothesis is **contiguity**: the oracle's cache is spliced — answer spans from position ~2000 adjacent to recency fill from ~7000, with a gap in position indices — and Qwen3 reads a spliced cache where SmolLM2 does not. This is fitted to three seeds and is untested; the direct control is an oracle retaining a *contiguous block* of equal size at equal distance, which we have not run.
+
+**The honest statement is narrower than this section's opening.** What replicates across both models is that the budget is not the binding constraint: the oracle beats every heuristic at the same budget on both. What does not replicate is that the full uncompressed ceiling is reachable. Whether a model can exploit a non-contiguous retained set is a variable no prior work in this line varies, and on this evidence it matters.
+
+> An earlier version of this draft argued the opposite — that the dead zone was probably intrinsic, on the strength of three training failures. That inference was wrong, and the oracle refutes it on both models: at the same budget the oracle beats every heuristic, and on Qwen it reaches the uncompressed ceiling. Three failures under related objectives are weak evidence about a hypothesis space, and a control that changes exactly one variable is worth more than all three. We record the error because the reasoning that produced it is a natural one to repeat — and note that §7.1 is the same lesson applied to the control itself, which we had also treated as settled after one model.
 
 **What this makes of §6.** The three training failures were not optimization failures. They were policies asked to predict, from write-time features alone, something the write-time input does not determine. A token's utility here is fixed by a query that has not arrived and is not inferable from the token, its hidden state, its key norm, or its local attention. The learned policies converged to recency because **recency is the optimal policy under that information constraint** — when nothing distinguishes which distant token will matter, keeping the nearest ones maximises expected utility.
 
-This reframes the geometric-survival mechanism of §4. It is not a wall; it is the default that any *uninformed* policy decays toward. The exponential is escapable, but only with information that write-time features do not carry.
+This reframes the horizon of §4. It is not a wall; it is the default that any *uninformed* policy collapses onto. The horizon is escapable — the oracle steps past it — but only with information that write-time features do not carry.
 
-### 7.1 How good must a proxy be?
+### 7.2 How good must a proxy be?
 
 The oracle establishes that the capacity exists. Degrading it along two axes measures what a realisable signal would need to achieve. `coverage` is the proxy's recall over answer tokens; `fp_rate` is its false-positive rate over everything else.
 
@@ -169,26 +213,45 @@ This also explains the trained policies more precisely than §6 does on its own.
 - **Deferred or revisable decisions** — a second pass, or re-admission from a cheaper store, so utility can be assessed after it is revealed
 - **Learned proxies for future queryability** trained across many query distributions, if such a signal exists at all — which the oracle shows is the open empirical question, not whether the capacity exists
 
+### 7.3 Query-aware admission: knowing the question is not enough
+
+§7.2's specification asks for a signal that identifies answer tokens at write time. The most obvious candidate is the query itself. We tested a **query-aware** policy that scores each token by maximum cosine similarity between its representation and a pooled embedding of the pending queries. This is already a semi-oracle — a streaming policy would not hold the queries at write time — so it is an upper bound on what write-time query access buys.
+
+| policy | B | near | middle | far |
+|---|---|---|---|---|
+| query-aware | 2048 | 0/14 | **0/12** | 5/14 |
+| query-aware | 512 | 0/14 | **0/12** | 0/14 |
+| `recent` (reference) | 2048 | 10/14 | 0/12 | 0/14 |
+| oracle (reference) | 2048 | 1.00 | **1.00** | 1.00 |
+
+**Zero in the middle band at both budgets**, and it forfeits the near band that recency gets for free, inverting into a far-band bias like `h2o`.
+
+This failure is informative because of where it sits. Query-aware admission has strictly more information than the heuristics and strictly less than the oracle, and it lands on the heuristic side of the gap. **The information the oracle holds is not "what is being asked" but "which tokens answer it,"** and embedding similarity does not recover the second from the first.
+
+An earlier version of this section recommended query-aware admission first, on the reasoning that it "converts an unanswerable prediction problem into a retrieval one." That framing survives; the cheap instantiation of it does not. A retrieval index over evicted tokens is a materially different mechanism from cosine reranking at write time, and remains open — but write-time query access is not, on its own, the missing ingredient.
+
 ## 8. Limitations
 
-Substantial. We do not consider this submission-ready without at least the first two.
+Substantial. We do not consider this submission-ready without the first item.
 
-- **One model.** Qwen3-1.7B only. The dead zone may be a small-model artifact.
-- **One task family.** Synthetic verbatim needle retrieval is the easiest case for a cache and least like real long-context work; exact substring match scores a paraphrase as a miss. Untested on RULER, LongBench-v2, or agent traces.
+- **One task family.** Synthetic verbatim needle retrieval is the easiest case for a cache and least like real long-context work; exact substring match scores a paraphrase as a miss. Untested on RULER, LongBench-v2, or agent traces. **This is now the only limitation with nothing measured against it.**
+- **Two models, one size class.** Qwen3-1.7B and SmolLM2-1.7B-Instruct. The dead zone replicates across both, but both are ~1.7B; it may still be a small-model artifact, and the oracle result already differs between them.
+- **The oracle ceiling does not replicate.** §7.1. We report a hypothesis (contiguity) we have not tested.
 - **Simplified baselines.** H2O and SnapKV are reimplementations scored at token granularity across all heads; absolute numbers are not comparable to published ones.
-- **Coarse banding.** "Middle" spans d≈2731–5461; a finer sweep would locate the boundary rather than assume a tercile.
-- **Three training runs, no hyperparameter search.** The claim is not that no policy can succeed — the oracle proves one can — but that these three did not, for a reason §7 identifies.
-- **The oracle is an upper bound, not a method.** It requires knowing the answers in advance. It establishes that the capacity exists; it says nothing about whether an implementable policy can find that signal.
-- **One architectural family.** All results assume FIFO eviction with a fixed per-layer budget and a decision shared across layers. Per-head or per-layer policies were not tested; the layer-sharing constraint was forced by the single global attention mask.
+- **Three training runs, no hyperparameter search.** The claim is not that no policy can succeed — the oracle shows one can on at least one model — but that these three did not, for a reason §7 identifies.
+- **The oracle is an upper bound, not a method.** It requires knowing the answers in advance.
+- **One query-aware instantiation.** Pooled last-hidden-state cosine. A negative result about one similarity function is weak evidence about query-aware admission generally.
+- **One architectural family.** FIFO eviction, fixed per-layer budget, decision shared across layers — forced by the single global attention mask. Per-head and per-layer policies untested.
+- **The horizon law is fitted on two admit rates.** `p`=1.0 and `p`=0.941 are close together; the prediction that halving `p` doubles the horizon is untested.
 
 ## 9. What comes next
 
-The oracle experiment that previously headed this list has been run; §7 reports it. What remains:
+Three of the four items previously listed here have been run: the second-model replication (§3.1), the finer distance sweep (§4, which corrected the mechanism), and query-aware admission (§7.3, which failed). What remains, in order of value:
 
-1. **Replicate on a second model and a real benchmark.** Highest value, cheap, and the paper does not survive a failure to replicate. Still the first thing to do.
-2. **Query-aware admission.** The oracle shows the capacity exists at B=2048. The natural next question is how much of that gap a policy closes when it may consult the query at write time — which converts an unanswerable prediction problem into a retrieval one.
-3. **Partial-oracle ablation.** Degrade the oracle — noisy spans, partial coverage, delayed knowledge — to measure how much signal is actually required. This bounds how good a learned proxy would need to be, and is cheap.
-4. **Finer distance resolution**, to locate the boundary rather than assume a tercile.
+1. **A real benchmark.** RULER or LongBench-v2. The only limitation with no measurement against it, and the paper does not survive a failure to reproduce the effect on a non-synthetic task.
+2. **The contiguity control.** An oracle retaining a contiguous block versus scattered spans, same size, same distance. Cheap, and it decides whether §7.1's model-dependence is about retained-set *shape* — which would be a finding in its own right.
+3. **Vary the admit rate.** One run at `p`=0.5 tests the horizon law's only untested prediction.
+4. **Retrieval over evicted tokens**, rather than write-time query scoring. §7.3 rules out the cheap version of query-awareness, not the direction.
 
 ## 10. Related work
 
@@ -198,4 +261,4 @@ The occupied cells around this work are worth stating precisely. Write-time admi
 
 ## Reproducibility
 
-Code, seeds, raw per-trial results and all three training histories: this repository. `docs/phase1-findings.md`, `docs/phase2-findings.md`, `docs/phase2b-findings.md` record each run including the errors made along the way. 86 tests, harness verified bit-identical against a stock cache on two backends.
+Code, seeds, raw per-trial results and all three training histories: this repository. `docs/phase1-findings.md`, `docs/phase2-findings.md`, `docs/phase2b-findings.md` and `docs/phase3-batch-findings.md` record each run including the errors made along the way. 100 tests, harness verified bit-identical against a stock cache on two backends.

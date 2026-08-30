@@ -1,0 +1,242 @@
+[
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7869,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": "<|im_end|>\n<|im_start|>assistant\nThe secret code for juniper"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6691,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for juniper is 334649.\n\nQuestion: What is t"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5289,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 726201.\n\nQuestion: What is the "
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4382,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 697785.<|im_end|>\n<|im_star"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3740,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": "<|im_end|>\n<|im_start|>assistant\nThe secret code for fathom "
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2406,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 565557.\n\nQuestion: What is t"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1674,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for pumice is 732340.\n\nQuestion: What is th"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 371,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for cobalt is 400919.\n\nQuestion: What is th"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7626,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 164153.<|im_end|>\n<|im_start|"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6754,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 175758.<|im_end|>\n<|im_start|"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5755,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 372853.<|im_end|>\n<|im_start|"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4363,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 179010.<|im_end|>\n<|im_start|>a"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3322,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 912675.<|im_end|>\n<|im_start|>a"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2383,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for meridian is 912675.<|im_end|>\n<|im_end|"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1505,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for sable is 617605.<|im_end|>\n<|im_start|>"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 527,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": "<|im_end|>\n<|im_start|>assistant\nThe secret code for bramble"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7679,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 945687\n\nQuestion: What is the secret code for plinth?\nAnswe"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6574,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 945687\n\nQuestion: What is the secret code for wren?\nAnswer:"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5816,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 414043.\n\nQuestion: What is the secret code for wren?\nAnswer"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4741,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 179566\n\nQuestion: What is the secret code for wren?\nAnswer:"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3305,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 179566\n\nQuestion: What is the secret code for marrow?\nAnswe"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2357,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": "<|im_end|>\n<|im_start|>assistant\nThe secret code for fathom "
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1723,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for marrow is 863091.\n\nQuestion: What is th"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 746,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 885392.\n\nQuestion: What is the secret code for plinth?\nAnsw"
+ }
+]

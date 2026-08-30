@@ -39,4 +39,10 @@ echo "  exit=$?"
 echo "ALL_DONE"
 sleep "${DRAIN_SECONDS:-900}"
 echo "== self-stopping =="
+# WARNING: this halts the CONTAINER, it does NOT stop vast.ai billing. The
+# instance stays rented and the meter runs until `vastai destroy instance <id>`
+# is issued from OUTSIDE the box. We deliberately do not put the API key here,
+# so this is a convenience, not a kill switch. Anything queued unattended needs
+# a local watchdog that polls for ALL_DONE and destroys the instance.
+# Two overruns so far ($2.63 and $2.15) were caused by trusting this line.
 poweroff 2>/dev/null || shutdown -h now 2>/dev/null || kill -TERM 1 2>/dev/null || kill -9 1

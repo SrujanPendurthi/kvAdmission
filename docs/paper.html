@@ -42,27 +42,36 @@ ul{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;
 li::marker{color:var(--muted)}
 ol{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;gap:9px}
 .foot{font-size:13.5px;color:var(--muted)}
+.curve{background:var(--surface);border:1px solid var(--line);padding:22px 24px 16px;display:flex;flex-direction:column;gap:18px;overflow-x:auto}
+.curve-row{display:flex;flex-direction:column;gap:6px;min-width:420px}
+.curve-lab{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+.bins{display:grid;grid-template-columns:repeat(32,1fr);gap:2px;height:34px;align-items:end}
+.bin{background:var(--cell-off);border-radius:1px;height:14%}
+.bin.on{background:var(--accent)}
+.bin.alt{background:var(--alt)}
+.axis{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--muted);letter-spacing:.06em}
+.horizon{position:relative;border-top:1px dashed var(--line);padding-top:8px;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--alt)}
 </style>
 
 <div class="wrap">
 <header>
-  <div class="eyebrow"><span>Draft</span><span>29 Aug 2026</span><span>Qwen3-1.7B · 228 middle-band trials</span></div>
+  <div class="eyebrow"><span>Draft</span><span>30 Aug 2026</span><span>2 models · 284 middle-band trials</span></div>
   <h1>The Mid-Context Dead Zone in KV Cache Compression</h1>
-  <p class="standfirst">Compression methods partition long context by positional bias rather than utility. Every method tested recovers one end of the stream or the other, and none recovers the middle — yet an oracle told what to keep recovers all of it, at the same budget.</p>
+  <p class="standfirst">Compression methods partition long context by positional bias rather than utility. Every method tested recovers one end of the stream or the other, and none recovers the middle — yet an oracle told what to keep recovers all of it, at the same budget, on one of the two models we tried.</p>
 </header>
 
 <div class="abstract">
   <div class="label">Abstract</div>
-  <p>KV cache compression is evaluated on aggregate accuracy at a budget, which hides <em>where</em> a method succeeds. Measuring recall against distance from the query, we find recency methods recover only the near field, attention-accumulation methods only the far field, and no method at any budget recovers the middle. Across <strong>228 middle-band trials</strong> spanning four heuristics, three learned policies, four budgets and five seeds: <strong>zero successes</strong>, while an uncompressed cache answers 100% of the same queries.</p>
-  <p>We give a mechanism — survival under repeated compression decays geometrically with distance, making recency emergent rather than chosen — and report three failed attempts to train past it.</p>
-  <p>An <strong>oracle retention</strong> control, identical in budget and eviction geometry but told which tokens carry the answers, scores <strong>40/40 in every band</strong>. The dead zone is therefore not a capacity limit: a 2048-token cache holding the right tokens answers everything. The failure is <strong>observability</strong> — nothing available at write time identifies which tokens will matter.</p>
+  <p>KV cache compression is evaluated on aggregate accuracy at a budget, which hides <em>where</em> a method succeeds. Measuring recall against distance from the query, we find recency methods recover only the near field, attention-accumulation methods only the far field, and no method at any budget recovers the middle. Across <strong>284 middle-band trials</strong> spanning two models, five heuristics, three learned policies, four budgets and five seeds: <strong>zero successes</strong>, while an uncompressed cache answers 100% of the same queries.</p>
+  <p>We give a mechanism. Admission at rate <code>p</code> followed by FIFO eviction to budget <code>B</code> leaves a contiguous window over the most recent <code>B/p</code> positions, so recall is a <strong>step function with a hard horizon</strong> — past it, retention is exactly zero rather than merely unlikely. Recency is therefore emergent, not chosen. Three attempts to train past it fail, as does a policy allowed to read the pending queries at write time.</p>
+  <p>An <strong>oracle retention</strong> control, identical in budget and eviction geometry but told which tokens carry the answers, scores <strong>40/40 in every band</strong> on Qwen3-1.7B. The dead zone is therefore not a capacity limit: a 2048-token cache holding the right tokens answers everything. The failure is <strong>observability</strong> — nothing available at write time identifies which tokens will matter. On SmolLM2-1.7B the same oracle recovers only 12/24, so how fully that capacity can be exploited is <strong>model-dependent</strong>, which we did not anticipate and cannot yet explain.</p>
 </div>
 
 <div class="stats">
-  <div class="stat"><div class="n">0/228</div><div class="k">Middle-band hits, every policy tested</div></div>
-  <div class="stat"><div class="n">≤1.3%</div><div class="k">95% upper bound on true rate</div></div>
-  <div class="stat"><div class="n">1.00</div><div class="k">Uncompressed cache, all bands</div></div>
-  <div class="stat"><div class="n">40/40</div><div class="k">Oracle retention, same budget, all bands</div></div>
+  <div class="stat"><div class="n">0/284</div><div class="k">Middle-band hits — 2 models, 6 policies, 4 budgets</div></div>
+  <div class="stat"><div class="n">≤1.1%</div><div class="k">95% upper bound on true rate</div></div>
+  <div class="stat"><div class="n">1.00</div><div class="k">Uncompressed cache, all bands, both models</div></div>
+  <div class="stat"><div class="n">40/40</div><div class="k">Oracle on Qwen3 — but 12/24 on SmolLM2</div></div>
 </div>
 
 <hr class="rule">
@@ -83,22 +92,61 @@ ol{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;
 </section>
 
 <section>
-  <h2>Why: recency is emergent, not chosen</h2>
-  <p>Compression runs every chunk, so the cache never exceeds <code>B + chunk</code> and each round discards only <code>chunk</code> of <code>B + chunk</code> tokens. A fact at distance <code>d</code> must survive <code>d/chunk</code> rounds:</p>
-  <div class="formula">P(survive) = ( B / (B + chunk) ) <sup>d / chunk</sup></div>
+  <h2>Why: a hard horizon, not a slope</h2>
+  <p>Sixteen facts per stream over four seeds, recall binned at 256-token resolution instead of in terciles. <code>recent</code> scores 1.00 in every bin inside 2048 and 0.00 in every bin outside it.</p>
+  <div class="curve">
+    <div class="curve-row">
+      <div class="curve-lab"><span>recent · B=2048</span><span>16/16 inside · 0/48 outside</span></div>
+      <div class="bins"><div class="bin on" style="height:100%"></div><div class="bin on" style="height:100%"></div><div class="bin on" style="height:100%"></div><div class="bin on" style="height:100%"></div><div class="bin on" style="height:100%"></div><div class="bin on" style="height:100%"></div><div class="bin on" style="height:100%"></div><div class="bin on" style="height:100%"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div></div>
+    </div>
+    <div class="curve-row">
+      <div class="curve-lab"><span>random · p=0.941</span><span>13/16 inside · 0/48 outside</span></div>
+      <div class="bins"><div class="bin on" style="height:50%"></div><div class="bin on" style="height:100%"></div><div class="bin on" style="height:100%"></div><div class="bin on" style="height:50%"></div><div class="bin on" style="height:67%"></div><div class="bin on" style="height:100%"></div><div class="bin on" style="height:100%"></div><div class="bin on" style="height:100%"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div></div>
+    </div>
+    <div class="curve-row">
+      <div class="curve-lab"><span>h2o · window anchored to the start</span><span>10/48 — all at d&nbsp;&gt;&nbsp;6600</span></div>
+      <div class="bins"><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin"></div><div class="bin alt" style="height:50%"></div><div class="bin"></div><div class="bin alt" style="height:100%"></div><div class="bin"></div><div class="bin alt" style="height:100%"></div><div class="bin alt" style="height:100%"></div></div>
+      <div class="axis"><span>d = 0 (query)</span><span>2048</span><span>4096</span><span>6144</span><span>8192 (start)</span></div>
+    </div>
+    <div class="horizon">Bar height = recall in a 256-token bin. Grey = zero. The transition at d = B is one bin wide.</div>
+  </div>
+  <p>Admission at rate <code>p</code> followed by FIFO eviction to budget <code>B</code> saturates occupancy at <code>B</code>, leaving a contiguous window over the most recent <code>B/p</code> raw positions, thinned to density <code>p</code>:</p>
+  <div class="formula">P(resident at distance d) = p&nbsp; if d &lt; B/p,&nbsp; else 0</div>
   <div class="tbl-wrap"><table>
-    <thead><tr><th>band</th><th>d range</th><th>predicted</th><th>observed</th></tr></thead>
+    <thead><tr><th>policy</th><th>p</th><th>predicted horizon</th><th>predicted plateau</th><th>observed plateau</th></tr></thead>
     <tbody>
-      <tr><td>near</td><td class="num">303–2615</td><td class="num">0.527</td><td class="num hit">0.50</td></tr>
-      <tr><td>middle</td><td class="num">2778–5290</td><td class="num">0.157</td><td class="num zero">0.00</td></tr>
-      <tr><td>far</td><td class="num">5719–7873</td><td class="num">0.043</td><td class="num zero">0.00</td></tr>
+      <tr><td><code>recent</code></td><td class="num">1.000</td><td class="num">2048</td><td class="num">1.00</td><td class="num hit">16/16 = 1.00</td></tr>
+      <tr><td><code>random</code></td><td class="num">0.941</td><td class="num">2176</td><td class="num">0.94 – 0.69</td><td class="num hit">13/16 = 0.81</td></tr>
     </tbody>
   </table></div>
-  <p><strong>Any policy that does not actively protect distant tokens degenerates into recency for free.</strong> Compression is less a ranking problem than a rescue problem — the policy must counteract an exponential already running. This is why random admission and a recency window are empirically indistinguishable.</p>
+  <p><code>recent</code> is predicted exactly; <code>random</code>'s plateau falls between the single-token prediction and the all-six-digits-survive prediction, where a partly-redundant span should land. The law makes one prediction we have not tested: <strong>halving the admit rate should double the horizon and halve the plateau.</strong></p>
+  <div class="note">
+    <div class="label">Correction to an earlier draft</div>
+    <p>This draft previously modelled survival as <code>(B/(B+chunk))<sup>d/chunk</sup></code> — a token surviving <code>d/chunk</code> independent rounds. That is the law for <em>random</em> eviction. FIFO does not thin the cache uniformly; it removes the oldest deterministically, so the rounds are not independent. The geometric law predicts 0.38 survival at d=2048 and 0.16 in the middle band, against an observed <strong>0/48 for every d ≥ 2048</strong>.</p>
+    <p>Its apparent fit came from tercile bands that straddled the horizon: band-level averaging hid a step. Coarse banding concealing a sharp transition is a general hazard in this measurement, and it caught us.</p>
+  </div>
+  <p>The correction sharpens the claim rather than weakening it. Distant tokens are not merely unlikely to survive — <strong>past the horizon they survive with probability exactly zero</strong>, so any policy that does not explicitly protect a token beyond <code>B/p</code> loses it with certainty. The middle band lies entirely outside the horizon at every budget tested. Compression is not a ranking problem but a rescue problem.</p>
 </section>
 
 <section>
-  <h2>Corroborated on a second measurement</h2>
+  <h2>It replicates on a second model</h2>
+  <p>The same sweep on SmolLM2-1.7B-Instruct — a different family, same size class.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>policy</th><th>B</th><th>near</th><th>middle</th><th>far</th></tr></thead>
+    <tbody>
+      <tr><td><code>full</code></td><td class="num">8192</td><td class="num">9/9</td><td class="num hit">7/7</td><td class="num">7/8</td></tr>
+      <tr><td><code>recent</code></td><td class="num">2048</td><td class="num">6/9</td><td class="num zero">0/7</td><td class="num zero">0/8</td></tr>
+      <tr><td><code>random</code></td><td class="num">2048</td><td class="num">4/9</td><td class="num zero">0/7</td><td class="num zero">0/8</td></tr>
+      <tr><td><code>snapkv</code></td><td class="num">2048</td><td class="num">3/9</td><td class="num zero">0/7</td><td class="num zero">0/8</td></tr>
+      <tr><td><code>h2o</code></td><td class="num">2048</td><td class="num zero">0/9</td><td class="num zero">0/7</td><td class="num zero">0/8</td></tr>
+      <tr><td>all four</td><td class="num">512</td><td class="num">3/36</td><td class="num zero">0/28</td><td class="num zero">0/32</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>0/56 middle-band hits across every compressed cell</strong>, against an uncompressed ceiling of 7/7. The dead zone is not a Qwen artifact. One difference: <code>h2o</code> scores 0/8 in the far band here against 8/14 on Qwen — SmolLM2's attention mass does not concentrate on the opening of the stream the same way. It rescues the middle on neither model.</p>
+</section>
+
+<section>
+  <h2>Corroborated on a third measurement</h2>
   <p>On Python source, comparing per-position <code>KL(p_full ‖ p_compressed)</code> at positions whose next token repeats an identifier last seen ≥2048 tokens earlier, against everywhere else:</p>
   <div class="tbl-wrap"><table>
     <thead><tr><th>budget</th><th>KL ratio</th><th>at long-dep</th><th>baseline</th></tr></thead>
@@ -138,7 +186,23 @@ ol{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;
       <tr><td><code>full</code> (no compression)</td><td class="num">1.00</td><td class="num">1.00</td><td class="num">1.00</td></tr>
     </tbody>
   </table></div>
-  <p><strong>The oracle matches the uncompressed cache exactly, at a quarter of the context, on every seed.</strong> Nothing about the budget, chunking, FIFO eviction or geometric survival prevents mid-context recall. The dead zone is not intrinsic.</p>
+  <p><strong>On Qwen3-1.7B the oracle matches the uncompressed cache exactly, at a quarter of the context, on every seed.</strong> Nothing about the budget, the chunking, or FIFO eviction prevents mid-context recall. The dead zone is not intrinsic.</p>
+  <h3 style="margin-top:22px">…but the ceiling is model-dependent</h3>
+  <p>The same oracle on SmolLM2-1.7B-Instruct does not reach it.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>policy</th><th>near</th><th>middle</th><th>far</th><th>total</th></tr></thead>
+    <tbody>
+      <tr><td><code>full</code> (uncompressed)</td><td class="num">9/9</td><td class="num">7/7</td><td class="num">7/8</td><td class="num">23/24</td></tr>
+      <tr><td><strong>oracle B=2048</strong></td><td class="num hit">9/9</td><td class="num far">2/7</td><td class="num far">1/8</td><td class="num">12/24</td></tr>
+      <tr><td><code>recent</code> B=2048</td><td class="num">6/9</td><td class="num zero">0/7</td><td class="num zero">0/8</td><td class="num">6/24</td></tr>
+    </tbody>
+  </table></div>
+  <p>The oracle doubles <code>recent</code>'s total and produces the first non-zero middle-band cell any policy has reached on this model — but recovers half the trials, not all. The pattern is specific: perfect where retention coincides with contiguous recency (near, 9/9), poor wherever it depends on the flag.</p>
+  <div class="note">
+    <div class="label">Leading hypothesis — untested</div>
+    <p><strong>Contiguity.</strong> The oracle's cache is spliced: answer spans from position ~2000 sit adjacent to recency fill from ~7000, with a gap in the position indices. Qwen3 appears to read a spliced cache; SmolLM2 appears not to, and degrades in exactly the pattern that predicts. This is fitted to three seeds. The direct control — an oracle keeping a <em>contiguous block</em> of equal size at equal distance — has not been run.</p>
+    <p>What replicates on both models is that the budget is not the binding constraint: the oracle beats every heuristic at the same budget on both. What does not replicate is that the uncompressed ceiling is reachable. Whether a model can exploit a non-contiguous retained set is a variable no prior work in this line varies, and on this evidence it matters.</p>
+  </div>
   <div class="note">
     <div class="label">What this makes of the training failures</div>
     <p>They were not optimization failures. They were policies asked to predict, from write-time features alone, something the write-time input does not determine. A token's utility is fixed by a query that has not arrived and is not inferable from the token, its hidden state, its key norm, or its local attention.</p>
@@ -171,23 +235,40 @@ ol{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;
   <p>The consequence for method design is sharp. Reward shaping, credit assignment and optimizer stability at the admission decision are the wrong lever — those were the three things we tried. What is needed is signal write-time features lack: <strong>query-aware admission</strong>, <strong>deferred or revisable decisions</strong>, or a learned proxy for future queryability if one exists.</p>
 </section>
 
+<section>
+  <h2>Knowing the question is not enough</h2>
+  <p>The proxy specification asks for a signal that identifies answer tokens at write time. The obvious candidate is the query itself. We tested a policy scoring each token by maximum cosine similarity to a pooled embedding of the pending queries — already a semi-oracle, since a streaming policy would not hold the queries yet, so this is an upper bound on what write-time query access buys.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>policy</th><th>B</th><th>near</th><th>middle</th><th>far</th></tr></thead>
+    <tbody>
+      <tr><td>query-aware</td><td class="num">2048</td><td class="num zero">0/14</td><td class="num zero">0/12</td><td class="num far">5/14</td></tr>
+      <tr><td>query-aware</td><td class="num">512</td><td class="num zero">0/14</td><td class="num zero">0/12</td><td class="num zero">0/14</td></tr>
+      <tr><td><code>recent</code> (reference)</td><td class="num">2048</td><td class="num">10/14</td><td class="num zero">0/12</td><td class="num zero">0/14</td></tr>
+      <tr><td>oracle (reference)</td><td class="num">2048</td><td class="num hit">1.00</td><td class="num hit">1.00</td><td class="num hit">1.00</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>Zero in the middle band at both budgets</strong>, and it forfeits the near band that recency gets for free, inverting into a far-band bias like <code>h2o</code>.</p>
+  <p>The failure is informative because of where it sits. Query-aware admission has strictly more information than the heuristics and strictly less than the oracle, and it lands on the heuristic side of the gap. <strong>What the oracle holds is not "what is being asked" but "which tokens answer it,"</strong> and embedding similarity does not recover the second from the first. An earlier version of this page recommended query-aware admission first. The framing survives; the cheap instantiation of it does not.</p>
+</section>
+
 <hr class="rule">
 
 <section>
   <h2>What would settle it</h2>
+  <p>Three of the four items previously listed here have been run: the second-model replication, the finer distance sweep (which corrected the mechanism), and query-aware admission (which failed). What remains:</p>
   <ol>
-    <li><strong>Replicate on a second model and a real benchmark.</strong> Highest value, cheap, and the paper does not survive a failure to replicate.</li>
-    <li><strong>Query-aware admission.</strong> The oracle shows the capacity exists at B=2048; the question is how much of that gap a policy closes when it may consult the query at write time, converting an unanswerable prediction problem into a retrieval one.</li>
-    <li><strong>Partial-oracle ablation.</strong> Degrade the oracle — noisy spans, partial coverage, delayed knowledge — to measure how much signal is actually required, bounding how good a learned proxy would need to be.</li>
-    <li><strong>Finer distance resolution</strong>, to locate the boundary rather than assume a tercile.</li>
+    <li><strong>A real benchmark.</strong> RULER or LongBench-v2. The only limitation with no measurement against it, and the result does not survive a failure to reproduce on a non-synthetic task.</li>
+    <li><strong>The contiguity control.</strong> An oracle keeping a contiguous block versus scattered spans — same size, same distance. Cheap, and it decides whether the model-dependence above is about the retained set's <em>shape</em>.</li>
+    <li><strong>Vary the admit rate.</strong> One run at p=0.5 tests the horizon law's only untested prediction.</li>
+    <li><strong>Retrieval over evicted tokens</strong>, rather than write-time query scoring. The cheap version of query-awareness is ruled out; the direction is not.</li>
   </ol>
 </section>
 
 <section>
   <h2>Limitations</h2>
   <div class="foot">
-    <p>An earlier version of this draft argued the dead zone was probably intrinsic, on the strength of the three training failures. The oracle refutes that, and the error is recorded because the reasoning is a natural one to repeat: three failures under related objectives are weak evidence about a hypothesis space, while one control is decisive.</p>
-    <p>One model (Qwen3-1.7B) and one task family. Synthetic verbatim needle retrieval is the easiest possible case for a cache and the least like real long-context work; exact substring match scores a paraphrase as a miss. H2O and SnapKV are simplified reimplementations scored at token granularity, so absolute numbers are not comparable to published ones. "Middle" spans d≈2731–5461 — coarse. The intrinsic-limitation argument rests on three training runs with no hyperparameter search; a better-designed policy may yet succeed — indeed the oracle proves one can, though it requires knowing the answers in advance and so establishes capacity rather than a method. All results assume FIFO eviction with a fixed per-layer budget and a decision shared across layers, the last forced by a single global attention mask.</p>
+    <p>An earlier version of this page argued the dead zone was probably intrinsic, on the strength of the three training failures. The oracle refutes that. The error is recorded because the reasoning is a natural one to repeat: three failures under related objectives are weak evidence about a hypothesis space, while a control changing one variable is worth more than all three. The model-dependence above is the same lesson applied to the control itself, which we had also treated as settled after one model.</p>
+    <p><strong>Two models, one size class</strong> (Qwen3-1.7B, SmolLM2-1.7B-Instruct) and <strong>one task family</strong>. Synthetic verbatim needle retrieval is the easiest possible case for a cache and the least like real long-context work; exact substring match scores a paraphrase as a miss. Untested on RULER, LongBench-v2 or agent traces — now the only limitation with nothing measured against it. The oracle ceiling does not replicate across the two models and we report a hypothesis we have not tested. H2O and SnapKV are simplified reimplementations scored at token granularity, so absolute numbers are not comparable to published ones. Three training runs, no hyperparameter search. The oracle requires knowing the answers in advance, so it establishes capacity rather than a method. Query-awareness is tested through one similarity function. All results assume FIFO eviction with a fixed per-layer budget and a decision shared across layers, the last forced by a single global attention mask. The horizon law is fitted on two admit rates, 1.000 and 0.941, which are close together.</p>
     <p>What is new here is the measurement, not the method. Write-time admission with a frozen backbone, RL for cache eviction, and Lagrangian KV allocation all exist in prior work; we are not aware of prior work reporting recall by distance-band.</p>
   </div>
 </section>
