@@ -16,7 +16,7 @@ We then attempt to train past the dead zone with a learned admission policy unde
 
 We run an **oracle retention** control — the same budget, chunking, eviction geometry and evaluation, but the policy is told which tokens carry the answers. On Qwen3-1.7B the oracle scores **40/40, perfect recall in every band**, matching the uncompressed cache at a quarter of the context. The dead zone is therefore **not** a capacity or geometry limit on that model; the failure is one of **observability**. On SmolLM2-1.7B the same oracle recovers only 12/24, so how fully the capacity can be exploited is **model-dependent** — a result we did not anticipate and cannot yet explain.
 
-Finally we replace the synthetic task entirely with **planted-evidence QA over real SQuAD passages**, scored by containment and token F1 against a measured closed-book floor of 0/24. Every finding survives: middle-band recall across four heuristics and two budgets is **1/64** against an uncompressed 6/8; `recent` and `h2o` remain near-exact complements (near 7/9 vs 1/9, far 0/7 vs 3/7); and the oracle scores **18/24 against the uncompressed 19/24** at a quarter of the context, where the best heuristic scores 7/24.
+Finally we replace the synthetic task entirely with **planted-evidence QA over real SQuAD passages**, scored by containment and token F1 against a measured closed-book floor of 0/24. On Qwen3 every finding survives: middle-band recall across four heuristics and two budgets is **1/64** against an uncompressed 6/8; `recent` and `h2o` remain near-exact complements (near 7/9 vs 1/9, far 0/7 vs 3/7); and the oracle scores **18/24 against the uncompressed 19/24** at a quarter of the context, where the best heuristic scores 7/24. This benchmark is single-model: extending it to SmolLM2 leaves an eight-trial window between a 3/24 floor and an 11/24 ceiling, too narrow to separate any policy from any other.
 
 ## 1. Motivation
 
@@ -102,6 +102,8 @@ Three findings carry over intact.
 **The oracle.** 18/24 against the uncompressed 19/24, matching band for band, at a quarter of the context — while the best heuristic at the same budget manages 7/24. The gap between the oracle and the heuristics is far larger than the gap between the oracle and no compression at all.
 
 One caveat is specific to this task: **the far band has a difficulty ceiling**, since `full` itself scores only 4/7 there. Far-band zeros are therefore much less informative here than on needles, where the ceiling was 1.00. The middle band carries the claim: ceiling 6/8, every heuristic at zero.
+
+**This benchmark ran on Qwen3 only, and the attempt to extend it failed.** On SmolLM2-1.7B the same benchmark has a closed-book floor of 3/24 and an uncompressed ceiling of **11/24** — an eight-trial window at n=24. Inside it nothing separates: the oracle scores 9/24 against a best heuristic of 7/24, where on Qwen the same comparison is 18/24 against 7/24. The run therefore cannot distinguish *the oracle does not help SmolLM2* from *SmolLM2 cannot do this task*, and we report it as null information rather than as either a replication or a refutation. The dead zone does point the same way there — heuristic middle band 4/64 against a 4/8 ceiling, both recency policies at 0/8 — but with a 95% upper bound of 13.7%. Details in `docs/phase5-smollm2-qa-findings.md`.
 
 ## 4. Mechanism: a hard horizon, not a slope
 
@@ -279,7 +281,7 @@ Substantial, though the limitation that previously headed this list — no non-s
 - **Two task families, both short-answer.** Synthetic needles and planted-evidence SQuAD QA. The second fixes the corpus, query and metric, but SQuAD is extractive short-answer QA — still far easier than multi-hop reasoning, summarisation, or agent traces, and neither task is a published benchmark run end to end.
 - **The real-QA far band has a difficulty ceiling.** `full` scores only 4/7 there, so far-band zeros in §3.2 are much weaker evidence than the middle band's.
 - **Small n on real QA.** 24 trials per cell, 8 per band; the middle-band 95% upper bound is 7.2%, not 1%.
-- **Two models, one size class.** Qwen3-1.7B and SmolLM2-1.7B-Instruct. The dead zone replicates across both, but both are ~1.7B; it may still be a small-model artifact, and the oracle result already differs between them. The real-QA benchmark was run on Qwen3 only.
+- **Two models, one size class.** Qwen3-1.7B and SmolLM2-1.7B-Instruct. The dead zone replicates across both on synthetic needles, but both are ~1.7B; it may still be a small-model artifact, and the oracle result already differs between them. **The real-QA benchmark is effectively single-model**: it discriminates on Qwen3 and does not on SmolLM2, whose uncompressed ceiling on the task is 11/24 against a 3/24 floor.
 - **The oracle ceiling does not replicate.** §7.1. We report a hypothesis (contiguity) we have not tested.
 - **Simplified baselines.** H2O and SnapKV are reimplementations scored at token granularity across all heads; absolute numbers are not comparable to published ones.
 - **Three training runs, no hyperparameter search.** The claim is not that no policy can succeed — the oracle shows one can on at least one model — but that these three did not, for a reason §7 identifies.
@@ -292,8 +294,8 @@ Substantial, though the limitation that previously headed this list — no non-s
 
 All four items previously listed here have been run: the second-model replication (§3.1), the finer distance sweep (§4, which corrected the mechanism), query-aware admission (§7.3, which failed), and the real-QA benchmark (§3.2, where everything replicated). What remains, in order of value:
 
-1. **Real QA on the second model.** §3.2 ran on Qwen3 only, and §7.1's oracle shortfall is exactly the kind of result that might or might not survive the change of task. This is now the cheapest way to be wrong.
-2. **The contiguity control.** An oracle retaining a contiguous block versus scattered spans, same size, same distance. Cheap, and it decides whether §7.1's model-dependence is about retained-set *shape* — which would be a finding in its own right.
+1. **The contiguity control.** An oracle retaining a contiguous block versus scattered spans, same size, same distance. It tests §7.1's hypothesis directly, and — unlike a second-model benchmark — it compares two oracles on the same model, so it does not depend on that model being good at the task. This is why it now heads the list.
+2. **Real QA on a stronger model.** Qwen2.5-3B or Llama-3.1-8B. §3.2's extension to SmolLM2 failed for lack of headroom, not for lack of seeds; the fix is a model that can do the task uncompressed, not more trials.
 3. **Vary the admit rate.** One run at `p`=0.5 tests the horizon law's only untested prediction.
 4. **Retrieval over evicted tokens**, rather than write-time query scoring. §7.3 rules out the cheap version of query-awareness, not the direction.
 
@@ -305,4 +307,4 @@ The occupied cells around this work are worth stating precisely. Write-time admi
 
 ## Reproducibility
 
-Code, seeds, raw per-trial results and all three training histories: this repository. `docs/phase1-findings.md`, `docs/phase2-findings.md`, `docs/phase2b-findings.md`, `docs/phase3-batch-findings.md` and `docs/phase4-benchmark-findings.md` record each run including the errors made along the way. 114 tests, harness verified bit-identical against a stock cache on two backends.
+Code, seeds, raw per-trial results and all three training histories: this repository. `docs/phase1-findings.md`, `docs/phase2-findings.md`, `docs/phase2b-findings.md`, `docs/phase3-batch-findings.md` `docs/phase4-benchmark-findings.md` and `docs/phase5-smollm2-qa-findings.md` record each run including the errors made along the way. 114 tests, harness verified bit-identical against a stock cache on two backends.
