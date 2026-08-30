@@ -114,5 +114,10 @@ def test_every_script_compiles():
     import pathlib
     import py_compile
     root = pathlib.Path(__file__).resolve().parent.parent
+    # skip dotfiles: macOS tar ships AppleDouble "._name.py" siblings, which
+    # are binary and which pathlib's glob matches even though a shell glob
+    # would not. They are packaging debris, not source.
     for f in sorted((root / "scripts").glob("*.py")):
+        if f.name.startswith("."):
+            continue
         py_compile.compile(str(f), doraise=True)
