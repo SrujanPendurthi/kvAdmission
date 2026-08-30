@@ -201,7 +201,25 @@ The same oracle on SmolLM2-1.7B-Instruct does not replicate that result:
 
 The oracle doubles `recent`'s total and produces the first non-zero middle-band cell any policy has reached on this model — but it recovers half the trials, not all of them, against an uncompressed ceiling of 23/24.
 
-The pattern is specific: the oracle is perfect exactly where retention coincides with contiguous recency (near, 9/9) and poor wherever it depends on the flag (middle 2/7, far 1/8). Our leading hypothesis is **contiguity**: the oracle's cache is spliced — answer spans from position ~2000 adjacent to recency fill from ~7000, with a gap in position indices — and Qwen3 reads a spliced cache where SmolLM2 does not. This is fitted to three seeds and is untested; the direct control is an oracle retaining a *contiguous block* of equal size at equal distance, which we have not run.
+The pattern is specific: the oracle is perfect exactly where retention coincides with contiguous recency (near, 9/9) and poor wherever it depends on the flag (middle 2/7, far 1/8). The hypothesis this suggests is **contiguity**: the oracle's cache is spliced — answer spans from position ~2000 adjacent to recency fill from ~7000, with a gap in the position indices — and Qwen3 reads a spliced cache where SmolLM2 does not.
+
+That splits into two claims, and we have now tested one of them.
+
+**Fragment length: tested and false.** Dilating each answer span by a radius `r`, so the same needles sit inside progressively longer contiguous windows at the same budget:
+
+| r | flagged | Qwen3 | SmolLM2 | SmolLM2 near |
+|---|---|---|---|---|
+| 0 | 125 | 24/24 | 12/24 | **9/9** |
+| 16 | 381 | 24/24 | 12/24 | **9/9** |
+| 48 | 893 | 24/24 | 14/24 | **9/9** |
+| 96 | 1661 | 23/24 | 14/24 | **9/9** |
+| 192 | 3197 *(over budget)* | 15/24 | 14/24 | 8/9 |
+
+Under budget SmolLM2 moves from 12/24 to 14/24 — about 0.8 standard errors at n=24. Widening a bare 16-token answer island into a ~200-token block of coherent prose does essentially nothing. If missing sentence-context were the reason, this curve would climb steeply.
+
+**Fragment count: untested, and now better supported.** The sweep cannot vary it: with eight needles ~1024 tokens apart, dilation does not merge runs until the flagged set is several times the budget, so run count is pinned at 8 throughout. But the band breakdown says something the sweep was not designed to ask. **SmolLM2's near band is 9/9 at every under-budget radius, r=0 included** — so the model reads spliced answer spans perfectly well; the retained set is exactly as fragmented near as in the middle. What separates them is that near-band needles fall inside the recency block, contiguous with the query, while middle-band needles are islands behind a gap in the position index. And SmolLM2 answers those same middle-band needles 7/7 with an *uncompressed* cache, so distance alone is not the barrier — the gap is.
+
+The decisive experiment holds fragment count as the variable at matched flagged tokens (eight needles with narrow windows versus two with wide ones). We have not run it. Details in `docs/phase6-contiguity-findings.md`.
 
 **The honest statement is narrower than this section's opening.** What replicates across both models is that the budget is not the binding constraint: the oracle beats every heuristic at the same budget on both. What does not replicate is that the full uncompressed ceiling is reachable. Whether a model can exploit a non-contiguous retained set is a variable no prior work in this line varies, and on this evidence it matters.
 
@@ -282,7 +300,7 @@ Substantial, though the limitation that previously headed this list — no non-s
 - **The real-QA far band has a difficulty ceiling.** `full` scores only 4/7 there, so far-band zeros in §3.2 are much weaker evidence than the middle band's.
 - **Small n on real QA.** 24 trials per cell, 8 per band; the middle-band 95% upper bound is 7.2%, not 1%.
 - **Two models, one size class.** Qwen3-1.7B and SmolLM2-1.7B-Instruct. The dead zone replicates across both on synthetic needles, but both are ~1.7B; it may still be a small-model artifact, and the oracle result already differs between them. **The real-QA benchmark is effectively single-model**: it discriminates on Qwen3 and does not on SmolLM2, whose uncompressed ceiling on the task is 11/24 against a 3/24 floor.
-- **The oracle ceiling does not replicate.** §7.1. We report a hypothesis (contiguity) we have not tested.
+- **The oracle ceiling does not replicate**, and we cannot yet say why. §7.1: the fragment-length explanation is tested and false; the positional-gap explanation is untested.
 - **Simplified baselines.** H2O and SnapKV are reimplementations scored at token granularity across all heads; absolute numbers are not comparable to published ones.
 - **Three training runs, no hyperparameter search.** The claim is not that no policy can succeed — the oracle shows one can on at least one model — but that these three did not, for a reason §7 identifies.
 - **The oracle is an upper bound, not a method.** It requires knowing the answers in advance.
@@ -294,7 +312,7 @@ Substantial, though the limitation that previously headed this list — no non-s
 
 All four items previously listed here have been run: the second-model replication (§3.1), the finer distance sweep (§4, which corrected the mechanism), query-aware admission (§7.3, which failed), and the real-QA benchmark (§3.2, where everything replicated). What remains, in order of value:
 
-1. **The contiguity control.** An oracle retaining a contiguous block versus scattered spans, same size, same distance. It tests §7.1's hypothesis directly, and — unlike a second-model benchmark — it compares two oracles on the same model, so it does not depend on that model being good at the task. This is why it now heads the list.
+1. **Fragment count at matched token budget.** §7.1's remaining hypothesis. Eight needles with narrow windows versus two with wide ones, same flagged tokens, same distances — isolating the number of position-index gaps, which the radius sweep could not vary. Changes the questions per stream, so it needs more seeds.
 2. **Real QA on a stronger model.** Qwen2.5-3B or Llama-3.1-8B. §3.2's extension to SmolLM2 failed for lack of headroom, not for lack of seeds; the fix is a model that can do the task uncompressed, not more trials.
 3. **Vary the admit rate.** One run at `p`=0.5 tests the horizon law's only untested prediction.
 4. **Retrieval over evicted tokens**, rather than write-time query scoring. §7.3 rules out the cheap version of query-awareness, not the direction.
@@ -307,4 +325,4 @@ The occupied cells around this work are worth stating precisely. Write-time admi
 
 ## Reproducibility
 
-Code, seeds, raw per-trial results and all three training histories: this repository. `docs/phase1-findings.md`, `docs/phase2-findings.md`, `docs/phase2b-findings.md`, `docs/phase3-batch-findings.md` `docs/phase4-benchmark-findings.md` and `docs/phase5-smollm2-qa-findings.md` record each run including the errors made along the way. 114 tests, harness verified bit-identical against a stock cache on two backends.
+Code, seeds, raw per-trial results and all three training histories: this repository. `docs/phase1-findings.md`, `docs/phase2-findings.md`, `docs/phase2b-findings.md`, `docs/phase3-batch-findings.md` `docs/phase4-benchmark-findings.md` `docs/phase5-smollm2-qa-findings.md` and `docs/phase6-contiguity-findings.md` record each run including the errors made along the way. 120 tests, harness verified bit-identical against a stock cache on two backends.
