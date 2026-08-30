@@ -135,13 +135,27 @@ def test_matched_token_budget_gives_run_count_equal_to_k():
     # the fragment-count experiment's core invariant: varying k must change the
     # number of runs and leave the flagged token total alone, or it is
     # measuring window width again instead of gap count
-    from kvadmission.oracle import dilate_spans, span_stats
+    from kvadmission.oracle import expand_spans_to_quota, span_stats
     base = [(1000 * i + 100, 1000 * i + 116) for i in range(8)]
     target = 1600
     for k in (8, 4, 2, 1):
         chosen = base[:k]
-        base_tokens = sum(b - a for a, b in chosen)
-        r = max(0, round((target - base_tokens) / (2 * k)))
-        runs, flagged = span_stats(dilate_spans(chosen, r, 8192))
+        runs, flagged = span_stats(
+            expand_spans_to_quota(chosen, target // k, 8192))
         assert runs == k, f"k={k} gave {runs} runs"
-        assert abs(flagged - target) <= 0.1 * target, f"k={k} flagged {flagged}"
+        assert abs(flagged - target) <= 0.02 * target, f"k={k} flagged {flagged}"
+
+
+def test_quota_expansion_shifts_instead_of_truncating_at_the_stream_edge():
+    # a span at position 0 cannot grow left; it must take its full quota to the
+    # right rather than come up short
+    from kvadmission.oracle import expand_spans_to_quota, span_stats
+    assert span_stats(expand_spans_to_quota([(0, 16)], 800, 8192))[1] == 800
+    assert span_stats(expand_spans_to_quota([(8176, 8192)], 800, 8192))[1] == 800
+
+
+def test_quota_expansion_never_merges_neighbours():
+    from kvadmission.oracle import expand_spans_to_quota, span_stats
+    spans = [(1000, 1016), (2000, 2016), (3000, 3016)]
+    for quota in (100, 400, 900):
+        assert span_stats(expand_spans_to_quota(spans, quota, 8192))[0] == 3

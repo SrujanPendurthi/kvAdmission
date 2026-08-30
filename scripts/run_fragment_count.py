@@ -32,8 +32,9 @@ from collections import defaultdict
 from pathlib import Path
 
 from kvadmission.cache import AdmissionCache
-from kvadmission.oracle import (dilate_spans, make_oracle_decider,
-                                needle_spans, span_stats)
+from kvadmission.oracle import (expand_spans_to_quota,
+                                make_oracle_decider, needle_spans,
+                                span_stats)
 from kvadmission.runner import load_model, prefill
 from kvadmission.stream import build_stream, query_needle
 from kvadmission.sweep import _band
@@ -66,11 +67,13 @@ for k in a.ks:
         idx = sorted(rng.sample(range(a.needles), k))
         chosen = [base[i] for i in idx]
 
-        # widen each window so total flagged tokens matches the target
-        base_tokens = sum(b - s for s, b in chosen)
-        radius = max(0, round((a.flagged_target - base_tokens) / (2 * k)))
-        spans = dilate_spans(chosen, radius, a.length)
+        # widen each window so the flagged total matches the target exactly.
+        # Symmetric dilation would clamp at the stream edges and leave the
+        # low-k conditions short, which would confound gap count with how much
+        # evidence and recency fill each condition gets.
+        spans = expand_spans_to_quota(chosen, a.flagged_target // k, a.length)
         runs, flagged = span_stats(spans)
+        assert runs == k, f"k={k} produced {runs} runs"
 
         decide, need_attn = make_oracle_decider(
             spans, budget=a.budget, n_layers=n_layers, sinks=4, device=device)
@@ -84,11 +87,11 @@ for k in a.ks:
             hit, text = query_needle(model, tok, cache, n, nd, device)
             hits += bool(hit)
             rows.append({"k": k, "runs": runs, "flagged": flagged,
-                         "radius": radius, "budget": a.budget, "seed": seed,
+                         "budget": a.budget, "seed": seed,
                          "topic": nd["topic"], "distance_back": n - nd["pos"],
                          "stream_len": n, "hit": bool(hit)})
         print(f"k={k} seed={seed:<2d} runs={runs} flagged={flagged:<5d} "
-              f"r={radius:<4d} {hits}/{k}", flush=True)
+              f"{hits}/{k}", flush=True)
         Path(a.out).parent.mkdir(parents=True, exist_ok=True)
         Path(a.out).write_text(json.dumps(rows, indent=1))
 

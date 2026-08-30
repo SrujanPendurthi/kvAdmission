@@ -62,6 +62,47 @@ def dilate_spans(spans, radius, n_tokens):
     return [tuple(m) for m in merged]
 
 
+def expand_spans_to_quota(spans, quota, n_tokens):
+    """Grow each span to `quota` tokens, keeping them separate and not merging.
+
+    `dilate_spans` grows symmetrically and clamps at the stream edges, so a
+    span near position 0 comes up short - at k=1 with a 1600-token target it
+    reached 908. That silently hands the low-k conditions less evidence and
+    more recency fill, which is the confound the fragment-count experiment
+    exists to avoid.
+
+    Here every span takes the same `quota` width, centred on its needle, then
+    overlaps are resolved by sliding windows apart while leaving a one-token
+    gap - so the run count is preserved and the flagged total is exact.
+    Requires k*quota < n_tokens, which the caller's budget already implies.
+    """
+    if not spans:
+        return []
+    spans = sorted(spans)
+    k = len(spans)
+    width = min(quota, (n_tokens - (k - 1)) // k)
+
+    starts = []
+    for a, b in spans:
+        centre = (a + b) // 2
+        starts.append(max(0, min(centre - width // 2, n_tokens - width)))
+
+    # forward pass: push each window right of its predecessor
+    for i in range(1, k):
+        lo = starts[i - 1] + width + 1
+        if starts[i] < lo:
+            starts[i] = lo
+    # backward pass: if the last ran off the end, push the earlier ones left
+    if starts[-1] + width > n_tokens:
+        starts[-1] = n_tokens - width
+        for i in range(k - 2, -1, -1):
+            hi = starts[i + 1] - width - 1
+            if starts[i] > hi:
+                starts[i] = hi
+    assert starts[0] >= 0, "quota too large for the stream"
+    return [(s, s + width) for s in starts]
+
+
 def span_stats(spans):
     """(runs, flagged_tokens) for a set of already-merged spans."""
     return len(spans), sum(b - a for a, b in spans)
