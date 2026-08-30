@@ -55,23 +55,24 @@ ol{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;
 
 <div class="wrap">
 <header>
-  <div class="eyebrow"><span>Draft</span><span>30 Aug 2026</span><span>2 models · 284 middle-band trials</span></div>
+  <div class="eyebrow"><span>Draft</span><span>30 Aug 2026</span><span>2 models · synthetic + real QA</span></div>
   <h1>The Mid-Context Dead Zone in KV Cache Compression</h1>
-  <p class="standfirst">Compression methods partition long context by positional bias rather than utility. Every method tested recovers one end of the stream or the other, and none recovers the middle — yet an oracle told what to keep recovers all of it, at the same budget, on one of the two models we tried.</p>
+  <p class="standfirst">Compression methods partition long context by positional bias rather than utility. Every method tested recovers one end of the stream or the other, and none recovers the middle — yet an oracle told what to keep recovers nearly all of it, at a quarter of the budget. It holds on synthetic needles and on real question answering alike.</p>
 </header>
 
 <div class="abstract">
   <div class="label">Abstract</div>
-  <p>KV cache compression is evaluated on aggregate accuracy at a budget, which hides <em>where</em> a method succeeds. Measuring recall against distance from the query, we find recency methods recover only the near field, attention-accumulation methods only the far field, and no method at any budget recovers the middle. Across <strong>284 middle-band trials</strong> spanning two models, five heuristics, three learned policies, four budgets and five seeds: <strong>zero successes</strong>, while an uncompressed cache answers 100% of the same queries.</p>
+  <p>KV cache compression is evaluated on aggregate accuracy at a budget, which hides <em>where</em> a method succeeds. Measuring recall against distance from the query, we find recency methods recover only the near field, attention-accumulation methods only the far field, and no method at any budget recovers the middle. Across <strong>284 middle-band trials</strong> on synthetic needles — two models, five heuristics, three learned policies, four budgets, five seeds — <strong>zero successes</strong>, while an uncompressed cache answers 100% of the same queries. On real planted-evidence QA the figure is <strong>1/64</strong> against an uncompressed 6/8.</p>
   <p>We give a mechanism. Admission at rate <code>p</code> followed by FIFO eviction to budget <code>B</code> leaves a contiguous window over the most recent <code>B/p</code> positions, so recall is a <strong>step function with a hard horizon</strong> — past it, retention is exactly zero rather than merely unlikely. Recency is therefore emergent, not chosen. Three attempts to train past it fail, as does a policy allowed to read the pending queries at write time.</p>
   <p>An <strong>oracle retention</strong> control, identical in budget and eviction geometry but told which tokens carry the answers, scores <strong>40/40 in every band</strong> on Qwen3-1.7B. The dead zone is therefore not a capacity limit: a 2048-token cache holding the right tokens answers everything. The failure is <strong>observability</strong> — nothing available at write time identifies which tokens will matter. On SmolLM2-1.7B the same oracle recovers only 12/24, so how fully that capacity can be exploited is <strong>model-dependent</strong>, which we did not anticipate and cannot yet explain.</p>
+  <p>Finally we replace the synthetic task with <strong>planted-evidence QA over real SQuAD passages</strong> — human-written questions, natural-language answers, scored against a measured closed-book floor of 0/24. Every finding survives.</p>
 </div>
 
 <div class="stats">
-  <div class="stat"><div class="n">0/284</div><div class="k">Middle-band hits — 2 models, 6 policies, 4 budgets</div></div>
-  <div class="stat"><div class="n">≤1.1%</div><div class="k">95% upper bound on true rate</div></div>
-  <div class="stat"><div class="n">1.00</div><div class="k">Uncompressed cache, all bands, both models</div></div>
-  <div class="stat"><div class="n">40/40</div><div class="k">Oracle on Qwen3 — but 12/24 on SmolLM2</div></div>
+  <div class="stat"><div class="n">0/284</div><div class="k">Middle-band hits, synthetic — 2 models, 6 policies</div></div>
+  <div class="stat"><div class="n">1/64</div><div class="k">Middle-band hits on real QA, ceiling 6/8</div></div>
+  <div class="stat"><div class="n">18/24</div><div class="k">Oracle on real QA vs 19/24 uncompressed</div></div>
+  <div class="stat"><div class="n">7/24</div><div class="k">Best heuristic, same budget as that oracle</div></div>
 </div>
 
 <hr class="rule">
@@ -89,6 +90,32 @@ ol{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;
     </tbody>
   </table></div>
   <p><code>recent</code> and <code>h2o</code> are exact complements — each strong in one band, <strong>exactly zero</strong> in the other, neither reaching the middle. H2O's accumulated-attention sum favours tokens visible to the most query rows, which are the oldest, so it inverts recency rather than improving on it. Neither bias tracks whether a token is useful.</p>
+</section>
+
+<section>
+  <h2>And on real question answering</h2>
+  <p>Synthetic verbatim recall was this work's weakest point: the easiest possible case for a cache, scored by a metric that counts a paraphrase as a miss. We replaced the task while keeping the distance axis everything depends on — distractor SQuAD paragraphs as the haystack, a real SQuAD paragraph as the planted evidence, the human-written question as the query, and a natural-language answer scored by containment with token F1 alongside.</p>
+  <div class="note">
+    <div class="label">Two controls that make the numbers readable</div>
+    <p><strong>Closed-book floor: 0/24.</strong> Given the prompt and question but no haystack at all, the model answers none of them. Containment scoring is generous to short common-word golds, so without this control a lucky guess would be indistinguishable from a retrieval.</p>
+    <p><strong>Distractor isolation.</strong> SQuAD groups paragraphs by article, so a same-article distractor can restate the answer. Distractors come only from articles no gold paragraph belongs to — otherwise a hit proves nothing about whether the <em>planted</em> evidence survived.</p>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>policy</th><th>B</th><th>near</th><th>middle</th><th>far</th><th>total</th></tr></thead>
+    <tbody>
+      <tr><td><code>full</code></td><td class="num">8192</td><td class="num">9/9</td><td class="num hit">6/8</td><td class="num">4/7</td><td class="num">19/24</td></tr>
+      <tr><td><strong>oracle</strong></td><td class="num">2048</td><td class="num hit">9/9</td><td class="num hit">5/8</td><td class="num hit">4/7</td><td class="num hit">18/24</td></tr>
+      <tr><td>oracle</td><td class="num">512</td><td class="num">8/9</td><td class="num zero">1/8</td><td class="num zero">0/7</td><td class="num">9/24</td></tr>
+      <tr><td><code>recent</code></td><td class="num">2048</td><td class="num hit">7/9</td><td class="num zero">0/8</td><td class="num zero">0/7</td><td class="num">7/24</td></tr>
+      <tr><td><code>h2o</code></td><td class="num">2048</td><td class="num zero">1/9</td><td class="num zero">1/8</td><td class="num far">3/7</td><td class="num">5/24</td></tr>
+      <tr><td><code>snapkv</code></td><td class="num">2048</td><td class="num">5/9</td><td class="num zero">0/8</td><td class="num zero">0/7</td><td class="num">5/24</td></tr>
+      <tr><td><code>random</code></td><td class="num">2048</td><td class="num">5/9</td><td class="num zero">0/8</td><td class="num zero">0/7</td><td class="num">5/24</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>The dead zone.</strong> Middle band across all four heuristics and both budgets: <strong>1/64</strong>, 95% upper 7.2%, against an uncompressed 6/8. Not the clean zero the needles gave, and we state it as near-zero rather than zero. The one hit is <code>h2o</code> at d=4729 — gold <em>rivers</em>, generated <em>certain rivers</em> — and the closed-book control confirms it is a retrieval, not a guess.</p>
+  <p><strong>The complementarity.</strong> <code>recent</code> scores 7/9 near and 0/7 far; <code>h2o</code> scores 1/9 near and 3/7 far. The two families stay near-exact complements across a change of task, corpus, query form and metric.</p>
+  <p><strong>The oracle.</strong> 18/24 against the uncompressed 19/24, matching band for band, at a quarter of the context — while the best heuristic at the same budget manages 7/24. The gap between the oracle and the heuristics is far larger than the gap between the oracle and no compression at all.</p>
+  <p>One caveat is specific to this task: the <strong>far band has a difficulty ceiling</strong>, since <code>full</code> itself scores only 4/7 there. Far-band zeros are much weaker evidence here than on needles, where the ceiling was 1.00. The middle band carries the claim.</p>
 </section>
 
 <section>
@@ -222,6 +249,7 @@ ol{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;
   <p><strong>Coverage is unforgiving</strong> — missing a quarter of the answer tokens collapses middle-band recall from 7/7 to 1/7. An answer spans a few tokens, and retaining most of a six-digit code is worth nothing.</p>
   <p><strong>Precision is free until the budget binds.</strong> The flagged set is about <code>fp · L</code>, so at L=8192 and B=2048 the crowding threshold is fp ≈ 0.25. Beyond it, recall follows a second simple law:</p>
   <div class="formula">recall = min( 1 , B / |flagged| )</div>
+  <p>Fitted on synthetic needles — and it <strong>transfers to the real-QA task above</strong>, where the eight gold paragraphs occupy 1332 tokens of real prose rather than 48 synthetic digit tokens. At B=2048 the flagged set fits and the oracle tracks the ceiling. At B=512 it overflows, and the predicted survival fraction of <strong>0.38 matches the observed 0.38 exactly</strong>. That is why the oracle collapses at the smaller budget: not a failure of the signal, but the budget refusing to hold what the signal correctly identified.</p>
   <div class="tbl-wrap"><table>
     <thead><tr><th>fp</th><th>flagged</th><th>predicted</th><th>observed</th></tr></thead>
     <tbody>
@@ -255,10 +283,10 @@ ol{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;
 
 <section>
   <h2>What would settle it</h2>
-  <p>Three of the four items previously listed here have been run: the second-model replication, the finer distance sweep (which corrected the mechanism), and query-aware admission (which failed). What remains:</p>
+  <p>All four items previously listed here have been run: the second-model replication, the finer distance sweep (which corrected the mechanism), query-aware admission (which failed), and the real-QA benchmark (where everything replicated). What remains:</p>
   <ol>
-    <li><strong>A real benchmark.</strong> RULER or LongBench-v2. The only limitation with no measurement against it, and the result does not survive a failure to reproduce on a non-synthetic task.</li>
-    <li><strong>The contiguity control.</strong> An oracle keeping a contiguous block versus scattered spans — same size, same distance. Cheap, and it decides whether the model-dependence above is about the retained set's <em>shape</em>.</li>
+    <li><strong>Real QA on the second model.</strong> The benchmark ran on Qwen3 only, and the oracle's SmolLM2 shortfall is exactly the kind of result that might or might not survive a change of task. Now the cheapest way to be wrong.</li>
+    <li><strong>The contiguity control.</strong> An oracle keeping a contiguous block versus scattered spans — same size, same distance. Decides whether that model-dependence is about the retained set's <em>shape</em>.</li>
     <li><strong>Vary the admit rate.</strong> One run at p=0.5 tests the horizon law's only untested prediction.</li>
     <li><strong>Retrieval over evicted tokens</strong>, rather than write-time query scoring. The cheap version of query-awareness is ruled out; the direction is not.</li>
   </ol>
@@ -267,8 +295,8 @@ ol{margin:0;padding-left:20px;max-width:68ch;display:flex;flex-direction:column;
 <section>
   <h2>Limitations</h2>
   <div class="foot">
-    <p>An earlier version of this page argued the dead zone was probably intrinsic, on the strength of the three training failures. The oracle refutes that. The error is recorded because the reasoning is a natural one to repeat: three failures under related objectives are weak evidence about a hypothesis space, while a control changing one variable is worth more than all three. The model-dependence above is the same lesson applied to the control itself, which we had also treated as settled after one model.</p>
-    <p><strong>Two models, one size class</strong> (Qwen3-1.7B, SmolLM2-1.7B-Instruct) and <strong>one task family</strong>. Synthetic verbatim needle retrieval is the easiest possible case for a cache and the least like real long-context work; exact substring match scores a paraphrase as a miss. Untested on RULER, LongBench-v2 or agent traces — now the only limitation with nothing measured against it. The oracle ceiling does not replicate across the two models and we report a hypothesis we have not tested. H2O and SnapKV are simplified reimplementations scored at token granularity, so absolute numbers are not comparable to published ones. Three training runs, no hyperparameter search. The oracle requires knowing the answers in advance, so it establishes capacity rather than a method. Query-awareness is tested through one similarity function. All results assume FIFO eviction with a fixed per-layer budget and a decision shared across layers, the last forced by a single global attention mask. The horizon law is fitted on two admit rates, 1.000 and 0.941, which are close together.</p>
+    <p>An earlier version of this page argued the dead zone was probably intrinsic, on the strength of the three training failures. The oracle refutes that. The error is recorded because the reasoning is a natural one to repeat: three failures under related objectives are weak evidence about a hypothesis space, while a control changing one variable is worth more than all three. The model-dependence above is the same lesson applied to the control itself, which we had also treated as settled after one model. A third correction — the geometric survival law — is recorded in its own section.</p>
+    <p><strong>Two models, one size class</strong> (Qwen3-1.7B, SmolLM2-1.7B-Instruct); the real-QA benchmark ran on Qwen3 only. <strong>Two task families, both short-answer</strong>: synthetic needles and planted-evidence SQuAD QA. The second fixes the corpus, query and metric, but extractive short-answer QA is still far easier than multi-hop reasoning, summarisation or agent traces, and neither task is a published benchmark run end to end. On real QA the far band has a difficulty ceiling — <code>full</code> scores 4/7 — so far-band zeros there are weak evidence, and n is small: 24 trials per cell, 8 per band, giving a 7.2% upper bound rather than 1%. The oracle ceiling does not replicate across the two models and we report a hypothesis we have not tested. H2O and SnapKV are simplified reimplementations scored at token granularity, so absolute numbers are not comparable to published ones. Three training runs, no hyperparameter search. The oracle requires knowing the answers in advance, so it establishes capacity rather than a method. Query-awareness is tested through one similarity function. All results assume FIFO eviction with a fixed per-layer budget and a decision shared across layers, the last forced by a single global attention mask. The horizon law is fitted on two admit rates, 1.000 and 0.941, which are close together.</p>
     <p>What is new here is the measurement, not the method. Write-time admission with a frozen backbone, RL for cache eviction, and Lagrangian KV allocation all exist in prior work; we are not aware of prior work reporting recall by distance-band.</p>
   </div>
 </section>

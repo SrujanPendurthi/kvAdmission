@@ -2,19 +2,21 @@
 
 **Draft — 2026-08-30. Workshop-length. Not submission-ready: see §8.**
 
-*Revised twice. The oracle retention control (§7) refuted this draft's earlier claim that the dead zone was intrinsic. A fine-resolution distance sweep (§4) then refuted its stated mechanism, and a second-model replication (§3, §7) narrowed the oracle claim.*
+*Revised three times. The oracle retention control (§7) refuted this draft's earlier claim that the dead zone was intrinsic. A fine-resolution distance sweep (§4) then refuted its stated mechanism, a second-model replication (§3, §7) narrowed the oracle claim, and a real-QA benchmark (§3.2) replaced the synthetic task this draft previously rested on entirely.*
 
 ---
 
 ## Abstract
 
-KV cache compression is evaluated on aggregate accuracy at a given budget, which hides *where* in the context a method succeeds. We measure recall as a function of distance from the query and find that published heuristics partition the context by positional bias rather than utility: recency methods recover only the near field, attention-accumulation methods only the far field, and **no method at any budget recovers the middle**. Across **284 middle-band trials** spanning two models, five heuristics, three learned policies, four budgets and five seeds, we observe **zero successes** (95% upper bound 1.1%), while an uncompressed cache answers 100% of the same queries.
+KV cache compression is evaluated on aggregate accuracy at a given budget, which hides *where* in the context a method succeeds. We measure recall as a function of distance from the query and find that published heuristics partition the context by positional bias rather than utility: recency methods recover only the near field, attention-accumulation methods only the far field, and **no method at any budget recovers the middle**. Across **284 middle-band trials** on synthetic needles — two models, five heuristics, three learned policies, four budgets, five seeds — we observe **zero successes** (95% upper bound 1.1%) against an uncompressed cache that answers 100% of the same queries. On real planted-evidence QA the figure is **1/64** (95% upper 7.2%) against an uncompressed 6/8.
 
 We give a mechanism. Under admission at rate `p` followed by FIFO eviction to budget `B`, the cache is a contiguous window over the most recent `B/p` positions, so recall is a **step function with a hard horizon at `d = B/p`** — beyond it, retention is exactly zero rather than merely unlikely. A 256-token-resolution sweep confirms the step for both recency and rate-matched random admission. This implies **recency is emergent rather than chosen**: any policy that does not actively protect distant tokens converges to it for free.
 
 We then attempt to train past the dead zone with a learned admission policy under three reward formulations. All three fail: two converge to behaviour indistinguishable from a recency window despite measurably improving on their own objective, and one destabilises. A query-aware policy that may consult the pending queries at write time also scores zero in the middle band.
 
-Finally we run an **oracle retention** control — the same budget, chunking, eviction geometry and evaluation, but the policy is told which tokens carry the answers. On Qwen3-1.7B the oracle scores **40/40, perfect recall in every band**, matching the uncompressed cache at a quarter of the context. The dead zone is therefore **not** a capacity or geometry limit on that model; the failure is one of **observability**. On SmolLM2-1.7B the same oracle recovers only 12/24, so how fully the capacity can be exploited is **model-dependent** — a result we did not anticipate and cannot yet explain.
+We run an **oracle retention** control — the same budget, chunking, eviction geometry and evaluation, but the policy is told which tokens carry the answers. On Qwen3-1.7B the oracle scores **40/40, perfect recall in every band**, matching the uncompressed cache at a quarter of the context. The dead zone is therefore **not** a capacity or geometry limit on that model; the failure is one of **observability**. On SmolLM2-1.7B the same oracle recovers only 12/24, so how fully the capacity can be exploited is **model-dependent** — a result we did not anticipate and cannot yet explain.
+
+Finally we replace the synthetic task entirely with **planted-evidence QA over real SQuAD passages**, scored by containment and token F1 against a measured closed-book floor of 0/24. Every finding survives: middle-band recall across four heuristics and two budgets is **1/64** against an uncompressed 6/8; `recent` and `h2o` remain near-exact complements (near 7/9 vs 1/9, far 0/7 vs 3/7); and the oracle scores **18/24 against the uncompressed 19/24** at a quarter of the context, where the best heuristic scores 7/24.
 
 ## 1. Motivation
 
@@ -25,10 +27,11 @@ That metric cannot distinguish a method that retains information uniformly from 
 ## 2. Setup
 
 - **Models.** Qwen3-1.7B (primary) and SmolLM2-1.7B-Instruct (replication), bf16, frozen throughout. No model weights are trained anywhere in this work.
-- **Streams.** 8192 tokens of prose with eight facts of the form `The secret code for <topic> is <6 digits>` at evenly spaced anchors with per-seed jitter, each queried from the end of the stream.
+- **Streams.** Two task families. *Synthetic:* 8192 tokens of prose with eight facts of the form `The secret code for <topic> is <6 digits>` at evenly spaced anchors with per-seed jitter, each queried from the end. *Real (§3.2):* 8192 tokens of distractor SQuAD paragraphs with eight gold paragraphs planted at the same anchors, queried by their human-written questions.
+- **Metrics.** Exact substring match on the synthetic task; containment plus token F1 on real QA, against a measured closed-book floor. Zero-hit cells report a rule-of-three upper bound rather than a standard error, which is zero and misleadingly tight.
 - **Compression.** Chunked prefill at 128 tokens; after each chunk the cache is compressed to budget `B` per layer, first four tokens pinned as attention sinks. Budgets 256/512/1024/2048.
 - **Policies.** `full` (ceiling), `recent`, `h2o`, `snapkv`, `random` at matched budget, plus a query-aware policy (§7.3) and an oracle (§7).
-- **Metric.** Exact substring match of the code in 24 greedily decoded tokens, grouped into near/middle/far terciles of distance-back. Zero-hit cells report a rule-of-three upper bound rather than a standard error, which is zero and misleadingly tight.
+- **Banding.** Near/middle/far terciles of distance-back from the query.
 
 Harness correctness rests on an identity test: at unbounded budget, logits are **bit-identical** to a stock `DynamicCache` under the same chunking, verified independently on MPS and CUDA. Positions are always passed explicitly, since compression makes cache length diverge from stream position — a silent corruption otherwise.
 
@@ -69,6 +72,36 @@ The same sweep on SmolLM2-1.7B-Instruct, 3 seeds × 8 needles × 2 budgets:
 **0/56 middle-band hits across every compressed cell** (95% upper 5.4%) against an uncompressed ceiling of 7/7. The dead zone is not a Qwen artifact.
 
 One difference: `h2o` scores 0/8 in the far band here, against 8/14 on Qwen. SmolLM2's attention mass is distributed differently enough that accumulated-attention scoring does not reliably hold the opening of the stream. It rescues the middle on neither model.
+
+### 3.2 Replication on real QA
+
+Synthetic verbatim recall was this work's weakest point: the easiest possible case for a cache, scored by a metric that counts a paraphrase as a miss. We replaced it while keeping the distance axis everything depends on.
+
+Streams are distractor SQuAD paragraphs; the evidence is a real SQuAD paragraph planted at a controlled anchor; the query is the human-written question; the answer is a natural-language span scored by containment, with token F1 reported alongside. This is RULER-style planted QA rather than LongBench-v2 because LongBench-v2 ships no evidence spans, and recall *against distance* is the whole measurement.
+
+Two controls make the numbers readable. **Closed-book floor: 0/24** — given the few-shot prompt and question but no haystack at all, the model answers none of them, so containment scoring is not measuring guesswork. And distractors are drawn only from articles no gold paragraph belongs to, since SQuAD groups paragraphs by topic and a same-article distractor could restate the answer.
+
+Qwen3-1.7B, 8192 tokens, 8 questions per stream, 3 seeds. Entries are `hits/trials (mean F1)`:
+
+| policy | B | near | middle | far | total |
+|---|---|---|---|---|---|
+| `full` | 8192 | 9/9 (0.99) | **6/8 (0.71)** | 4/7 (0.67) | 19/24 |
+| **oracle** | 2048 | 9/9 (0.99) | **5/8 (0.66)** | 4/7 (0.67) | **18/24** |
+| oracle | 512 | 8/9 (0.88) | 1/8 (0.17) | 0/7 (0.04) | 9/24 |
+| `recent` | 2048 | **7/9 (0.78)** | 0/8 (0.06) | **0/7 (0.18)** | 7/24 |
+| `h2o` | 2048 | **1/9 (0.20)** | 1/8 (0.20) | **3/7 (0.58)** | 5/24 |
+| `snapkv` | 2048 | 5/9 (0.55) | 0/8 (0.06) | 0/7 (0.15) | 5/24 |
+| `random` | 2048 | 5/9 (0.56) | 0/8 (0.06) | 0/7 (0.18) | 5/24 |
+
+Three findings carry over intact.
+
+**The dead zone.** Middle band across all four heuristics and both budgets: **1/64**, exact binomial 95% upper **7.2%**, against an uncompressed 6/8. It is not the clean zero the needle task gave, and we state it as near-zero rather than zero. The single hit is `h2o` at d=4729, gold `rivers`, generated `certain rivers` — and the closed-book control confirms it is a retrieval, not a guess.
+
+**The complementarity.** At B=2048, `recent` scores 7/9 near and 0/7 far; `h2o` scores 1/9 near and 3/7 far. The two families remain near-exact complements across a change of task, corpus, query form and metric.
+
+**The oracle.** 18/24 against the uncompressed 19/24, matching band for band, at a quarter of the context — while the best heuristic at the same budget manages 7/24. The gap between the oracle and the heuristics is far larger than the gap between the oracle and no compression at all.
+
+One caveat is specific to this task: **the far band has a difficulty ceiling**, since `full` itself scores only 4/7 there. Far-band zeros are therefore much less informative here than on needles, where the ceiling was 1.00. The middle band carries the claim: ceiling 6/8, every heuristic at zero.
 
 ## 4. Mechanism: a hard horizon, not a slope
 
@@ -203,6 +236,15 @@ The oracle establishes that the capacity exists. Degrading it along two axes mea
 
 Accurate to within 0.05 across the range. Once the flagged set overflows, survivors are a proportional subset and a given answer token survives with probability `B/|flagged|`.
 
+**The law transfers to a task it was not fitted on.** On the real-QA benchmark of §3.2 the eight gold paragraphs occupy a mean of 1332 tokens — real prose, not 48 synthetic digit tokens:
+
+| B | flagged | predicted | observed |
+|---|---|---|---|
+| 2048 | 1332 | 1.00 | 0.75 (against a 0.79 ceiling) |
+| 512 | 1332 | **0.38** | **0.38** |
+
+At B=2048 the flagged set fits and the oracle tracks the uncompressed ceiling; at B=512 it overflows and the predicted survival fraction matches the observed rate exactly. This is why the oracle collapses at the smaller budget in §3.2's table — not a failure of the signal, but the budget refusing to hold what the signal correctly identified.
+
 **The specification this yields is two-sided:** a proxy must identify *essentially every token* of an answer span, and must keep its *total* flagged set within the budget. It may be entirely indiscriminate about which extra tokens it keeps, so long as it does not keep too many. A policy flagging 30% of a stream is worse than useless even with perfect coverage.
 
 This also explains the trained policies more precisely than §6 does on its own. A soft admission head produces graded scores across a span, and partial retention of a span scores zero here — so gradient signal that improves average token-level accuracy need not improve recall at all.
@@ -232,10 +274,12 @@ An earlier version of this section recommended query-aware admission first, on t
 
 ## 8. Limitations
 
-Substantial. We do not consider this submission-ready without the first item.
+Substantial, though the limitation that previously headed this list — no non-synthetic task — has been addressed in §3.2.
 
-- **One task family.** Synthetic verbatim needle retrieval is the easiest case for a cache and least like real long-context work; exact substring match scores a paraphrase as a miss. Untested on RULER, LongBench-v2, or agent traces. **This is now the only limitation with nothing measured against it.**
-- **Two models, one size class.** Qwen3-1.7B and SmolLM2-1.7B-Instruct. The dead zone replicates across both, but both are ~1.7B; it may still be a small-model artifact, and the oracle result already differs between them.
+- **Two task families, both short-answer.** Synthetic needles and planted-evidence SQuAD QA. The second fixes the corpus, query and metric, but SQuAD is extractive short-answer QA — still far easier than multi-hop reasoning, summarisation, or agent traces, and neither task is a published benchmark run end to end.
+- **The real-QA far band has a difficulty ceiling.** `full` scores only 4/7 there, so far-band zeros in §3.2 are much weaker evidence than the middle band's.
+- **Small n on real QA.** 24 trials per cell, 8 per band; the middle-band 95% upper bound is 7.2%, not 1%.
+- **Two models, one size class.** Qwen3-1.7B and SmolLM2-1.7B-Instruct. The dead zone replicates across both, but both are ~1.7B; it may still be a small-model artifact, and the oracle result already differs between them. The real-QA benchmark was run on Qwen3 only.
 - **The oracle ceiling does not replicate.** §7.1. We report a hypothesis (contiguity) we have not tested.
 - **Simplified baselines.** H2O and SnapKV are reimplementations scored at token granularity across all heads; absolute numbers are not comparable to published ones.
 - **Three training runs, no hyperparameter search.** The claim is not that no policy can succeed — the oracle shows one can on at least one model — but that these three did not, for a reason §7 identifies.
@@ -246,9 +290,9 @@ Substantial. We do not consider this submission-ready without the first item.
 
 ## 9. What comes next
 
-Three of the four items previously listed here have been run: the second-model replication (§3.1), the finer distance sweep (§4, which corrected the mechanism), and query-aware admission (§7.3, which failed). What remains, in order of value:
+All four items previously listed here have been run: the second-model replication (§3.1), the finer distance sweep (§4, which corrected the mechanism), query-aware admission (§7.3, which failed), and the real-QA benchmark (§3.2, where everything replicated). What remains, in order of value:
 
-1. **A real benchmark.** RULER or LongBench-v2. The only limitation with no measurement against it, and the paper does not survive a failure to reproduce the effect on a non-synthetic task.
+1. **Real QA on the second model.** §3.2 ran on Qwen3 only, and §7.1's oracle shortfall is exactly the kind of result that might or might not survive the change of task. This is now the cheapest way to be wrong.
 2. **The contiguity control.** An oracle retaining a contiguous block versus scattered spans, same size, same distance. Cheap, and it decides whether §7.1's model-dependence is about retained-set *shape* — which would be a finding in its own right.
 3. **Vary the admit rate.** One run at `p`=0.5 tests the horizon law's only untested prediction.
 4. **Retrieval over evicted tokens**, rather than write-time query scoring. §7.3 rules out the cheap version of query-awareness, not the direction.
@@ -261,4 +305,4 @@ The occupied cells around this work are worth stating precisely. Write-time admi
 
 ## Reproducibility
 
-Code, seeds, raw per-trial results and all three training histories: this repository. `docs/phase1-findings.md`, `docs/phase2-findings.md`, `docs/phase2b-findings.md` and `docs/phase3-batch-findings.md` record each run including the errors made along the way. 100 tests, harness verified bit-identical against a stock cache on two backends.
+Code, seeds, raw per-trial results and all three training histories: this repository. `docs/phase1-findings.md`, `docs/phase2-findings.md`, `docs/phase2b-findings.md`, `docs/phase3-batch-findings.md` and `docs/phase4-benchmark-findings.md` record each run including the errors made along the way. 114 tests, harness verified bit-identical against a stock cache on two backends.
