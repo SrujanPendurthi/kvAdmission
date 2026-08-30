@@ -45,3 +45,29 @@ def test_seed_is_reproducible():
     _, b = build_stream(TOK, n_needles=5, target_len=4096, seed=3)
     assert [n["pos"] for n in a] == [n["pos"] for n in b]
     assert [n["code"] for n in a] == [n["code"] for n in b]
+
+
+def test_sentence_answers_are_the_longest():
+    """A 6-digit code is ~6 tokens (one per digit), so it is not the shortest -
+    it is the least redundant. Only the sentence style is reliably longer."""
+    lens = {}
+    for style in ("code", "phrase", "sentence"):
+        _, needles = build_stream(TOK, 3, 2048, seed=0, style=style)
+        lens[style] = sum(
+            len(TOK(n["code"], add_special_tokens=False)["input_ids"])
+            for n in needles) / len(needles)
+    assert lens["sentence"] > lens["code"], lens
+    assert lens["sentence"] > lens["phrase"], lens
+
+
+def test_every_style_plants_its_answer_in_the_stream():
+    for style in ("code", "phrase", "sentence"):
+        ids, needles = build_stream(TOK, 3, 2048, seed=1, style=style)
+        text = TOK.decode(ids[0])
+        for n in needles:
+            assert n["code"] in text, (style, n["code"])
+
+
+def test_style_is_recorded_on_each_needle():
+    _, needles = build_stream(TOK, 3, 2048, seed=0, style="phrase")
+    assert all(n["style"] == "phrase" for n in needles)

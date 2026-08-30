@@ -17,6 +17,28 @@ from kvadmission.runner import generate
 GUTENBERG = "https://www.gutenberg.org/files/1342/1342-0.txt"
 CORPUS = Path(__file__).parent / "_haystack.txt"
 
+# Answer templates spanning length AND redundancy. Note that a 6-digit code
+# tokenises to 6 tokens - one per digit - so it is not short; it is
+# *irredundant*. No digit is predictable from its neighbours, so every token
+# must survive. A phrase or sentence is longer but internally predictable.
+#
+# The partial-oracle ablation found coverage unforgiving on codes. These styles
+# test whether that requirement is about span length or about redundancy.
+ANSWER_STYLES = {
+    "code": lambda rng: f"{rng.randrange(100000, 999999)}",
+    "phrase": lambda rng: rng.choice([
+        "seventeen copper lanterns", "a folded brass sextant",
+        "the ninth marble stairway", "two salt-stained ledgers",
+        "an unsigned harbour permit", "the west quarry gate",
+    ]),
+    "sentence": lambda rng: rng.choice([
+        "the shipment was rerouted through the northern harbour before dawn",
+        "the ledger was signed by the quarry foreman and never countersigned",
+        "the lantern room stayed lit for three nights after the storm passed",
+        "the permit expired the same week the west gate was bricked over",
+    ]),
+}
+
 TOPICS = [
     "oak", "harbor", "lantern", "quarry", "meridian", "thistle",
     "cobalt", "vellum", "cinder", "marrow", "fathom", "sable",
@@ -32,8 +54,13 @@ def _corpus():
     return CORPUS.read_text()
 
 
-def build_stream(tok, n_needles, target_len, seed=0):
-    """Plant `n_needles` facts through `target_len` tokens of prose."""
+def build_stream(tok, n_needles, target_len, seed=0, style="code"):
+    """Plant `n_needles` facts through `target_len` tokens of prose.
+
+    `style` selects answer length: "code" (a 6-digit number, few tokens),
+    "phrase", or "sentence". Longer answers carry redundancy, so partial
+    retention may still support recall - which the code style cannot.
+    """
     if n_needles > len(TOPICS):
         raise ValueError(f"only {len(TOPICS)} topics available")
 
@@ -45,9 +72,8 @@ def build_stream(tok, n_needles, target_len, seed=0):
     rng.shuffle(sentences)
 
     topics = rng.sample(TOPICS, n_needles)
-    needles = [
-        {"topic": t, "code": f"{rng.randrange(100000, 999999)}"} for t in topics
-    ]
+    make = ANSWER_STYLES[style]
+    needles = [{"topic": t, "code": make(rng), "style": style} for t in topics]
 
     # even anchors, jittered within their own slot so seeds differ in placement
     slot = target_len / n_needles

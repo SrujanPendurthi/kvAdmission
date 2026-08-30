@@ -1,0 +1,65 @@
+"""Query-aware admission on the phase 1 needle harness."""
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
+import argparse, json
+from pathlib import Path
+
+import torch
+
+from kvadmission.cache import AdmissionCache
+from kvadmission.queryaware import make_query_aware_decider, query_embeddings
+from kvadmission.runner import load_model
+from kvadmission.stream import build_stream, query_needle
+from kvadmission.sweep import summarize
+
+p = argparse.ArgumentParser()
+p.add_argument("--model", default="Qwen/Qwen3-1.7B")
+p.add_argument("--budget", type=int, default=2048)
+p.add_argument("--seeds", type=int, default=5)
+p.add_argument("--length", type=int, default=8192)
+p.add_argument("--needles", type=int, default=8)
+p.add_argument("--recency-weight", type=float, default=0.0)
+p.add_argument("--out", default="results/queryaware.json")
+a = p.parse_args()
+
+model, tok, device = load_model(a.model)
+rows = []
+for seed in range(a.seeds):
+    ids, needles = build_stream(tok, a.needles, a.length, seed=seed)
+    qe = query_embeddings(model, tok, needles, device)
+    decide, _ = make_query_aware_decider(
+        qe, a.budget, n_layers=model.config.num_hidden_layers, sinks=4,
+        device=device, recency_weight=a.recency_weight)
+    cache = AdmissionCache(budget=a.budget, sinks=4)
+
+    total = ids.shape[1]
+    with torch.no_grad():
+        for start in range(0, total, 128):
+            piece = ids[:, start:start + 128].to(device)
+            n_new = piece.shape[1]
+            out = model(piece, past_key_values=cache,
+                        position_ids=torch.arange(start, start + n_new,
+                                                  device=device).unsqueeze(0),
+                        attention_mask=torch.ones(1, cache.get_seq_length() + n_new,
+                                                  device=device, dtype=torch.long),
+                        output_hidden_states=True, use_cache=True)
+            decide.state["hidden"] = out.hidden_states[-1][0].float()
+            for li in range(model.config.num_hidden_layers):
+                decide(li, cache, None, n_new)
+            del out
+
+    for nd in needles:
+        hit, text = query_needle(model, tok, cache, total, nd, device)
+        rows.append({"policy": "queryaware", "budget": a.budget, "seed": seed,
+                     "topic": nd["topic"], "distance_back": total - nd["pos"],
+                     "stream_len": total, "hit": bool(hit), "gen": text[:60]})
+    print(f"seed={seed} queryaware B={a.budget} "
+          f"{sum(r['hit'] for r in rows[-a.needles:])}/{a.needles}", flush=True)
+    Path(a.out).parent.mkdir(parents=True, exist_ok=True)
+    Path(a.out).write_text(json.dumps(rows, indent=1))
+
+print("\nrecall by band (mean, 95% upper)")
+for key, cell in sorted(summarize(rows).items()):
+    pol, b, band = key
+    print(f"  {pol:11s} B={b:<6d} {band:7s} {cell['mean']:.2f} "
+          f"(<={cell['upper95']:.2f}, n={cell['n']})")

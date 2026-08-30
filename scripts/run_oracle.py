@@ -13,6 +13,7 @@ from kvadmission.stream import build_stream, query_needle
 from kvadmission.sweep import summarize
 
 p = argparse.ArgumentParser()
+p.add_argument("--model", default="Qwen/Qwen3-1.7B")
 p.add_argument("--budgets", type=int, nargs="+", default=[512, 2048])
 p.add_argument("--seeds", type=int, default=5)
 p.add_argument("--length", type=int, default=8192)
@@ -20,7 +21,7 @@ p.add_argument("--needles", type=int, default=8)
 p.add_argument("--out", default="results/oracle.json")
 a = p.parse_args()
 
-model, tok, device = load_model()
+model, tok, device = load_model(a.model)
 rows = []
 for budget in a.budgets:
     for seed in range(a.seeds):
