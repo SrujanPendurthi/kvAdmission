@@ -94,3 +94,38 @@ def test_false_positives_crowd_out_true_ones():
         out.append(cache.layers[0].keys[0, 0, :, 0].tolist())
     assert 0.0 in out[0], "clean oracle lost its needle"
     assert 0.0 not in out[1], "flagging everything should protect nothing"
+
+
+def test_dilate_with_zero_radius_is_identity():
+    from kvadmission.oracle import dilate_spans
+    assert dilate_spans([(10, 20), (50, 60)], 0, 100) == [(10, 20), (50, 60)]
+
+
+def test_dilate_widens_both_sides_and_clamps_to_the_stream():
+    from kvadmission.oracle import dilate_spans
+    assert dilate_spans([(10, 20)], 5, 100) == [(5, 25)]
+    assert dilate_spans([(2, 8)], 5, 100) == [(0, 13)]      # clamped at 0
+    assert dilate_spans([(90, 98)], 5, 100) == [(85, 100)]  # clamped at n
+
+
+def test_dilate_merges_runs_that_touch():
+    # the whole point of the control: a wider radius means fewer, longer runs
+    from kvadmission.oracle import dilate_spans
+    assert dilate_spans([(10, 20), (30, 40)], 4, 100) == [(6, 24), (26, 44)]
+    assert dilate_spans([(10, 20), (30, 40)], 5, 100) == [(5, 45)]
+
+
+def test_span_stats_counts_runs_and_tokens():
+    from kvadmission.oracle import span_stats
+    assert span_stats([(0, 10), (20, 25)]) == (2, 15)
+
+
+def test_dilation_is_monotone_in_runs_and_tokens():
+    from kvadmission.oracle import dilate_spans, span_stats
+    spans = [(100, 110), (400, 410), (800, 810), (1200, 1210)]
+    prev_runs, prev_tokens = 5, 0
+    for r in (0, 20, 80, 200, 600):
+        runs, tokens = span_stats(dilate_spans(spans, r, 2048))
+        assert runs <= prev_runs      # merging never increases run count
+        assert tokens >= prev_tokens  # widening never retains fewer tokens
+        prev_runs, prev_tokens = runs, tokens

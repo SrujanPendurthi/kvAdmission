@@ -36,6 +36,37 @@ def needle_spans(tok, needles):
     return spans
 
 
+def dilate_spans(spans, radius, n_tokens):
+    """Widen each span by `radius` on both sides and merge what overlaps.
+
+    This is the knob for the contiguity control. The oracle's retained set is
+    normally maximally fragmented - one short run per answer span, spliced
+    between recency fill, with gaps in the position indices. Growing the radius
+    merges neighbouring runs, so the same evidence is retained inside
+    progressively fewer, longer contiguous blocks.
+
+    Radius trades against budget: a wider window flags more tokens, and past
+    B the crowding law takes over. Report `flagged_tokens` alongside `runs` so
+    a fall in recall from crowding is not read as an effect of fragmentation.
+    """
+    if not spans:
+        return []
+    wide = sorted((max(0, a - radius), min(n_tokens, b + radius))
+                  for a, b in spans)
+    merged = [list(wide[0])]
+    for a, b in wide[1:]:
+        if a <= merged[-1][1]:          # touching or overlapping - one run
+            merged[-1][1] = max(merged[-1][1], b)
+        else:
+            merged.append([a, b])
+    return [tuple(m) for m in merged]
+
+
+def span_stats(spans):
+    """(runs, flagged_tokens) for a set of already-merged spans."""
+    return len(spans), sum(b - a for a, b in spans)
+
+
 def make_oracle_decider(spans, budget, n_layers, sinks=4, device="cpu",
                         coverage=1.0, fp_rate=0.0, seed=0):
     """A decider that pins needle tokens and ranks the rest by recency.
