@@ -15,14 +15,18 @@ p.add_argument("--budget", type=int, default=2048)
 p.add_argument("--length", type=int, default=8192)
 p.add_argument("--needles", type=int, default=8)
 p.add_argument("--out", default="results/partial-oracle.json")
+p.add_argument("--fp", type=float, nargs="*", default=None,
+               help="if given, sweep these fp_rates at coverage=1.0 only")
 a = p.parse_args()
 
-# (coverage, fp_rate). Needle tokens are ~1.2% of a stream, so fp_rate 0.01
-# roughly doubles the flagged set and 0.20 nearly fills the budget with noise.
-CONFIGS = [
+# (coverage, fp_rate). Needle tokens are ~1.2% of a stream. The flagged set is
+# roughly fp_rate * length, so with length 8192 and budget 2048 the crowding
+# threshold is fp_rate ~= 0.25 - below that every flagged token fits and
+# precision costs nothing, above it false positives evict true ones.
+CONFIGS = ([(1.00, f) for f in a.fp] if a.fp else [
     (1.00, 0.00), (0.75, 0.00), (0.50, 0.00), (0.25, 0.00),
     (1.00, 0.01), (1.00, 0.05), (1.00, 0.20),
-]
+])
 
 model, tok, device = load_model()
 rows = []
@@ -40,7 +44,8 @@ for coverage, fp in CONFIGS:
             rows.append({"policy": f"cov{coverage}_fp{fp}", "coverage": coverage,
                          "fp_rate": fp, "budget": a.budget, "seed": seed,
                          "topic": nd["topic"], "distance_back": n - nd["pos"],
-                         "stream_len": n, "hit": bool(hit)})
+                         "stream_len": n, "hit": bool(hit),
+                         "flagged_est": int(fp * a.length + 96)})
         got = sum(r["hit"] for r in rows[-a.needles:])
         print(f"coverage={coverage:.2f} fp={fp:.2f} seed={seed}  {got}/{a.needles}",
               flush=True)

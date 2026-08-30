@@ -132,6 +132,37 @@ This settles it. Nothing about the budget, the chunking, FIFO eviction, or geome
 
 This reframes the geometric-survival mechanism of §4. It is not a wall; it is the default that any *uninformed* policy decays toward. The exponential is escapable, but only with information that write-time features do not carry.
 
+### 7.1 How good must a proxy be?
+
+The oracle establishes that the capacity exists. Degrading it along two axes measures what a realisable signal would need to achieve. `coverage` is the proxy's recall over answer tokens; `fp_rate` is its false-positive rate over everything else.
+
+| coverage | fp | overall | middle-band |
+|---|---|---|---|
+| 1.00 | 0.00 | 24/24 | 7/7 |
+| 0.75 | 0.00 | 12/24 | **1/7** |
+| 0.50 | 0.00 | 8/24 | 0/7 |
+| 0.25 | 0.00 | 6/24 | 0/7 |
+
+**Coverage is unforgiving.** Missing a quarter of the answer tokens collapses middle-band recall from 7/7 to 1/7. An answer spans only a few tokens, and retaining most of a six-digit code is worth nothing.
+
+**Precision is free — until the budget binds.** The flagged set is approximately `fp_rate · L`, so with `L`=8192 and `B`=2048 the crowding threshold is `fp_rate ≈ 0.25`. Below it every flagged token fits and false positives cost nothing; above it they evict true ones. Recall then follows a second simple law:
+
+> **recall = min( 1, B / |flagged| )**
+
+| fp | flagged | predicted | observed |
+|---|---|---|---|
+| 0.05 | 506 | 1.00 | 1.00 |
+| 0.20 | 1734 | 1.00 | 1.00 |
+| 0.30 | 2554 | 0.80 | 0.75 |
+| 0.40 | 3373 | 0.61 | 0.62 |
+| 0.50 | 4192 | 0.49 | 0.50 |
+
+Accurate to within 0.05 across the range. Once the flagged set overflows, survivors are a proportional subset and a given answer token survives with probability `B/|flagged|`.
+
+**The specification this yields is two-sided:** a proxy must identify *essentially every token* of an answer span, and must keep its *total* flagged set within the budget. It may be entirely indiscriminate about which extra tokens it keeps, so long as it does not keep too many. A policy flagging 30% of a stream is worse than useless even with perfect coverage.
+
+This also explains the trained policies more precisely than §6 does on its own. A soft admission head produces graded scores across a span, and partial retention of a span scores zero here — so gradient signal that improves average token-level accuracy need not improve recall at all.
+
 **The consequence for method design is sharp.** Effort spent on reward shaping, credit assignment, or optimizer stability at the admission decision is misdirected — those were the three things we tried. What is needed is a policy with access to signal that write-time features lack:
 
 - **Query-aware admission**, where retention decisions can consult the query, moving the problem from prediction to retrieval
