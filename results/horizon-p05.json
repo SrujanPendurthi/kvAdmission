@@ -1,0 +1,514 @@
+[
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 7934,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 7337,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 6858,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 6281,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 5877,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 5490,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 4893,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 4195,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 3731,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 3153,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 2738,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 2333,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 1759,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 1260,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 797,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "distance_back": 98,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 7819,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 7247,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 6781,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 6287,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 5779,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 5234,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 4897,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 4442,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 3651,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 3391,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 2811,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 2297,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 1759,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 1275,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 612,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "distance_back": 278,
+  "stream_len": 8192,
+  "hit": true
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 7862,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 7384,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 6728,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 6271,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 5801,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 5266,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 4787,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 4330,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 3778,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 3230,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 2816,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 2197,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 1893,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 1114,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 848,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "distance_back": 134,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 8059,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 7256,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 6866,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 6474,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 5715,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 5459,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 4685,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 4462,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 3928,
+  "stream_len": 8192,
+  "hit": true
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 3288,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 2748,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 2255,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 1662,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 1371,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 676,
+  "stream_len": 8192,
+  "hit": false
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 3,
+  "distance_back": 279,
+  "stream_len": 8192,
+  "hit": false
+ }
+]
