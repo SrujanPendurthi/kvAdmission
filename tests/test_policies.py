@@ -99,3 +99,32 @@ def test_random_keeps_layers_aligned():
             decide(li, cache, None, 10)
         occupancies = {cache.occupancy(li) for li in range(4)}
         assert len(occupancies) == 1, f"layers desynchronised: {occupancies}"
+
+
+def test_random_rate_defaults_to_the_eviction_balancing_value():
+    # B/(B+chunk) is the rate at which admission exactly offsets FIFO eviction
+    import torch
+    from kvadmission.cache import AdmissionCache
+    from kvadmission.policies import make_decider
+    decide, _ = make_decider("random", budget=2048, chunk=128, seed=0)
+    cache = AdmissionCache(budget=2048, sinks=4)
+    for _ in range(4):
+        cache.update(torch.randn(1, 2, 128, 8), torch.randn(1, 2, 128, 8), 0)
+        decide(0, cache, None, 128)
+    # ~94% admitted, so occupancy tracks the tokens written
+    assert 440 <= cache.occupancy(0) <= 512
+
+
+def test_random_rate_can_be_overridden():
+    # the horizon law predicts the cache spans B/p raw positions; testing that
+    # needs a rate the caller chooses
+    import torch
+    from kvadmission.cache import AdmissionCache
+    from kvadmission.policies import make_decider
+    decide, _ = make_decider("random", budget=2048, chunk=128, seed=0, rate=0.5)
+    cache = AdmissionCache(budget=2048, sinks=4)
+    for _ in range(8):
+        cache.update(torch.randn(1, 2, 128, 8), torch.randn(1, 2, 128, 8), 0)
+        decide(0, cache, None, 128)
+    # half of 1024 written, within sampling noise
+    assert 460 <= cache.occupancy(0) <= 560

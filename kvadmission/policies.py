@@ -11,8 +11,16 @@ import torch
 CHUNK_HINT = 128  # only used to set random's admit rate; see make_decider
 
 
-def make_decider(policy, budget, sinks=4, window=32, seed=0, chunk=CHUNK_HINT):
-    """Build a (decide, need_attn) pair for `runner.prefill`."""
+def make_decider(policy, budget, sinks=4, window=32, seed=0, chunk=CHUNK_HINT,
+                 rate=None):
+    """Build a (decide, need_attn) pair for `runner.prefill`.
+
+    `rate` overrides `random`'s admit probability. The default B/(B+chunk) is
+    the rate at which admission exactly balances FIFO eviction, so occupancy
+    sits at the budget. Setting it lower is what tests the horizon law's one
+    untested prediction: the cache spans the most recent B/p raw positions, so
+    halving the rate should double the horizon and halve the plateau.
+    """
     if policy == "full":
         return None, False
 
@@ -23,7 +31,7 @@ def make_decider(policy, budget, sinks=4, window=32, seed=0, chunk=CHUNK_HINT):
 
     if policy == "random":
         gen = torch.Generator().manual_seed(seed)
-        rate = budget / (budget + chunk)
+        rate = (budget / (budget + chunk)) if rate is None else rate
         shared = {}
 
         def decide(layer_idx, cache, attentions, n_new):

@@ -23,6 +23,8 @@ p.add_argument("--length", type=int, default=8192)
 p.add_argument("--needles", type=int, default=16)   # 2x the tercile sweep
 p.add_argument("--seeds", type=int, default=4)
 p.add_argument("--bins", type=int, default=8)
+p.add_argument("--rate", type=float, default=None,
+               help="override random's admit rate; horizon should sit at B/rate")
 p.add_argument("--out", default="results/distance-curve.json")
 a = p.parse_args()
 
@@ -32,7 +34,7 @@ for policy in a.policies:
     for seed in range(a.seeds):
         ids, needles = build_stream(tok, a.needles, a.length, seed=seed)
         decide, need_attn = make_decider(policy, budget=a.budget, sinks=4,
-                                         seed=seed)
+                                         seed=seed, rate=a.rate)
         cache = AdmissionCache(budget=a.budget, sinks=4)
         n = prefill(model, ids, cache, device, chunk=128, decide=decide,
                     need_attn=need_attn)
