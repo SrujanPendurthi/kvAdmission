@@ -8,13 +8,13 @@
 
 ## Abstract
 
-KV cache compression is evaluated on aggregate accuracy at a given budget, which hides *where* in the context a method succeeds. We measure recall as a function of distance from the query and find that published heuristics partition the context by positional bias rather than utility: recency methods recover only the near field, attention-accumulation methods only the far field, and **no method at any budget recovers the middle**. Across **284 middle-band trials** on synthetic needles — two models, five heuristics, three learned policies, four budgets, five seeds — we observe **zero successes** (95% upper bound 1.1%) against an uncompressed cache that answers 100% of the same queries. On real planted-evidence QA the figure is **1/64** (95% upper 7.2%) against an uncompressed 6/8.
+KV cache compression is evaluated on aggregate accuracy at a given budget, which hides *where* in the context a method succeeds. We measure recall as a function of distance from the query and find that published heuristics partition the context by positional bias rather than utility: recency methods recover only the near field, attention-accumulation methods only the far field, and **no method at any budget recovers the middle**. Across **340 middle-band trials** on synthetic needles — three models spanning a 4.7× size range, five heuristics, three learned policies, four budgets, five seeds — we observe **zero successes** (95% upper bound 0.9%) against an uncompressed cache that answers 100% of the same queries. On real planted-evidence QA the figure is **1/64** (95% upper 7.2%) against an uncompressed 6/8.
 
 We give a mechanism. Under admission at rate `p` followed by FIFO eviction to budget `B`, the cache is a contiguous window over the most recent `B/p` positions, so recall is a **step function with a hard horizon at `d = B/p`** — beyond it, retention is exactly zero rather than merely unlikely. A 256-token-resolution sweep confirms the step for both recency and rate-matched random admission. This implies **recency is emergent rather than chosen**: any policy that does not actively protect distant tokens converges to it for free.
 
 We then attempt to train past the dead zone with a learned admission policy under three reward formulations. All three fail: two converge to behaviour indistinguishable from a recency window despite measurably improving on their own objective, and one destabilises. A query-aware policy that may consult the pending queries at write time also scores zero in the middle band.
 
-We run an **oracle retention** control — the same budget, chunking, eviction geometry and evaluation, but the policy is told which tokens carry the answers. On Qwen3-1.7B the oracle scores **40/40, perfect recall in every band**, matching the uncompressed cache at a quarter of the context. The dead zone is therefore **not** a capacity or geometry limit on that model; the failure is one of **observability**. On SmolLM2-1.7B the same oracle recovers only 12/24. Isolating the cause shows it is **fragmentation**: holding evidence, distance and token budget fixed and varying only how many contiguous runs the retained set occupies moves SmolLM2 from 0.54 at eight fragments to 0.92 at four (p=0.008), while Qwen3 sits at ceiling throughout. The capacity is there on both models, but on one of them it is only reachable if the retained set stays coarse — a constraint no token-level heuristic respects.
+We run an **oracle retention** control — the same budget, chunking, eviction geometry and evaluation, but the policy is told which tokens carry the answers. On Qwen3-1.7B the oracle scores **40/40, perfect recall in every band**, and on Qwen3-8B **24/24**, matching the uncompressed cache at a quarter of the context on both. The dead zone is therefore **not** a capacity or geometry limit on that model; the failure is one of **observability**. On SmolLM2-1.7B the same oracle recovers only 12/24. Isolating the cause shows it is **fragmentation**: holding evidence, distance and token budget fixed and varying only how many contiguous runs the retained set occupies moves SmolLM2 from 0.54 at eight fragments to 0.92 at four (p=0.008), while Qwen3 sits at ceiling throughout. The capacity is there on both models, but on one of them it is only reachable if the retained set stays coarse — a constraint no token-level heuristic respects.
 
 Finally we replace the synthetic task entirely with **planted-evidence QA over real SQuAD passages**, scored by containment and token F1 against a measured closed-book floor of 0/24. On Qwen3 every finding survives: middle-band recall across four heuristics and two budgets is **1/64** against an uncompressed 6/8; `recent` and `h2o` remain near-exact complements (near 7/9 vs 1/9, far 0/7 vs 3/7); and the oracle scores **18/24 against the uncompressed 19/24** at a quarter of the context, where the best heuristic scores 7/24. This benchmark is single-model: extending it to SmolLM2 leaves an eight-trial window between a 3/24 floor and an 11/24 ceiling, too narrow to separate any policy from any other.
 
@@ -56,7 +56,7 @@ Per-policy at B=2048 — a quarter of the stream:
 
 `recent` and `h2o` are exact complements: each scores strongly in one band and **exactly zero** in the other, and neither reaches the middle. H2O's accumulated-attention sum favours tokens visible to the most query rows — the oldest — so it inverts recency rather than improving on it. Neither bias tracks whether a token is useful.
 
-### 3.1 Replication on a second model
+### 3.1 Replication across models and scale
 
 The same sweep on SmolLM2-1.7B-Instruct, 3 seeds × 8 needles × 2 budgets:
 
@@ -70,6 +70,19 @@ The same sweep on SmolLM2-1.7B-Instruct, 3 seeds × 8 needles × 2 budgets:
 | all four | 512 | 3/36 | **0/28** | 0/32 |
 
 **0/56 middle-band hits across every compressed cell** (95% upper 5.4%) against an uncompressed ceiling of 7/7. The dead zone is not a Qwen artifact.
+
+**Nor is it a small-model artifact.** Qwen3-8B — same family as the primary model, so scale is the only variable — at B=2048:
+
+| policy | near | middle | far |
+|---|---|---|---|
+| `full` | 9/9 | **7/7** | 8/8 |
+| **oracle** | **9/9** | **7/7** | **8/8** |
+| `recent` | 6/9 | **0/7** | **0/8** |
+| `h2o` | **0/9** | **0/7** | **4/8** |
+| `snapkv` | 3/9 | **0/7** | 0/8 |
+| `random` | 4/9 | **0/7** | 0/8 |
+
+**0/56 in the middle band** (95% upper 5.4%) against an uncompressed cache that is perfect in all three. The near/far complementarity holds for a third time — `recent` 6/9 near and 0/8 far, `h2o` 0/9 near and 4/8 far — and **the oracle reaches 24/24, matching the uncompressed cache exactly at a quarter of the context**, as it did at 1.7B.
 
 One difference: `h2o` scores 0/8 in the far band here, against 8/14 on Qwen. SmolLM2's attention mass is distributed differently enough that accumulated-attention scoring does not reliably hold the opening of the stream. It rescues the middle on neither model.
 
@@ -312,22 +325,24 @@ Substantial, though the limitation that previously headed this list — no non-s
 - **Two task families, both short-answer.** Synthetic needles and planted-evidence SQuAD QA. The second fixes the corpus, query and metric, but SQuAD is extractive short-answer QA — still far easier than multi-hop reasoning, summarisation, or agent traces, and neither task is a published benchmark run end to end.
 - **The real-QA far band has a difficulty ceiling.** `full` scores only 4/7 there, so far-band zeros in §3.2 are much weaker evidence than the middle band's.
 - **Small n on real QA.** 24 trials per cell, 8 per band; the middle-band 95% upper bound is 7.2%, not 1%.
-- **Two models, one size class.** Qwen3-1.7B and SmolLM2-1.7B-Instruct. The dead zone replicates across both on synthetic needles, but both are ~1.7B; it may still be a small-model artifact, and the oracle result already differs between them. **The real-QA benchmark is effectively single-model**: it discriminates on Qwen3 and does not on SmolLM2, whose uncompressed ceiling on the task is 11/24 against a 3/24 floor.
+- **Three models across a 4.7× size range** (Qwen3-1.7B, SmolLM2-1.7B-Instruct, Qwen3-8B). The dead zone, the complementarity and the oracle all replicate at 8B, so the central result is not a small-model artifact. Still one architecture family plus one outsider, and nothing above 8B.
+- **The real-QA benchmark is effectively single-model**: it discriminates on Qwen3-1.7B and does not on SmolLM2, whose uncompressed ceiling on the task is 11/24 against a 3/24 floor. It has not been run at 8B.
+- **The fragmentation threshold is measured on one model at one budget.** Whether 8B is equally sensitive is untested.
 - **The oracle ceiling does not replicate on SmolLM2 at high fragmentation**, and §7.1 identifies why (too many position-index gaps) but not the mechanism. The threshold between 8 and 4 fragments is measured at one budget, one stream length and one needle count.
 - **Simplified baselines.** H2O and SnapKV are reimplementations scored at token granularity across all heads; absolute numbers are not comparable to published ones.
 - **Three training runs, no hyperparameter search.** The claim is not that no policy can succeed — the oracle shows one can on at least one model — but that these three did not, for a reason §7 identifies.
 - **The oracle is an upper bound, not a method.** It requires knowing the answers in advance.
 - **One query-aware instantiation.** Pooled last-hidden-state cosine. A negative result about one similarity function is weak evidence about query-aware admission generally.
 - **One architectural family.** FIFO eviction, fixed per-layer budget, decision shared across layers — forced by the single global attention mask. Per-head and per-layer policies untested.
-- **The horizon law is fitted on two admit rates.** `p`=1.0 and `p`=0.941 are close together; the prediction that halving `p` doubles the horizon is untested.
+- **The horizon is verified at three rates** (1.0, 0.941, 0.5) but the plateau has no clean quantitative model — `p^L` is directionally right with an inconsistent effective `L`.
 
 ## 9. What comes next
 
 All four items previously listed here have been run: the second-model replication (§3.1), the finer distance sweep (§4, which corrected the mechanism), query-aware admission (§7.3, which failed), and the real-QA benchmark (§3.2, where everything replicated). What remains, in order of value:
 
-1. **Block-structured retention as a method.** §7.1 shows a policy that keeps the right tokens in too many pieces is worth much less than the same budget spent on fewer, larger blocks — and every published heuristic here selects tokens individually. A baseline that snaps selections to contiguous blocks is a cheap, concrete change to test against H2O and SnapKV.
-2. **Real QA on a stronger model.** Qwen2.5-3B or Llama-3.1-8B. §3.2's extension to SmolLM2 failed for lack of headroom, not for lack of seeds; the fix is a model that can do the task uncompressed, not more trials.
-3. **Vary the admit rate.** One run at `p`=0.5 tests the horizon law's only untested prediction.
+1. **A write-time signal that identifies answer tokens.** The oracle proves the capacity exists at three model scales; nothing here proves a realisable policy can find it, and §7.2 gives the two-sided specification such a policy must hit. This is the open problem the rest of the work exists to motivate.
+2. **Block-structured retention as a method.** §7.1 shows a policy that keeps the right tokens in too many pieces is worth much less than the same budget spent on fewer, larger blocks — and every published heuristic here selects tokens individually. A baseline that snaps selections to contiguous blocks is a cheap, concrete change to test against H2O and SnapKV.
+3. **Real QA at 8B.** §3.2 discriminates only on Qwen3-1.7B; Qwen3-8B has the headroom SmolLM2 lacked and is the natural place to repeat it.
 4. **Retrieval over evicted tokens**, rather than write-time query scoring. §7.3 rules out the cheap version of query-awareness, not the direction.
 
 ## 10. Related work
@@ -338,4 +353,4 @@ The occupied cells around this work are worth stating precisely. Write-time admi
 
 ## Reproducibility
 
-Code, seeds, raw per-trial results and all three training histories: this repository. `docs/phase1-findings.md`, `docs/phase2-findings.md`, `docs/phase2b-findings.md`, `docs/phase3-batch-findings.md` `docs/phase4-benchmark-findings.md` `docs/phase5-smollm2-qa-findings.md`, `docs/phase6-contiguity-findings.md` and `docs/phase7-fragment-count-findings.md` record each run including the errors made along the way. 123 tests, harness verified bit-identical against a stock cache on two backends.
+Code, seeds, raw per-trial results and all three training histories: this repository. `docs/phase1-findings.md`, `docs/phase2-findings.md`, `docs/phase2b-findings.md`, `docs/phase3-batch-findings.md` `docs/phase4-benchmark-findings.md` `docs/phase5-smollm2-qa-findings.md`, `docs/phase6-contiguity-findings.md`, `docs/phase7-fragment-count-findings.md` and `docs/phase8-scale-findings.md` record each run including the errors made along the way. 125 tests, harness verified bit-identical against a stock cache on two backends.
