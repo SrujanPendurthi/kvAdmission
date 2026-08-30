@@ -8,7 +8,7 @@
 
 ## Abstract
 
-KV cache compression is evaluated on aggregate accuracy at a given budget, which hides *where* in the context a method succeeds. We measure recall as a function of distance from the query and find that published heuristics partition the context by positional bias rather than utility: recency methods recover only the near field, attention-accumulation methods only the far field, and **no method at any budget recovers the middle**. Across **340 middle-band trials** on synthetic needles — three models spanning a 4.7× size range, five heuristics, three learned policies, four budgets, five seeds — we observe **zero successes** (95% upper bound 0.9%) against an uncompressed cache that answers 100% of the same queries. On real planted-evidence QA the figure is **1/64** (95% upper 7.2%) against an uncompressed 6/8.
+KV cache compression is evaluated on aggregate accuracy at a given budget, which hides *where* in the context a method succeeds. We measure recall as a function of distance from the query and find that the **token-scoring rules** published methods are built on partition the context by positional bias rather than utility: recency scoring recovers only the near field, accumulated-attention scoring only the far field, and **no scoring rule we tested recovers the middle at any budget**. Across **340 middle-band trials** on synthetic needles — three models spanning a 4.7× size range, five heuristics, three learned policies, four budgets, five seeds — we observe **zero successes** (95% upper bound 0.9%) against an uncompressed cache that answers 100% of the same queries. On real planted-evidence QA the figure is **1/64** (95% upper 7.2%) against an uncompressed 6/8.
 
 We give a mechanism. Under admission at rate `p` followed by FIFO eviction to budget `B`, the cache is a contiguous window over the most recent `B/p` positions, so recall is a **step function with a hard horizon at `d = B/p`** — beyond it, retention is exactly zero rather than merely unlikely. A 256-token-resolution sweep confirms the step for both recency and rate-matched random admission. This implies **recency is emergent rather than chosen**: any policy that does not actively protect distant tokens converges to it for free.
 
@@ -22,7 +22,7 @@ Finally we replace the synthetic task entirely with **planted-evidence QA over r
 
 A long-context model writes every token into its KV cache; under a budget most must go. The literature decides what to discard by ranking tokens with attention-derived heuristics — accumulated attention (H2O), observation-window voting (SnapKV), recency plus attention sinks (StreamingLLM), layer-wise budget allocation (PyramidKV, Ada-KV) — and reports aggregate accuracy at a compression ratio.
 
-That metric cannot distinguish a method that retains information uniformly from one that retains a biased subset well. We ask a narrower question: **given a fact planted at distance `d` before the query, does the compressed cache still support answering it?**
+Those methods differ in engineering, but the component that decides *what to keep* is in each case a token-scoring rule, and that is what we isolate and test. The aggregate metric cannot distinguish a rule that retains information uniformly from one that retains a biased subset well. We ask a narrower question: **given a fact planted at distance `d` before the query, does the compressed cache still support answering it?**
 
 ## 2. Setup
 
@@ -31,6 +31,8 @@ That metric cannot distinguish a method that retains information uniformly from 
 - **Metrics.** Exact substring match on the synthetic task; containment plus token F1 on real QA, against a measured closed-book floor. Zero-hit cells report a rule-of-three upper bound rather than a standard error, which is zero and misleadingly tight.
 - **Compression.** Chunked prefill at 128 tokens; after each chunk the cache is compressed to budget `B` per layer, first four tokens pinned as attention sinks. Budgets 256/512/1024/2048.
 - **Policies.** `full` (ceiling), `recent`, `h2o`, `snapkv`, `random` at matched budget, plus a query-aware policy (§7.3) and an oracle (§7).
+
+**What the baselines are, precisely.** `recent`, `h2o` and `snapkv` implement the *token-scoring rule* of StreamingLLM, H2O and SnapKV respectively — recency plus sinks, accumulated attention mass, and observation-window voting — evaluated at token granularity under a uniform per-layer budget. They are **not** reproductions of those systems: we do not implement per-head budgets, layer-wise allocation, or any of the kernel and memory engineering those papers contribute. Absolute numbers are therefore not comparable to published ones, and no claim here should be read as a benchmark of any published system. What is under test is the **scoring rule** — the function that decides which tokens are worth keeping — because that is the component the dead zone is a property of.
 - **Banding.** Near/middle/far terciles of distance-back from the query.
 
 Harness correctness rests on an identity test: at unbounded budget, logits are **bit-identical** to a stock `DynamicCache` under the same chunking, verified independently on MPS and CUDA. Positions are always passed explicitly, since compression makes cache length diverge from stream position — a silent corruption otherwise.
@@ -54,7 +56,7 @@ Per-policy at B=2048 — a quarter of the stream:
 | `snapkv` | 4/14 | 0/12 | 0/14 |
 | `h2o` | **0/14** | 0/12 | **8/14** |
 
-`recent` and `h2o` are exact complements: each scores strongly in one band and **exactly zero** in the other, and neither reaches the middle. H2O's accumulated-attention sum favours tokens visible to the most query rows — the oldest — so it inverts recency rather than improving on it. Neither bias tracks whether a token is useful.
+`recent` and `h2o` are exact complements: each scores strongly in one band and **exactly zero** in the other, and neither reaches the middle. This is a property of the scoring rules, not of any implementation detail. Accumulated attention sums over query rows, and the earliest tokens are visible to the most of them, so the rule is biased toward the start of the stream by construction; recency is biased toward the end by construction. **Both are functions of position, and neither is a function of utility.** Any refinement that keeps the same scoring rule inherits the same bias.
 
 ### 3.1 Replication across models and scale
 
@@ -117,6 +119,18 @@ Three findings carry over intact.
 One caveat is specific to this task: **the far band has a difficulty ceiling**, since `full` itself scores only 4/7 there. Far-band zeros are therefore much less informative here than on needles, where the ceiling was 1.00. The middle band carries the claim: ceiling 6/8, every heuristic at zero.
 
 **This benchmark ran on Qwen3 only, and the attempt to extend it failed.** On SmolLM2-1.7B the same benchmark has a closed-book floor of 3/24 and an uncompressed ceiling of **11/24** — an eight-trial window at n=24. Inside it nothing separates: the oracle scores 9/24 against a best heuristic of 7/24, where on Qwen the same comparison is 18/24 against 7/24. The run therefore cannot distinguish *the oracle does not help SmolLM2* from *SmolLM2 cannot do this task*, and we report it as null information rather than as either a replication or a refutation. The dead zone does point the same way there — heuristic middle band 4/64 against a 4/8 ceiling, both recency policies at 0/8 — but with a 95% upper bound of 13.7%. Details in `docs/phase5-smollm2-qa-findings.md`.
+
+### 3.3 Why the result does not rest on baseline fidelity
+
+The natural objection to §3 is that our `h2o` and `snapkv` are not the published systems, so a dead zone in them may be an artifact of our implementations. Three parts of the argument are independent of that.
+
+**The ceiling is measured, not assumed.** `full` uses the same harness, the same chunking and the same query procedure, and answers 100% of these queries in every band, at every model size. Whatever our baselines get wrong, the task is solvable and the harness can solve it. The identity test pins this further: at unbounded budget the harness is bit-identical to a stock cache.
+
+**The oracle is measured at the same budget.** Oracle retention runs through the identical eviction path our baselines use, with the identical budget, chunking, sink prefix and evaluation — and scores 40/40 at 1.7B and 24/24 at 8B (§7). So a 2048-token cache built by this harness *can* answer every mid-context query. Any dead zone we report is therefore a property of which tokens a rule selects, not of the machinery that enforces the budget.
+
+**The mechanism is geometric.** §4's horizon is a consequence of FIFO eviction under a fixed budget and holds exactly for `recent`, whose scoring rule has no implementation freedom worth disputing: keep the newest. A token past `B/p` is gone with probability one regardless of how carefully any method is reimplemented.
+
+What a faithful reimplementation could change is the near- and far-band numbers — how *much* of each end a rule recovers. What it could not change, without replacing the scoring rule itself, is the middle: accumulated attention and recency are both functions of position by construction, and §7 shows the budget is not the binding constraint. That prediction is falsifiable, and running the published systems is how to falsify it.
 
 ## 4. Mechanism: a hard horizon, not a slope
 
@@ -329,7 +343,7 @@ Substantial, though the limitation that previously headed this list — no non-s
 - **The real-QA benchmark is effectively single-model**: it discriminates on Qwen3-1.7B and does not on SmolLM2, whose uncompressed ceiling on the task is 11/24 against a 3/24 floor. It has not been run at 8B.
 - **The fragmentation threshold is measured on one model at one budget.** Whether 8B is equally sensitive is untested.
 - **The oracle ceiling does not replicate on SmolLM2 at high fragmentation**, and §7.1 identifies why (too many position-index gaps) but not the mechanism. The threshold between 8 and 4 fragments is measured at one budget, one stream length and one needle count.
-- **Simplified baselines.** H2O and SnapKV are reimplementations scored at token granularity across all heads; absolute numbers are not comparable to published ones.
+- **Scoring rules, not systems.** `h2o` and `snapkv` implement the selection rules of H2O and SnapKV at token granularity under a uniform per-layer budget, without per-head budgets, layer-wise allocation, or the systems engineering those papers contribute. We claim a result about **the scoring rules**; we do not benchmark the published systems, and the numbers here should not be cited as such. A faithful reimplementation could shift the near- and far-band numbers. It could not, without changing the scoring rule itself, move the middle band: both rules are functions of position by construction, and §7 shows the budget is not what prevents mid-context recall.
 - **Three training runs, no hyperparameter search.** The claim is not that no policy can succeed — the oracle shows one can on at least one model — but that these three did not, for a reason §7 identifies.
 - **The oracle is an upper bound, not a method.** It requires knowing the answers in advance.
 - **One query-aware instantiation.** Pooled last-hidden-state cosine. A negative result about one similarity function is weak evidence about query-aware admission generally.
@@ -341,7 +355,7 @@ Substantial, though the limitation that previously headed this list — no non-s
 All four items previously listed here have been run: the second-model replication (§3.1), the finer distance sweep (§4, which corrected the mechanism), query-aware admission (§7.3, which failed), and the real-QA benchmark (§3.2, where everything replicated). What remains, in order of value:
 
 1. **A write-time signal that identifies answer tokens.** The oracle proves the capacity exists at three model scales; nothing here proves a realisable policy can find it, and §7.2 gives the two-sided specification such a policy must hit. This is the open problem the rest of the work exists to motivate.
-2. **Block-structured retention as a method.** §7.1 shows a policy that keeps the right tokens in too many pieces is worth much less than the same budget spent on fewer, larger blocks — and every published heuristic here selects tokens individually. A baseline that snaps selections to contiguous blocks is a cheap, concrete change to test against H2O and SnapKV.
+2. **Block-structured retention as a method.** §7.1 shows a policy that keeps the right tokens in too many pieces is worth much less than the same budget spent on fewer, larger blocks — and every scoring rule tested here selects tokens individually. Snapping selections to contiguous blocks is a cheap, concrete change to test against the same rules.
 3. **Real QA at 8B.** §3.2 discriminates only on Qwen3-1.7B; Qwen3-8B has the headroom SmolLM2 lacked and is the natural place to repeat it.
 4. **Retrieval over evicted tokens**, rather than write-time query scoring. §7.3 rules out the cheap version of query-awareness, not the direction.
 
@@ -350,6 +364,8 @@ All four items previously listed here have been run: the second-model replicatio
 The occupied cells around this work are worth stating precisely. Write-time admission with a frozen backbone exists (WG-KV, arXiv 2512.17452) via differentiable gating and supervised distillation. RL for cache decisions with a frozen LLM exists (Learning to Evict, ICML 2026) for post-hoc eviction, episodic, uniform budgets — and its ablation already establishes RL over supervised in that setting. Online Lagrangian dual ascent for KV allocation exists (TriRoute, arXiv 2607.06601). Learned eviction for hybrid linear/full attention exists (arXiv 2510.20787).
 
 **What is new here is the measurement, not the method.** We are not aware of prior work reporting recall by distance-band, and the near/far complementarity and mid-context dead zone are not documented elsewhere.
+
+**What we do and do not claim about prior systems.** We do not report that H2O, SnapKV or StreamingLLM fail on their own benchmarks; we did not run them. We report that the *scoring rules* they introduced — accumulated attention, observation-window voting, recency plus sinks — are functions of position rather than utility, and that under a fixed per-layer budget every one of them leaves the middle of the context unrecoverable while an oracle at the same budget recovers all of it. Whether the full systems inherit this is a prediction of ours, not a measurement, and the natural way to falsify it is to run them.
 
 ## Reproducibility
 
