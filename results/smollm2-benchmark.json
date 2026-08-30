@@ -1,0 +1,4149 @@
+[
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "question": "Low doses of anti-inflammatories are sometimes used with what classes ",
+  "answers": [
+   "cytotoxic or immunosuppressive drugs",
+   "cytotoxic or immunosuppressive",
+   "Cytotoxic drugs"
+  ],
+  "distance_back": 7225,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " anti-inflammatories"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "question": "What was the horsepower put out by the turbines in Waterside Power Sta",
+  "answers": [
+   "100\u20135,000 hp",
+   "100\u20135,000"
+  ],
+  "distance_back": 6644,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.4,
+  "em": 0.0,
+  "gen": " 10,000"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "question": "What are public schools in Victoria?",
+  "answers": [
+   "state or government",
+   "state or government schools"
+  ],
+  "distance_back": 5553,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " state or government schools"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "question": "What would Mongol armies divert in order to cut off the resources of c",
+  "answers": [
+   "rivers"
+  ],
+  "distance_back": 4694,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " rivers"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "question": "Besides the V&A's, whose collections are under the responsibility of c",
+  "answers": [
+   "V&A Museum of Childhood"
+  ],
+  "distance_back": 3580,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " National and Public Library Services led by the Kenya National Librar"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "question": "What is the Rhine called in Dutch?",
+  "answers": [
+   "Rijn"
+  ],
+  "distance_back": 1940,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Rijn"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "question": "MPs representing English constituencies can only veto laws affecting w",
+  "answers": [
+   "England"
+  ],
+  "distance_back": 1457,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " England"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 0,
+  "question": "What year was the University of Warsaw established?",
+  "answers": [
+   "1816"
+  ],
+  "distance_back": 0,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 1816"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "question": "Low doses of anti-inflammatories are sometimes used with what classes ",
+  "answers": [
+   "cytotoxic or immunosuppressive drugs",
+   "cytotoxic or immunosuppressive",
+   "Cytotoxic drugs"
+  ],
+  "distance_back": 7225,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " anti-inflammatories"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "question": "What was the horsepower put out by the turbines in Waterside Power Sta",
+  "answers": [
+   "100\u20135,000 hp",
+   "100\u20135,000"
+  ],
+  "distance_back": 6644,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.4,
+  "em": 0.0,
+  "gen": " 1,000"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "question": "What are public schools in Victoria?",
+  "answers": [
+   "state or government",
+   "state or government schools"
+  ],
+  "distance_back": 5553,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.667,
+  "em": 0.0,
+  "gen": " state schools"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "question": "What would Mongol armies divert in order to cut off the resources of c",
+  "answers": [
+   "rivers"
+  ],
+  "distance_back": 4694,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " water"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "question": "Besides the V&A's, whose collections are under the responsibility of c",
+  "answers": [
+   "V&A Museum of Childhood"
+  ],
+  "distance_back": 3580,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.353,
+  "em": 0.0,
+  "gen": " The Victoria and Albert Museum's collections are under the responsibi"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "question": "What is the Rhine called in Dutch?",
+  "answers": [
+   "Rijn"
+  ],
+  "distance_back": 1940,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Rijn"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "question": "MPs representing English constituencies can only veto laws affecting w",
+  "answers": [
+   "England"
+  ],
+  "distance_back": 1457,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " England"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 0,
+  "question": "What year was the University of Warsaw established?",
+  "answers": [
+   "1816"
+  ],
+  "distance_back": 0,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 1816"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "question": "Low doses of anti-inflammatories are sometimes used with what classes ",
+  "answers": [
+   "cytotoxic or immunosuppressive drugs",
+   "cytotoxic or immunosuppressive",
+   "Cytotoxic drugs"
+  ],
+  "distance_back": 7225,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " anti-depressants"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What was the horsepower put out by the turbines in Waterside Power Sta",
+  "answers": [
+   "100\u20135,000 hp",
+   "100\u20135,000"
+  ],
+  "distance_back": 6644,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.4,
+  "em": 0.0,
+  "gen": " 1,000"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What are public schools in Victoria?",
+  "answers": [
+   "state or government",
+   "state or government schools"
+  ],
+  "distance_back": 5553,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.667,
+  "em": 0.0,
+  "gen": " State schools"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What would Mongol armies divert in order to cut off the resources of c",
+  "answers": [
+   "rivers"
+  ],
+  "distance_back": 4694,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " trade routes"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "question": "Besides the V&A's, whose collections are under the responsibility of c",
+  "answers": [
+   "V&A Museum of Childhood"
+  ],
+  "distance_back": 3580,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.222,
+  "em": 0.0,
+  "gen": " the Victoria and Albert Museum's"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What is the Rhine called in Dutch?",
+  "answers": [
+   "Rijn"
+  ],
+  "distance_back": 1940,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Rijn"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "question": "MPs representing English constituencies can only veto laws affecting w",
+  "answers": [
+   "England"
+  ],
+  "distance_back": 1457,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " England"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What year was the University of Warsaw established?",
+  "answers": [
+   "1816"
+  ],
+  "distance_back": 0,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 1816"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "question": "Low doses of anti-inflammatories are sometimes used with what classes ",
+  "answers": [
+   "cytotoxic or immunosuppressive drugs",
+   "cytotoxic or immunosuppressive",
+   "Cytotoxic drugs"
+  ],
+  "distance_back": 7225,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " anti-depressants"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "question": "What was the horsepower put out by the turbines in Waterside Power Sta",
+  "answers": [
+   "100\u20135,000 hp",
+   "100\u20135,000"
+  ],
+  "distance_back": 6644,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1000"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "question": "What are public schools in Victoria?",
+  "answers": [
+   "state or government",
+   "state or government schools"
+  ],
+  "distance_back": 5553,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.667,
+  "em": 0.0,
+  "gen": " Government schools"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "question": "What would Mongol armies divert in order to cut off the resources of c",
+  "answers": [
+   "rivers"
+  ],
+  "distance_back": 4694,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " water"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "question": "Besides the V&A's, whose collections are under the responsibility of c",
+  "answers": [
+   "V&A Museum of Childhood"
+  ],
+  "distance_back": 3580,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.2,
+  "em": 0.0,
+  "gen": " The Victoria and Albert Museum's collections are under the responsibi"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "question": "What is the Rhine called in Dutch?",
+  "answers": [
+   "Rijn"
+  ],
+  "distance_back": 1940,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Rijn"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "question": "MPs representing English constituencies can only veto laws affecting w",
+  "answers": [
+   "England"
+  ],
+  "distance_back": 1457,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " England"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 0,
+  "question": "What year was the University of Warsaw established?",
+  "answers": [
+   "1816"
+  ],
+  "distance_back": 0,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1817"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "question": "Low doses of anti-inflammatories are sometimes used with what classes ",
+  "answers": [
+   "cytotoxic or immunosuppressive drugs",
+   "cytotoxic or immunosuppressive",
+   "Cytotoxic drugs"
+  ],
+  "distance_back": 7225,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " NSAIDs"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What was the horsepower put out by the turbines in Waterside Power Sta",
+  "answers": [
+   "100\u20135,000 hp",
+   "100\u20135,000"
+  ],
+  "distance_back": 6644,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1000"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What are public schools in Victoria?",
+  "answers": [
+   "state or government",
+   "state or government schools"
+  ],
+  "distance_back": 5553,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " National and Public Library Services led by the Kenya National Librar"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What would Mongol armies divert in order to cut off the resources of c",
+  "answers": [
+   "rivers"
+  ],
+  "distance_back": 4694,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " rivers"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "question": "Besides the V&A's, whose collections are under the responsibility of c",
+  "answers": [
+   "V&A Museum of Childhood"
+  ],
+  "distance_back": 3580,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " National and Public Library Services led by KENYA"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What is the Rhine called in Dutch?",
+  "answers": [
+   "Rijn"
+  ],
+  "distance_back": 1940,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Rijn"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "question": "MPs representing English constituencies can only veto laws affecting w",
+  "answers": [
+   "England"
+  ],
+  "distance_back": 1457,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " England"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What year was the University of Warsaw established?",
+  "answers": [
+   "1816"
+  ],
+  "distance_back": 0,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1817"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "question": "Low doses of anti-inflammatories are sometimes used with what classes ",
+  "answers": [
+   "cytotoxic or immunosuppressive drugs",
+   "cytotoxic or immunosuppressive",
+   "Cytotoxic drugs"
+  ],
+  "distance_back": 7225,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " NSAIDs"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "question": "What was the horsepower put out by the turbines in Waterside Power Sta",
+  "answers": [
+   "100\u20135,000 hp",
+   "100\u20135,000"
+  ],
+  "distance_back": 6644,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1000"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "question": "What are public schools in Victoria?",
+  "answers": [
+   "state or government",
+   "state or government schools"
+  ],
+  "distance_back": 5553,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.667,
+  "em": 0.0,
+  "gen": " State schools"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "question": "What would Mongol armies divert in order to cut off the resources of c",
+  "answers": [
+   "rivers"
+  ],
+  "distance_back": 4694,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " rivers"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "question": "Besides the V&A's, whose collections are under the responsibility of c",
+  "answers": [
+   "V&A Museum of Childhood"
+  ],
+  "distance_back": 3580,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.2,
+  "em": 0.0,
+  "gen": " The Victoria and Albert Museum's collections"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "question": "What is the Rhine called in Dutch?",
+  "answers": [
+   "Rijn"
+  ],
+  "distance_back": 1940,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Rijn"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "question": "MPs representing English constituencies can only veto laws affecting w",
+  "answers": [
+   "England"
+  ],
+  "distance_back": 1457,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " England"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 0,
+  "question": "What year was the University of Warsaw established?",
+  "answers": [
+   "1816"
+  ],
+  "distance_back": 0,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 1816"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "question": "Low doses of anti-inflammatories are sometimes used with what classes ",
+  "answers": [
+   "cytotoxic or immunosuppressive drugs",
+   "cytotoxic or immunosuppressive",
+   "Cytotoxic drugs"
+  ],
+  "distance_back": 7225,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " NSAIDs"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What was the horsepower put out by the turbines in Waterside Power Sta",
+  "answers": [
+   "100\u20135,000 hp",
+   "100\u20135,000"
+  ],
+  "distance_back": 6644,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.4,
+  "em": 0.0,
+  "gen": " 1,000"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What are public schools in Victoria?",
+  "answers": [
+   "state or government",
+   "state or government schools"
+  ],
+  "distance_back": 5553,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.667,
+  "em": 0.0,
+  "gen": " state schools"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What would Mongol armies divert in order to cut off the resources of c",
+  "answers": [
+   "rivers"
+  ],
+  "distance_back": 4694,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " rivers"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "question": "Besides the V&A's, whose collections are under the responsibility of c",
+  "answers": [
+   "V&A Museum of Childhood"
+  ],
+  "distance_back": 3580,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.2,
+  "em": 0.0,
+  "gen": " The Victoria and Albert Museum's collections"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What is the Rhine called in Dutch?",
+  "answers": [
+   "Rijn"
+  ],
+  "distance_back": 1940,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Rijn"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "question": "MPs representing English constituencies can only veto laws affecting w",
+  "answers": [
+   "England"
+  ],
+  "distance_back": 1457,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " England"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What year was the University of Warsaw established?",
+  "answers": [
+   "1816"
+  ],
+  "distance_back": 0,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 1816"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "question": "Low doses of anti-inflammatories are sometimes used with what classes ",
+  "answers": [
+   "cytotoxic or immunosuppressive drugs",
+   "cytotoxic or immunosuppressive",
+   "Cytotoxic drugs"
+  ],
+  "distance_back": 7225,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " anti-inflammatories"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "question": "What was the horsepower put out by the turbines in Waterside Power Sta",
+  "answers": [
+   "100\u20135,000 hp",
+   "100\u20135,000"
+  ],
+  "distance_back": 6644,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1000"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "question": "What are public schools in Victoria?",
+  "answers": [
+   "state or government",
+   "state or government schools"
+  ],
+  "distance_back": 5553,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.667,
+  "em": 0.0,
+  "gen": " state schools"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "question": "What would Mongol armies divert in order to cut off the resources of c",
+  "answers": [
+   "rivers"
+  ],
+  "distance_back": 4694,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " trade routes"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "question": "Besides the V&A's, whose collections are under the responsibility of c",
+  "answers": [
+   "V&A Museum of Childhood"
+  ],
+  "distance_back": 3580,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.25,
+  "em": 0.0,
+  "gen": " the National Museum in Warsaw"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "question": "What is the Rhine called in Dutch?",
+  "answers": [
+   "Rijn"
+  ],
+  "distance_back": 1940,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Rijn"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "question": "MPs representing English constituencies can only veto laws affecting w",
+  "answers": [
+   "England"
+  ],
+  "distance_back": 1457,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " England"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 0,
+  "question": "What year was the University of Warsaw established?",
+  "answers": [
+   "1816"
+  ],
+  "distance_back": 0,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1818"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "question": "Low doses of anti-inflammatories are sometimes used with what classes ",
+  "answers": [
+   "cytotoxic or immunosuppressive drugs",
+   "cytotoxic or immunosuppressive",
+   "Cytotoxic drugs"
+  ],
+  "distance_back": 7225,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " NSAIDs"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What was the horsepower put out by the turbines in Waterside Power Sta",
+  "answers": [
+   "100\u20135,000 hp",
+   "100\u20135,000"
+  ],
+  "distance_back": 6644,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.4,
+  "em": 0.0,
+  "gen": " 1,000"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What are public schools in Victoria?",
+  "answers": [
+   "state or government",
+   "state or government schools"
+  ],
+  "distance_back": 5553,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.667,
+  "em": 0.0,
+  "gen": " State schools"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What would Mongol armies divert in order to cut off the resources of c",
+  "answers": [
+   "rivers"
+  ],
+  "distance_back": 4694,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " trade routes"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "question": "Besides the V&A's, whose collections are under the responsibility of c",
+  "answers": [
+   "V&A Museum of Childhood"
+  ],
+  "distance_back": 3580,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.25,
+  "em": 0.0,
+  "gen": " the National Museum in Warsaw"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What is the Rhine called in Dutch?",
+  "answers": [
+   "Rijn"
+  ],
+  "distance_back": 1940,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Rijn"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "question": "MPs representing English constituencies can only veto laws affecting w",
+  "answers": [
+   "England"
+  ],
+  "distance_back": 1457,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " England"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What year was the University of Warsaw established?",
+  "answers": [
+   "1816"
+  ],
+  "distance_back": 0,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 1816"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 0,
+  "question": "Low doses of anti-inflammatories are sometimes used with what classes ",
+  "answers": [
+   "cytotoxic or immunosuppressive drugs",
+   "cytotoxic or immunosuppressive",
+   "Cytotoxic drugs"
+  ],
+  "distance_back": 7225,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " NSAIDs"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 0,
+  "question": "What was the horsepower put out by the turbines in Waterside Power Sta",
+  "answers": [
+   "100\u20135,000 hp",
+   "100\u20135,000"
+  ],
+  "distance_back": 6644,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1000"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 0,
+  "question": "What are public schools in Victoria?",
+  "answers": [
+   "state or government",
+   "state or government schools"
+  ],
+  "distance_back": 5553,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.667,
+  "em": 0.0,
+  "gen": " Government schools"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 0,
+  "question": "What would Mongol armies divert in order to cut off the resources of c",
+  "answers": [
+   "rivers"
+  ],
+  "distance_back": 4694,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " rivers"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 0,
+  "question": "Besides the V&A's, whose collections are under the responsibility of c",
+  "answers": [
+   "V&A Museum of Childhood"
+  ],
+  "distance_back": 3580,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.2,
+  "em": 0.0,
+  "gen": " The Victoria and Albert Museum's collections"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 0,
+  "question": "What is the Rhine called in Dutch?",
+  "answers": [
+   "Rijn"
+  ],
+  "distance_back": 1940,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Rijn"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 0,
+  "question": "MPs representing English constituencies can only veto laws affecting w",
+  "answers": [
+   "England"
+  ],
+  "distance_back": 1457,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " England"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 0,
+  "question": "What year was the University of Warsaw established?",
+  "answers": [
+   "1816"
+  ],
+  "distance_back": 0,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1817"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "question": "Low doses of anti-inflammatories are sometimes used with what classes ",
+  "answers": [
+   "cytotoxic or immunosuppressive drugs",
+   "cytotoxic or immunosuppressive",
+   "Cytotoxic drugs"
+  ],
+  "distance_back": 7225,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " anti-depressants"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What was the horsepower put out by the turbines in Waterside Power Sta",
+  "answers": [
+   "100\u20135,000 hp",
+   "100\u20135,000"
+  ],
+  "distance_back": 6644,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.4,
+  "em": 0.0,
+  "gen": " 10,000"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What are public schools in Victoria?",
+  "answers": [
+   "state or government",
+   "state or government schools"
+  ],
+  "distance_back": 5553,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " V&A Museum of Childhood"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What would Mongol armies divert in order to cut off the resources of c",
+  "answers": [
+   "rivers"
+  ],
+  "distance_back": 4694,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " pests"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "question": "Besides the V&A's, whose collections are under the responsibility of c",
+  "answers": [
+   "V&A Museum of Childhood"
+  ],
+  "distance_back": 3580,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " the V&A Museum of Childhood"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What is the Rhine called in Dutch?",
+  "answers": [
+   "Rijn"
+  ],
+  "distance_back": 1940,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " the Rhin"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "question": "MPs representing English constituencies can only veto laws affecting w",
+  "answers": [
+   "England"
+  ],
+  "distance_back": 1457,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " England"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 0,
+  "question": "What year was the University of Warsaw established?",
+  "answers": [
+   "1816"
+  ],
+  "distance_back": 0,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 1816"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "question": "How did the Nixon administration negotiate with the uncooperative coun",
+  "answers": [
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights.",
+   "multilateral",
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights",
+   "multilateral negotiations"
+  ],
+  "distance_back": 7742,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.087,
+  "em": 0.0,
+  "gen": " They negotiated with the countries by using the threat of economic sa"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "question": "What band is considered by many to be the first black metal group?",
+  "answers": [
+   "Venom"
+  ],
+  "distance_back": 6458,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Mayhem"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "question": "When was the plastome discovered?",
+  "answers": [
+   "1962"
+  ],
+  "distance_back": 5394,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 1962"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "question": "Who leads the Student Government?",
+  "answers": [
+   "an Executive Committee",
+   "Executive Committee"
+  ],
+  "distance_back": 4042,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " President"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "question": "How much support is there for the US approach to economic development?",
+  "answers": [
+   "little",
+   "little support"
+  ],
+  "distance_back": 2982,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.167,
+  "em": 0.0,
+  "gen": " There is no support for the US approach to economic development"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "question": "Who proclaimed the oil embargo?",
+  "answers": [
+   "members of the Organization of Arab Petroleum Exporting Countries",
+   "Organization of Arab Petroleum Exporting Countries",
+   "OAPEC"
+  ],
+  "distance_back": 2037,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " OPEC"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "question": "What is composed of the Area Provost/Dean ad the several District Supe",
+  "answers": [
+   "Annual Conference Cabinet",
+   "All clergy appointments a",
+   "the Annual Conference Cabinet"
+  ],
+  "distance_back": 1282,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " the Annual Conference Cabinet"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 1,
+  "question": "The Asante and Lunda Empires were in which region?",
+  "answers": [
+   "Sub-Saharan Africa"
+  ],
+  "distance_back": 454,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.4,
+  "em": 0.0,
+  "gen": " Central Africa"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "question": "How did the Nixon administration negotiate with the uncooperative coun",
+  "answers": [
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights.",
+   "multilateral",
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights",
+   "multilateral negotiations"
+  ],
+  "distance_back": 7742,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.087,
+  "em": 0.0,
+  "gen": " They negotiated with the countries by using the threat of military fo"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "question": "What band is considered by many to be the first black metal group?",
+  "answers": [
+   "Venom"
+  ],
+  "distance_back": 6458,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Mayhem"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "question": "When was the plastome discovered?",
+  "answers": [
+   "1962"
+  ],
+  "distance_back": 5394,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1997"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "question": "Who leads the Student Government?",
+  "answers": [
+   "an Executive Committee",
+   "Executive Committee"
+  ],
+  "distance_back": 4042,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Mr. Davis"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "question": "How much support is there for the US approach to economic development?",
+  "answers": [
+   "little",
+   "little support"
+  ],
+  "distance_back": 2982,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 100%"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "question": "Who proclaimed the oil embargo?",
+  "answers": [
+   "members of the Organization of Arab Petroleum Exporting Countries",
+   "Organization of Arab Petroleum Exporting Countries",
+   "OAPEC"
+  ],
+  "distance_back": 2037,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " OPEC"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "question": "What is composed of the Area Provost/Dean ad the several District Supe",
+  "answers": [
+   "Annual Conference Cabinet",
+   "All clergy appointments a",
+   "the Annual Conference Cabinet"
+  ],
+  "distance_back": 1282,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.4,
+  "em": 0.0,
+  "gen": " The Area Conference"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 1,
+  "question": "The Asante and Lunda Empires were in which region?",
+  "answers": [
+   "Sub-Saharan Africa"
+  ],
+  "distance_back": 454,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.4,
+  "em": 0.0,
+  "gen": " Central Africa"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "question": "How did the Nixon administration negotiate with the uncooperative coun",
+  "answers": [
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights.",
+   "multilateral",
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights",
+   "multilateral negotiations"
+  ],
+  "distance_back": 7742,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.087,
+  "em": 0.0,
+  "gen": " They negotiated with the countries by using the threat of economic sa"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "question": "What band is considered by many to be the first black metal group?",
+  "answers": [
+   "Venom"
+  ],
+  "distance_back": 6458,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Burzum"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "question": "When was the plastome discovered?",
+  "answers": [
+   "1962"
+  ],
+  "distance_back": 5394,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1997"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "question": "Who leads the Student Government?",
+  "answers": [
+   "an Executive Committee",
+   "Executive Committee"
+  ],
+  "distance_back": 4042,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " The President"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "question": "How much support is there for the US approach to economic development?",
+  "answers": [
+   "little",
+   "little support"
+  ],
+  "distance_back": 2982,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 90%"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "question": "Who proclaimed the oil embargo?",
+  "answers": [
+   "members of the Organization of Arab Petroleum Exporting Countries",
+   "Organization of Arab Petroleum Exporting Countries",
+   "OAPEC"
+  ],
+  "distance_back": 2037,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " OPEC"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "question": "What is composed of the Area Provost/Dean ad the several District Supe",
+  "answers": [
+   "Annual Conference Cabinet",
+   "All clergy appointments a",
+   "the Annual Conference Cabinet"
+  ],
+  "distance_back": 1282,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " the Annual Conference Cabinet"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 1,
+  "question": "The Asante and Lunda Empires were in which region?",
+  "answers": [
+   "Sub-Saharan Africa"
+  ],
+  "distance_back": 454,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Sub-Saharan Africa"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "question": "How did the Nixon administration negotiate with the uncooperative coun",
+  "answers": [
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights.",
+   "multilateral",
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights",
+   "multilateral negotiations"
+  ],
+  "distance_back": 7742,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.087,
+  "em": 0.0,
+  "gen": " They negotiated with the countries by using the threat of military fo"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "question": "What band is considered by many to be the first black metal group?",
+  "answers": [
+   "Venom"
+  ],
+  "distance_back": 6458,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Burzum"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "question": "When was the plastome discovered?",
+  "answers": [
+   "1962"
+  ],
+  "distance_back": 5394,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1999"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "question": "Who leads the Student Government?",
+  "answers": [
+   "an Executive Committee",
+   "Executive Committee"
+  ],
+  "distance_back": 4042,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " the President"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "question": "How much support is there for the US approach to economic development?",
+  "answers": [
+   "little",
+   "little support"
+  ],
+  "distance_back": 2982,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.167,
+  "em": 0.0,
+  "gen": " There is no support for the US approach to economic development"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "question": "Who proclaimed the oil embargo?",
+  "answers": [
+   "members of the Organization of Arab Petroleum Exporting Countries",
+   "Organization of Arab Petroleum Exporting Countries",
+   "OAPEC"
+  ],
+  "distance_back": 2037,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " OPEC"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "question": "What is composed of the Area Provost/Dean ad the several District Supe",
+  "answers": [
+   "Annual Conference Cabinet",
+   "All clergy appointments a",
+   "the Annual Conference Cabinet"
+  ],
+  "distance_back": 1282,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.4,
+  "em": 0.0,
+  "gen": " Area Conference"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 1,
+  "question": "The Asante and Lunda Empires were in which region?",
+  "answers": [
+   "Sub-Saharan Africa"
+  ],
+  "distance_back": 454,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.4,
+  "em": 0.0,
+  "gen": " West Africa"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "question": "How did the Nixon administration negotiate with the uncooperative coun",
+  "answers": [
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights.",
+   "multilateral",
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights",
+   "multilateral negotiations"
+  ],
+  "distance_back": 7742,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.087,
+  "em": 0.0,
+  "gen": " They negotiated with the countries by using the threat of military fo"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "question": "What band is considered by many to be the first black metal group?",
+  "answers": [
+   "Venom"
+  ],
+  "distance_back": 6458,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Burzum"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "question": "When was the plastome discovered?",
+  "answers": [
+   "1962"
+  ],
+  "distance_back": 5394,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1999"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "question": "Who leads the Student Government?",
+  "answers": [
+   "an Executive Committee",
+   "Executive Committee"
+  ],
+  "distance_back": 4042,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " President"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "question": "How much support is there for the US approach to economic development?",
+  "answers": [
+   "little",
+   "little support"
+  ],
+  "distance_back": 2982,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.182,
+  "em": 0.0,
+  "gen": " There is support for the US approach to economic development"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "question": "Who proclaimed the oil embargo?",
+  "answers": [
+   "members of the Organization of Arab Petroleum Exporting Countries",
+   "Organization of Arab Petroleum Exporting Countries",
+   "OAPEC"
+  ],
+  "distance_back": 2037,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " OPEC"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "question": "What is composed of the Area Provost/Dean ad the several District Supe",
+  "answers": [
+   "Annual Conference Cabinet",
+   "All clergy appointments a",
+   "the Annual Conference Cabinet"
+  ],
+  "distance_back": 1282,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.8,
+  "em": 0.0,
+  "gen": " clergy appointments"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 1,
+  "question": "The Asante and Lunda Empires were in which region?",
+  "answers": [
+   "Sub-Saharan Africa"
+  ],
+  "distance_back": 454,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.4,
+  "em": 0.0,
+  "gen": " West Africa"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "question": "How did the Nixon administration negotiate with the uncooperative coun",
+  "answers": [
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights.",
+   "multilateral",
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights",
+   "multilateral negotiations"
+  ],
+  "distance_back": 7742,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.087,
+  "em": 0.0,
+  "gen": " They negotiated with the countries by using the threat of military fo"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "question": "What band is considered by many to be the first black metal group?",
+  "answers": [
+   "Venom"
+  ],
+  "distance_back": 6458,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Burzum"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "question": "When was the plastome discovered?",
+  "answers": [
+   "1962"
+  ],
+  "distance_back": 5394,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1987"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "question": "Who leads the Student Government?",
+  "answers": [
+   "an Executive Committee",
+   "Executive Committee"
+  ],
+  "distance_back": 4042,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Mr. Davis"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "question": "How much support is there for the US approach to economic development?",
+  "answers": [
+   "little",
+   "little support"
+  ],
+  "distance_back": 2982,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " not much"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "question": "Who proclaimed the oil embargo?",
+  "answers": [
+   "members of the Organization of Arab Petroleum Exporting Countries",
+   "Organization of Arab Petroleum Exporting Countries",
+   "OAPEC"
+  ],
+  "distance_back": 2037,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Carter"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "question": "What is composed of the Area Provost/Dean ad the several District Supe",
+  "answers": [
+   "Annual Conference Cabinet",
+   "All clergy appointments a",
+   "the Annual Conference Cabinet"
+  ],
+  "distance_back": 1282,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.4,
+  "em": 0.0,
+  "gen": " The Area Conference"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 1,
+  "question": "The Asante and Lunda Empires were in which region?",
+  "answers": [
+   "Sub-Saharan Africa"
+  ],
+  "distance_back": 454,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.4,
+  "em": 0.0,
+  "gen": " West Africa"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "question": "How did the Nixon administration negotiate with the uncooperative coun",
+  "answers": [
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights.",
+   "multilateral",
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights",
+   "multilateral negotiations"
+  ],
+  "distance_back": 7742,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.1,
+  "em": 0.0,
+  "gen": " They negotiated with the countries that were uncooperative"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "question": "What band is considered by many to be the first black metal group?",
+  "answers": [
+   "Venom"
+  ],
+  "distance_back": 6458,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Burzum"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "question": "When was the plastome discovered?",
+  "answers": [
+   "1962"
+  ],
+  "distance_back": 5394,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1987"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "question": "Who leads the Student Government?",
+  "answers": [
+   "an Executive Committee",
+   "Executive Committee"
+  ],
+  "distance_back": 4042,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " The President"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "question": "How much support is there for the US approach to economic development?",
+  "answers": [
+   "little",
+   "little support"
+  ],
+  "distance_back": 2982,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.167,
+  "em": 0.0,
+  "gen": " There is no support for the US approach to economic development"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "question": "Who proclaimed the oil embargo?",
+  "answers": [
+   "members of the Organization of Arab Petroleum Exporting Countries",
+   "Organization of Arab Petroleum Exporting Countries",
+   "OAPEC"
+  ],
+  "distance_back": 2037,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " OPEC"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "question": "What is composed of the Area Provost/Dean ad the several District Supe",
+  "answers": [
+   "Annual Conference Cabinet",
+   "All clergy appointments a",
+   "the Annual Conference Cabinet"
+  ],
+  "distance_back": 1282,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " the Annual Conference Cabinet"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 1,
+  "question": "The Asante and Lunda Empires were in which region?",
+  "answers": [
+   "Sub-Saharan Africa"
+  ],
+  "distance_back": 454,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Sub-Saharan Africa"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "question": "How did the Nixon administration negotiate with the uncooperative coun",
+  "answers": [
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights.",
+   "multilateral",
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights",
+   "multilateral negotiations"
+  ],
+  "distance_back": 7742,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.1,
+  "em": 0.0,
+  "gen": " They negotiated with the countries by sending diplomats"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "question": "What band is considered by many to be the first black metal group?",
+  "answers": [
+   "Venom"
+  ],
+  "distance_back": 6458,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Burzum"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "question": "When was the plastome discovered?",
+  "answers": [
+   "1962"
+  ],
+  "distance_back": 5394,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1997"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "question": "Who leads the Student Government?",
+  "answers": [
+   "an Executive Committee",
+   "Executive Committee"
+  ],
+  "distance_back": 4042,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " The President"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "question": "How much support is there for the US approach to economic development?",
+  "answers": [
+   "little",
+   "little support"
+  ],
+  "distance_back": 2982,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 70%"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "question": "Who proclaimed the oil embargo?",
+  "answers": [
+   "members of the Organization of Arab Petroleum Exporting Countries",
+   "Organization of Arab Petroleum Exporting Countries",
+   "OAPEC"
+  ],
+  "distance_back": 2037,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Carter"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "question": "What is composed of the Area Provost/Dean ad the several District Supe",
+  "answers": [
+   "Annual Conference Cabinet",
+   "All clergy appointments a",
+   "the Annual Conference Cabinet"
+  ],
+  "distance_back": 1282,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.4,
+  "em": 0.0,
+  "gen": " The Area Conference"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 1,
+  "question": "The Asante and Lunda Empires were in which region?",
+  "answers": [
+   "Sub-Saharan Africa"
+  ],
+  "distance_back": 454,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Sub-Saharan Africa"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "question": "How did the Nixon administration negotiate with the uncooperative coun",
+  "answers": [
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights.",
+   "multilateral",
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights",
+   "multilateral negotiations"
+  ],
+  "distance_back": 7742,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.154,
+  "em": 0.0,
+  "gen": " They negotiated with the countries by using the threat of withdrawing"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "question": "What band is considered by many to be the first black metal group?",
+  "answers": [
+   "Venom"
+  ],
+  "distance_back": 6458,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Mayhem"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "question": "When was the plastome discovered?",
+  "answers": [
+   "1962"
+  ],
+  "distance_back": 5394,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1997"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "question": "Who leads the Student Government?",
+  "answers": [
+   "an Executive Committee",
+   "Executive Committee"
+  ],
+  "distance_back": 4042,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " The President"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "question": "How much support is there for the US approach to economic development?",
+  "answers": [
+   "little",
+   "little support"
+  ],
+  "distance_back": 2982,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 70%"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "question": "Who proclaimed the oil embargo?",
+  "answers": [
+   "members of the Organization of Arab Petroleum Exporting Countries",
+   "Organization of Arab Petroleum Exporting Countries",
+   "OAPEC"
+  ],
+  "distance_back": 2037,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " OPEC"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "question": "What is composed of the Area Provost/Dean ad the several District Supe",
+  "answers": [
+   "Annual Conference Cabinet",
+   "All clergy appointments a",
+   "the Annual Conference Cabinet"
+  ],
+  "distance_back": 1282,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " the Annual Conference Cabinet"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 1,
+  "question": "The Asante and Lunda Empires were in which region?",
+  "answers": [
+   "Sub-Saharan Africa"
+  ],
+  "distance_back": 454,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Sub-Saharan Africa"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 1,
+  "question": "How did the Nixon administration negotiate with the uncooperative coun",
+  "answers": [
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights.",
+   "multilateral",
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights",
+   "multilateral negotiations"
+  ],
+  "distance_back": 7742,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.1,
+  "em": 0.0,
+  "gen": " They negotiated with the countries that were uncooperative"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 1,
+  "question": "What band is considered by many to be the first black metal group?",
+  "answers": [
+   "Venom"
+  ],
+  "distance_back": 6458,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Mayhem"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 1,
+  "question": "When was the plastome discovered?",
+  "answers": [
+   "1962"
+  ],
+  "distance_back": 5394,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1990"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 1,
+  "question": "Who leads the Student Government?",
+  "answers": [
+   "an Executive Committee",
+   "Executive Committee"
+  ],
+  "distance_back": 4042,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Mr. Thompson"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 1,
+  "question": "How much support is there for the US approach to economic development?",
+  "answers": [
+   "little",
+   "little support"
+  ],
+  "distance_back": 2982,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 70%"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 1,
+  "question": "Who proclaimed the oil embargo?",
+  "answers": [
+   "members of the Organization of Arab Petroleum Exporting Countries",
+   "Organization of Arab Petroleum Exporting Countries",
+   "OAPEC"
+  ],
+  "distance_back": 2037,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " OAPEC"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 1,
+  "question": "What is composed of the Area Provost/Dean ad the several District Supe",
+  "answers": [
+   "Annual Conference Cabinet",
+   "All clergy appointments a",
+   "the Annual Conference Cabinet"
+  ],
+  "distance_back": 1282,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Annual Conference Cabinet"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 1,
+  "question": "The Asante and Lunda Empires were in which region?",
+  "answers": [
+   "Sub-Saharan Africa"
+  ],
+  "distance_back": 454,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Sub-Saharan Africa"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "question": "How did the Nixon administration negotiate with the uncooperative coun",
+  "answers": [
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights.",
+   "multilateral",
+   "They arranged for Israel to pull back from the Sinai Peninsula and the Golan Heights",
+   "multilateral negotiations"
+  ],
+  "distance_back": 7742,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.087,
+  "em": 0.0,
+  "gen": " They negotiated with the countries by using the threat of military fo"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "question": "What band is considered by many to be the first black metal group?",
+  "answers": [
+   "Venom"
+  ],
+  "distance_back": 6458,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Burzum"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "question": "When was the plastome discovered?",
+  "answers": [
+   "1962"
+  ],
+  "distance_back": 5394,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 1962"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "question": "Who leads the Student Government?",
+  "answers": [
+   "an Executive Committee",
+   "Executive Committee"
+  ],
+  "distance_back": 4042,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " John Schmitt and Ben Zipperer"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "question": "How much support is there for the US approach to economic development?",
+  "answers": [
+   "little",
+   "little support"
+  ],
+  "distance_back": 2982,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 70%"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "question": "Who proclaimed the oil embargo?",
+  "answers": [
+   "members of the Organization of Arab Petroleum Exporting Countries",
+   "Organization of Arab Petroleum Exporting Countries",
+   "OAPEC"
+  ],
+  "distance_back": 2037,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.5,
+  "em": 0.0,
+  "gen": " Arab members of OPEC"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "question": "What is composed of the Area Provost/Dean ad the several District Supe",
+  "answers": [
+   "Annual Conference Cabinet",
+   "All clergy appointments a",
+   "the Annual Conference Cabinet"
+  ],
+  "distance_back": 1282,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " the Annual Conference Cabinet"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 1,
+  "question": "The Asante and Lunda Empires were in which region?",
+  "answers": [
+   "Sub-Saharan Africa"
+  ],
+  "distance_back": 454,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Sub-Saharan Africa"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "question": "When did French learn about Braddock's plans?",
+  "answers": [
+   "plans leaked to France well before Braddock's departure",
+   "before Braddock's departure",
+   "well before Braddock's departure for North America"
+  ],
+  "distance_back": 7660,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1755"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "question": "Vendobionta lived during which period?",
+  "answers": [
+   "Ediacaran period"
+  ],
+  "distance_back": 6524,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Late Jurassic"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "question": "What are pharmacists in the United Kingdom being increasingly paid for",
+  "answers": [
+   "medicine use reviews"
+  ],
+  "distance_back": 5174,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " prescribing rights"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "question": "Who helped designed the Main Quadrangles?",
+  "answers": [
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche,",
+   "Henry Ives Cobb",
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche, and other architectural firms"
+  ],
+  "distance_back": 4415,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " Henry Ives Cobb"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "question": "How many research institutes does the university run on campus?",
+  "answers": [
+   "12"
+  ],
+  "distance_back": 3283,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 12"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "question": "When did Landau propose his four conjectural problems?",
+  "answers": [
+   "1912"
+  ],
+  "distance_back": 2156,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 1912"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "question": "What year is the earliest traces of the color Crimson at Harvard?",
+  "answers": [
+   "1858"
+  ],
+  "distance_back": 1234,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1875"
+ },
+ {
+  "policy": "full",
+  "budget": 8192,
+  "seed": 2,
+  "question": "What is the mortality rate of the modern bubonic plague?",
+  "answers": [
+   "30\u201375%"
+  ],
+  "distance_back": 219,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 30\u201375%"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "question": "When did French learn about Braddock's plans?",
+  "answers": [
+   "plans leaked to France well before Braddock's departure",
+   "before Braddock's departure",
+   "well before Braddock's departure for North America"
+  ],
+  "distance_back": 7660,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1755"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "question": "Vendobionta lived during which period?",
+  "answers": [
+   "Ediacaran period"
+  ],
+  "distance_back": 6524,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Late Antiquity"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "question": "What are pharmacists in the United Kingdom being increasingly paid for",
+  "answers": [
+   "medicine use reviews"
+  ],
+  "distance_back": 5174,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " dispensing drugs"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "question": "Who helped designed the Main Quadrangles?",
+  "answers": [
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche,",
+   "Henry Ives Cobb",
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche, and other architectural firms"
+  ],
+  "distance_back": 4415,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " John Vanbrugh"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "question": "How many research institutes does the university run on campus?",
+  "answers": [
+   "12"
+  ],
+  "distance_back": 3283,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 10"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "question": "When did Landau propose his four conjectural problems?",
+  "answers": [
+   "1912"
+  ],
+  "distance_back": 2156,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1970s"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "question": "What year is the earliest traces of the color Crimson at Harvard?",
+  "answers": [
+   "1858"
+  ],
+  "distance_back": 1234,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1927"
+ },
+ {
+  "policy": "recent",
+  "budget": 512,
+  "seed": 2,
+  "question": "What is the mortality rate of the modern bubonic plague?",
+  "answers": [
+   "30\u201375%"
+  ],
+  "distance_back": 219,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 30\u201375%"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "question": "When did French learn about Braddock's plans?",
+  "answers": [
+   "plans leaked to France well before Braddock's departure",
+   "before Braddock's departure",
+   "well before Braddock's departure for North America"
+  ],
+  "distance_back": 7660,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1755"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "question": "Vendobionta lived during which period?",
+  "answers": [
+   "Ediacaran period"
+  ],
+  "distance_back": 6524,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Late Antiquity"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "question": "What are pharmacists in the United Kingdom being increasingly paid for",
+  "answers": [
+   "medicine use reviews"
+  ],
+  "distance_back": 5174,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " dispensing drugs"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "question": "Who helped designed the Main Quadrangles?",
+  "answers": [
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche,",
+   "Henry Ives Cobb",
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche, and other architectural firms"
+  ],
+  "distance_back": 4415,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " John Russell Pope"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "question": "How many research institutes does the university run on campus?",
+  "answers": [
+   "12"
+  ],
+  "distance_back": 3283,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 10"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "question": "When did Landau propose his four conjectural problems?",
+  "answers": [
+   "1912"
+  ],
+  "distance_back": 2156,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1976"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "question": "What year is the earliest traces of the color Crimson at Harvard?",
+  "answers": [
+   "1858"
+  ],
+  "distance_back": 1234,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1875"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 2,
+  "question": "What is the mortality rate of the modern bubonic plague?",
+  "answers": [
+   "30\u201375%"
+  ],
+  "distance_back": 219,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 30\u201375%"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "question": "When did French learn about Braddock's plans?",
+  "answers": [
+   "plans leaked to France well before Braddock's departure",
+   "before Braddock's departure",
+   "well before Braddock's departure for North America"
+  ],
+  "distance_back": 7660,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1755"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "question": "Vendobionta lived during which period?",
+  "answers": [
+   "Ediacaran period"
+  ],
+  "distance_back": 6524,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Late Permian"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "question": "What are pharmacists in the United Kingdom being increasingly paid for",
+  "answers": [
+   "medicine use reviews"
+  ],
+  "distance_back": 5174,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " prescribing drugs"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "question": "Who helped designed the Main Quadrangles?",
+  "answers": [
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche,",
+   "Henry Ives Cobb",
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche, and other architectural firms"
+  ],
+  "distance_back": 4415,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " John Loughborough Pearson"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "question": "How many research institutes does the university run on campus?",
+  "answers": [
+   "12"
+  ],
+  "distance_back": 3283,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 12"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "question": "When did Landau propose his four conjectural problems?",
+  "answers": [
+   "1912"
+  ],
+  "distance_back": 2156,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1990"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "question": "What year is the earliest traces of the color Crimson at Harvard?",
+  "answers": [
+   "1858"
+  ],
+  "distance_back": 1234,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1920"
+ },
+ {
+  "policy": "h2o",
+  "budget": 512,
+  "seed": 2,
+  "question": "What is the mortality rate of the modern bubonic plague?",
+  "answers": [
+   "30\u201375%"
+  ],
+  "distance_back": 219,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 50%"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "question": "When did French learn about Braddock's plans?",
+  "answers": [
+   "plans leaked to France well before Braddock's departure",
+   "before Braddock's departure",
+   "well before Braddock's departure for North America"
+  ],
+  "distance_back": 7660,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1755"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "question": "Vendobionta lived during which period?",
+  "answers": [
+   "Ediacaran period"
+  ],
+  "distance_back": 6524,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Mesozoic"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "question": "What are pharmacists in the United Kingdom being increasingly paid for",
+  "answers": [
+   "medicine use reviews"
+  ],
+  "distance_back": 5174,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " their expertise"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "question": "Who helped designed the Main Quadrangles?",
+  "answers": [
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche,",
+   "Henry Ives Cobb",
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche, and other architectural firms"
+  ],
+  "distance_back": 4415,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.5,
+  "em": 0.0,
+  "gen": " Cobb"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "question": "How many research institutes does the university run on campus?",
+  "answers": [
+   "12"
+  ],
+  "distance_back": 3283,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 10"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "question": "When did Landau propose his four conjectural problems?",
+  "answers": [
+   "1912"
+  ],
+  "distance_back": 2156,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1976"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "question": "What year is the earliest traces of the color Crimson at Harvard?",
+  "answers": [
+   "1858"
+  ],
+  "distance_back": 1234,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1920"
+ },
+ {
+  "policy": "h2o",
+  "budget": 2048,
+  "seed": 2,
+  "question": "What is the mortality rate of the modern bubonic plague?",
+  "answers": [
+   "30\u201375%"
+  ],
+  "distance_back": 219,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 50%"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "question": "When did French learn about Braddock's plans?",
+  "answers": [
+   "plans leaked to France well before Braddock's departure",
+   "before Braddock's departure",
+   "well before Braddock's departure for North America"
+  ],
+  "distance_back": 7660,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1755"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "question": "Vendobionta lived during which period?",
+  "answers": [
+   "Ediacaran period"
+  ],
+  "distance_back": 6524,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Late Antiquity"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "question": "What are pharmacists in the United Kingdom being increasingly paid for",
+  "answers": [
+   "medicine use reviews"
+  ],
+  "distance_back": 5174,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " dispensing drugs"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "question": "Who helped designed the Main Quadrangles?",
+  "answers": [
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche,",
+   "Henry Ives Cobb",
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche, and other architectural firms"
+  ],
+  "distance_back": 4415,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " John Havilar"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "question": "How many research institutes does the university run on campus?",
+  "answers": [
+   "12"
+  ],
+  "distance_back": 3283,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 10"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "question": "When did Landau propose his four conjectural problems?",
+  "answers": [
+   "1912"
+  ],
+  "distance_back": 2156,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1990"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "question": "What year is the earliest traces of the color Crimson at Harvard?",
+  "answers": [
+   "1858"
+  ],
+  "distance_back": 1234,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1920"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 512,
+  "seed": 2,
+  "question": "What is the mortality rate of the modern bubonic plague?",
+  "answers": [
+   "30\u201375%"
+  ],
+  "distance_back": 219,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 80%"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "question": "When did French learn about Braddock's plans?",
+  "answers": [
+   "plans leaked to France well before Braddock's departure",
+   "before Braddock's departure",
+   "well before Braddock's departure for North America"
+  ],
+  "distance_back": 7660,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1755"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "question": "Vendobionta lived during which period?",
+  "answers": [
+   "Ediacaran period"
+  ],
+  "distance_back": 6524,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Late Cretaceous"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "question": "What are pharmacists in the United Kingdom being increasingly paid for",
+  "answers": [
+   "medicine use reviews"
+  ],
+  "distance_back": 5174,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " dispensing drugs"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "question": "Who helped designed the Main Quadrangles?",
+  "answers": [
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche,",
+   "Henry Ives Cobb",
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche, and other architectural firms"
+  ],
+  "distance_back": 4415,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " John Havilar"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "question": "How many research institutes does the university run on campus?",
+  "answers": [
+   "12"
+  ],
+  "distance_back": 3283,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 10"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "question": "When did Landau propose his four conjectural problems?",
+  "answers": [
+   "1912"
+  ],
+  "distance_back": 2156,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1910"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "question": "What year is the earliest traces of the color Crimson at Harvard?",
+  "answers": [
+   "1858"
+  ],
+  "distance_back": 1234,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1875"
+ },
+ {
+  "policy": "snapkv",
+  "budget": 2048,
+  "seed": 2,
+  "question": "What is the mortality rate of the modern bubonic plague?",
+  "answers": [
+   "30\u201375%"
+  ],
+  "distance_back": 219,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 30\u201375%"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "question": "When did French learn about Braddock's plans?",
+  "answers": [
+   "plans leaked to France well before Braddock's departure",
+   "before Braddock's departure",
+   "well before Braddock's departure for North America"
+  ],
+  "distance_back": 7660,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1755"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "question": "Vendobionta lived during which period?",
+  "answers": [
+   "Ediacaran period"
+  ],
+  "distance_back": 6524,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Late Triassic"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "question": "What are pharmacists in the United Kingdom being increasingly paid for",
+  "answers": [
+   "medicine use reviews"
+  ],
+  "distance_back": 5174,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " dispensing drugs"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "question": "Who helped designed the Main Quadrangles?",
+  "answers": [
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche,",
+   "Henry Ives Cobb",
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche, and other architectural firms"
+  ],
+  "distance_back": 4415,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " John Notman"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "question": "How many research institutes does the university run on campus?",
+  "answers": [
+   "12"
+  ],
+  "distance_back": 3283,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 10"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "question": "When did Landau propose his four conjectural problems?",
+  "answers": [
+   "1912"
+  ],
+  "distance_back": 2156,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1987"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "question": "What year is the earliest traces of the color Crimson at Harvard?",
+  "answers": [
+   "1858"
+  ],
+  "distance_back": 1234,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1927"
+ },
+ {
+  "policy": "random",
+  "budget": 512,
+  "seed": 2,
+  "question": "What is the mortality rate of the modern bubonic plague?",
+  "answers": [
+   "30\u201375%"
+  ],
+  "distance_back": 219,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.5,
+  "em": 0.0,
+  "gen": " 30-70%"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "question": "When did French learn about Braddock's plans?",
+  "answers": [
+   "plans leaked to France well before Braddock's departure",
+   "before Braddock's departure",
+   "well before Braddock's departure for North America"
+  ],
+  "distance_back": 7660,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1755"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "question": "Vendobionta lived during which period?",
+  "answers": [
+   "Ediacaran period"
+  ],
+  "distance_back": 6524,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Late Antiquity"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "question": "What are pharmacists in the United Kingdom being increasingly paid for",
+  "answers": [
+   "medicine use reviews"
+  ],
+  "distance_back": 5174,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " dispensing drugs"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "question": "Who helped designed the Main Quadrangles?",
+  "answers": [
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche,",
+   "Henry Ives Cobb",
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche, and other architectural firms"
+  ],
+  "distance_back": 4415,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " John Havard"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "question": "How many research institutes does the university run on campus?",
+  "answers": [
+   "12"
+  ],
+  "distance_back": 3283,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 10"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "question": "When did Landau propose his four conjectural problems?",
+  "answers": [
+   "1912"
+  ],
+  "distance_back": 2156,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1980"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "question": "What year is the earliest traces of the color Crimson at Harvard?",
+  "answers": [
+   "1858"
+  ],
+  "distance_back": 1234,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 1858"
+ },
+ {
+  "policy": "random",
+  "budget": 2048,
+  "seed": 2,
+  "question": "What is the mortality rate of the modern bubonic plague?",
+  "answers": [
+   "30\u201375%"
+  ],
+  "distance_back": 219,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 30-75%"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 2,
+  "question": "When did French learn about Braddock's plans?",
+  "answers": [
+   "plans leaked to France well before Braddock's departure",
+   "before Braddock's departure",
+   "well before Braddock's departure for North America"
+  ],
+  "distance_back": 7660,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1755"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 2,
+  "question": "Vendobionta lived during which period?",
+  "answers": [
+   "Ediacaran period"
+  ],
+  "distance_back": 6524,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " the Ordovician"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 2,
+  "question": "What are pharmacists in the United Kingdom being increasingly paid for",
+  "answers": [
+   "medicine use reviews"
+  ],
+  "distance_back": 5174,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " dispensing medicines"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 2,
+  "question": "Who helped designed the Main Quadrangles?",
+  "answers": [
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche,",
+   "Henry Ives Cobb",
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche, and other architectural firms"
+  ],
+  "distance_back": 4415,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Charles Eliot"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 2,
+  "question": "How many research institutes does the university run on campus?",
+  "answers": [
+   "12"
+  ],
+  "distance_back": 3283,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 12"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 2,
+  "question": "When did Landau propose his four conjectural problems?",
+  "answers": [
+   "1912"
+  ],
+  "distance_back": 2156,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1987"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 2,
+  "question": "What year is the earliest traces of the color Crimson at Harvard?",
+  "answers": [
+   "1858"
+  ],
+  "distance_back": 1234,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1875"
+ },
+ {
+  "policy": "oracle",
+  "budget": 512,
+  "seed": 2,
+  "question": "What is the mortality rate of the modern bubonic plague?",
+  "answers": [
+   "30\u201375%"
+  ],
+  "distance_back": 219,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 30\u201375%"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "question": "When did French learn about Braddock's plans?",
+  "answers": [
+   "plans leaked to France well before Braddock's departure",
+   "before Braddock's departure",
+   "well before Braddock's departure for North America"
+  ],
+  "distance_back": 7660,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1755"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "question": "Vendobionta lived during which period?",
+  "answers": [
+   "Ediacaran period"
+  ],
+  "distance_back": 6524,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " Cambrian"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "question": "What are pharmacists in the United Kingdom being increasingly paid for",
+  "answers": [
+   "medicine use reviews"
+  ],
+  "distance_back": 5174,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " research"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "question": "Who helped designed the Main Quadrangles?",
+  "answers": [
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche,",
+   "Henry Ives Cobb",
+   "Cobb, Shepley, Rutan and Coolidge, Holabird & Roche, and other architectural firms"
+  ],
+  "distance_back": 4415,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.727,
+  "em": 0.0,
+  "gen": " Shepley, Rutan and Coolidge"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "question": "How many research institutes does the university run on campus?",
+  "answers": [
+   "12"
+  ],
+  "distance_back": 3283,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 12"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "question": "When did Landau propose his four conjectural problems?",
+  "answers": [
+   "1912"
+  ],
+  "distance_back": 2156,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 1912"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "question": "What year is the earliest traces of the color Crimson at Harvard?",
+  "answers": [
+   "1858"
+  ],
+  "distance_back": 1234,
+  "stream_len": 8192,
+  "hit": false,
+  "f1": 0.0,
+  "em": 0.0,
+  "gen": " 1875"
+ },
+ {
+  "policy": "oracle",
+  "budget": 2048,
+  "seed": 2,
+  "question": "What is the mortality rate of the modern bubonic plague?",
+  "answers": [
+   "30\u201375%"
+  ],
+  "distance_back": 219,
+  "stream_len": 8192,
+  "hit": true,
+  "f1": 1.0,
+  "em": 1.0,
+  "gen": " 30\u201375%"
+ }
+]
