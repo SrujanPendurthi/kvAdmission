@@ -105,3 +105,14 @@ def test_oracle_decider_returns_a_callable_and_a_flag():
         [(10, 20), (40, 55)], budget=64, n_layers=2, sinks=4, device="cpu")
     assert callable(decide)
     assert isinstance(need_attn, bool)
+
+
+def test_every_script_compiles():
+    # the suite does not import scripts/, so a syntax error there reaches a
+    # paid GPU run undetected - it did, from a bad sed that commented out a
+    # closing paren
+    import pathlib
+    import py_compile
+    root = pathlib.Path(__file__).resolve().parent.parent
+    for f in sorted((root / "scripts").glob("*.py")):
+        py_compile.compile(str(f), doraise=True)

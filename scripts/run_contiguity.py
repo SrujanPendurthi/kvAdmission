@@ -47,7 +47,8 @@ from kvadmission.sweep import _band
 
 p = argparse.ArgumentParser()
 p.add_argument("--model", default="Qwen/Qwen3-1.7B")
-p.add_argument("--radii", type=int, nargs="+", default=[0, 16, 48, 96, 192]  # 192 is deliberately over budget)
+# 192 is deliberately over budget at B=2048, so the curve should turn over
+p.add_argument("--radii", type=int, nargs="+", default=[0, 16, 48, 96, 192])
 p.add_argument("--budget", type=int, default=2048)
 p.add_argument("--seeds", type=int, default=3)
 p.add_argument("--needles", type=int, default=8)
