@@ -1,0 +1,87 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+% recent
+    \fill[black!8] (0.000,2.60) rectangle ++(0.585,1.0);
+    \fill[tealaccent] (0.000,2.60) rectangle ++(0.585,1.000);
+    \fill[black!8] (0.625,2.60) rectangle ++(0.585,1.0);
+    \fill[tealaccent] (0.625,2.60) rectangle ++(0.585,1.000);
+    \fill[black!8] (1.250,2.60) rectangle ++(0.585,1.0);
+    \fill[tealaccent] (1.250,2.60) rectangle ++(0.585,1.000);
+    \fill[black!8] (1.875,2.60) rectangle ++(0.585,1.0);
+    \fill[tealaccent] (1.875,2.60) rectangle ++(0.585,1.000);
+    \fill[black!8] (2.500,2.60) rectangle ++(0.585,1.0);
+    \fill[black!8] (3.125,2.60) rectangle ++(0.585,1.0);
+    \fill[black!8] (3.750,2.60) rectangle ++(0.585,1.0);
+    \fill[black!8] (4.375,2.60) rectangle ++(0.585,1.0);
+    \fill[black!8] (5.000,2.60) rectangle ++(0.585,1.0);
+    \fill[black!8] (5.625,2.60) rectangle ++(0.585,1.0);
+    \fill[black!8] (6.250,2.60) rectangle ++(0.585,1.0);
+    \fill[black!8] (6.875,2.60) rectangle ++(0.585,1.0);
+    \fill[black!8] (7.500,2.60) rectangle ++(0.585,1.0);
+    \fill[black!8] (8.125,2.60) rectangle ++(0.585,1.0);
+    \fill[black!8] (8.750,2.60) rectangle ++(0.585,1.0);
+    \fill[black!8] (9.375,2.60) rectangle ++(0.585,1.0);
+  \node[anchor=east,font=\scriptsize\ttfamily] at (-0.15,3.1) {recent};
+% random
+    \fill[black!8] (0.000,1.30) rectangle ++(0.585,1.0);
+    \fill[tealaccent] (0.000,1.30) rectangle ++(0.585,0.750);
+    \fill[black!8] (0.625,1.30) rectangle ++(0.585,1.0);
+    \fill[tealaccent] (0.625,1.30) rectangle ++(0.585,0.750);
+    \fill[black!8] (1.250,1.30) rectangle ++(0.585,1.0);
+    \fill[tealaccent] (1.250,1.30) rectangle ++(0.585,0.750);
+    \fill[black!8] (1.875,1.30) rectangle ++(0.585,1.0);
+    \fill[tealaccent] (1.875,1.30) rectangle ++(0.585,1.000);
+    \fill[black!8] (2.500,1.30) rectangle ++(0.585,1.0);
+    \fill[black!8] (3.125,1.30) rectangle ++(0.585,1.0);
+    \fill[black!8] (3.750,1.30) rectangle ++(0.585,1.0);
+    \fill[black!8] (4.375,1.30) rectangle ++(0.585,1.0);
+    \fill[black!8] (5.000,1.30) rectangle ++(0.585,1.0);
+    \fill[black!8] (5.625,1.30) rectangle ++(0.585,1.0);
+    \fill[black!8] (6.250,1.30) rectangle ++(0.585,1.0);
+    \fill[black!8] (6.875,1.30) rectangle ++(0.585,1.0);
+    \fill[black!8] (7.500,1.30) rectangle ++(0.585,1.0);
+    \fill[black!8] (8.125,1.30) rectangle ++(0.585,1.0);
+    \fill[black!8] (8.750,1.30) rectangle ++(0.585,1.0);
+    \fill[black!8] (9.375,1.30) rectangle ++(0.585,1.0);
+  \node[anchor=east,font=\scriptsize\ttfamily] at (-0.15,1.8) {random};
+% h2o
+    \fill[black!8] (0.000,0.00) rectangle ++(0.585,1.0);
+    \fill[black!8] (0.625,0.00) rectangle ++(0.585,1.0);
+    \fill[black!8] (1.250,0.00) rectangle ++(0.585,1.0);
+    \fill[black!8] (1.875,0.00) rectangle ++(0.585,1.0);
+    \fill[black!8] (2.500,0.00) rectangle ++(0.585,1.0);
+    \fill[black!8] (3.125,0.00) rectangle ++(0.585,1.0);
+    \fill[black!8] (3.750,0.00) rectangle ++(0.585,1.0);
+    \fill[black!8] (4.375,0.00) rectangle ++(0.585,1.0);
+    \fill[black!8] (5.000,0.00) rectangle ++(0.585,1.0);
+    \fill[black!8] (5.625,0.00) rectangle ++(0.585,1.0);
+    \fill[black!8] (6.250,0.00) rectangle ++(0.585,1.0);
+    \fill[black!8] (6.875,0.00) rectangle ++(0.585,1.0);
+    \fill[black!8] (7.500,0.00) rectangle ++(0.585,1.0);
+    \fill[black!8] (8.125,0.00) rectangle ++(0.585,1.0);
+    \fill[rustaccent] (8.125,0.00) rectangle ++(0.585,0.500);
+    \fill[black!8] (8.750,0.00) rectangle ++(0.585,1.0);
+    \fill[rustaccent] (8.750,0.00) rectangle ++(0.585,1.000);
+    \fill[black!8] (9.375,0.00) rectangle ++(0.585,1.0);
+    \fill[rustaccent] (9.375,0.00) rectangle ++(0.585,1.000);
+  \node[anchor=east,font=\scriptsize\ttfamily] at (-0.15,0.5) {h2o};
+% horizon
+  \draw[rustaccent,dashed,thick] (2.500,-0.15) -- (2.500,3.75);
+  \node[anchor=south west,font=\scriptsize,rustaccent] at (2.500,3.75)
+    {horizon $d=B=2048$};
+% axis
+  \draw[black!40] (0,-0.15) -- (10,-0.15);
+  \foreach \f/\l in {0/0, 0.25/2048, 0.5/4096, 0.75/6144, 1.0/8192}
+    \node[anchor=north,font=\scriptsize] at ({\f*10},-0.2) {\l};
+  \node[anchor=north,font=\scriptsize] at (5,-0.62)
+    {distance back from query (tokens)};
+\end{tikzpicture}
+\caption{\textbf{The retention horizon.} Recall in 512-token distance bins at
+$B{=}2048$ (Qwen3-1.7B, 4 seeds $\times$ 16 needles); bar height is recall,
+grey is the empty cell. \texttt{recent} holds $1.00$ out to $d{=}B$ and is
+\emph{exactly} zero beyond it; \texttt{h2o} is the mirror image anchored to
+the start of the stream. Neither reaches the ${\approx}4000$ tokens between
+them.}
+\label{fig:horizon}
+\end{figure}
