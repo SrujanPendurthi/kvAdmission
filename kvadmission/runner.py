@@ -55,12 +55,17 @@ def _assert_layers_aligned(cache, n_layers):
 
 
 @torch.no_grad()
-def prefill(model, ids, cache, device, chunk=128, decide=None, need_attn=False):
+def prefill(model, ids, cache, device, chunk=128, decide=None, need_attn=False,
+            need_logits=False):
     """Chunked prefill. Returns stream length in tokens.
 
     `decide(layer_idx, cache, attentions, n_new)` is called once per layer per
     chunk and owns the apply_admission / apply_eviction call. None means no
     compression.
+
+    `need_logits` adds a fifth argument carrying this chunk's logits, for
+    policies that score tokens by their own predictability. Kept opt-in and
+    mirroring `need_attn` so existing four-argument deciders are untouched.
     """
     total = ids.shape[1]
     n_layers = model.config.num_hidden_layers
@@ -82,7 +87,12 @@ def prefill(model, ids, cache, device, chunk=128, decide=None, need_attn=False):
         )
         if decide is not None:
             for li in range(n_layers):
-                decide(li, cache, out.attentions if need_attn else None, n_new)
+                if need_logits:
+                    decide(li, cache, out.attentions if need_attn else None,
+                           n_new, out.logits)
+                else:
+                    decide(li, cache, out.attentions if need_attn else None,
+                           n_new)
             _assert_layers_aligned(cache, n_layers)
         del out
 
