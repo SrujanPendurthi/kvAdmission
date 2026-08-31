@@ -1,8 +1,10 @@
 # The Mid-Context Dead Zone in KV Cache Compression
 
-**Submission draft — 2026-08-31.** Findings logs for every run, including the
-errors, are in `docs/phase*.md`. Corrections to earlier drafts of this paper
-are collected in Appendix A rather than left inline.
+**Submission draft — 2026-08-31. Measurement-first framing.** An alternative
+framing of the same evidence, leading with the specification and the screening
+test rather than the dead zone, is in `docs/submission-spec.md`. Findings logs
+for every run, including the errors, are in `docs/phase*.md`. Corrections to
+earlier drafts are collected in Appendix A rather than left inline.
 
 ---
 
