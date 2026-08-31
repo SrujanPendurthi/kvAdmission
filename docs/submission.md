@@ -491,8 +491,8 @@ entirely, with system-prompt leakage as a case study. Same theme — compression
 does not degrade uniformly — on a different axis: their unit is an instruction
 within a prompt, ours is a fact at a distance.
 
-**Methods.** Write-time admission with a frozen backbone exists (WG-KV, arXiv
-2512.17452) via differentiable gating and supervised distillation. RL for cache
+**Methods.** Write-time admission with a frozen backbone exists (*KV Admission*, arXiv
+2512.17452). RL for cache
 decisions with a frozen LLM exists (Learning to Evict, ICML 2026) for post-hoc,
 episodic, uniform-budget eviction. Online Lagrangian dual ascent for KV
 allocation exists (TriRoute, arXiv 2607.06601). Learned eviction for hybrid

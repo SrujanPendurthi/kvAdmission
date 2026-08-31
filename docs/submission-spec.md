@@ -381,7 +381,7 @@ multi-instruction prompting, finding that some instructions degrade far faster
 than others. Same theme on a different axis: their unit is an instruction,
 ours is a fact at a distance.
 
-**Methods.** Write-time admission with a frozen backbone (WG-KV, arXiv
+**Methods.** Write-time admission with a frozen backbone (*KV Admission*, arXiv
 2512.17452); RL for post-hoc eviction (Learning to Evict, ICML 2026); online
 Lagrangian KV allocation (TriRoute, arXiv 2607.06601); learned eviction for
 hybrid attention (arXiv 2510.20787).

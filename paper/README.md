@@ -53,7 +53,9 @@ No LaTeX toolchain was available on the machine where this was written, so
 expect to fix small things on the first real build — most likely table column
 widths and figure placement.
 
-The four arXiv-only references (`indexmem2026`, `wgkv2025`,
-`learningtoevict2026`, `triroute2026`) have partial metadata: author lists were
-not fully recovered during the literature search and should be completed from
-the arXiv listings before submission.
+All 12 references now carry full author lists, recovered from the arXiv
+listings. One entry had been wrong rather than merely incomplete: arXiv
+2512.17452 was carried through earlier drafts as "WG-KV: Write-Gated KV Cache
+Admission", which is not its title. It is *KV Admission: Learning What to Write
+for Efficient Long-Context Inference* (Huang, Hsiu, Fang, Chen). The bib key is
+now `kvadmission2025` and the prose in both papers is corrected.
