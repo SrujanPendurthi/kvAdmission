@@ -322,10 +322,11 @@ random control. Coverage at B=2048; chance is 0.250.
 | `key_norm` — ‖k‖ | 0.384 | 0/16 | 0.244 | 0/16 |
 | `norm_attention` — attention per query row | 0.230 | 1/16 | 0.290 | 2/16 |
 | `rarity` — inverse in-document frequency | 0.102 | 0/16 | 0.265 | 0/16 |
+| `lookahead` — attention from the next chunk | 0.163 | 0/16 | 0.228 | 0/16 |
 | `surprisal` (§7.3) | 0.107 | 0/16 | 0.240 | 0/16 |
 | *random control* | 0.248 | 0/16 | 0.249 | 0/16 |
 
-**None passes.** The best whole-span retention across twelve signal-task
+**None passes.** The best whole-span retention across fourteen signal-task
 pairs is 2/16, against the ~1.00 the specification requires.
 
 Two results here are worth more than the table. First, **normalised attention
@@ -351,9 +352,27 @@ answer-shaped tokens and still recover nothing.
 On real QA every signal collapses to within 0.04 of the random control. None
 of the six discriminates at all.
 
-**The pattern across all eight.** Learned write-time features, query
+
+**`lookahead` fails, and it was the hardest test.** Every other candidate must
+infer a token's future from its past. This one is given 128 tokens of that
+future — the attention a token receives from the immediately following chunk,
+implementable by delaying compression a single chunk. It scores **0.163 on
+needles and 0.228 on real QA, both below the 0.250 chance rate**, with 0/16
+spans retained whole on either.
+
+The explanation is that a chunk's attention to the chunk before it is
+dominated by local syntactic continuation: the next 128 tokens attend
+backwards for grammatical coherence, not for semantic importance. Short-range
+lookahead is therefore a proxy for *very* local recency, which is if anything
+anti-correlated with being queried thousands of tokens later.
+
+This is the sharpest form of the claim available here. **The information that
+determines a token's retention value is not in its past, and not in its
+immediate future either.** It is in a query that has not arrived.
+
+**The pattern across all nine.** Learned write-time features, query
 similarity, information content, attention received, key norm, in-document
-rarity and answer-form priors all fail. The framings are independent —
+rarity, answer-form priors and short-range lookahead all fail. The framings are independent —
 information-theoretic, attention-based, lexical, learned — and they fail in
 the same place, which is the case for reading this as a property of the
 problem rather than of any one attempt: **a token's future utility is not a

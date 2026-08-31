@@ -35,7 +35,7 @@ The specification is then usable as a **screening test**. Any candidate signal
 can be rejected by measuring what fraction of answer spans falls inside its
 top `B`, with no policy implemented and no GPU rented. We validate this once —
 rejecting surprisal for $0, pre-registering five predictions, and confirming
-all five — and then apply it to **eight candidate signals across four
+all five — and then apply it to **nine candidate signals across five
 independent framings**: learned write-time features, query similarity,
 information content, attention received, key norm, lexical rarity, and
 answer-form priors. None passes. The closest, a prior that flags digits on a
@@ -74,7 +74,7 @@ This paper supplies the missing target and makes it cheap to check against.
    (§4).
 3. A **screening test** derived from that specification, validated with five
    pre-registered predictions on a candidate rejected for $0 (§5).
-4. **Eight candidate signals rejected** across four independent framings, with
+4. **Nine candidate signals rejected** across five independent framings, with
    the near-miss explaining precisely what the specification demands (§5).
 5. A **mechanism** — a hard retention horizon at `d = B/p` — explaining why
    position-based rules cannot clear the bar however they are tuned (§6).
@@ -205,7 +205,7 @@ rented.** All five held: needle middle band 0/7, needle near band 0/9 against
 beating `recent` on neither task. Every number landed at or below its
 predicted bound — the conservative direction for a screen.
 
-### 5.2 Eight candidates, none passing
+### 5.2 Nine candidates, none passing
 
 | signal | framing | needle cov. | QA cov. | spans whole |
 |---|---|---|---|---|
@@ -216,6 +216,7 @@ predicted bound — the conservative direction for a screen.
 | `key_norm` | activation magnitude | 0.384 | 0.244 | 0/16 |
 | `rarity` | lexical statistics | 0.102 | 0.265 | 0/16 |
 | `answer_shape` | answer form | **0.541** | 0.271 | 0/16 |
+| `lookahead` | 128 tokens of future | 0.163 | 0.228 | 0/16 |
 | *random control* | — | 0.248 | 0.249 | 0/16 |
 
 Chance is 0.250. Best whole-span retention across twelve signal-task pairs is
@@ -238,8 +239,25 @@ half a six-digit code is worth nothing.
 
 That is the specification made concrete. **Knowing the form of the answer is
 not enough. §4 demands every token of the specific span answering a query that
-has not yet arrived** — and a token's future utility is not a function of
-anything observable when it is written.
+has not yet arrived.**
+
+**`lookahead` fails, and it was the hardest test.** Every other candidate must
+infer a token's future from its past. This one is given 128 tokens of that
+future — the attention a token receives from the immediately following chunk,
+implementable by delaying compression a single chunk. It scores **0.163 on
+needles and 0.228 on real QA, both below the 0.250 chance rate**, with 0/16
+spans retained whole on either.
+
+The explanation is that a chunk's attention to the chunk before it is
+dominated by local syntactic continuation: the next 128 tokens attend
+backwards for grammatical coherence, not for semantic importance. Short-range
+lookahead is therefore a proxy for *very* local recency, which is if anything
+anti-correlated with being queried thousands of tokens later.
+
+This is the sharpest form of the claim available here. **The information that
+determines a token's retention value is not in its past, and not in its
+immediate future either.** It is in a query that has not arrived.
+
 
 ## 6. Why position-based rules cannot clear the bar
 
@@ -317,7 +335,9 @@ delivers the right tokens in too many pieces.
 - **The test has only ever said no.** One successful rejection validates it;
   a signal that *passes* and then succeeds would test the other direction, and
   we have none. A screen that rejects everything is consistent with being
-  correct and with being uselessly conservative.
+  correct and with being uselessly conservative. We attempted to produce a
+  positive case with the `lookahead` candidate and it failed the screen too,
+  so this limitation stands open.
 - **The oracle is an upper bound, not a method.** It requires knowing the
   answers in advance. This paper specifies a target and supplies a test; it
   does not supply a signal that meets the target.
