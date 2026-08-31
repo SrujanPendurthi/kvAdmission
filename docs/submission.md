@@ -38,11 +38,11 @@ content and a de-biased variant of accumulated attention. One was rejected
 for $0 with its end-to-end failure correctly predicted in advance from five
 pre-registered predictions.
 
-Finally we find a second constraint no prior work in this line varies: at
-fixed evidence, distance and budget, **splitting the retained set into more
-pieces destroys recall** on one of two models — 0.54 at eight fragments
-against 0.92 at four (p=0.008). Every published rule here selects tokens
-individually, which is the maximally fragmented case.
+Finally we isolate a second constraint: at fixed evidence, distance, budget
+and recency fill, **splitting the retained set into more pieces destroys
+recall** on one of two models — 0.54 at eight fragments against 0.92 at four
+(p=0.008). That fragmentation harms compressed caches is known (§10); what
+this adds is a controlled attribution to fragment *count* rather than length.
 
 ## 1. Introduction
 
@@ -62,10 +62,12 @@ compressed cache still support answering it?**
 
 **Contributions.**
 
-1. A **distance-resolved measurement** of KV compression, showing that
-   published scoring rules partition context by position and that a
-   mid-context dead zone survives every rule, budget, model and task we tried
-   (§3).
+1. A **distance-resolved measurement** showing that published scoring rules
+   partition context by position — recency and attention-accumulation
+   recovering *complementary* halves — and that a mid-context dead zone
+   survives every rule, budget, model and task we tried (§3). Position-
+   resolved evaluation of compression exists (§10); the complementarity and
+   the systematic zero do not.
 2. A **mechanism** — a hard retention horizon at `d = B/p` — that predicts
    `recent` exactly and explains why recency is emergent (§4).
 3. An **oracle control** establishing that the dead zone is observability, not
@@ -73,8 +75,9 @@ compressed cache still support answering it?**
 4. A **specification** for what a realisable signal must achieve, and its use
    as a cheap **screening test**; eight candidate signals rejected, one with
    its end-to-end failure predicted in advance from a $0 measurement (§6, §7).
-5. **Fragmentation** as an independent constraint on retained-set structure
-   that no prior work in this line varies (§8).
+5. A **controlled isolation of fragmentation** — at matched evidence,
+   distance and budget — attributing the effect to the *number* of contiguous
+   runs rather than their length (§8). The phenomenon itself is known (§10).
 
 ## 2. Setup and scope
 
@@ -406,24 +409,84 @@ threshold comes from one budget and one stream length.
 
 ## 10. Related work
 
-Write-time admission with a frozen backbone exists (WG-KV, arXiv 2512.17452)
-via differentiable gating and supervised distillation. RL for cache decisions
-with a frozen LLM exists (Learning to Evict, ICML 2026) for post-hoc,
+**Position bias without compression.** Liu et al. (2024, *Lost in the Middle*,
+TACL 12:157–173) show a U-shaped accuracy curve over the position of relevant
+information in *uncompressed* long context: models are strongest at the start
+and end and weakest in the middle, on multi-document QA and key-value
+retrieval. This is the nearest prior result to ours and the natural first
+objection — is the dead zone simply lost-in-the-middle?
+
+**It is not, and our own control settles it.** `full` scores **1.00 in every
+band on all three models** at these lengths. Uncompressed, the middle is
+answered perfectly; the dead zone appears only once a budget is imposed. The
+two effects are therefore dissociable: theirs is a property of attention over
+long context, ours is created by compression on top of a model that handles
+the middle fine. Where they find degradation, we find a floor of exactly zero,
+and where they vary position in a full cache, we hold the model fixed and vary
+what the cache is allowed to keep.
+
+**Position-resolved evaluation of compression exists.** IndexMem (arXiv
+2605.25475) reports needle-in-a-haystack heatmaps over context length and
+needle depth, and observes that SnapKV and PyramidKV "show clear
+position-dependent failure modes… consistent with a strong recency bias." An
+earlier draft of this paper claimed no prior work reported recall by distance
+band; that claim was wrong and has been withdrawn. What we add on this axis is
+the **complementarity** — that recency-based and attention-accumulation-based
+rules recover *opposite* ends of the context and each score exactly zero in
+the other's field — and the **mechanism** that predicts where the boundary
+falls.
+
+**Fragmentation of the retained set is known.** AMS (arXiv 2605.23200) names
+*Region Wipe-out*: global top-k selection "trigger[s] the severe eviction of
+contiguous reasoning blocks that derails logical coherence," and their fix is
+region-aware quota allocation — segment-wise budgets instead of token-level
+competition. They also report that token-wise selection "suffers from a strong
+'lost in the middle' pattern," reducing a Region Wipe-out Rate from 11.3% to
+8.7%. **§8's insight is therefore not new, and neither is the block-structured
+remedy we recommend; both are theirs.** Their setting is decoding-time
+compression of generated chain-of-thought, where the "middle" is the middle of
+the model's own reasoning trace, and their evidence is a wipe-out rate plus
+downstream benchmark gains. Our contribution on this axis is narrower and
+complementary: a **controlled isolation** on planted evidence, holding the
+stream, the needles, their distances, the flagged token count and the recency
+fill all constant and varying only the number of contiguous runs, which
+attributes the effect to fragment *count* specifically (p=0.008) and rules out
+fragment *length* with a separate sweep.
+
+**Non-uniform damage from compression.** Chen et al. (*The Pitfalls of KV Cache
+Compression*, arXiv 2510.00231) evaluate StreamingLLM, SnapKV, TOVA, H2O and
+K-Norm on Llama3-8B and Qwen2.5-14B under multi-instruction prompting, showing
+that certain instructions degrade far faster than others and can be ignored
+entirely, with system-prompt leakage as a case study. Same theme — compression
+does not degrade uniformly — on a different axis: their unit is an instruction
+within a prompt, ours is a fact at a distance.
+
+**Methods.** Write-time admission with a frozen backbone exists (WG-KV, arXiv
+2512.17452) via differentiable gating and supervised distillation. RL for cache
+decisions with a frozen LLM exists (Learning to Evict, ICML 2026) for post-hoc,
 episodic, uniform-budget eviction. Online Lagrangian dual ascent for KV
 allocation exists (TriRoute, arXiv 2607.06601). Learned eviction for hybrid
-linear/full attention exists (arXiv 2510.20787).
+linear/full attention exists (arXiv 2510.20787). Layer- and head-wise budget
+allocation exists (PyramidKV, Ada-KV).
 
-**What is new here is the measurement, not the method.** We are not aware of
-prior work reporting recall by distance-band, and the near/far complementarity
-and mid-context dead zone are not documented elsewhere.
+**What we claim is new**, after the above:
 
-**What we do and do not claim about prior systems.** We did not run H2O,
-SnapKV or StreamingLLM, and we do not report that they fail on their own
+1. The **near/far complementarity** as an explicit finding — two rule families
+   recovering disjoint halves of the context, each at exactly zero in the
+   other's.
+2. The **retention horizon** `d = B/p`, verified at three admit rates, which
+   predicts `recent` exactly and explains recency as emergent.
+3. The **oracle dissociation** at two model scales, separating observability
+   from capacity.
+4. The **coverage/crowding specification** and its use as a **screening test**
+   that rejects candidate signals before an end-to-end run — validated once,
+   with five pre-registered predictions.
+
+**What we do not claim.** We did not run H2O, SnapKV or StreamingLLM as
+published systems (§2), and we do not report that they fail on their own
 benchmarks. We report that the scoring rules they introduced are functions of
-position rather than utility, and that under a fixed per-layer budget each
-leaves the middle unrecoverable while an oracle at the same budget recovers
-all of it. Whether the full systems inherit this is our prediction, not our
-measurement.
+position rather than utility under a fixed per-layer budget. Whether the full
+systems inherit this is our prediction, not our measurement.
 
 ## Appendix A — Corrections to earlier drafts
 
@@ -448,6 +511,15 @@ produced it is worth seeing.
 5. **Baseline scope.** Earlier drafts said "no method recovers the middle,"
    which overstates what was run. §2 and §10 now scope the claim to scoring
    rules.
+6. **Novelty, twice overstated.** An earlier draft claimed we were "not aware
+   of prior work reporting recall by distance-band." IndexMem (arXiv
+   2605.25475) reports exactly that, as needle-depth heatmaps. The same draft
+   presented fragmentation as a constraint "no prior work in this line
+   varies"; AMS (arXiv 2605.23200) names it *Region Wipe-out* and proposes the
+   segment-quota remedy this paper had listed as future work. Both claims are
+   withdrawn and §10 now states what survives them. Found by a literature
+   search run after the experiments were complete — which is the wrong order,
+   and is why two contributions had to be downgraded rather than dropped.
 
 ## Reproducibility
 
