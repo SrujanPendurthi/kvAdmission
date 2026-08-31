@@ -31,9 +31,12 @@ matching the uncompressed cache on a quarter of the context. **The dead zone
 is not a capacity limit. It is an observability limit**, and we give the
 specification a realisable signal would have to meet: essentially total
 coverage of answer tokens, with a flagged set inside the budget. We then use
-that specification as a *screening test* and reject four candidate signals,
-one of them before spending any GPU time and with its end-to-end failure
-correctly predicted in advance.
+that specification as a *screening test* and reject **eight candidate
+signals** — learned admission under three reward formulations, query-aware
+retention, and five write-time scoring functions including information
+content and a de-biased variant of accumulated attention. One was rejected
+for $0 with its end-to-end failure correctly predicted in advance from five
+pre-registered predictions.
 
 Finally we find a second constraint no prior work in this line varies: at
 fixed evidence, distance and budget, **splitting the retained set into more
@@ -68,7 +71,7 @@ compressed cache still support answering it?**
 3. An **oracle control** establishing that the dead zone is observability, not
    capacity, at two model scales (§5).
 4. A **specification** for what a realisable signal must achieve, and its use
-   as a cheap **screening test**; four candidate signals rejected, one with
+   as a cheap **screening test**; eight candidate signals rejected, one with
    its end-to-end failure predicted in advance from a $0 measurement (§6, §7).
 5. **Fragmentation** as an independent constraint on retained-set structure
    that no prior work in this line varies (§8).
@@ -296,13 +299,56 @@ rented**. All five held: needle middle 0/7, needle near 0/9 against `recent`'s
 than every heuristic in every band — with no recency term it has no positional
 fallback, which cleanly separates *selection* from *geometry*.
 
-**7.4 A wider screen.** [Filled from `results/screen.json` — normalised
-attention, answer-shape, rarity, key-norm, against a random control.]
+**7.4 A wider screen.** Five more candidates, screened together against a
+random control. Coverage at B=2048; chance is 0.250.
 
-**The pattern across all four.** Information content, query similarity, and
-learned write-time features all fail, for the same reason stated three ways:
-**a token's future utility is not a function of anything observable when it is
-written.**
+| signal | needle | spans whole | real QA | spans whole |
+|---|---|---|---|---|
+| `answer_shape` — digits, capitalised words | **0.541** | 0/16 | 0.271 | 0/16 |
+| `key_norm` — ‖k‖ | 0.384 | 0/16 | 0.244 | 0/16 |
+| `norm_attention` — attention per query row | 0.230 | 1/16 | 0.290 | 2/16 |
+| `rarity` — inverse in-document frequency | 0.102 | 0/16 | 0.265 | 0/16 |
+| `surprisal` (§7.3) | 0.107 | 0/16 | 0.240 | 0/16 |
+| *random control* | 0.248 | 0/16 | 0.249 | 0/16 |
+
+**None passes.** The best whole-span retention across twelve signal-task
+pairs is 2/16, against the ~1.00 the specification requires.
+
+Two results here are worth more than the table. First, **normalised attention
+fails**, and it was the most promising repair available: §3 diagnoses H2O's
+far-band bias as an artifact of *summing* attention over a variable number of
+query rows, so dividing by that count is the obvious fix. It lands *below
+chance* on needles (0.230) and barely above on real QA (0.290). Removing the
+positional bias does not reveal a utility signal underneath — it removes the
+bias that was giving H2O its only wins.
+
+Second, **`answer_shape` is the strongest signal found anywhere in this work
+and still fails.** At 0.541 on needles it is 2.2× chance, and it should be:
+the rule flags digits, and the answers *are* digits. It is a prior written
+with knowledge of the answer format. Yet it retains **0/16 spans whole**,
+because keeping about half the digits of a six-digit code is worth exactly
+nothing under exact match.
+
+That is the cleanest statement of §6's coverage requirement we have.
+**Knowing the *form* of the answer is not enough; the specification demands
+the specific tokens.** A signal can be twice as good as chance at finding
+answer-shaped tokens and still recover nothing.
+
+On real QA every signal collapses to within 0.04 of the random control. None
+of the six discriminates at all.
+
+**The pattern across all eight.** Learned write-time features, query
+similarity, information content, attention received, key norm, in-document
+rarity and answer-form priors all fail. The framings are independent —
+information-theoretic, attention-based, lexical, learned — and they fail in
+the same place, which is the case for reading this as a property of the
+problem rather than of any one attempt: **a token's future utility is not a
+function of anything observable when it is written.**
+
+The closest miss is instructive about *why*. `answer_shape` finds
+answer-shaped tokens at over twice chance and still recovers nothing, because
+§6 does not ask for tokens that look like answers — it asks for **every token
+of the specific span that answers the query that has not yet arrived.**
 
 ## 8. Retained-set structure is a second constraint
 
