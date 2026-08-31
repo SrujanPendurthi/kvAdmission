@@ -174,7 +174,16 @@ Sixteen needles per stream, four seeds, B=2048, chunk=128, binned at
 | `random` | 13/16 | **0/48** |
 | `h2o` | 0/16 | 10/48 — all at d > 6600 |
 
-Bin by bin, `recent` is 1.00 below 2048 and 0.00 above. Under admission at rate
+Bin by bin, `recent` is 1.00 below 2048 and 0.00 above.
+
+![Recall against distance from the query, B=2048. `recent` holds 1.00 out to
+the horizon at d=B and is exactly zero past it; `h2o` is the mirror image,
+anchored to the start of the stream; neither reaches the ~4000 tokens between
+them.](fig-horizon.svg)
+
+**Figure 1.** Recall in 512-token distance bins, 4 seeds × 16 needles,
+Qwen3-1.7B at B=2048. The dashed line marks the predicted horizon `d = B/p`.
+ Under admission at rate
 `p` followed by FIFO eviction to budget `B`, occupancy saturates and the cache
 becomes a contiguous window over the most recent `B/p` raw positions:
 

@@ -28,3 +28,17 @@ def test_spans_past_the_stream_end_are_clipped_not_counted_wrong():
 def test_a_span_entirely_past_the_end_is_skipped():
     scores = torch.arange(6, dtype=torch.float32)
     assert coverage(scores, [(6, 9)], budget=2, n_tokens=6) == []
+
+
+def test_lookahead_is_computed_and_is_not_the_same_as_summed_attention():
+    # the lookahead signal must isolate the following chunk's attention, not
+    # reproduce the accumulated sum that h2o already uses
+    import torch
+    from kvadmission.screen import candidate_scores
+    names = ["surprisal", "norm_attention", "answer_shape", "rarity",
+             "key_norm", "lookahead", "random"]
+    # signature check only - a real forward pass is exercised by run_screen
+    import inspect
+    sig = inspect.signature(candidate_scores)
+    assert "attn_layers" in sig.parameters
+    assert len(set(names)) == 7

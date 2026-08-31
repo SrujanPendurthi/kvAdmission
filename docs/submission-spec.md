@@ -261,6 +261,15 @@ raw positions:
 `recent` (`p`=1) is predicted exactly. Tested at `p`=0.5, where the horizon
 should double: **2/32 inside 4096, 0/32 beyond**.
 
+![Recall against distance from the query, B=2048. `recent` holds 1.00 out to
+the horizon at d=B and is exactly zero past it; `h2o` is the mirror image,
+anchored to the start of the stream; neither reaches the ~4000 tokens between
+them.](fig-horizon.svg)
+
+**Figure 1.** Recall in 512-token distance bins, 4 seeds × 16 needles,
+Qwen3-1.7B at B=2048. The dashed line marks the predicted horizon `d = B/p`.
+
+
 Beyond the horizon, survival is **exactly zero**, not merely unlikely. Any rule
 that does not actively protect a token past `B/p` loses it with certainty, so
 recency is not a design choice but the attractor every uninformed rule decays

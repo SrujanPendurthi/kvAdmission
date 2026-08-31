@@ -23,6 +23,12 @@ The candidates are chosen to attack the failure from different directions:
                  better index into this document than one appearing often.
   key_norm       ||k||, the cheap saliency proxy that several eviction papers
                  use as a tiebreak.
+  lookahead      attention a token receives from the NEXT chunk's query rows.
+                 The only candidate here with access to information about what
+                 follows a token. It is not write-time-causal, but it is
+                 implementable: delay compression by one chunk. Every other
+                 signal must guess a token's future from its past; this one
+                 gets to see 128 tokens of that future.
   random         chance control, so every number has a floor to beat.
 """
 
@@ -55,6 +61,8 @@ def candidate_scores(model, tok, ids, device, chunk=128, attn_layers=4,
     attn_sum = torch.zeros(n)      # total attention received
     attn_rows = torch.zeros(n)     # how many query rows could see it
     knorm = torch.zeros(n)
+    look = torch.zeros(n)          # attention from the FOLLOWING chunk only
+    prev_start = None
 
     cache = AdmissionCache(budget=None, sinks=4)
     prev_row = None
@@ -84,7 +92,14 @@ def candidate_scores(model, tok, ids, device, chunk=128, attn_layers=4,
             a = out.attentions[li].float()              # (1, H, n_new, n_kv)
             recv = a.sum(dim=(0, 1, 2)).cpu()
             attn_sum[: recv.shape[0]] += recv
+            if prev_start is not None:
+                # what this chunk's queries paid to the PREVIOUS chunk's keys:
+                # a one-chunk lookahead, available if compression is delayed
+                # by a chunk rather than run immediately
+                back = a[0, :, :, prev_start:start].sum(dim=(0, 1)).cpu()
+                look[prev_start:prev_start + back.shape[0]] += back
         attn_rows[: start + n_new] += n_new * len(keep_layers)
+        prev_start = start
 
         k = cache.layers[keep_layers[-1]].keys                # (1, kvH, T, D)
         kn = k.float().norm(dim=-1).mean(dim=1)[0].cpu()
@@ -114,6 +129,7 @@ def candidate_scores(model, tok, ids, device, chunk=128, attn_layers=4,
         "answer_shape": shape + jitter,
         "rarity": rar + jitter,
         "key_norm": knorm,
+        "lookahead": look,
         "random": torch.rand(n, generator=g),
     }
 
