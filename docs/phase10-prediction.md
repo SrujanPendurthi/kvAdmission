@@ -58,3 +58,41 @@ signal and phase 9's method note should be withdrawn.
 If surprisal scores *worse* than predicted — 0/24 everywhere on both tasks —
 the screening method is conservative but sound, and the negative result stands
 more strongly.
+
+---
+
+## Outcome — appended after the run
+
+Box `49342091`, RTX 3090, ~12 min, **$0.15**. 129 tests passed on CUDA first.
+
+**All five predictions hold. None of the falsification thresholds was crossed.**
+
+| | prediction | observed | |
+|---|---|---|---|
+| P1 | needle middle = 0 | **0/7** | holds |
+| P2 | needle near ≪ `recent`'s 10/14 | **0/9** | holds |
+| P3 | needle overall ≤ 2/24 | **0/24** | holds |
+| P4 | QA overall ≤ 4/24, middle = 0 | **2/24**, middle **0/8** | holds |
+| P5 | beats `recent` on neither | 0/24 and 2/24 vs 7/24 | holds |
+
+At B=2048:
+
+| policy | task | near | middle | far | total |
+|---|---|---|---|---|---|
+| surprisal | needle | **0/9** | **0/7** | **0/8** | **0/24** |
+| surprisal | real QA | 1/9 | **0/8** | 1/7 | 2/24 |
+| `recent` | needle | 10/14 | 0/12 | 0/14 | 7/24 |
+
+## What this establishes
+
+**The coverage diagnostic is a valid screen.** Phase 9 rejected surprisal from a $0 local measurement and predicted the end-to-end numbers before the box existed. The predictions were conservative — the actual result is at or below every bound — which is the safe direction for a screening tool: it will not wave through a signal that then fails, though it may in principle reject one that would have worked.
+
+That claim is worth more than this particular negative result. §7.2 is no longer only a description of how the oracle degrades; it is a **test any candidate write-time signal must pass before anyone spends GPU time on it.** Measure the fraction of answer spans landing inside the signal's top `B`, compare against the partial-oracle curve, and reject anything short of ~1.00 fully retained.
+
+**Surprisal is the first policy tested here that is worse than every heuristic everywhere.** `recent` owns the near band, `h2o` the far band; surprisal scores zero in all three on needles. With `recency_weight=0` it has no positional fallback, and the result is the cleanest possible separation of *selection* from *geometry*: the budget, the chunking and the eviction path are identical to every baseline, and the only thing changed is which tokens are chosen.
+
+## Remaining caveats
+
+- Two seeds for the diagnostic, three for the run, one model.
+- The screening claim is supported by one successful prediction. A signal that *passes* the screen and then succeeds end-to-end would test the other direction, and nothing here provides one.
+- `recency_weight` remains untested. A surprisal/recency blend would likely recover the near band, but that is recency doing the work, not surprisal.
