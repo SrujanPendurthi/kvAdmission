@@ -108,6 +108,29 @@ def span_stats(spans):
     return len(spans), sum(b - a for a, b in spans)
 
 
+def _draw_flags(gen, start, n_new, spans, coverage, fp_rate):
+    """One chunk of the degraded oracle's flags. Shared with `oracle_flags` so
+    the screen replays exactly the draw the end-to-end run made."""
+    new = torch.zeros(n_new, dtype=torch.bool)
+    noise = torch.rand(n_new, generator=gen)
+    for i in range(n_new):
+        p = start + i
+        if any(a <= p < b for a, b in spans):
+            new[i] = noise[i] < coverage      # proxy may miss it
+        else:
+            new[i] = noise[i] < fp_rate       # proxy may falsely flag it
+    return new
+
+
+def oracle_flags(spans, n_tokens, coverage=1.0, fp_rate=0.0, seed=0, chunk=128):
+    """The whole stream's flags as `make_oracle_decider` draws them chunk by
+    chunk, so a degraded oracle can be screened like any other signal."""
+    gen = torch.Generator().manual_seed(seed)
+    return torch.cat([_draw_flags(gen, s, min(chunk, n_tokens - s), spans,
+                                  coverage, fp_rate)
+                      for s in range(0, n_tokens, chunk)])
+
+
 def make_oracle_decider(spans, budget, n_layers, sinks=4, device="cpu",
                         coverage=1.0, fp_rate=0.0, seed=0):
     """A decider that pins needle tokens and ranks the rest by recency.
@@ -132,14 +155,7 @@ def make_oracle_decider(spans, budget, n_layers, sinks=4, device="cpu",
     def decide(layer_idx, cache, attentions, n_new):
         if layer_idx == 0:
             start = state["seen"]
-            new = torch.zeros(n_new, dtype=torch.bool)
-            noise = torch.rand(n_new, generator=gen)
-            for i in range(n_new):
-                p = start + i
-                if any(a <= p < b for a, b in spans):
-                    new[i] = noise[i] < coverage      # proxy may miss it
-                else:
-                    new[i] = noise[i] < fp_rate       # proxy may falsely flag it
+            new = _draw_flags(gen, start, n_new, spans, coverage, fp_rate)
             state["flag"] = (new if state["flag"] is None
                              else torch.cat([state["flag"], new]))
             state["seen"] = start + n_new

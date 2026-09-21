@@ -167,6 +167,33 @@ def qa_spans(items):
     return [it["span"] for it in items]
 
 
+def answer_spans(tok, items):
+    """Token range of the gold answer phrase inside each gold paragraph.
+
+    `qa_spans` is the whole paragraph (~160 tokens), the right unit for the
+    oracle but the wrong denominator for coverage: the answer is a short phrase
+    inside it. Re-tokenises the paragraph exactly as `build_qa_stream` did and
+    maps the first answer that occurs in it through the offset mapping. Uses the
+    first occurrence, which is not always the annotated one. An item clamped
+    past the cut keeps its clamped span.
+    """
+    out = []
+    for it in items:
+        lo, hi = it["span"]
+        text = "\n\n" + it["context"] + "\n\n"
+        enc = tok(text, add_special_tokens=False, return_offsets_mapping=True)
+        found = [(text.find(a), a) for a in it["answers"] if text.find(a) >= 0]
+        if len(enc["input_ids"]) != hi - lo or not found:
+            out.append((lo, hi))
+            continue
+        c0, a = min(found)
+        c1 = c0 + len(a)
+        toks = [i for i, (s, e) in enumerate(enc["offset_mapping"])
+                if s < c1 and e > c0]
+        out.append((lo + toks[0], lo + toks[-1] + 1))
+    return out
+
+
 # One neutral in-context example. Without it the model answers in a full
 # sentence ("The Mongol armies would divert certain rivers to...") and token F1
 # collapses to 0.12 on a one-word gold even though the answer is right. Probed

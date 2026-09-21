@@ -159,3 +159,21 @@ def test_quota_expansion_never_merges_neighbours():
     spans = [(1000, 1016), (2000, 2016), (3000, 3016)]
     for quota in (100, 400, 900):
         assert span_stats(expand_spans_to_quota(spans, quota, 8192))[0] == 3
+
+
+def test_oracle_flags_perfect_oracle_is_exactly_the_spans():
+    from kvadmission.oracle import oracle_flags
+    spans = [(10, 16), (300, 305)]
+    f = oracle_flags(spans, 400, coverage=1.0, fp_rate=0.0, seed=3)
+    want = torch.zeros(400, dtype=torch.bool)
+    for a, b in spans:
+        want[a:b] = True
+    assert torch.equal(f, want)
+
+
+def test_oracle_flags_replays_the_same_draw_for_a_seed():
+    from kvadmission.oracle import oracle_flags
+    spans = [(0, 200)]
+    a = oracle_flags(spans, 1000, coverage=0.5, fp_rate=0.1, seed=7)
+    b = oracle_flags(spans, 1000, coverage=0.5, fp_rate=0.1, seed=7)
+    assert torch.equal(a, b) and 60 < int(a[:200].sum()) < 140

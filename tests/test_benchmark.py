@@ -121,3 +121,18 @@ def test_every_script_compiles():
         if f.name.startswith("."):
             continue
         py_compile.compile(str(f), doraise=True)
+
+
+def test_answer_spans_decode_to_the_answer_inside_its_paragraph():
+    from transformers import AutoTokenizer
+    from kvadmission.benchmark import answer_spans
+    tok = AutoTokenizer.from_pretrained("Qwen/Qwen3-1.7B")
+    ids, items = build_qa_stream(tok, 8, 8192, seed=0)
+    for (lo, hi), (plo, phi), it in zip(answer_spans(tok, items),
+                                         qa_spans(items), items):
+        if phi - plo <= 1:
+            continue                      # clamped past the cut
+        assert plo <= lo < hi <= phi
+        assert hi - lo < phi - plo
+        text = tok.decode(ids[0, lo:hi])
+        assert any(a in text for a in it["answers"])

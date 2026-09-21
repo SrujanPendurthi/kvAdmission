@@ -11,7 +11,7 @@ import argparse, json, statistics
 from collections import defaultdict
 from pathlib import Path
 
-from kvadmission.benchmark import build_qa_stream, qa_spans
+from kvadmission.benchmark import answer_spans, build_qa_stream, qa_spans
 from kvadmission.oracle import needle_spans
 from kvadmission.runner import load_model
 from kvadmission.screen import candidate_scores, coverage
@@ -25,6 +25,9 @@ p.add_argument("--seeds", type=int, default=2)
 p.add_argument("--items", type=int, default=8)
 p.add_argument("--length", type=int, default=8192)
 p.add_argument("--attn-layers", type=int, default=4)
+p.add_argument("--qa-span", choices=["answer", "paragraph"], default="answer",
+               help="coverage denominator on QA: the answer phrase, or the whole "
+                    "gold paragraph (what screen.json/screen2.json used)")
 p.add_argument("--out", default="results/screen.json")
 a = p.parse_args()
 
@@ -39,7 +42,11 @@ for task in a.tasks:
             spans = needle_spans(tok, items)
         else:
             ids, items = build_qa_stream(tok, a.items, a.length, seed=seed)
-            spans = qa_spans(items)
+            # a paragraph clamped past the cut is not in the stream; skip it
+            keep = [i for i, (lo, hi) in enumerate(qa_spans(items)) if hi - lo > 1]
+            spans = (answer_spans(tok, items) if a.qa_span == "answer"
+                     else qa_spans(items))
+            spans = [spans[i] for i in keep]
         sc = candidate_scores(model, tok, ids, device,
                               attn_layers=a.attn_layers, seed=seed)
         for name, s in sc.items():
@@ -53,8 +60,10 @@ for task in a.tasks:
         whole = sum(x == 1.0 for x in c)
         print(f"  {name:16s} {statistics.mean(c):>14.3f} {whole:>7d}/{len(c)}")
         rows.append({"task": task, "signal": name, "budget": a.budget,
+                     "qa_span": a.qa_span if task == "qa" else None,
                      "mean_coverage": round(statistics.mean(c), 4),
-                     "spans_whole": whole, "n_spans": len(c)})
+                     "spans_whole": whole, "n_spans": len(c),
+                     "per_span": [round(x, 4) for x in c]})
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
     Path(a.out).write_text(json.dumps(rows, indent=1))
 

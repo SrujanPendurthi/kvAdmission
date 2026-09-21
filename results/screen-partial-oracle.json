@@ -1,0 +1,58 @@
+[
+ {
+  "coverage": 0.25,
+  "fp_rate": 0.0,
+  "budget": 2048,
+  "mean_coverage": 0.4057,
+  "spans_whole": 6,
+  "n_spans": 24
+ },
+ {
+  "coverage": 0.5,
+  "fp_rate": 0.0,
+  "budget": 2048,
+  "mean_coverage": 0.6165,
+  "spans_whole": 6,
+  "n_spans": 24
+ },
+ {
+  "coverage": 0.75,
+  "fp_rate": 0.0,
+  "budget": 2048,
+  "mean_coverage": 0.8181,
+  "spans_whole": 6,
+  "n_spans": 24
+ },
+ {
+  "coverage": 1.0,
+  "fp_rate": 0.0,
+  "budget": 2048,
+  "mean_coverage": 1.0,
+  "spans_whole": 24,
+  "n_spans": 24
+ },
+ {
+  "coverage": 1.0,
+  "fp_rate": 0.01,
+  "budget": 2048,
+  "mean_coverage": 1.0,
+  "spans_whole": 24,
+  "n_spans": 24
+ },
+ {
+  "coverage": 1.0,
+  "fp_rate": 0.05,
+  "budget": 2048,
+  "mean_coverage": 1.0,
+  "spans_whole": 24,
+  "n_spans": 24
+ },
+ {
+  "coverage": 1.0,
+  "fp_rate": 0.2,
+  "budget": 2048,
+  "mean_coverage": 1.0,
+  "spans_whole": 24,
+  "n_spans": 24
+ }
+]
