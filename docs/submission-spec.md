@@ -20,7 +20,7 @@ signal actually have to achieve to work?
 We answer that with an oracle. Given a fixed budget, chunked prefill and FIFO
 eviction, a policy *told which tokens carry the answers* recovers **40/40 at
 1.7B and 24/24 at 8B**, matching an uncompressed cache on a quarter of the
-context, while the best heuristic at the same budget reaches 7/24 and no
+context, while the best heuristic on the same streams reaches 10/40 and 6/24, and no
 heuristic reaches the middle of the context at all. The capacity is therefore
 already there. What is missing is a signal.
 
@@ -35,7 +35,7 @@ The specification is then usable as a **screening test**. Any candidate signal
 can be rejected by measuring what fraction of answer spans falls inside its
 top `B`, with no policy implemented and no GPU rented. We validate this once —
 rejecting surprisal for $0, pre-registering five predictions, and confirming
-all five — and then apply it to **nine candidate signals across five
+all five — and then apply it to **ten candidate signals across eight
 independent framings**: learned write-time features, query similarity,
 information content, attention received, key norm, lexical rarity, and
 answer-form priors. None passes. The closest, a prior that flags digits on a
@@ -74,7 +74,7 @@ This paper supplies the missing target and makes it cheap to check against.
    (§4).
 3. A **screening test** derived from that specification, validated with five
    pre-registered predictions on a candidate rejected for $0 (§5).
-4. **Nine candidate signals rejected** across five independent framings, with
+4. **Ten candidate signals rejected** across eight framings, with
    the near-miss explaining precisely what the specification demands (§5).
 5. A **mechanism** — a hard retention horizon at `d = B/p` — explaining why
    position-based rules cannot clear the bar however they are tuned (§6).
@@ -108,18 +108,19 @@ This paper supplies the missing target and makes it cheap to check against.
 eviction and evaluation as every baseline, through the same `apply_eviction`
 path. One thing changes: it is told which token spans carry the answers.
 
-| policy, B=2048 | near | middle | far | total |
-|---|---|---|---|---|
-| best heuristic | 0.71 | **0.00** | 0.57 | 7/24 |
-| best learned policy | 0.71 | **0.00** | 0.00 | — |
-| **oracle** | **1.00** | **1.00** | **1.00** | **40/40** |
-| `full` (uncompressed) | 1.00 | 1.00 | 1.00 | — |
+| policy, B=2048 | model | near | middle | far | total |
+|---|---|---|---|---|---|
+| `recent` | 1.7B | 10/14 | **0/12** | 0/14 | 10/40 |
+| `h2o` | 1.7B | 0/14 | **0/12** | 8/14 | 8/40 |
+| **oracle** | 1.7B | **14/14** | **12/12** | **14/14** | **40/40** |
+| `recent` | 8B | 6/9 | **0/7** | 0/8 | 6/24 |
+| **oracle** | 8B | **9/9** | **7/7** | **8/8** | **24/24** |
 
 **40/40 at Qwen3-1.7B and 24/24 at Qwen3-8B.** A 2048-token cache holding the
 *right* 2048 tokens answers every query an uncompressed 8192-token cache does.
 
 The gap this exposes is not between compressed and uncompressed. It is between
-the oracle and every heuristic at the *same budget* — 40/40 against 7/24. What
+the oracle and every heuristic at the *same budget* — 40/40 against 10/40, 24/24 against 6/24. What
 separates them is information, not capacity.
 
 **Motivating context: nothing reaches the middle.** Across 340 middle-band
@@ -197,7 +198,7 @@ We ran it once as a genuine prediction. Surprisal — score each token by
 `−log p(token | prefix)`, keeping what the context cannot reconstruct — is a
 principled, free, non-positional candidate. The screen rejected it locally for
 **$0**: coverage 0.107 on needles against a 0.250 chance rate, 0.248 on real
-QA, with 0/16 spans retained whole on either.
+QA, with 0/16 spans retained whole on needles and 2/16 on QA.
 
 **Five predictions were then committed to version control before a GPU was
 rented.** All five held: needle middle band 0/7, needle near band 0/9 against
@@ -205,7 +206,7 @@ rented.** All five held: needle middle band 0/7, needle near band 0/9 against
 beating `recent` on neither task. Every number landed at or below its
 predicted bound — the conservative direction for a screen.
 
-### 5.2 Nine candidates, none passing
+### 5.2 Ten candidates, none passing
 
 | signal | framing | needle cov. | QA cov. | spans whole |
 |---|---|---|---|---|
@@ -219,7 +220,7 @@ predicted bound — the conservative direction for a screen.
 | `lookahead` | 128 tokens of future | 0.163 | 0.228 | 0/16 |
 | *random control* | — | 0.248 | 0.249 | 0/16 |
 
-Chance is 0.250. Best whole-span retention across twelve signal-task pairs is
+Chance is 0.250. QA coverage is over the whole gold paragraph, the span the screener records; over the answer phrase alone `surprisal` scores 0.248 with 2/16 whole. Best whole-span retention across twelve signal-task pairs is
 2/16 against the ~1.00 required.
 
 Two entries carry the argument.
@@ -277,7 +278,7 @@ raw positions:
 > **P(token resident at distance `d`) = `p` if `d < B/p`, else 0**
 
 `recent` (`p`=1) is predicted exactly. Tested at `p`=0.5, where the horizon
-should double: **2/32 inside 4096, 0/32 beyond**.
+should double: **2/32 inside 4096, 0/32 beyond**. The residency law governs *tokens*; recall needs every token of an `L`-token answer, so the in-horizon plateau is `p^L` rather than `p` — hence 2/32 and not 16/32. What the test confirms is the horizon.
 
 ![Recall against distance from the query, B=2048. `recent` holds 1.00 out to
 the horizon at d=B and is exactly zero past it; `h2o` is the mirror image,

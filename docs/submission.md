@@ -190,7 +190,7 @@ becomes a contiguous window over the most recent `B/p` raw positions:
 > **P(token resident at distance `d`) = `p` if `d < B/p`, else 0**
 
 `recent` (`p`=1) is predicted exactly. Tested at `p`=0.5, where the horizon
-should move to 4096: **2/32 inside, 0/32 beyond**. Retention tracks `B/p`.
+should move to 4096: **2/32 inside, 0/32 beyond**. Retention tracks `B/p`. The residency law governs *tokens*; recall needs every token of an `L`-token answer, so the in-horizon plateau is `p^L` rather than `p` — hence 2/32 and not 16/32. What the test confirms is the horizon.
 
 The claim this sharpens is not that distant tokens are unlikely to survive but
 that **beyond the horizon they survive with probability exactly zero**, so any
@@ -209,12 +209,13 @@ eviction and evaluation, changing exactly one thing: the policy is told which
 token spans carry the answers. It runs through the same `apply_eviction` path
 as every baseline.
 
-| | near | middle | far |
-|---|---|---|---|
-| best rule (B=2048) | 0.71 | **0.00** | 0.57 |
-| best learned policy | 0.71 | **0.00** | 0.00 |
-| **oracle, B=2048** | **1.00** | **1.00** | **1.00** |
-| `full` | 1.00 | 1.00 | 1.00 |
+| policy, B=2048 | model | near | middle | far | total |
+|---|---|---|---|---|---|
+| `recent` | 1.7B | 10/14 | **0/12** | 0/14 | 10/40 |
+| `h2o` | 1.7B | 0/14 | **0/12** | 8/14 | 8/40 |
+| **oracle** | 1.7B | **14/14** | **12/12** | **14/14** | **40/40** |
+| `recent` | 8B | 6/9 | **0/7** | 0/8 | 6/24 |
+| **oracle** | 8B | **9/9** | **7/7** | **8/8** | **24/24** |
 
 **40/40 at 1.7B and 24/24 at 8B**, matching the uncompressed cache on a
 quarter of the context. Nothing about the budget, the chunking or FIFO
@@ -326,7 +327,9 @@ random control. Coverage at B=2048; chance is 0.250.
 | `surprisal` (§7.3) | 0.107 | 0/16 | 0.240 | 0/16 |
 | *random control* | 0.248 | 0/16 | 0.249 | 0/16 |
 
-**None passes.** The best whole-span retention across fourteen signal-task
+QA coverage is over the whole gold paragraph, the span the screener records; over the answer phrase alone `surprisal` scores 0.248 with 2/16 whole.
+
+**None passes.** The best whole-span retention across twelve signal-task
 pairs is 2/16, against the ~1.00 the specification requires.
 
 Two results here are worth more than the table. First, **normalised attention
@@ -370,7 +373,7 @@ This is the sharpest form of the claim available here. **The information that
 determines a token's retention value is not in its past, and not in its
 immediate future either.** It is in a query that has not arrived.
 
-**The pattern across all nine.** Learned write-time features, query
+**The pattern across all ten.** Learned write-time features, query
 similarity, information content, attention received, key norm, in-document
 rarity, answer-form priors and short-range lookahead all fail. The framings are independent —
 information-theoretic, attention-based, lexical, learned — and they fail in
