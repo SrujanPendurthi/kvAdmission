@@ -37,8 +37,8 @@ signal actually have to achieve to work?
 We answer with an oracle. Under a fixed budget, chunked prefill and FIFO
 eviction, a policy \emph{told which tokens carry the answers} recovers
 $40/40$ at 1.7B and $24/24$ at 8B---matching an uncompressed cache on a
-quarter of the context---while the best heuristic at the same budget reaches
-$7/24$ and no heuristic reaches the middle of the context at all. The capacity
+quarter of the context---while the best heuristic on the same streams reaches
+$10/40$ and $6/24$, and no heuristic reaches the middle of the context at all. The capacity
 is already there; what is missing is a signal.
 
 Degrading that oracle yields a two-sided specification. \textbf{Coverage is
@@ -52,8 +52,8 @@ The specification is then usable as a \textbf{screening test}: a candidate can
 be rejected by measuring what fraction of answer spans falls inside its top
 $B$, with no policy implemented and no GPU rented. We validate this once,
 rejecting a candidate for \$0 with five pre-registered predictions all
-confirmed, then apply it to \textbf{nine candidate signals across five
-independent framings}. None passes. The candidate given 128 tokens of a
+confirmed, then apply it to \textbf{ten candidate signals across eight
+framings}. None passes. The candidate given 128 tokens of a
 token's \emph{future} scores below chance.
 \end{abstract}
 
@@ -84,7 +84,7 @@ check against.
 \item A \textbf{screening test} derived from it, validated with five
       pre-registered predictions on a candidate rejected for \$0
       (\S\ref{sec:test}).
-\item \textbf{Nine candidate signals rejected} across five independent
+\item \textbf{Ten candidate signals rejected} across eight
       framings, with the near-miss showing precisely what the specification
       demands (\S\ref{sec:test}).
 \item A \textbf{mechanism}---a hard retention horizon at $d = B/p$---explaining
@@ -129,14 +129,16 @@ FIFO eviction and evaluation as every baseline, through the same eviction path.
 One thing changes: it is told which token spans carry the answers.
 
 \begin{table}[h]\centering\small
-\begin{tabular}{lcccc}
+\begin{tabular}{llcccc}
 \toprule
-policy, $B{=}2048$ & near & middle & far & total \\
+policy, $B{=}2048$ & model & near & middle & far & total \\
 \midrule
-best heuristic       & 0.71 & \textbf{0.00} & 0.57 & $7/24$ \\
-best learned policy  & 0.71 & \textbf{0.00} & 0.00 & --- \\
-\textbf{oracle}      & \textbf{1.00} & \textbf{1.00} & \textbf{1.00} & $\mathbf{40/40}$ \\
-\texttt{full} (uncompressed) & 1.00 & 1.00 & 1.00 & --- \\
+\texttt{recent}  & 1.7B & $10/14$ & $\mathbf{0/12}$ & $0/14$ & $10/40$ \\
+\texttt{h2o}     & 1.7B & $0/14$ & $\mathbf{0/12}$ & $8/14$ & $8/40$ \\
+\textbf{oracle}  & 1.7B & $\mathbf{14/14}$ & $\mathbf{12/12}$ & $\mathbf{14/14}$ & $\mathbf{40/40}$ \\
+\midrule
+\texttt{recent}  & 8B & $6/9$ & $\mathbf{0/7}$ & $0/8$ & $6/24$ \\
+\textbf{oracle}  & 8B & $\mathbf{9/9}$ & $\mathbf{7/7}$ & $\mathbf{8/8}$ & $\mathbf{24/24}$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -210,7 +212,7 @@ end-to-end failure.
 $-\log p(\text{token}\mid\text{prefix})$, keeping what the context cannot
 reconstruct---is a principled, free, non-positional candidate. The screen
 rejected it locally for \$0: coverage $0.107$ on needles against a $0.250$
-chance rate, $0.248$ on real QA, $0/16$ spans whole on either.
+chance rate, $0.248$ on real QA, $0/16$ spans whole on needles and $2/16$ on QA.
 \textbf{Five predictions were then committed to version control before a GPU
 was rented.} All five held: needle middle band $0/7$, needle near band $0/9$
 against \texttt{recent}'s $10/14$, needle overall $0/24$, QA overall $2/24$
@@ -218,7 +220,7 @@ with middle $0/8$, and beating \texttt{recent} on neither. Every number landed
 at or below its predicted bound.
 
 \begin{table}[h]\centering\small
-\begin{tabular}{llcccc}
+\begin{tabular}{llccc}
 \toprule
 signal & framing & needle cov. & QA cov. & spans whole \\
 \midrule
@@ -233,7 +235,7 @@ query-aware retention & query similarity & --- & --- & $0/12$ mid \\
 \emph{random control} & --- & 0.248 & 0.249 & $0/16$ \\
 \bottomrule
 \end{tabular}
-\caption{Nine candidates, none passing. Chance is $0.250$.}
+\caption{Ten candidates, none passing. Chance is $0.250$. QA coverage is over the whole gold paragraph, the span the screener records; over the answer phrase alone \texttt{surprisal} scores $0.248$ with $2/16$ whole.}
 \end{table}
 
 Three entries carry the argument.
@@ -279,7 +281,10 @@ raw positions:
 \end{equation}
 \texttt{recent} ($p{=}1$) is predicted exactly: $16/16$ inside $d{=}B$,
 $0/48$ outside. Tested at $p{=}0.5$, where the horizon should double:
-$2/32$ inside 4096, $0/32$ beyond.
+$2/32$ inside 4096, $0/32$ beyond. Eq.~\ref{eq:horizon} governs
+\emph{token} residency; recall needs every token of an $L$-token answer, so
+the in-horizon plateau is $p^L$ rather than $p$---hence $2/32$ and not $16/32$.
+What the test confirms is the horizon: every hit inside $B/p$, none beyond.
 
 Beyond the horizon, survival is \emph{exactly} zero, not merely unlikely. Any
 rule that does not actively protect a token past $B/p$ loses it with certainty,
@@ -337,6 +342,8 @@ run end to end; the real-QA benchmark discriminates only on Qwen3-1.7B.
 \textbf{One architectural family}: FIFO eviction, fixed per-layer budget,
 decisions shared across layers---the last forced by a single global attention
 mask.
+\textbf{The plateau of Eq.~\ref{eq:horizon} has no clean quantitative
+model}: it goes as $p^L$ for an $L$-token span, with an inconsistent effective $L$.
 \textbf{The coverage curve is measured on the synthetic task only}; its
 transfer rests on Eq.~\ref{eq:crowding}'s transfer, which was verified, not on
 a second coverage sweep.

@@ -48,7 +48,7 @@ but told which tokens carry the answers---scores $40/40$ at 1.7B and $24/24$ at
 8B, matching the uncompressed cache on a quarter of the context. \textbf{The
 dead zone is not a capacity limit but an observability one}, and we give the
 specification a realisable signal must meet, then use it as a screening test
-that rejects nine candidates across five independent framings---one for \$0,
+that rejects ten candidates across eight framings---one for \$0,
 with its end-to-end failure predicted in advance.
 
 Finally we isolate a second constraint: at fixed evidence, distance, budget and
@@ -88,7 +88,7 @@ compressed cache still support answering it?}
 \item An \textbf{oracle control} establishing the dead zone is observability,
       not capacity, at two model scales (\S\ref{sec:oracle}).
 \item A \textbf{specification} for what a realisable signal must achieve and
-      its use as a cheap \textbf{screening test}; nine candidates rejected, one
+      its use as a cheap \textbf{screening test}; ten candidates rejected, one
       with its end-to-end failure predicted from a \$0 measurement
       (\S\ref{sec:spec}, \S\ref{sec:screen}).
 \item A \textbf{controlled isolation of fragmentation}---at matched evidence,
@@ -202,7 +202,9 @@ most recent $B/p$ raw positions:
   \label{eq:horizon}
 \end{equation}
 \texttt{recent} ($p{=}1$) is predicted exactly. Tested at $p{=}0.5$, where the
-horizon should move to 4096: $2/32$ inside, $0/32$ beyond.
+horizon should move to 4096: $2/32$ inside, $0/32$ beyond---the horizon holds; the plateau is
+$p^L$ rather than $p$, since recall needs every token of an $L$-token answer
+(\S\ref{sec:limits}).
 
 The claim this sharpens is not that distant tokens are unlikely to survive but
 that \textbf{beyond the horizon they survive with probability exactly zero}, so
@@ -218,14 +220,16 @@ FIFO eviction and evaluation, through the same eviction path as every baseline.
 One thing changes: it is told which token spans carry the answers.
 
 \begin{table}[h]\centering\small
-\begin{tabular}{lcccc}
+\begin{tabular}{llcccc}
 \toprule
-policy, $B{=}2048$ & near & middle & far & total \\
+policy, $B{=}2048$ & model & near & middle & far & total \\
 \midrule
-best rule            & 0.71 & \textbf{0.00} & 0.57 & $7/24$ \\
-best learned policy  & 0.71 & \textbf{0.00} & 0.00 & --- \\
-\textbf{oracle}      & \textbf{1.00} & \textbf{1.00} & \textbf{1.00} & $\mathbf{40/40}$ \\
-\texttt{full}        & 1.00 & 1.00 & 1.00 & --- \\
+\texttt{recent}  & 1.7B & $10/14$ & $\mathbf{0/12}$ & $0/14$ & $10/40$ \\
+\texttt{h2o}     & 1.7B & $0/14$ & $\mathbf{0/12}$ & $8/14$ & $8/40$ \\
+\textbf{oracle}  & 1.7B & $\mathbf{14/14}$ & $\mathbf{12/12}$ & $\mathbf{14/14}$ & $\mathbf{40/40}$ \\
+\midrule
+\texttt{recent}  & 8B & $6/9$ & $\mathbf{0/7}$ & $0/8$ & $6/24$ \\
+\textbf{oracle}  & 8B & $\mathbf{9/9}$ & $\mathbf{7/7}$ & $\mathbf{8/8}$ & $\mathbf{24/24}$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -284,7 +288,7 @@ too many.
 rejected before an end-to-end run by measuring what fraction of answer spans
 falls inside its top $B$.
 
-\section{Nine candidate signals, screened and rejected}\label{sec:screen}
+\section{Ten candidate signals, screened and rejected}\label{sec:screen}
 
 \paragraph{Learned admission, three reward formulations.} A 297K-parameter head
 over $[$hidden state, $\|k\|$, relative position, occupancy, $\lambda]$, trained
@@ -304,10 +308,12 @@ information and lands on the heuristic side: \textbf{what the oracle holds is
 not ``what is being asked'' but ``which tokens answer it.''}
 
 \paragraph{Six write-time scoring functions.} Coverage at $B{=}2048$; chance is
-$0.250$.
+$0.250$. QA coverage is over the whole gold paragraph, the span the screener
+records; over the answer phrase alone \texttt{surprisal} scores $0.248$ with
+$2/16$ whole.
 
 \begin{table}[h]\centering\small
-\begin{tabular}{llcccc}
+\begin{tabular}{llccc}
 \toprule
 signal & framing & needle & QA & spans whole \\
 \midrule
@@ -322,7 +328,7 @@ signal & framing & needle & QA & spans whole \\
 \end{tabular}
 \end{table}
 
-\textbf{None passes.} Best whole-span retention across fourteen signal-task
+\textbf{None passes.} Best whole-span retention across twelve signal-task
 pairs is $2/16$ against the ${\approx}1.00$ required.
 
 \texttt{surprisal} was rejected locally for \textbf{\$0}, and
@@ -385,7 +391,7 @@ relatives score and select tokens \emph{individually}, producing maximally
 fragmented caches. Retaining exactly the right tokens in too many pieces buys
 far less than the same budget spent on fewer, larger blocks.
 
-\section{Limitations}
+\section{Limitations}\label{sec:limits}
 
 \textbf{Two task families, both short-answer}, neither a published benchmark
 run end to end; the real-QA benchmark is effectively single-model.
