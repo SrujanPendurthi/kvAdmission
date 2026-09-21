@@ -57,5 +57,5 @@ All 12 references now carry full author lists, recovered from the arXiv
 listings. One entry had been wrong rather than merely incomplete: arXiv
 2512.17452 was carried through earlier drafts as "WG-KV: Write-Gated KV Cache
 Admission", which is not its title. It is *KV Admission: Learning What to Write
-for Efficient Long-Context Inference* (Huang, Hsiu, Fang, Chen). The bib key is
+for Efficient Long-Context LLM Inference* (Huang, Hsiu, Fang, Chen). The bib key is
 now `kvadmission2025` and the prose in both papers is corrected.
