@@ -4,6 +4,10 @@
 % To switch to a venue style, replace the documentclass/geometry block with
 % e.g. \usepackage{neurips_2026} and delete the \geometry line.
 %
+% Every number that comes from an experiment is a macro or a table defined in
+% tables.tex, which scripts/make_latex.py generates from results/*.json.
+% Regenerate it rather than editing numbers here.
+%
 % Build:  pdflatex paper && bibtex paper && pdflatex paper && pdflatex paper
 \documentclass[10pt]{article}
 \usepackage[margin=1in]{geometry}
@@ -20,8 +24,10 @@
 \definecolor{tealaccent}{HTML}{0E7C86}
 \definecolor{rustaccent}{HTML}{B0541F}
 
+\input{tables}
+
 \title{What a KV Cache Retention Signal Must Achieve:\\
-       A Specification and a Test That Rejects Candidates for Nothing}
+       An Oracle-Derived Specification and Screening Test}
 \author{Srujan Pendurthi\\\texttt{srujan.pendurthi@gmail.com}}
 \date{}
 
@@ -29,65 +35,57 @@
 \maketitle
 
 \begin{abstract}
-KV cache compression methods proliferate, each proposing a rule for scoring
-which tokens to keep, each evaluated on aggregate accuracy at a compression
-ratio. What none of them states is the \emph{target}: what would a retention
-signal actually have to achieve to work?
-
-We answer with an oracle. Under a fixed budget, chunked prefill and FIFO
-eviction, a policy \emph{told which tokens carry the answers} recovers
-$40/40$ at 1.7B and $24/24$ at 8B---matching an uncompressed cache on a
-quarter of the context---while the best heuristic on the same streams reaches
-$10/40$ and $6/24$, and no heuristic reaches the middle of the context at all. The capacity
-is already there; what is missing is a signal.
-
-Degrading that oracle yields a two-sided specification. \textbf{Coverage is
-unforgiving}: retaining 75\% of answer tokens collapses mid-context recall
-from $7/7$ to $1/7$. \textbf{Precision is free until the budget binds}, after
-which recall follows $\min(1, B/|\text{flagged}|)$---a law that transfers
-unchanged to a task it was not fitted on, predicting $0.38$ and observing
-$0.38$.
-
-The specification is then usable as a \textbf{screening test}: a candidate can
-be rejected by measuring what fraction of answer spans falls inside its top
-$B$, with no policy implemented and no GPU rented. We validate this once,
-rejecting a candidate for \$0 with five pre-registered predictions all
-confirmed, then apply it to \textbf{ten candidate signals across eight
-framings}. None passes. The candidate given 128 tokens of a
-token's \emph{future} scores below chance.
+KV cache compression methods each propose a rule for which tokens to keep and
+report accuracy at a compression ratio. None states the \emph{target}: what a
+retention signal would have to achieve to work. We derive one from an oracle.
+Under a fixed budget, chunked prefill and FIFO eviction, a policy told which
+tokens carry the answers recovers $\OracleSmall$ queries at 1.7B and
+$\OracleLarge$ at 8B, where the best heuristic on the same streams recovers
+$\RecentSmall$ and $\RecentLarge$ and never reaches the middle of the context.
+Degrading the oracle gives a two-sided specification. Coverage is unforgiving:
+retaining 75\% of answer tokens drops mid-context recall from $\CovMidFull$ to
+$\CovMidThreeQ$. Precision is free until the flagged set exceeds the budget,
+after which recall follows $\min(1, B/|\text{flagged}|)$ to within $0.05$.
+The coverage half becomes a screening test that needs no policy and no GPU:
+measure how many answer spans a signal's top $B$ keeps whole. On degraded
+oracles the screen passes exactly the configurations that succeed end to end
+and is conservative for the rest. It correctly predicted one candidate's
+end-to-end failure before the run, and it rejects all ten candidates we
+tested, including one that is shown 128 tokens of each token's future.
 \end{abstract}
 
 \section{The missing target}
 
 A long-context model writes every token into its KV cache; under a budget most
-must go. The literature decides what to discard by ranking tokens---accumulated
-attention \citep{zhang2023h2o}, observation-window voting
-\citep{li2024snapkv}, recency plus sinks \citep{xiao2024streamingllm},
-layer-wise allocation \citep{cai2024pyramidkv,feng2024adakv}---and reports
-aggregate accuracy at a compression ratio.
+must go. The literature decides what to discard by ranking tokens: accumulated
+attention \citep{zhang2023h2o,liu2023scissorhands}, observation-window voting
+\citep{li2024snapkv}, recency plus attention sinks \citep{xiao2024streamingllm},
+per-head structure \citep{ge2024fastgen}, and layer-wise budget allocation
+\citep{cai2024pyramidkv,feng2024adakv}. Each is evaluated by aggregate accuracy
+at a compression ratio \citep{yuan2024kvbench,li2025scbench}.
 
 That evaluation answers ``is this rule better than that one.'' It does not
 answer ``how good would a rule have to be,'' and without that number a proposed
-signal cannot be assessed except by building it and running it. Every candidate
-costs an implementation and a GPU run, and a negative result teaches nothing
-transferable. This paper supplies the missing target and makes it cheap to
-check against.
+signal can only be assessed by building it and running it end to end. Every
+candidate costs an implementation and a GPU run, and a negative result teaches
+nothing transferable. This paper supplies the target and a cheap way to check a
+candidate against it.
 
 \paragraph{Contributions.}
 \begin{enumerate}\itemsep2pt
-\item An \textbf{oracle control} showing the capacity for mid-context retention
-      already exists at two model scales---the failure is observability, not
-      budget (\S\ref{sec:oracle}).
-\item A \textbf{two-sided specification} for a realisable signal, both halves
-      quantitative laws, one transferring to a task it was not fitted on
-      (\S\ref{sec:spec}).
-\item A \textbf{screening test} derived from it, validated with five
-      pre-registered predictions on a candidate rejected for \$0
-      (\S\ref{sec:test}).
-\item \textbf{Ten candidate signals rejected} across eight
-      framings, with the near-miss showing precisely what the specification
-      demands (\S\ref{sec:test}).
-\item A \textbf{mechanism}---a hard retention horizon at $d = B/p$---explaining
+\item An \textbf{oracle control} showing that a compressed cache already has
+      the capacity for mid-context retention at two model scales: the failure
+      is one of observability, not budget (\S\ref{sec:oracle}).
+\item A \textbf{two-sided specification} for a realisable signal: a coverage
+      requirement and a crowding law, the latter checked on a task it was not
+      fitted on (\S\ref{sec:spec}).
+\item A \textbf{screening test} derived from the coverage requirement,
+      validated in both directions on degraded oracles and against one
+      pre-registered end-to-end run (\S\ref{sec:test}).
+\item \textbf{Ten candidate signals rejected} across eight framings, including
+      the strongest prior we could write and a signal with access to the
+      future (\S\ref{sec:test}).
+\item A \textbf{mechanism}, a hard retention horizon at $d = B/p$, explaining
       why position-based rules cannot clear the bar however they are tuned
       (\S\ref{sec:mech}).
 \item A \textbf{controlled isolation of fragmentation} as a second constraint
@@ -96,102 +94,109 @@ check against.
 
 \section{Setup}\label{sec:setup}
 
-\textbf{Models.} Qwen3-1.7B, SmolLM2-1.7B-Instruct, Qwen3-8B; bf16, frozen. No
-model weights are trained anywhere in this work.
-\textbf{Streams.} \emph{Synthetic:} 8192 tokens of prose with eight facts
-\texttt{The secret code for <topic> is <6 digits>} at jittered even anchors.
-\emph{Real:} 8192 tokens of distractor SQuAD paragraphs with eight gold
-paragraphs at the same anchors, queried by their human-written questions,
-scored by containment and token F1 against a measured \textbf{closed-book floor
-of $0/24$}. Distractors are drawn only from articles no gold paragraph belongs
-to.
-\textbf{Compression.} Chunked prefill at 128 tokens, compressed to budget $B$
-per layer after each chunk, first four tokens pinned as sinks.
+\textbf{Models.} Qwen3-1.7B, SmolLM2-1.7B-Instruct and Qwen3-8B in bf16. No
+weights are trained or modified anywhere in this work.
+
+\textbf{Streams.} \emph{Synthetic needles:} $L{=}8192$ tokens of prose with
+eight facts \texttt{The secret code for <topic> is <6 digits>} planted at
+jittered, evenly spaced anchors. \emph{Real QA:} $8192$ tokens of distractor
+SQuAD paragraphs with eight gold paragraphs at the same anchors, queried with
+their human-written questions and scored by answer containment, with token F1
+reported alongside. Distractors come only from articles that no gold paragraph
+belongs to. The closed-book floor, with the question alone, is $0/24$.
+
+\textbf{Compression.} Chunked prefill at 128 tokens. After each chunk the cache
+is compressed to a per-layer budget $B$, with the first four tokens pinned as
+attention sinks.
+
+\paragraph{Notation.} $B$ is the per-layer budget in tokens; $d$ is a token's
+distance back from the query; $p$ is an admission rate. The \emph{near},
+\emph{middle} and \emph{far} bands are the thirds of the stream by $d/L$. The
+\emph{coverage} of a signal is the fraction of answer-span tokens inside its
+top $B$ scores; a span is kept \emph{whole} when all of its tokens are. All
+intervals are 95\%: Wilson intervals for proportions, normal intervals for
+mean coverage.
 
 \paragraph{Baselines are scoring rules, not systems.}
 \texttt{recent}, \texttt{h2o} and \texttt{snapkv} implement the
 \emph{token-scoring rule} of StreamingLLM, H2O and SnapKV at token granularity
-under a uniform per-layer budget---no per-head budgets, no layer allocation,
-none of the systems engineering those papers contribute. Absolute numbers are
-not comparable to published ones and nothing here benchmarks a published
-system. What is under test is the scoring rule, because that is the component
-the effect is a property of.
+under a uniform per-layer budget. They omit per-head budgets, layer allocation
+and the rest of the systems engineering those papers contribute. Absolute
+numbers are not comparable with published ones, and nothing here benchmarks a
+published system. What is under test is the scoring rule, because that is the
+component the effects below are properties of.
 
 \paragraph{Harness.} At unbounded budget, logits are bit-identical to a stock
 \texttt{DynamicCache} under the same chunking, verified on two backends.
-Positions are passed explicitly, since compression makes cache length diverge
-from stream position. 135 tests.
+Positions are passed explicitly, because compression makes cache length
+diverge from stream position.
 
 \section{The capacity already exists}\label{sec:oracle}
 
-\textbf{Oracle retention} uses the identical budget, chunking, sink prefix,
-FIFO eviction and evaluation as every baseline, through the same eviction path.
-One thing changes: it is told which token spans carry the answers.
+\textbf{Oracle retention} uses the same budget, chunking, sink prefix, FIFO
+eviction, evaluation and code path as every baseline. One thing changes: it is
+told which token spans carry the answers.
 
 \begin{table}[h]\centering\small
-\begin{tabular}{llcccc}
-\toprule
-policy, $B{=}2048$ & model & near & middle & far & total \\
-\midrule
-\texttt{recent}  & 1.7B & $10/14$ & $\mathbf{0/12}$ & $0/14$ & $10/40$ \\
-\texttt{h2o}     & 1.7B & $0/14$ & $\mathbf{0/12}$ & $8/14$ & $8/40$ \\
-\textbf{oracle}  & 1.7B & $\mathbf{14/14}$ & $\mathbf{12/12}$ & $\mathbf{14/14}$ & $\mathbf{40/40}$ \\
-\midrule
-\texttt{recent}  & 8B & $6/9$ & $\mathbf{0/7}$ & $0/8$ & $6/24$ \\
-\textbf{oracle}  & 8B & $\mathbf{9/9}$ & $\mathbf{7/7}$ & $\mathbf{8/8}$ & $\mathbf{24/24}$ \\
-\bottomrule
-\end{tabular}
+\TabOracle
+\caption{Oracle against the best heuristics on identical needle streams,
+$B{=}2048$, $L{=}8192$. Band cells are counts of queries answered.}
+\label{tab:oracle}
 \end{table}
 
-$40/40$ at Qwen3-1.7B and $24/24$ at Qwen3-8B. A 2048-token cache holding the
-\emph{right} 2048 tokens answers every query an uncompressed 8192-token cache
-does. The gap this exposes is not between compressed and uncompressed but
-between the oracle and every heuristic \emph{at the same budget}. What
-separates them is information, not capacity.
+A 2048-token cache holding the \emph{right} 2048 tokens answers every query an
+uncompressed 8192-token cache does, at both scales
+(Table~\ref{tab:oracle}). The gap that matters is not between compressed and
+uncompressed but between the oracle and every heuristic \emph{at the same
+budget}. What separates them is information, not capacity.
 
-\paragraph{Motivating context.} Across 340 middle-band trials on synthetic
-needles---three models spanning a $4.7\times$ size range, five scoring rules,
-three learned policies, four budgets, five seeds---we observe \textbf{zero
-successes} (95\% upper bound 0.9\%). On real planted-evidence QA the figure is
-$1/64$ against an uncompressed $6/8$. That compressed caches under-retain the
-middle is consistent with prior reports (\S\ref{sec:related}); what makes it
-the right motivation is that the oracle removes it entirely at the same budget.
+\paragraph{Motivating context.} Across $\DeadN$ middle-band trials on synthetic
+needles (three models spanning a $4.7\times$ size range, four scoring rules,
+three learned policies, four budgets, three to five seeds) we observe
+$\DeadK/\DeadN$ successes (upper bound $\DeadUpper$). On real QA the figure is
+$\DeadQA$ (upper bound $\DeadQAUpper$) against an uncompressed $\DeadQAFull$. That compressed caches under-retain the middle is
+consistent with prior reports (\S\ref{sec:related}). What makes it the right
+motivation here is that the oracle removes it entirely at the same budget.
 
 \section{The specification}\label{sec:spec}
 
 \subsection{Coverage is unforgiving}
 
+We degrade the oracle so that each answer token is flagged independently with
+probability equal to the target coverage.
+
 \begin{table}[h]\centering\small
-\begin{tabular}{lcc}
-\toprule
-coverage over answer tokens & overall & middle band \\
-\midrule
-1.00 & $24/24$ & $\mathbf{7/7}$ \\
-0.75 & $12/24$ & $\mathbf{1/7}$ \\
-0.50 & $8/24$  & $0/7$ \\
-0.25 & $6/24$  & $0/7$ \\
-\bottomrule
-\end{tabular}
+\TabCoverage
+\caption{Degraded oracles on synthetic needles, $B{=}2048$, 24 queries each.
+The screen column is computed from the same flags the end-to-end run used
+(\S\ref{sec:test}).}
+\label{tab:coverage}
 \end{table}
 
-Missing a quarter of the answer tokens collapses the middle band from $7/7$ to
-$1/7$. An answer spans few tokens, and retaining most of a six-digit code is
-worth nothing: the digits are mutually unpredictable, so every one must
-survive. \textbf{A signal that is usually right about which tokens matter is
-not good enough.}
+Missing a quarter of the answer tokens drops the middle band from
+$\CovMidFull$ to $\CovMidThreeQ$ (Table~\ref{tab:coverage}). An answer spans
+few tokens, and a six-digit code is only useful if every digit survives: the
+digits are mutually unpredictable. \textbf{A signal that is usually right
+about which tokens matter is not good enough.}
 
 \subsection{Precision is free until the budget binds}
 
-Below the point where the flagged set exceeds $B$, false positives cost
-nothing. Above it, recall follows
+While the flagged set fits in $B$, false positives cost nothing. Once it
+exceeds $B$, recall follows
 \begin{equation}
   \text{recall} \;=\; \min\!\left(1,\ \frac{B}{|\text{flagged}|}\right)
   \label{eq:crowding}
 \end{equation}
-accurate to $0.05$ across $\text{fp}\in[0.05,0.5]$. \textbf{It transfers to a
-task it was not fitted on}: on real SQuAD QA the eight gold paragraphs occupy
-1332 tokens of natural prose rather than 48 synthetic digit tokens, and at
-$B{=}512$ Eq.~\ref{eq:crowding} predicts $0.38$ against an observed $0.38$.
+to within $0.05$ at every false-positive rate tested (Fig.~\ref{fig:crowding}).
+We then checked it on real QA, where the flagged set is the eight gold
+paragraphs, 1332 tokens of natural prose rather than about 130 synthetic ones. At
+$B{=}512$ the law predicts $\CrowdPred$, or $\CrowdPredScaled$ after scaling
+by the task's uncompressed ceiling of $\QACeiling$; we observe $\CrowdObs$
+$\CrowdObsCI$. Both predictions lie inside the interval. With 24 queries, the
+check can reject a badly wrong law but cannot distinguish the scaled from the
+unscaled prediction.
+
+\input{figure-crowding}
 
 \subsection{Stated}
 \begin{quote}
@@ -203,68 +208,81 @@ does not keep too many.
 
 \section{The specification as a test}\label{sec:test}
 
-The coverage half is measurable \emph{without implementing a policy}: compute
-the signal, take its top $B$, and ask what fraction of answer spans falls
-inside. Anything short of ${\approx}1.00$ spans-retained-whole predicts
-end-to-end failure.
+The coverage half can be measured \emph{without implementing a policy}: score
+the stream, take the top $B$, and count the answer spans kept whole. Anything
+well short of every span predicts end-to-end failure.
 
-\paragraph{Validating it.} Surprisal---score each token by
-$-\log p(\text{token}\mid\text{prefix})$, keeping what the context cannot
-reconstruct---is a principled, free, non-positional candidate. The screen
-rejected it locally for \$0: coverage $0.107$ on needles against a $0.250$
-chance rate, $0.248$ on real QA, $0/16$ spans whole on needles and $2/16$ on QA.
-\textbf{Five predictions were then committed to version control before a GPU
-was rented.} All five held: needle middle band $0/7$, needle near band $0/9$
-against \texttt{recent}'s $10/14$, needle overall $0/24$, QA overall $2/24$
-with middle $0/8$, and beating \texttt{recent} on neither. Every number landed
-at or below its predicted bound.
+\paragraph{Validating it in both directions.} The degraded oracles are
+candidates whose end-to-end recall is already measured across the whole
+coverage range, so we screen them by replaying the flags their end-to-end runs
+drew (Table~\ref{tab:coverage}, second column). The screen passes the
+coverage-1.00 oracle, which succeeds on every query. It fails every degraded
+oracle, keeping whole only the near-band spans that recency keeps anyway, and
+none of them answers more than one middle-band query in seven. Spans kept whole
+is a lower bound on recall rather than an estimate of it: at 0.75 coverage the
+model still answers some queries whose span was damaged, mostly near the query,
+where a damaged span sits beside intact context. The positive case is synthetic, since only an oracle
+passes; we return to this in \S\ref{sec:limits}.
+
+\paragraph{A prediction made in advance.} Surprisal, which scores each token by
+$-\log p(\text{token}\mid\text{prefix})$ and so keeps what the context cannot
+reconstruct, is a principled, free and non-positional candidate. On 16 spans
+the screen rejected it locally at no cost, and \textbf{five predictions were
+committed to version control before a GPU was rented.} All five held: needle
+middle band $0/7$; needle near band $0/9$ against \texttt{recent}'s $10/14$;
+needle overall $0/24$; QA overall $2/24$ with middle band $0/8$; and beating
+\texttt{recent} on neither task. Every number landed at or below its predicted
+bound.
+
+\paragraph{Ten candidates.} Table~\ref{tab:screen} and Fig.~\ref{fig:screen}
+screen every candidate on $\ScreenSpansNeedle$ needle spans and
+$\ScreenSpansQA$ QA answer phrases. The first two rows were rejected end to
+end before the screen existed. None passes: the best any signal does on either
+task is $\ScreenBestWhole$ spans whole. On QA, spans kept whole must be read
+against the random control's $\RandomWholeQA$: many answer phrases are one or
+two tokens, and chance keeps a quarter of those.
 
 \begin{table}[h]\centering\small
-\begin{tabular}{llccc}
-\toprule
-signal & framing & needle cov. & QA cov. & spans whole \\
-\midrule
-learned admission $\times3$ & learned features & --- & --- & $0/12$ mid \\
-query-aware retention & query similarity & --- & --- & $0/12$ mid \\
-\texttt{surprisal} & information content & 0.107 & 0.240 & $0/16$ \\
-\texttt{norm\_attention} & attention received & 0.230 & 0.290 & $\le 2/16$ \\
-\texttt{key\_norm} & activation magnitude & 0.384 & 0.244 & $0/16$ \\
-\texttt{rarity} & lexical statistics & 0.102 & 0.265 & $0/16$ \\
-\texttt{answer\_shape} & answer form & \textbf{0.541} & 0.271 & $0/16$ \\
-\texttt{lookahead} & 128 tokens of future & 0.163 & 0.228 & $0/16$ \\
-\emph{random control} & --- & 0.248 & 0.249 & $0/16$ \\
-\bottomrule
-\end{tabular}
-\caption{Ten candidates, none passing. Chance is $0.250$. QA coverage is over the whole gold paragraph, the span the screener records; over the answer phrase alone \texttt{surprisal} scores $0.248$ with $2/16$ whole.}
+\TabScreen
+\caption{Ten candidates, none passing. Coverage at $B{=}2048$; chance is $0.25$.}
+\label{tab:screen}
 \end{table}
+
+\input{figure-screen}
 
 Three entries carry the argument.
 
 \textbf{\texttt{norm\_attention} fails, and it was the best available repair.}
-Accumulated attention leans toward the start of the stream because the sum runs
-over a variable number of query rows and early tokens are visible to more of
-them; dividing by that count is the obvious fix. It lands \emph{below chance}
-on needles. Removing the positional bias does not reveal a utility signal
-underneath---it removes the bias producing H2O's only wins.
+Accumulated attention leans toward the start of the stream, because the sum
+runs over a variable number of query rows and early tokens are visible to more
+of them. Dividing by that count is the obvious fix. It lands near chance on
+both tasks ($\NormattentionNeedle$ and $\NormattentionQA$). Removing the
+positional bias does not uncover a utility signal underneath; it removes the
+bias that produced H2O's only wins.
 
 \textbf{\texttt{answer\_shape} is the strongest signal found and still fails.}
-At $2.2\times$ chance on needles it does exactly what it was built to do: it
-flags digits, and the answers are digits. It is a prior written with knowledge
-of the answer \emph{format}. It retains $0/16$ spans whole, because half a
-six-digit code is worth nothing. Knowing the form of the answer is not enough.
+At $\AnswerShapeRatio\times$ chance on needles it does what it was built to do:
+it flags digits, and the answers are digits. It is a prior written with
+knowledge of the answer \emph{format}, and it keeps $\AnswerShapeWholeNeedle$
+needle spans whole, because it ranks digits against every other digit-like
+token in the stream and half a six-digit code is worth nothing. On QA it is
+also the strongest signal, keeping $\AnswerShapeWholeQA$ answer phrases whole
+against random's $\RandomWholeQA$: a real prior, and still three quarters
+short of the bar. Knowing the form of the answer is not enough.
 
-\textbf{\texttt{lookahead} fails below chance, and it was the hardest test.}
-Every other candidate must infer a token's future from its past. This one is
-\emph{given} 128 tokens of that future---the attention a token receives from
-the following chunk, implementable by delaying compression a single chunk. It
-scores $0.163$ and $0.228$, both below chance. A chunk's attention to its
-predecessor is dominated by local syntactic continuation, so short-range
-lookahead proxies very local recency, which is if anything anti-correlated with
-being queried thousands of tokens later.
+\textbf{\texttt{lookahead} fails, and it was the hardest test.} Every other
+candidate must infer a token's future from its past. This one is \emph{given}
+128 tokens of that future: the attention a token receives from the following
+chunk, implementable by delaying compression by a single chunk. It scores
+$\LookaheadNeedle$ on needles, below chance, and $\LookaheadQA$ on QA, at
+chance. A chunk's attention to its predecessor
+is dominated by local continuation, so short-range lookahead mostly measures
+very local recency, which says nothing about being queried thousands of tokens
+later.
 
 \begin{quote}
-The information determining a token's retention value is not in its past, and
-not in its immediate future either. It is in a query that has not arrived.
+The information that determines a token's retention value is not in its past,
+and not in its immediate future either. It is in a query that has not arrived.
 \end{quote}
 
 \section{Why position-based rules cannot clear the bar}\label{sec:mech}
@@ -279,115 +297,135 @@ raw positions:
   \begin{cases} p & d < B/p \\ 0 & \text{otherwise.}\end{cases}
   \label{eq:horizon}
 \end{equation}
-\texttt{recent} ($p{=}1$) is predicted exactly: $16/16$ inside $d{=}B$,
-$0/48$ outside. Tested at $p{=}0.5$, where the horizon should double:
-$2/32$ inside 4096, $0/32$ beyond. Eq.~\ref{eq:horizon} governs
-\emph{token} residency; recall needs every token of an $L$-token answer, so
-the in-horizon plateau is $p^L$ rather than $p$---hence $2/32$ and not $16/32$.
-What the test confirms is the horizon: every hit inside $B/p$, none beyond.
+For \texttt{recent} ($p{=}1$), every needle inside $d{=}B$ is answered and
+$\RecentBeyond$ beyond it (95\% upper bound $\RecentBeyondUpper$). At
+$p{=}0.5$ the horizon should move to 4096; we observe $\HorizonInside$ inside
+and $\HorizonBeyond$ beyond (upper bound $\HorizonBeyondUpper$).
+Eq.~\ref{eq:horizon} governs \emph{token} residency, and recall needs every
+token of an $L_a$-token answer, so the in-horizon plateau is roughly
+$p^{L_a}$ rather than $p$. That is why the plateau is low. What the test
+confirms is the horizon.
 
-Beyond the horizon, survival is \emph{exactly} zero, not merely unlikely. Any
-rule that does not actively protect a token past $B/p$ loses it with certainty,
-so recency is not a design choice but the attractor every uninformed rule
-decays onto. \texttt{h2o} has the mirror-image horizon
-(Fig.~\ref{fig:horizon}). \textbf{The two families are exact complements}: at
-$B{=}2048$, \texttt{recent} scores $10/14$ near and $\mathbf{0/14}$ far;
-\texttt{h2o} scores $\mathbf{0/14}$ near and $8/14$ far. Both are functions of
-position; neither is a function of utility.
+Beyond the horizon, the mechanism gives survival probability zero, not merely
+a small one: any rule that does not actively protect a token past $B/p$ loses
+it. Recency is therefore not a design choice but the behaviour every
+uninformed rule decays onto. \texttt{h2o} shows the mirror image
+(Fig.~\ref{fig:horizon}). At $B{=}2048$, \texttt{recent} answers $10/14$ near
+and $0/14$ far; \texttt{h2o} answers $0/14$ near and $8/14$ far. Both are
+functions of position, neither of utility, and neither reaches the middle.
 
 \section{A constraint the specification misses}\label{sec:frag}
 
-The specification concerns \emph{which} tokens are retained, not their
-arrangement---and arrangement matters. Holding the stream, needles, distances,
-flagged token count (1600) and recency fill constant, and varying only the
-number of contiguous runs the retained evidence occupies:
+The specification concerns \emph{which} tokens are retained, not how they are
+arranged, and arrangement matters. We hold the stream, needles, distances,
+flagged-token count (1600) and recency fill constant, and vary only the number
+of contiguous runs the retained evidence occupies.
 
 \begin{table}[h]\centering\small
-\begin{tabular}{lccc}
-\toprule
-runs & window & SmolLM2-1.7B & Qwen3-1.7B \\
-\midrule
-\textbf{8} & 200  & \textbf{0.54} [0.35, 0.72] & 0.96 \\
-\textbf{4} & 400  & \textbf{0.92} [0.74, 0.98] & 1.00 \\
-2 & 800  & 0.83 [0.64, 0.93] & 1.00 \\
-1 & 1600 & 0.79 [0.60, 0.91] & 1.00 \\
-\bottomrule
-\end{tabular}
+\TabFrag
+\caption{Recall against the number of contiguous runs holding the same 1600
+retained tokens, 24 queries per cell.}
+\label{tab:frag}
 \end{table}
 
-Fisher exact, 8 versus 4: $p = 0.0078$. The effect is confined to the dead
-zone---SmolLM2's near band is perfect at every setting---and width does not
-explain it: a separate sweep varied width at fixed count over a $13\times$
-range and moved $0.50 \to 0.58$. That fragmentation harms compressed caches is
+Fisher's exact test, 8 runs against 4 on SmolLM2: $p = \FragP$
+(Table~\ref{tab:frag}). The near band is perfect at every setting, so the loss
+is in the middle and far bands, and width does not explain it: a separate
+sweep varied width at fixed count over a $13\times$ range and moved recall only
+from $0.50$ to $0.58$. Qwen3-1.7B is barely affected, so this is a
+model-dependent sensitivity. That fragmentation harms compressed caches is
 known \citep{yang2026ams}; what this adds is the controlled attribution to
-fragment \emph{count}, and the consequence for \S\ref{sec:spec}: a signal can
-satisfy the specification exactly and still fail by delivering the right tokens
+fragment \emph{count}, and a consequence for \S\ref{sec:spec}: a signal can
+meet the specification exactly and still fail by delivering the right tokens
 in too many pieces.
 
-\section{Limitations}
+\section{Limitations}\label{sec:limits}
 
-\textbf{The test has only ever said no.} One successful rejection validates it;
-a signal that \emph{passes} and then succeeds would test the other direction,
-and we have none. We attempted to produce a positive case with
-\texttt{lookahead} and it failed the screen too, so this stands open. A screen
-that rejects everything is consistent with being correct and with being
-uselessly conservative.
-\textbf{The oracle is an upper bound, not a method}---it requires knowing the
+\textbf{The screen has passed only an oracle.} It is validated in both
+directions on degraded oracles and against one pre-registered end-to-end run,
+but no realisable signal has passed it. A screen that rejects every realisable
+candidate is consistent both with being correct and with being uselessly
+conservative, and only a passing realisable signal can separate the two.
+\textbf{The oracle is an upper bound, not a method}: it requires knowing the
 answers in advance. This paper specifies a target and supplies a test; it does
-not supply a signal meeting the target.
-\textbf{Two task families, both short-answer}, neither a published benchmark
-run end to end; the real-QA benchmark discriminates only on Qwen3-1.7B.
-\textbf{Three models, 1.7B--8B}, one architecture family plus one outsider.
+not supply a signal that meets the target.
+\textbf{Small samples.} Most cells hold 24--64 queries or spans; every
+proportion is reported with its interval.
+\textbf{Short contexts and two task families.} Streams are 8192 tokens, both
+tasks have short answers, and neither is a published benchmark such as RULER
+\citep{hsieh2024ruler}. The real-QA task discriminates only on Qwen3-1.7B.
+\textbf{Three models, 1.7B--8B}, two from one family.
 \textbf{Scoring rules, not systems} (\S\ref{sec:setup}).
-\textbf{One architectural family}: FIFO eviction, fixed per-layer budget,
-decisions shared across layers---the last forced by a single global attention
-mask.
-\textbf{The plateau of Eq.~\ref{eq:horizon} has no clean quantitative
-model}: it goes as $p^L$ for an $L$-token span, with an inconsistent effective $L$.
+\textbf{One eviction regime}: FIFO eviction, a fixed per-layer budget, and
+decisions shared across layers (the last forced by a single global attention
+mask).
+\textbf{The plateau of Eq.~\ref{eq:horizon} has no clean quantitative model};
+it falls roughly as $p^{L_a}$, with an effective $L_a$ that varies.
 \textbf{The coverage curve is measured on the synthetic task only}; its
-transfer rests on Eq.~\ref{eq:crowding}'s transfer, which was verified, not on
+transfer to QA rests on Eq.~\ref{eq:crowding}, which was checked there, not on
 a second coverage sweep.
 
 \section{Related work}\label{sec:related}
 
 \textbf{Position bias without compression.} \citet{liu2024lost} show a U-shaped
 accuracy curve over the position of relevant information in \emph{uncompressed}
-context. Our \texttt{full} baseline scores $1.00$ in every band on all three
-models, so at these lengths the middle is answered perfectly without a budget:
-the effect we motivate with is created by compression rather than inherited
-from the model.
+context. Our uncompressed baseline answers every needle in every band on all
+three models, so at these lengths the middle is answered perfectly without a
+budget: the effect we start from is created by compression, not inherited from
+the model.
 
-\textbf{Position-resolved evaluation of compression.} \citet{indexmem2026}
-report needle-in-a-haystack heatmaps over context length and needle depth and
-observe position-dependent failure of SnapKV and PyramidKV. Reporting recall by
-position is therefore not new; what \S\ref{sec:mech} adds is the complementarity
-and the horizon mechanism.
+\textbf{Evaluating compression.} Benchmarks compare compression methods across
+tasks \citep{yuan2024kvbench} and across the life cycle of a shared cache
+\citep{li2025scbench}; RULER \citep{hsieh2024ruler} measures effective context
+length with synthetic retrieval tasks. \citet{indexmem2026} report
+needle-in-a-haystack heatmaps over context length and depth and observe
+position-dependent failure of SnapKV and PyramidKV. Reporting recall by
+position is therefore not new; \S\ref{sec:mech} adds the horizon mechanism and
+the complementarity of the two rule families.
 
-\textbf{Fragmentation.} \citet{yang2026ams} name \emph{Region Wipe-out}---global
-top-$k$ triggers severe eviction of contiguous blocks---report that token-wise
-selection shows a lost-in-the-middle retention pattern, and propose region-aware
+\textbf{Fragmentation.} \citet{yang2026ams} name \emph{region wipe-out}, where
+global top-$k$ selection evicts contiguous blocks, and propose region-aware
 segment quotas. \S\ref{sec:frag}'s phenomenon and its remedy are theirs, in a
-decoding-time chain-of-thought setting; our contribution there is the controlled
+decoding-time reasoning setting; our contribution there is the controlled
 attribution to fragment count.
 
-\textbf{Non-uniform damage.} \citet{chen2025pitfalls} evaluate five methods on
-Llama3-8B and Qwen2.5-14B under multi-instruction prompting, finding some
-instructions degrade far faster than others. Same theme, different axis: their
-unit is an instruction, ours a fact at a distance.
+\textbf{Non-uniform damage.} \citet{chen2025pitfalls} find that under
+multi-instruction prompting some instructions degrade far faster than others.
+The theme is the same on a different axis: their unit is an instruction, ours a
+fact at a distance.
 
-\textbf{Methods.} Write-time admission with a frozen backbone \citep{kvadmission2025};
-RL for post-hoc eviction \citep{learningtoevict2026}; online Lagrangian KV
-allocation \citep{triroute2026}.
+\textbf{Learned and query-aware retention.} Write-time admission with a frozen
+backbone \citep{kvadmission2025}; reinforcement learning for eviction, trained
+on a reward derived from future utility \citep{learningtoevict2026}; learned
+routing for KV allocation \citep{triroute2026}. Query-aware methods such as
+Quest \citep{tang2024quest} select cache pages using the current query at
+decode time, which sidesteps the problem studied here by keeping the full
+cache resident.
 
 \textbf{What is new} is not that compression hurts, nor where. It is the
-\emph{target}---an oracle establishing the capacity exists, and two laws saying
-what a signal must achieve to reach it---and the \emph{test} turning that target
-into a rejection criterion costing nothing to apply.
+\emph{target}---an oracle establishing that the capacity exists, and two laws
+saying what a signal must achieve to reach it---and the \emph{test} that turns
+the target into a rejection criterion costing nothing to apply.
 
 \textbf{What we do not claim.} We did not run H2O, SnapKV or StreamingLLM as
 published systems and do not report that they fail on their own benchmarks.
 Whether the full systems inherit these effects is our prediction, not our
 measurement.
+
+\section*{Reproducibility}
+
+Every experiment uses frozen public checkpoints and fixed seeds. The screen
+(\S\ref{sec:test}) and the degraded-oracle replay run on a laptop (Apple M4);
+end-to-end runs used a single rented RTX 3090. Every number in this
+paper is generated from per-query result files by one script, so the text
+cannot drift from the data. The harness is covered by unit tests, including a
+bit-identity test against the stock cache.
+
+\section*{Code availability}
+
+Code, per-query results and the script that generates every table and figure
+are available at
+\begin{center}\url{https://github.com/SrujanPendurthi/kvAdmission}\end{center}
 
 \bibliographystyle{plainnat}
 \bibliography{refs}

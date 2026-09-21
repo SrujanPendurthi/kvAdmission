@@ -1,0 +1,56 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \fill[black!6] (8.55,-2.82) rectangle (9.00,0.3);
+  \draw[black!40,dashed] (2.25,-2.82) -- (2.25,0.3)
+    node[anchor=south,font=\scriptsize] {chance};
+  \node[anchor=south,font=\scriptsize] at (8.78,0.3) {bar};
+  \node[anchor=east,font=\scriptsize\ttfamily] at (-0.1,0.00) {surprisal};
+  \draw[tealaccent] (0.775,0.07) -- (1.115,0.07);
+  \fill[tealaccent] (0.945,0.07) circle (1.5pt);
+  \draw[rustaccent] (1.479,-0.07) -- (2.895,-0.07);
+  \fill[rustaccent] (2.187,-0.07) circle (1.5pt);
+  \node[anchor=east,font=\scriptsize\ttfamily] at (-0.1,-0.42) {norm\_attention};
+  \draw[tealaccent] (1.355,-0.35) -- (2.767,-0.35);
+  \fill[tealaccent] (2.061,-0.35) circle (1.5pt);
+  \draw[rustaccent] (1.133,-0.49) -- (2.886,-0.49);
+  \fill[rustaccent] (2.009,-0.49) circle (1.5pt);
+  \node[anchor=east,font=\scriptsize\ttfamily] at (-0.1,-0.84) {key\_norm};
+  \draw[tealaccent] (3.193,-0.77) -- (4.004,-0.77);
+  \fill[tealaccent] (3.599,-0.77) circle (1.5pt);
+  \draw[rustaccent] (1.092,-0.91) -- (2.303,-0.91);
+  \fill[rustaccent] (1.698,-0.91) circle (1.5pt);
+  \node[anchor=east,font=\scriptsize\ttfamily] at (-0.1,-1.26) {rarity};
+  \draw[tealaccent] (0.922,-1.19) -- (1.081,-1.19);
+  \fill[tealaccent] (1.001,-1.19) circle (1.5pt);
+  \draw[rustaccent] (2.373,-1.33) -- (4.222,-1.33);
+  \fill[rustaccent] (3.297,-1.33) circle (1.5pt);
+  \node[anchor=east,font=\scriptsize\ttfamily] at (-0.1,-1.68) {answer\_shape};
+  \draw[tealaccent] (4.766,-1.61) -- (5.136,-1.61);
+  \fill[tealaccent] (4.951,-1.61) circle (1.5pt);
+  \draw[rustaccent] (3.375,-1.75) -- (5.131,-1.75);
+  \fill[rustaccent] (4.253,-1.75) circle (1.5pt);
+  \node[anchor=east,font=\scriptsize\ttfamily] at (-0.1,-2.10) {lookahead};
+  \draw[tealaccent] (1.226,-2.03) -- (2.041,-2.03);
+  \fill[tealaccent] (1.633,-2.03) circle (1.5pt);
+  \draw[rustaccent] (1.391,-2.17) -- (3.021,-2.17);
+  \fill[rustaccent] (2.206,-2.17) circle (1.5pt);
+  \node[anchor=east,font=\scriptsize\ttfamily] at (-0.1,-2.52) {random};
+  \draw[tealaccent] (1.933,-2.45) -- (2.462,-2.45);
+  \fill[tealaccent] (2.198,-2.45) circle (1.5pt);
+  \draw[rustaccent] (1.894,-2.59) -- (3.222,-2.59);
+  \fill[rustaccent] (2.558,-2.59) circle (1.5pt);
+  \draw[black!40] (0,-2.82) -- (9.00,-2.82);
+  \foreach \x in {0,0.25,0.5,0.75,1}
+    \node[anchor=north,font=\scriptsize] at ({\x*9.0},-2.82) {\x};
+  \node[anchor=north,font=\scriptsize] at (4.50,-3.17)
+    {coverage of answer tokens by the signal's top $B$};
+\end{tikzpicture}
+\caption{\textbf{No candidate approaches the bar.} Mean coverage over answer
+spans at $B{=}2048$ with 95\% intervals, on synthetic needles
+(\textcolor{tealaccent}{upper}) and real QA answer phrases
+(\textcolor{rustaccent}{lower}); 64 and
+62 spans. Chance is $B/L = 0.25$; the shaded band is where the specification
+requires a signal to be.}
+\label{fig:screen}
+\end{figure}

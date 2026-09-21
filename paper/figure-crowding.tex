@@ -1,0 +1,40 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \draw[black!40] (0,0) -- (10.08,0);
+  \draw[black!40] (0,0) -- (0,3.36);
+  \foreach \y in {0,0.25,0.5,0.75,1}
+    \node[anchor=east,font=\scriptsize] at (0,{\y*3.2}) {\y};
+  \foreach \x in {0,0.5,1,1.5,2,2.5}
+    \node[anchor=north,font=\scriptsize] at ({\x*3.6},0) {\x};
+  \draw[black!25,dashed] (3.60,0) -- (3.60,3.36);
+  \draw[black!70,thick] (0.05,3.200) -- (0.180,3.200) -- (0.360,3.200) -- (0.540,3.200) -- (0.720,3.200) -- (0.900,3.200) -- (1.080,3.200) -- (1.260,3.200) -- (1.440,3.200) -- (1.620,3.200) -- (1.800,3.200) -- (1.980,3.200) -- (2.160,3.200) -- (2.340,3.200) -- (2.520,3.200) -- (2.700,3.200) -- (2.880,3.200) -- (3.060,3.200) -- (3.240,3.200) -- (3.420,3.200) -- (3.600,3.200) -- (3.780,3.048) -- (3.960,2.909) -- (4.140,2.783) -- (4.320,2.667) -- (4.500,2.560) -- (4.680,2.462) -- (4.860,2.370) -- (5.040,2.286) -- (5.220,2.207) -- (5.400,2.133) -- (5.580,2.065) -- (5.760,2.000) -- (5.940,1.939) -- (6.120,1.882) -- (6.300,1.829) -- (6.480,1.778) -- (6.660,1.730) -- (6.840,1.684) -- (7.020,1.641) -- (7.200,1.600) -- (7.380,1.561) -- (7.560,1.524) -- (7.740,1.488) -- (7.920,1.455) -- (8.100,1.422) -- (8.280,1.391) -- (8.460,1.362) -- (8.640,1.333) -- (8.820,1.306) -- (9.000,1.280) -- (9.180,1.255) -- (9.360,1.231) -- (9.540,1.208) -- (9.720,1.185) -- (9.900,1.164) -- (10.080,1.143);
+  \node[anchor=west,font=\scriptsize] at (7.38,2.94) {$\min(1, B/|\mathrm{flagged}|)$};
+  \draw[tealaccent,thick] (0.169,2.758) -- (0.169,3.200);
+  \fill[tealaccent] (0.169,3.200) circle (1.6pt);
+  \draw[tealaccent,thick] (0.311,2.758) -- (0.311,3.200);
+  \fill[tealaccent] (0.311,3.200) circle (1.6pt);
+  \draw[tealaccent,thick] (0.888,2.758) -- (0.888,3.200);
+  \fill[tealaccent] (0.888,3.200) circle (1.6pt);
+  \draw[tealaccent,thick] (3.048,2.758) -- (3.048,3.200);
+  \fill[tealaccent] (3.048,3.200) circle (1.6pt);
+  \draw[tealaccent,thick] (4.488,1.763) -- (4.488,2.816);
+  \fill[tealaccent] (4.488,2.400) circle (1.6pt);
+  \draw[tealaccent,thick] (5.927,1.367) -- (5.927,2.523);
+  \fill[tealaccent] (5.927,2.000) circle (1.6pt);
+  \draw[tealaccent,thick] (7.369,1.006) -- (7.369,2.194);
+  \fill[tealaccent] (7.369,1.600) circle (1.6pt);
+  \draw[rustaccent,thick] (9.366,0.677) -- (9.366,1.833);
+  \fill[rustaccent] (9.296,1.130) rectangle ++(0.14,0.14);
+  \node[anchor=north,font=\scriptsize] at (5.04,-0.4) {flagged set / budget, $|\mathrm{flagged}|/B$};
+  \node[anchor=south,rotate=90,font=\scriptsize] at (-0.7,1.60) {recall};
+\end{tikzpicture}
+\caption{\textbf{Precision is free until the budget binds.} Recall of the
+coverage-1.00 oracle as false positives grow the flagged set (circles: synthetic
+needles, $B{=}2048$, 24 queries each, 95\% Wilson intervals). The curve is
+Eq.~\ref{eq:crowding}, not fitted. The square is real SQuAD QA at $B{=}512$,
+where the flagged set is 1332 paragraph tokens; its uncompressed ceiling is
+${\QACeiling}$, so the law predicts ${\CrowdPredScaled}$ to
+${\CrowdPred}$ and ${\CrowdObs}$ is observed.}
+\label{fig:crowding}
+\end{figure}
