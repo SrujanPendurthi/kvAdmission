@@ -1,0 +1,5186 @@
+[
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 400919.\n\n",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 400919.\n",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 400919.\n\nTh",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 400919.",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 400919.\n\n",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 400919.\n",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 400919.\n\n",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for cobalt is 400919.\n\n",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 400919.\n\n",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 400919.\n",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 400919.\n\nTh",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 400919.",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 400919.\n\n",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 400919.\n",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 400919.\n\n",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for cobalt is 400919.\n\n",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 400919.\nY",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 400919.\n",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 400919.\nThe",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 400919.",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 400919.\nT",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 400919.\n",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 400919.\nT",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for cobalt is 400919.\nY",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 123456789",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1111111111\nThe final answer: \\boxed{111",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 1234567890.",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 1234567",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe user is asking for the ",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 565557.\n",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for pumice is 732340.\nT",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 400019.\n\n",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 12345\n\nThe final answer: \\boxed{12345}\n",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 12345\n\nIn the context of the provided t",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 400919.\nThe",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 400919\n\nThe answer is 400919.\nThe final",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 12345\n\nThe answer is 12345.\n\nThe secret",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 400919\n\nThe final answer is \\boxed{4009",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 732340\n\nThe answer is 732340.\nThe final",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 400919\n\nThe answer is 400919.\nThe final",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1111111111\n\nThe final answer: \\boxed{11",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 123\n\nThe final answer: \\boxed{123}\nThe ",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 565557.\n\nTh",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 221\n\nThe secret code for cobalt is 4000",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 125\n\nThe secret code for fathom is 125.",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 565557.\n",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567\n\nThe secret code for pumice is ",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cobalt is 4000919.\n",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 400919.\n\n",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 400919.\n",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 400919.\nThe",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 400919.",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 400919.\n\n",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 400919.\n",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for pumice is 400919.\n\n",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for cobalt is 400919.\n\n",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 400919.\nY",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 400919.\n",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 400919.\nThe",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 400919.",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 400919.\nT",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 400919.\n",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for pumice is 732340.\nY",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for cobalt is 400919.\nT",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for quarry is 400919.\nT",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 565557.\n",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 400919.\nThe",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 400919.",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 400919.\nT",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 565557.\n",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for pumice is 732340.\n*",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for cobalt is 400919.\n*",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 400919\nThe final answer: \\boxed{400919}",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 100511\n\nThe final answer: \\boxed{100511",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{900577}\nThe secret code for wren",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 726201\nThe answer is \\boxed{726201}.\nTh",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{697785}\nThe secret code for fath",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{565557}\nThe secret code for bram",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 732340\nThe answer is \\boxed{732340}.\nTh",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{400919}\nCHAPTER LII. 221\n\nThe se",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 697785\n\nThe secret code for cobalt is 4",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 565557\n\nThe secret code for cobalt is 4",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for wren is",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 732340\n\nThe secret code for cobalt is 4",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{697785}\nThe secret code for fath",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{565557}\nThe secret code for bram",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 732340\n\nThe secret code for cobalt is 4",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for cobalt is 400919.\nT",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "quarry",
+  "distance_back": 7873,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 154\n\n[The answer is in the text.]\n```\n\n",
+  "resident": 3716,
+  "levels": [
+   132,
+   128,
+   1280,
+   2176
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "juniper",
+  "distance_back": 6686,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 565557\n\nThe secret code for juniper is ",
+  "resident": 3716,
+  "levels": [
+   132,
+   128,
+   1280,
+   2176
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "wren",
+  "distance_back": 5290,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 154\n\n[The answer is in the text.]\n```\n\n",
+  "resident": 3716,
+  "levels": [
+   132,
+   128,
+   1280,
+   2176
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "meridian",
+  "distance_back": 4434,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 154\n\n[The answer is in the text.]\n```\n\n",
+  "resident": 3716,
+  "levels": [
+   132,
+   128,
+   1280,
+   2176
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "fathom",
+  "distance_back": 3743,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for fathom is 697785.\nT",
+  "resident": 3716,
+  "levels": [
+   132,
+   128,
+   1280,
+   2176
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "bramble",
+  "distance_back": 2352,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 565557.\n",
+  "resident": 3716,
+  "levels": [
+   132,
+   128,
+   1280,
+   2176
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "pumice",
+  "distance_back": 1705,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for pumice is 732340.\n[",
+  "resident": 3716,
+  "levels": [
+   132,
+   128,
+   1280,
+   2176
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 0,
+  "topic": "cobalt",
+  "distance_back": 381,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for cobalt is 400919.\nT",
+  "resident": 3716,
+  "levels": [
+   132,
+   128,
+   1280,
+   2176
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is the word ",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is the numbe",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is the numbe",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is the number ",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is the number ",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is the num",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sable is the number",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is the numb",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345}\n\nThe secret code for bram",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 318290.\n\n",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 318290.\n\n",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 12345.\n\nThe",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 318290.\n\nTh",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 318290.",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sable is 318290.\n\nT",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 318290.\n",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 123456.\nT",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 617605.\nT",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 318290.\nO",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 123456.\nThe",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 617605.\nThe",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 318290.",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for sable is 617605.\nTh",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 318290.\n",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 617605.\nO",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 617605.\n*",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 617605.\nH",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 617605.\n**T",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 617605.\nThe",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for meridian is 912675.",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for sable is 617605.\nTh",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 318290.\n",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{617605}\nThe secret code for marr",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 617605.\nT",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 617605.\nT",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 617605.\nThe",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 617605.\nThe",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 617605.",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for sable is 617605.\nTh",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 318290.\n",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 617605.\nT",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 617605.\nT",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 617605.\nT",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 617605.\nThe",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 617605.\nThe",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for meridian is 912675.",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for sable is 617605.\nTh",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 318290.\n",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 318290.\nO",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 318290.\n\n",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 318290.\n\n",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 318290.\nThe",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 318290.\n\nTh",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 318290.",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sable is 318290.\nTh",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 318290.\n",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 123456.\nT",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 617605.\nT",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 318290.\nH",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 1111111111.",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 617605.\nThe",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for meridian is 318290.",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for sable is 617605.\nTh",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 318290.\n",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 912675.\nO",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 912675.\nT",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 123456.\nH",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 123456.\nThe",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 1234567890.",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for meridian is 912675.",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for sable is 617605.\nTh",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 318290.\n",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 123456\n\nThe secret code for marrow is 1",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 123456\n\nThe secret code for cinder is 1",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 123456\n\nThe secret code for harrow is 1",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for wren is 372853.\n\nTh",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{179010}\n\nThe secret code for ony",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for meridian is 912675.",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 617605\n\nThe secret code for sable is 61",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 372853.\n",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{617605}\nThe secret code for marr",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{108}\nThe secret code for cinder ",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 912675.\nT",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for wren is 372853.\nThe",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for onyx is 179010.\nThe",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for meridian is 912675.",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{179010}\nThe secret code for sabl",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 318290.\n",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "marrow",
+  "distance_back": 7646,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for marrow is 508679.\nT",
+  "resident": 3460,
+  "levels": [
+   132,
+   128,
+   1664,
+   1536
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "cinder",
+  "distance_back": 6751,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 412679.\nT",
+  "resident": 3460,
+  "levels": [
+   132,
+   128,
+   1664,
+   1536
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "harrow",
+  "distance_back": 5719,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 412679.\nT",
+  "resident": 3460,
+  "levels": [
+   132,
+   128,
+   1664,
+   1536
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "wren",
+  "distance_back": 4353,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 112345.\n\nTh",
+  "resident": 3460,
+  "levels": [
+   132,
+   128,
+   1664,
+   1536
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "onyx",
+  "distance_back": 3307,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for onyx is 412679.\nThe",
+  "resident": 3460,
+  "levels": [
+   132,
+   128,
+   1664,
+   1536
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "meridian",
+  "distance_back": 2392,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for meridian is 912675.",
+  "resident": 3460,
+  "levels": [
+   132,
+   128,
+   1664,
+   1536
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "sable",
+  "distance_back": 1519,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{617605}\nThe secret code for sabl",
+  "resident": 3460,
+  "levels": [
+   132,
+   128,
+   1664,
+   1536
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 1,
+  "topic": "bramble",
+  "distance_back": 524,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 318290.\n",
+  "resident": 3460,
+  "levels": [
+   132,
+   128,
+   1664,
+   1536
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345}\nThe answer is \\boxed{1234",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe answer is \\boxe",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345}\nThe answer is \\boxed{1234",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is the numbe",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345}\nThe answer is \\boxed{1234",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12}\n\nThe answer is \\boxed{12}.\n\n",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345}\nThe answer is \\boxed{1234",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 512,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is the numbe",
+  "resident": 512,
+  "levels": [
+   512,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for thi",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for lan",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for har",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for pli",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for wre",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for har",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for mar",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform1",
+  "budget": 512,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{885392}\n\nThe secret code for har",
+  "resident": 900,
+  "levels": [
+   0,
+   900,
+   0,
+   0
+  ],
+  "used_frac": 0.98876953125
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe answer is \\boxe",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 885392\n\nThe answer is 885392.\n\nThe answ",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe answer is \\boxed{88",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe secret code for",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 885392\n\nThe answer is 885392.\n\nThe answ",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1000}\n\nThe secret code for fatho",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 885392\n\nThe answer is 885392.\n\nThe answ",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform2",
+  "budget": 512,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{885392}\n\nThe answer is \\boxed{88",
+  "resident": 1540,
+  "levels": [
+   0,
+   0,
+   1540,
+   0
+  ],
+  "used_frac": 0.93994140625
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 125691.\n\nThe secret code for harrow is ",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 125691.\n\nThe secret code for harrow is ",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 125691.\n\nThe secret code for harrow is ",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 125691.\n\nThe secret code for harrow is ",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 125691.\n\nThe secret code for harrow is ",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 125691.\n\nThe secret code for harrow is ",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 863091.\n\nThe secret code for harrow is ",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "uniform3",
+  "budget": 512,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 885392\n\nThe secret code for harrow is 8",
+  "resident": 2692,
+  "levels": [
+   0,
+   0,
+   0,
+   2692
+  ],
+  "used_frac": 0.98583984375
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 78321\n\nThe secret code for thistle is 7",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for lantern",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for oak is ",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 863091\n\nThe secret code for harrow is 8",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 789123\n\nThe secret code for wren is 789",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 10000000000000000000000",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 863091\nYou are given a list of 10000000",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "age",
+  "budget": 512,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885391}\nYou are a helpful assist",
+  "resident": 1796,
+  "levels": [
+   132,
+   128,
+   128,
+   1408
+  ],
+  "used_frac": 0.9921875
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567\n\nThe answer is 1234567.  The se",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567\n\nThe secret code for oak is 945",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 945687\nThe answer is in the text above.",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567\n\nThe secret code for plinth is ",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 179566\nThe answer is in the text above.",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 179566\n\nThe answer is 179566. The secre",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567\n\nThe secret code for oak is 945",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "kl",
+  "budget": 512,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567\n\nThe secret code for harrow is ",
+  "resident": 1668,
+  "levels": [
+   132,
+   128,
+   256,
+   1152
+  ],
+  "used_frac": 0.9765625
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for thi",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for lan",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for har",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for pli",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for wre",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for fat",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{885392}\n\nThe secret code for mar",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform0",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{885392}\n\nThe secret code for har",
+  "resident": 1024,
+  "levels": [
+   1024,
+   0,
+   0,
+   0
+  ],
+  "used_frac": 1.0
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe secret code for",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for lantern",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe secret code for",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1234567890}\n\nThe secret code for",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for wren is",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12}\n\nThe secret code for fathom ",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 863091\nThe secret code for harrow is 88",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform1",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for harrow is 885392.\nT",
+  "resident": 1796,
+  "levels": [
+   0,
+   1796,
+   0,
+   0
+  ],
+  "used_frac": 0.986572265625
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{125691}\nYou are a helpful assist",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 125691\nThe secret code for fathom is 12",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{125691}\nYou are a helpful assist",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{125691}\nYou are a helpful assist",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 125691\n\nThe secret code for wren is 125",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for fathom is 125691.\nT",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 863091\nThe answer is in the box.\nYou ar",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform2",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for harrow is 885392.\nT",
+  "resident": 3204,
+  "levels": [
+   0,
+   0,
+   3204,
+   0
+  ],
+  "used_frac": 0.977783203125
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for harrow ",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 125691.\n\nThe secret code for harrow is ",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 125691.\n\nThe secret code for harrow is ",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 414043.\n\nThe secret code for harrow is ",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 179566.\n\nThe secret code for harrow is ",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 125691.\n\nThe secret code for harrow is ",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 863091.\n\nThe secret code for harrow is ",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "uniform3",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 885391.\n\nThe secret code for harrow is ",
+  "resident": 5380,
+  "levels": [
+   0,
+   0,
+   0,
+   5380
+  ],
+  "used_frac": 0.985107421875
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 125691\n\nQuestion: What is the secret co",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 125691\n\nThe secret code for harrow is 8",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 125691\n\nThe secret code for the fathom ",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 125691\n\nQuestion: What is the secret co",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 179566\n\nQuestion: What is the secret co",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 125691\n\nQuestion: What is the secret co",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 863091\n\nThe secret code for fathom is 1",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "age",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 885392\n\nThe secret code for harrow is 8",
+  "resident": 4484,
+  "levels": [
+   132,
+   128,
+   128,
+   4096
+  ],
+  "used_frac": 0.98828125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "thistle",
+  "distance_back": 7693,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for thistle",
+  "resident": 3584,
+  "levels": [
+   132,
+   128,
+   1536,
+   1788
+  ],
+  "used_frac": 0.995361328125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "lantern",
+  "distance_back": 6596,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for the lan",
+  "resident": 3584,
+  "levels": [
+   132,
+   128,
+   1536,
+   1788
+  ],
+  "used_frac": 0.995361328125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "oak",
+  "distance_back": 5814,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 945687\n\n[The secret code for oak is 945",
+  "resident": 3584,
+  "levels": [
+   132,
+   128,
+   1536,
+   1788
+  ],
+  "used_frac": 0.995361328125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "plinth",
+  "distance_back": 4727,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 414043\n\nThe secret code for harrow is 8",
+  "resident": 3584,
+  "levels": [
+   132,
+   128,
+   1536,
+   1788
+  ],
+  "used_frac": 0.995361328125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "wren",
+  "distance_back": 3308,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 179566\n\nThe secret code for oak is 9456",
+  "resident": 3584,
+  "levels": [
+   132,
+   128,
+   1536,
+   1788
+  ],
+  "used_frac": 0.995361328125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "fathom",
+  "distance_back": 2378,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nQuestion: What is the secre",
+  "resident": 3584,
+  "levels": [
+   132,
+   128,
+   1536,
+   1788
+  ],
+  "used_frac": 0.995361328125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "marrow",
+  "distance_back": 1752,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 1234567890\n\nThe secret code for marrow ",
+  "resident": 3584,
+  "levels": [
+   132,
+   128,
+   1536,
+   1788
+  ],
+  "used_frac": 0.995361328125
+ },
+ {
+  "config": "kl",
+  "budget": 1024,
+  "seed": 2,
+  "topic": "harrow",
+  "distance_back": 742,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 885392\n\n[Illustration:\n\n     \u201cEngaged b",
+  "resident": 3584,
+  "levels": [
+   132,
+   128,
+   1536,
+   1788
+  ],
+  "used_frac": 0.995361328125
+ }
+]
