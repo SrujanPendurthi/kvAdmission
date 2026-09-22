@@ -8,10 +8,13 @@ from kvadmission.graded import GradedCache, graded_prefill
 from kvadmission.runner import load_model
 from kvadmission.stream import build_stream, query_needle
 
-# name -> (policy, write level). uniform0 is today's fp16 FIFO baseline.
-CONFIGS = {"uniform0": ("uniform", 0), "uniform1": ("uniform", 1),
-           "uniform2": ("uniform", 2), "uniform3": ("uniform", 3),
-           "age": ("age", 0), "kl": ("kl", 0)}
+# name -> (policy, write level, merge). uniform0 is today's fp16 FIFO baseline.
+# Levels index BITS: 0 fp16, 1 int8, 2 int4, 3 int2, 4 int1.
+CONFIGS = {"uniform0": ("uniform", 0, 1), "uniform1": ("uniform", 1, 1),
+           "uniform2": ("uniform", 2, 1), "uniform3": ("uniform", 3, 1),
+           "uniform4": ("uniform", 4, 1), "uniform2m2": ("uniform", 2, 2),
+           "uniform3m2": ("uniform", 3, 2), "uniform3m4": ("uniform", 3, 4),
+           "age": ("age", 0, 1), "kl": ("kl", 0, 1)}
 
 p = argparse.ArgumentParser()
 p.add_argument("--configs", nargs="+", default=list(CONFIGS))
@@ -36,13 +39,14 @@ for seed in range(a.seeds):
         for name in a.configs:
             if (name, b, seed) in done:
                 continue
-            policy, level = CONFIGS[name]
+            policy, level, merge = CONFIGS[name]
             t = time.time()
             cache = GradedCache(budget=b, sinks=4,
                                 key_per_channel=not a.per_token_keys)
             n = graded_prefill(model, ids, cache, device, policy,
-                               write_level=level, eps=a.eps, refresh=a.refresh)
-            levels = cache.level.bincount(minlength=4).tolist()
+                               write_level=level, eps=a.eps, refresh=a.refresh,
+                               merge=merge)
+            levels = cache.level.bincount(minlength=5).tolist()
             for nd in needles:
                 hit, text = query_needle(model, tok, cache, n, nd, device)
                 rows.append({"config": name, "budget": b, "seed": seed,

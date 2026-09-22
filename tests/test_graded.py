@@ -61,3 +61,22 @@ def test_uniform_int4_holds_more_tokens_than_fp16(tiny):
                        write_level=level)
         n[level] = cache.level.shape[0]
     assert n[2] >= n[0] * COST[0] / COST[2] * 0.8
+
+
+def test_merge_halves_entries_and_keeps_layers_aligned(tiny):
+    ids = torch.randint(0, 64, (1, 64))
+    cache = GradedCache(budget=10_000, sinks=4)
+    graded_prefill(tiny, ids, cache, "cpu", "uniform", chunk=16, merge=2)
+    # first chunk (holds the sinks) unmerged, three chunks of 16 -> 8 each
+    assert cache.level.shape[0] == 16 + 3 * 8
+    assert cache.occupancy(0) == cache.occupancy(1) == 40
+    assert cache.pos[16:19].tolist() == [16, 18, 20]
+
+
+def test_fifo_can_evict_several_chunks_in_one_compaction(tiny):
+    """Budget below two chunks forces multi-chunk eviction; indices must not go stale."""
+    ids = torch.randint(0, 64, (1, 128))
+    cache = GradedCache(budget=20, sinks=4)
+    graded_prefill(tiny, ids, cache, "cpu", "uniform", chunk=16)
+    assert cache.used() <= cache.capacity
+    assert cache.pos[:4].tolist() == [0, 1, 2, 3]

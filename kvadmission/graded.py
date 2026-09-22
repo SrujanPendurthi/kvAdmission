@@ -26,7 +26,7 @@ import torch.nn.functional as F
 
 from kvadmission.cache import AdmissionCache
 
-BITS = (16, 8, 4, 2)
+BITS = (16, 8, 4, 2, 1)
 EVICTED = len(BITS)
 GROUP = 32
 # bits per stored value at each level; evicted costs nothing
@@ -62,10 +62,31 @@ class GradedCache(AdmissionCache):
     def used(self):
         return COST[self.level].sum().item()
 
-    def on_write(self, start, n_new, level=0):
-        """Record the chunk the forward pass just appended, at `level`."""
+    def on_write(self, start, n_new, level=0, merge=1):
+        """Record the chunk the forward pass just appended, at `level`.
+
+        `merge` > 1 averages each run of `merge` consecutive tokens into one
+        entry first (CaM/D2O-style), trading fidelity for tokens per byte. The
+        chunk holding the sinks is never merged.
+
+        ponytail: a merged entry is not up-weighted in softmax (it should count
+        `merge` times, a log(merge) logit bias); add one if merging looks close.
+        """
+        if merge > 1 and start >= self.sinks:
+            n = self.occupancy(0)
+            for layer in self.layers:
+                for name in ("keys", "values"):
+                    t = getattr(layer, name)
+                    new = t[:, :, n - n_new:]
+                    new = new.reshape(*new.shape[:2], n_new // merge, merge,
+                                      new.shape[-1]).mean(3)
+                    setattr(layer, name, torch.cat([t[:, :, :n - n_new], new], 2))
+            n_new //= merge
+            positions = torch.arange(start, start + n_new * merge, merge)
+        else:
+            positions = torch.arange(start, start + n_new)
         self.level = torch.cat([self.level, torch.full((n_new,), level)])
-        self.pos = torch.cat([self.pos, torch.arange(start, start + n_new)])
+        self.pos = torch.cat([self.pos, positions])
         if level:
             n = self.occupancy(0)
             idx = torch.arange(n - n_new, n)
@@ -163,10 +184,12 @@ def compact(model, cache, target, policy, chunk, probe, start, device,
     cache; interactions between chunks stepped in one round are ignored.
     """
     if policy == "uniform":
-        for idx in cache.groups(chunk).values():  # oldest first: FIFO
-            if cache.used() <= target:
-                return
-            cache.evict(idx)
+        # token-granular FIFO, oldest non-sink first, so small budgets are not
+        # rounded down to whole chunks
+        live = (cache.pos >= cache.sinks).nonzero().squeeze(1)
+        spend = torch.cumsum(COST[cache.level[live]], 0)
+        k = int((spend < cache.used() - target).sum().item()) + 1
+        cache.evict(live[:min(k, live.numel())])
         return
 
     scores = {} if scores is None else scores
@@ -207,7 +230,7 @@ def compact(model, cache, target, policy, chunk, probe, start, device,
 
 @torch.no_grad()
 def graded_prefill(model, ids, cache, device, policy, chunk=128, probe=64,
-                   write_level=0, eps=0.0, refresh=8):
+                   write_level=0, eps=0.0, refresh=8, merge=1):
     """Chunked prefill under a bit budget. Returns stream length in tokens.
 
     Before each chunk is written the cache is compacted to leave room for it,
@@ -221,7 +244,7 @@ def graded_prefill(model, ids, cache, device, policy, chunk=128, probe=64,
     for i, start in enumerate(range(0, total, chunk)):
         piece = ids[:, start:start + chunk]
         n_new = piece.shape[1]
-        target = cache.capacity - n_new * COST[write_level].item()
+        target = cache.capacity - n_new / merge * COST[write_level].item()
         if refresh and i % refresh == 0:
             scores.clear()
         if cache.get_seq_length() and cache.used() > target:
@@ -234,5 +257,5 @@ def graded_prefill(model, ids, cache, device, policy, chunk=128, probe=64,
               attention_mask=torch.ones(1, n + n_new, device=device,
                                         dtype=torch.long),
               use_cache=True)
-        cache.on_write(start, n_new, write_level)
+        cache.on_write(start, n_new, write_level, merge)
     return total

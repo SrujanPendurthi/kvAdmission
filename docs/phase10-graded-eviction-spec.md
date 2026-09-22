@@ -149,3 +149,38 @@ uniform int2.
 the data does support is packing more tokens per byte, which extends the
 retention horizon. Next test: rungs denser than int2 (merge, low-rank),
 applied uniformly.
+
+## Stage 2 result: how far "more tokens per byte" goes (M4, 2026-09-22)
+
+Same harness, adding rungs below int2: int1, and merging 2 or 4 neighbouring
+entries into their mean (`uniform3m2` = int2 merged in pairs). Uniform rows were
+rerun after two fixes: FIFO now evicts single tokens rather than whole chunks
+(at B=256 fp16 kept 132 of 256 tokens before), and the sink prefix is no longer
+quantised. 3 seeds x 8 needles per cell.
+
+| config | tokens kept at B=512 | B=256 | B=512 | B=1024 |
+|---|---|---|---|---|
+| fp16 | 512 | 0/24 | 1/24 | 3/24 |
+| int8 | 910 | 1/24 | 3/24 | 6/24 |
+| int4 | 1638 | 3/24 | 4/24 | 9/24 |
+| **int2** | 2730 | **3/24** | **8/24** | **16/24** |
+| int1 | 4096 | 0/24 | 0/24 | 0/24 |
+| int4, merged x2 | 1638 entries / 3276 tokens | 0/24 | 0/24 | 1/24 |
+| int2, merged x2 | 2730 entries / 5461 tokens | 2/24 | 0/24 | 0/24 |
+| int2, merged x4 | 2144 entries / 8192 tokens | 0/24 | 0/24 | 0/24 |
+
+**int2 is the floor.** Below it the cache holds more tokens and remembers
+nothing: int1 keeps 4096 tokens at B=512 and scores 0/24, and merging the mean
+of neighbouring entries destroys the needle even when the whole stream fits.
+Averaging is the wrong operator for exact recall; a merged entry is also not
+up-weighted in the softmax, which a real implementation would fix.
+
+The gain from int2 is large and is entirely a horizon effect. At B=1024, int2
+scores 16/24 [0.47, 0.82] with the middle band at 7/7, against int4's 9/24
+[0.21, 0.57] at 0/7 and fp16's 3/24 at 0/7. Keeping 5461 tokens instead of 1024
+moves the horizon past the middle band. This is KIVI's finding reached from the
+horizon law, not a new method.
+
+Where that leaves phase 10: the eviction question is answered, and the answer
+is "quantise to int2, keep FIFO". Priority ordering (age or KL) and formats
+denser than int2 both lose.
