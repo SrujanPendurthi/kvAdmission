@@ -50,8 +50,14 @@ The coverage half becomes a screening test that needs no policy and no GPU:
 measure how many answer spans a signal's top $B$ keeps whole. On degraded
 oracles the screen passes exactly the configurations that succeed end to end
 and is conservative for the rest. It correctly predicted one candidate's
-end-to-end failure before the run, and it rejects all ten candidates we
-tested, including one that is shown 128 tokens of each token's future.
+end-to-end failure before the run, and it rejects all ten task-agnostic
+candidates we tested, including one that is shown 128 tokens of each token's
+future. A supervised probe on the model's own write-time activations does pass
+the screen, and then matches the oracle end to end (\ProbeESmall against
+\RecentESmall for the best heuristic), which validates the test in both
+directions with a realisable signal --- but it transfers to neither the other
+task nor a different answer form, so the open problem is a signal that works
+without knowing the task in advance.
 \end{abstract}
 
 \section{The missing target}
@@ -314,6 +320,88 @@ uninformed rule decays onto. \texttt{h2o} shows the mirror image
 and $0/14$ far; \texttt{h2o} answers $0/14$ near and $8/14$ far. Both are
 functions of position, neither of utility, and neither reaches the middle.
 
+\paragraph{The horizon depends on tokens stored, not bytes.} Eq.~\ref{eq:horizon}
+is stated in tokens, so anything that fits more tokens into the same memory
+should move the horizon and nothing else. We test this by quantising the cache
+rather than changing the policy: with the budget fixed in bits and FIFO
+unchanged, int2 storage (keys quantised per channel, as in
+\citealp{liu2024kivi}) holds \GradedIntTwoLargeTokens tokens where fp16 holds
+\GradedFpLargeTokens. Recall rises from \GradedFpLarge to
+\GradedIntTwoLarge $\GradedIntTwoLargeCI$, and the middle band from
+\GradedFpLargeMid to \GradedIntTwoLargeMid: the same FIFO rule, the same
+memory, the horizon moved past the middle of the context. Two rungs below int2
+(int1, and averaging adjacent entries) keep still more tokens and answer
+nothing, so fidelity per token is a floor, not a free parameter. A ladder that
+spends bits by priority --- keeping high-scoring chunks at fp16 and stepping the
+rest down under a KL test against the incoming text --- loses to uniform int2
+at every budget (\GradedKlLarge against \GradedIntTwoLarge), because it buys
+precision with the tokens the horizon needs.
+
+\section{A signal that passes the test}\label{sec:probe}
+
+A screen that rejects every candidate cannot be distinguished from a screen
+that rejects everything. This section supplies the missing case: a signal that
+is realisable, passes the screen, and then reaches the oracle's recall. It also
+shows how narrow the resulting method is.
+
+\paragraph{The signal.} Logistic regression on the frozen model's layer-14
+hidden state, one score per token, fitted on six streams whose answer spans are
+labelled and tested on streams it never saw. The feature is the hidden state a
+causal forward pass has already computed at the moment the token is written, so
+the signal is write-time in the sense \S\ref{sec:setup} requires; the labels
+are supervision, used only in fitting. This is not a solution to the problem
+the paper poses --- the labels presuppose knowing what the answers look like ---
+but it is a realisable scoring rule, and the screen does not know how it was
+obtained.
+
+\begin{table}[h]\centering\small
+\TabProbe
+\caption{The probe against the screen's two predictions. In-task on needles it
+passes the screen and matches the oracle; on QA it fails the screen and then
+fails end to end, at \texttt{recent}'s level.}
+\label{tab:probe}
+\end{table}
+
+\paragraph{Both predictions hold.} On needles the probe keeps
+$\ProbeNeedleNeedle$ $\ProbeNeedleNeedleCI$ spans whole against the random
+control's $\ProbeNeedleNeedleRand$ --- the first realisable signal here to pass
+the screen --- and end to end it answers \ProbeESmall
+$\ProbeESmallCI$ at $B{=}1024$ and \ProbeELarge at $B{=}2048$, with the
+middle band at \ProbeESmallMid, against \texttt{recent}'s \RecentESmall and
+\RecentESmallMid. That is the oracle's ceiling (Table~\ref{tab:oracle})
+reached by a signal that reads only what the model computed at write time. On
+QA the same recipe keeps $\ProbeQaQa$ $\ProbeQaQaCI$ spans whole against
+random's $\ProbeQaQaRand$: above chance, far short of the bar, so the screen
+predicts failure. It fails, answering \ProbeEQASmall and \ProbeEQALarge,
+neither better than \texttt{recent}'s \RecentEQASmall and \RecentEQALarge.
+The screen now has a confirmed prediction in each direction from one realisable
+signal class, which is what \S\ref{sec:limits} of the earlier draft asked for.
+
+\paragraph{What it transfers across, and what it does not.} Two shifts leave it
+working. Fitted on needles whose answers are six-digit codes and tested on
+needles whose answers are phrases, it answers \ProbeEStyleSmall
+$\ProbeEStyleSmallCI$ against \texttt{recent}'s \RecentEStyleSmall, with the
+middle band at \ProbeEStyleSmallMid --- below its in-distribution
+\ProbeESmall, still far above recency. Refitted and rerun on a second model,
+SmolLM2-1.7B, it answers \ProbeESmolSmall $\ProbeESmolSmallCI$ against
+\RecentESmolSmall, so the recipe is not a quirk of one model's activations.
+The boundary it does not cross is the task: fitted on QA it ranks needle tokens
+no better than chance ($\ProbeQaNeedle$ spans whole, random
+$\ProbeQaNeedleRand$), and fitted on needles it keeps $\ProbeNeedleQa$ QA
+answer phrases whole. What the probe learns survives a change of surface form
+and of backbone, and does not survive a change of what counts as an answer.
+
+\paragraph{What this changes.} The capacity the oracle demonstrates is
+reachable, cheaply, when the task distribution is known in advance: a linear
+read of existing activations is enough. What remains unsolved is the
+task-agnostic case, which is the case a general compression method faces. The
+paper's negative result should therefore be read as scoped: no \emph{task-%
+agnostic} write-time signal we tested clears the bar, and the one signal that
+clears it does so by being told, in training, what this task's answers look
+like. Finally, the two gains do not compose: pairing the probe with int2
+storage costs recall (\ProbeIntTwoESmall against \ProbeESmall), because
+extra reach is worthless once the right tokens are already being kept.
+
 \section{A constraint the specification misses}\label{sec:frag}
 
 The specification concerns \emph{which} tokens are retained, not how they are
@@ -341,14 +429,17 @@ in too many pieces.
 
 \section{Limitations}\label{sec:limits}
 
-\textbf{The screen has passed only an oracle.} It is validated in both
-directions on degraded oracles and against one pre-registered end-to-end run,
-but no realisable signal has passed it. A screen that rejects every realisable
-candidate is consistent both with being correct and with being uselessly
-conservative, and only a passing realisable signal can separate the two.
+\textbf{The signal that passes the screen is supervised and task-specific}
+(\S\ref{sec:probe}). It is fitted on labelled answer spans from the task it is
+then tested on, and it does not survive a change of task or of answer form. It
+establishes that the screen is not uselessly conservative and that the oracle's
+capacity is reachable; it does not supply a task-agnostic signal, which is what
+a general compression method needs.
 \textbf{The oracle is an upper bound, not a method}: it requires knowing the
-answers in advance. This paper specifies a target and supplies a test; it does
-not supply a signal that meets the target.
+answers in advance. This paper specifies a target, supplies a test, and shows
+the target is reachable under supervision.
+\textbf{The probe's generalisation is measured coarsely}: one answer-form shift
+and one second model, at one budget, with 24 queries each.
 \textbf{Small samples.} Most cells hold 24--64 queries or spans; every
 proportion is reported with its interval.
 \textbf{Short contexts and two task families.} Streams are 8192 tokens, both
@@ -393,6 +484,12 @@ attribution to fragment count.
 multi-instruction prompting some instructions degrade far faster than others.
 The theme is the same on a different axis: their unit is an instruction, ours a
 fact at a distance.
+
+\textbf{Quantised caches.} KIVI \citep{liu2024kivi} stores keys per channel and
+values per token at 2 bits with no tuning. Our use of it is diagnostic rather
+than a contribution: quantisation changes how many tokens a budget holds, which
+is the one free variable in Eq.~\ref{eq:horizon}, so it is the cleanest way to
+move the horizon without touching the policy (\S\ref{sec:mech}).
 
 \textbf{Learned and query-aware retention.} Write-time admission with a frozen
 backbone \citep{kvadmission2025}; reinforcement learning for eviction, trained

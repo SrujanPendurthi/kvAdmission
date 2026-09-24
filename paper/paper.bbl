@@ -1,0 +1,138 @@
+\begin{thebibliography}{19}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Balashov and Ponomarova(2026)]{triroute2026}
+Andrii Balashov and Olena Ponomarova.
+\newblock {TriRoute}: Unified learned routing for joint adaptive attention,
+  experts, and {KV}-cache allocation.
+\newblock \emph{arXiv preprint arXiv:2607.06601}, 2026.
+
+\bibitem[Cai et~al.(2024)Cai, Zhang, Gao, et~al.]{cai2024pyramidkv}
+Zefan Cai, Yichi Zhang, Bofei Gao, et~al.
+\newblock {PyramidKV}: Dynamic {KV} cache compression based on pyramidal
+  information funneling.
+\newblock \emph{arXiv preprint arXiv:2406.02069}, 2024.
+
+\bibitem[Chen et~al.(2025)Chen, Geh, Grover, Van~den Broeck, and
+  Israel]{chen2025pitfalls}
+Alex Chen, Renato Geh, Aditya Grover, Guy Van~den Broeck, and Daniel Israel.
+\newblock The pitfalls of {KV} cache compression.
+\newblock \emph{arXiv preprint arXiv:2510.00231}, 2025.
+
+\bibitem[Feng et~al.(2024)Feng, Lv, Cao, et~al.]{feng2024adakv}
+Yuan Feng, Junlin Lv, Yukun Cao, et~al.
+\newblock {Ada-KV}: Optimizing {KV} cache eviction by adaptive budget
+  allocation for efficient {LLM} inference.
+\newblock \emph{arXiv preprint arXiv:2407.11550}, 2024.
+
+\bibitem[Ge et~al.(2024)Ge, Zhang, Liu, Zhang, Han, and Gao]{ge2024fastgen}
+Suyu Ge, Yunan Zhang, Liyuan Liu, Minjia Zhang, Jiawei Han, and Jianfeng Gao.
+\newblock Model tells you what to discard: Adaptive {KV} cache compression for
+  {LLMs}.
+\newblock In \emph{International Conference on Learning Representations}, 2024.
+
+\bibitem[Hsieh et~al.(2024)Hsieh, Sun, Kriman, Acharya, Rekesh, Jia, Zhang, and
+  Ginsburg]{hsieh2024ruler}
+Cheng-Ping Hsieh, Simeng Sun, Samuel Kriman, Shantanu Acharya, Dima Rekesh, Fei
+  Jia, Yang Zhang, and Boris Ginsburg.
+\newblock {RULER}: What's the real context size of your long-context language
+  models?
+\newblock In \emph{Conference on Language Modeling}, 2024.
+\newblock arXiv:2404.06654.
+
+\bibitem[Huang et~al.(2025)Huang, Hsiu, Fang, and Chen]{kvadmission2025}
+Yen-Chieh Huang, Pi-Cheng Hsiu, Rui Fang, and Ming-Syan Chen.
+\newblock {KV} admission: Learning what to write for efficient long-context
+  {LLM} inference.
+\newblock \emph{arXiv preprint arXiv:2512.17452}, 2025.
+
+\bibitem[Li et~al.(2025)Li, Jiang, Wu, Luo, Ahn, Zhang, Abdi, Li, Gao, Yang,
+  and Qiu]{li2025scbench}
+Yucheng Li, Huiqiang Jiang, Qianhui Wu, Xufang Luo, Surin Ahn, Chengruidong
+  Zhang, Amir~H. Abdi, Dongsheng Li, Jianfeng Gao, Yuqing Yang, and Lili Qiu.
+\newblock {SCBench}: A {KV} cache-centric analysis of long-context methods.
+\newblock In \emph{International Conference on Learning Representations}, 2025.
+
+\bibitem[Li et~al.(2024)Li, Huang, Yang, et~al.]{li2024snapkv}
+Yuhong Li, Yingbing Huang, Bowen Yang, et~al.
+\newblock {SnapKV}: {LLM} knows what you are looking for before generation.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2024.
+
+\bibitem[Liu et~al.(2024{\natexlab{a}})Liu, Lin, Hewitt, Paranjape, Bevilacqua,
+  Petroni, and Liang]{liu2024lost}
+Nelson~F. Liu, Kevin Lin, John Hewitt, Ashwin Paranjape, Michele Bevilacqua,
+  Fabio Petroni, and Percy Liang.
+\newblock Lost in the middle: How language models use long contexts.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  12:\penalty0 157--173, 2024{\natexlab{a}}.
+\newblock \doi{10.1162/tacl_a_00638}.
+
+\bibitem[Liu et~al.(2023)Liu, Desai, Liao, Wang, Xie, Xu, Kyrillidis, and
+  Shrivastava]{liu2023scissorhands}
+Zichang Liu, Aditya Desai, Fangshuo Liao, Weitao Wang, Victor Xie, Zhaozhuo Xu,
+  Anastasios Kyrillidis, and Anshumali Shrivastava.
+\newblock Scissorhands: Exploiting the persistence of importance hypothesis for
+  {LLM} {KV} cache compression at test time.
+\newblock \emph{arXiv preprint arXiv:2305.17118}, 2023.
+
+\bibitem[Liu et~al.(2024{\natexlab{b}})Liu, Yuan, Jin, Zhong, Xu, Braverman,
+  Chen, and Hu]{liu2024kivi}
+Zirui Liu, Jiayi Yuan, Hongye Jin, Shaochen Zhong, Zhaozhuo Xu, Vladimir
+  Braverman, Beidi Chen, and Xia Hu.
+\newblock {KIVI}: A tuning-free asymmetric 2bit quantization for {KV} cache.
+\newblock \emph{arXiv preprint arXiv:2402.02750}, 2024{\natexlab{b}}.
+
+\bibitem[Moschella et~al.(2026)Moschella, Manduchi, and
+  Sener]{learningtoevict2026}
+Luca Moschella, Laura Manduchi, and Ozan Sener.
+\newblock Learning to evict from key-value cache.
+\newblock In \emph{International Conference on Machine Learning}, 2026.
+\newblock arXiv:2602.10238.
+
+\bibitem[Tang et~al.(2024)Tang, Zhao, Zhu, Xiao, Kasikci, and
+  Han]{tang2024quest}
+Jiaming Tang, Yilong Zhao, Kan Zhu, Guangxuan Xiao, Baris Kasikci, and Song
+  Han.
+\newblock Quest: Query-aware sparsity for efficient long-context {LLM}
+  inference.
+\newblock In \emph{International Conference on Machine Learning}, 2024.
+
+\bibitem[Xiao et~al.(2024)Xiao, Tian, Chen, Han, and
+  Lewis]{xiao2024streamingllm}
+Guangxuan Xiao, Yuandong Tian, Beidi Chen, Song Han, and Mike Lewis.
+\newblock Efficient streaming language models with attention sinks.
+\newblock In \emph{International Conference on Learning Representations}, 2024.
+
+\bibitem[Yang and Shen(2026)]{yang2026ams}
+Junzhe Yang and Xiaoyu Shen.
+\newblock Adaptive mass-segmented {KV} compression for long-context reasoning.
+\newblock \emph{arXiv preprint arXiv:2605.23200}, 2026.
+
+\bibitem[Yang et~al.(2026)Yang, Gu, Xu, Li, Liu, Liu, Zhu, Guo, and
+  Han]{indexmem2026}
+Xintong Yang, Hao Gu, Binxing Xu, Lujun Li, Bei Liu, Jiacheng Liu, Qiyuan Zhu,
+  Yike Guo, and Sirui Han.
+\newblock {IndexMem}: Learned {KV}-cache eviction with latent memory for
+  long-context {LLM} inference.
+\newblock \emph{arXiv preprint arXiv:2605.25475}, 2026.
+
+\bibitem[Yuan et~al.(2024)Yuan, Liu, Zhong, Chuang, Li, Wang, Le, Jin,
+  Chaudhary, Xu, Liu, and Hu]{yuan2024kvbench}
+Jiayi Yuan, Hongyi Liu, Shaochen Zhong, Yu-Neng Chuang, Songchen Li, Guanchu
+  Wang, Duy Le, Hongye Jin, Vipin Chaudhary, Zhaozhuo Xu, Zirui Liu, and Xia
+  Hu.
+\newblock {KV} cache compression, but what must we give in return? {A}
+  comprehensive benchmark of long context capable approaches.
+\newblock \emph{arXiv preprint arXiv:2407.01527}, 2024.
+
+\bibitem[Zhang et~al.(2023)Zhang, Sheng, Zhou, et~al.]{zhang2023h2o}
+Zhenyu Zhang, Ying Sheng, Tianyi Zhou, et~al.
+\newblock {H2O}: Heavy-hitter oracle for efficient generative inference of
+  large language models.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2023.
+
+\end{thebibliography}

@@ -251,3 +251,28 @@ hold with the same signal class: pass the screen (64/64 needle) and match the
 oracle end-to-end; fail the screen (11/61 QA) and do no better than recency.
 That is the two-sided validation the paper's Limitations section asks for,
 using a realisable signal rather than a degraded oracle.
+
+### How narrow is the probe? (2026-09-24)
+
+Two shifts, both at B=1024, 3 seeds, needle task
+(`results/probe-gen-style.json`, `results/probe-gen-model.json`):
+
+| shift | probe | recency | in-distribution probe |
+|---|---|---|---|
+| answers are phrases, not 6-digit codes | 20/24 [0.64, 0.93] | 6/24 | 24/24 |
+| second model, SmolLM2-1.7B-Instruct | 19/24 [0.60, 0.91] | 3/24 | 24/24 |
+| other task (fitted on QA, tested on needles) | 0/64 spans whole | - | 64/64 |
+
+So what the probe learns survives a change of answer surface form and a change
+of backbone, and does not survive a change of what counts as an answer. It is
+narrower than a retention signal and wider than a memorised template.
+
+## Paper integration (2026-09-24)
+
+`paper/paper.tex` now carries this work: a new §7 "A signal that passes the
+test" with Table 4, a quantised-storage paragraph in §6 testing the horizon law
+by moving tokens-per-byte instead of the policy, KIVI added to related work and
+to `refs.bib` (verified against the arXiv API), and the Limitations claim "the
+screen has passed only an oracle" replaced - it was contradicted by
+`results/probe-scorer.json`. Every number is a macro from
+`scripts/make_latex.py`. 10 pages, no undefined references.

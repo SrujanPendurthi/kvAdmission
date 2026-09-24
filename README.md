@@ -22,7 +22,11 @@ files below; none is typed by hand.
 | Table 3 and screen figure | `screen3.json` | `run_screen.py --seeds 8` (runs on a laptop) |
 | surprisal pre-registration | `surprisal-needle.json`, `surprisal-qa.json`; predictions in `docs/phase10-prediction.md` | `run_surprisal.py` |
 | horizon figure and §6 | `gpu-distance-curve.json`, `horizon-p05.json` | `run_distance_curve.py` (`--rate 0.5` for the latter) |
-| Table 4, fragmentation | `fragcount-smollm2.json`, `fragcount-qwen.json` | `run_fragment_count.py` |
+| Table 5, fragmentation | `fragcount-smollm2.json`, `fragcount-qwen.json` | `run_fragment_count.py` |
+| §6, quantised storage | `graded.json` | `run_graded.py --configs uniform0 uniform2 uniform3 kl` |
+| Table 4, probe screen | `probe-scorer.json` | `run_probe_scorer.py` |
+| Table 4, probe end to end | `probe-e2e.json`, `probe-e2e-qa.json` | `run_probe_e2e.py [--task qa]` |
+| Table 4, probe transfer | `probe-gen-style.json`, `probe-gen-model.json` | `run_probe_e2e.py --test-style phrase`, `--model HuggingFaceTB/SmolLM2-1.7B-Instruct` |
 
 All result files are in `results/`, all scripts in `scripts/`; each script's
 `--out` default differs from the committed filename, so pass `--out` explicitly. `docs/phase*.md`
