@@ -184,3 +184,52 @@ horizon law, not a new method.
 Where that leaves phase 10: the eviction question is answered, and the answer
 is "quantise to int2, keep FIFO". Priority ordering (age or KL) and formats
 denser than int2 both lose.
+
+## Stage 3-4 result: a supervised probe passes the screen AND works (M4, 2026-09-24)
+
+Stages 3 and 4 were partly already answered. Hub tokens are the screen's
+`norm_attention` (4/64 needle spans whole) and `lookahead` (0/64); both fail, so
+no end-to-end run was spent on them. Learned admission by RL is phases 2-2c:
+recency, then collapse.
+
+What was untried is the *supervised* version (`kvadmission/probe.py`): label
+answer-span tokens 1, fit a logistic regression on the layer-14 hidden state,
+which a causal forward pass already computes at write time.
+
+Screen, B=2048, held-out seeds (`results/probe-scorer.json`):
+
+| trained on | tested on | spans whole | random |
+|---|---|---|---|
+| needle | needle | **64/64** [0.94, 1.00] | 0/64 |
+| needle | qa | 7/61 | 2/61 |
+| qa | needle | 0/64 | 0/64 |
+| qa | qa | 11/61 [0.10, 0.29] | 2/61 |
+
+End to end on needle seeds 100-102, 24 needles (`results/probe-e2e.json`):
+
+| budget | policy | hits | middle | far |
+|---|---|---|---|---|
+| 1024 | probe | **24/24** [0.86, 1.00] | 7/7 | 8/8 |
+| 1024 | recency | 3/24 | 0/7 | 0/8 |
+| 1024 | probe + int2 | 19/24 | 6/7 | 6/8 |
+| 2048 | probe | **24/24** | 7/7 | 8/8 |
+| 2048 | recency | 6/24 | 0/7 | 0/8 |
+| 2048 | probe + int2 | 18/24 | 4/7 | 5/8 |
+
+Three things follow.
+
+1. **The screen has now passed a realisable signal, and the prediction held.**
+   The paper's Limitations section says the test has only ever passed an oracle.
+   That is now out of date for the needle task: a linear probe passes the screen
+   at 64/64 and then reaches the oracle's ceiling end-to-end, 24/24 at both
+   budgets, against recency's 3/24 and 6/24.
+2. **It is task-specific, not a general signal.** Trained on QA it finds nothing
+   in needles (0/64) and only 11/61 on QA itself, where the screen predicts
+   end-to-end failure. The probe learns what *this task's* answers look like; it
+   is a trained oracle for one distribution, not a solution to the write-time
+   problem the paper poses. The honest claim is: when the task distribution is
+   known in advance, the capacity the oracle demonstrates is reachable by a
+   cheap learned signal.
+3. **int2 and a good signal do not compose.** int2 costs 5-6 spans once the
+   right tokens are kept. Quantisation buys reach, which only helps while reach
+   is the binding constraint.

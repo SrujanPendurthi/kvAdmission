@@ -1,0 +1,1442 @@
+[
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "tallow",
+  "distance_back": 7529,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 460064\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "plinth",
+  "distance_back": 6733,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 658364\n\nNote: The user has provided a l"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "marrow",
+  "distance_back": 5499,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 495651\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "thistle",
+  "distance_back": 4879,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 162744\n\nNote: The user provided a lengt"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "cinder",
+  "distance_back": 3701,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 806910\n\nThe secret code for cinder is 8"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "vellum",
+  "distance_back": 2528,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 114506\n\n**Step-by-Step Explanation:**\n1"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "bramble",
+  "distance_back": 1613,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 796442\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "pumice",
+  "distance_back": 609,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 778295\n\nNote: The user has provided a l"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "tallow",
+  "distance_back": 7529,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for tallow is 778295.\n\n"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "plinth",
+  "distance_back": 6733,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 778295.\nT"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "marrow",
+  "distance_back": 5499,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 778295.\nT"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "thistle",
+  "distance_back": 4879,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 778295.\n"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "cinder",
+  "distance_back": 3701,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 778295.\nL"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "vellum",
+  "distance_back": 2528,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is 778295.\n\n"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "bramble",
+  "distance_back": 1613,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for bramble is 778295.\n"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "pumice",
+  "distance_back": 609,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for pumice is 778295.\nT"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "tallow",
+  "distance_back": 7529,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 460064\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "plinth",
+  "distance_back": 6733,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 658364\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "marrow",
+  "distance_back": 5499,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 460064\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "thistle",
+  "distance_back": 4879,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 495651\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "cinder",
+  "distance_back": 3701,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 806910\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "vellum",
+  "distance_back": 2528,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 114506\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "bramble",
+  "distance_back": 1613,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 956431\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 100,
+  "topic": "pumice",
+  "distance_back": 609,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 778295\n\nThe secret code for bramble is "
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "tallow",
+  "distance_back": 7529,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 460064\nThe secret code for plinth is 65"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "plinth",
+  "distance_back": 6733,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 658364\nThe secret code for plinth is 65"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "marrow",
+  "distance_back": 5499,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 495651\nThe secret code for marrow is 49"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "thistle",
+  "distance_back": 4879,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 162744\nThe secret code for thistle is 1"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "cinder",
+  "distance_back": 3701,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 806910\nThe secret code for cinder is 80"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "vellum",
+  "distance_back": 2528,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 114506\nThe secret code for vellum is 11"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "bramble",
+  "distance_back": 1613,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 796442\nThe secret code for bramble is 7"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "pumice",
+  "distance_back": 609,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 778295\nThe secret code for pumice is 77"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "tallow",
+  "distance_back": 7529,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for tallow is 796442.\nT"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "plinth",
+  "distance_back": 6733,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 778295.\nT"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "marrow",
+  "distance_back": 5499,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for marrow is 778295.\nT"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "thistle",
+  "distance_back": 4879,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for thistle is 796442.\n"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "cinder",
+  "distance_back": 3701,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for cinder is 796442.\nT"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "vellum",
+  "distance_back": 2528,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for vellum is 796442.\nT"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "bramble",
+  "distance_back": 1613,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for bramble is 796442.\n"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "pumice",
+  "distance_back": 609,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for pumice is 778295.\nT"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "tallow",
+  "distance_back": 7529,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 460064\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "plinth",
+  "distance_back": 6733,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 658364\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "marrow",
+  "distance_back": 5499,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 114506\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "thistle",
+  "distance_back": 4879,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 495651\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "cinder",
+  "distance_back": 3701,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 495651\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "vellum",
+  "distance_back": 2528,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{114506}\nThe secret code for vell"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "bramble",
+  "distance_back": 1613,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 796442\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 100,
+  "topic": "pumice",
+  "distance_back": 609,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 778295\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "cinder",
+  "distance_back": 7570,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{190186}\n\nThe secret code for cob"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "cobalt",
+  "distance_back": 6592,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 990446\n\nThe secret code for cobalt is 9"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "harbor",
+  "distance_back": 5449,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{222383}\nYou are a helpful assist"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "onyx",
+  "distance_back": 4866,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{136469}\nYou are a helpful assist"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "oak",
+  "distance_back": 3785,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{269314}\nYou are a helpful assist"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "thistle",
+  "distance_back": 2604,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 955796\n\nThe secret code for juniper is "
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "juniper",
+  "distance_back": 1546,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 539043\n\nThe secret code for onyx is 136"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "lantern",
+  "distance_back": 416,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{174325}\nYou are a helpful assist"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "cinder",
+  "distance_back": 7570,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 174325\n\nThe Post                       "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "cobalt",
+  "distance_back": 6592,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 174325\n\nThe Post is a newspaper that is"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "harbor",
+  "distance_back": 5449,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 174325\n\nThe Post                       "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "onyx",
+  "distance_back": 4866,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 174325\n\nThe Post                       "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "oak",
+  "distance_back": 3785,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 174325\n\nThe Post                       "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "thistle",
+  "distance_back": 2604,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 174325\n\nThe Post                       "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "juniper",
+  "distance_back": 1546,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 174325\n\nThe Post                       "
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "lantern",
+  "distance_back": 416,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 174325\n\nThe answer is 174325.\n\nThe answ"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "cinder",
+  "distance_back": 7570,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 190186\n\nThe Post                       "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "cobalt",
+  "distance_back": 6592,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 990446\n\nThe Post                       "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "harbor",
+  "distance_back": 5449,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 222383\nThe Post                        "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "onyx",
+  "distance_back": 4866,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 136469\n\nThe Post                       "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "oak",
+  "distance_back": 3785,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 269314\n\nThe Post                       "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "thistle",
+  "distance_back": 2604,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 955796\nThe Post                        "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "juniper",
+  "distance_back": 1546,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 539043\n\nThe Post                       "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 101,
+  "topic": "lantern",
+  "distance_back": 416,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 174325.  [Illustration:\n\n\u201cAccompanied b"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "cinder",
+  "distance_back": 7570,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{190186}\n\nThe secret code for cob"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "cobalt",
+  "distance_back": 6592,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{990446}\nThe secret code for coba"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "harbor",
+  "distance_back": 5449,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{222383}\nYou are a helpful assist"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "onyx",
+  "distance_back": 4866,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{136469}\nYou are a helpful assist"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "oak",
+  "distance_back": 3785,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{269314}\nYou are a helpful assist"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "thistle",
+  "distance_back": 2604,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{955796}\nThe secret code for this"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "juniper",
+  "distance_back": 1546,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{539043}\nThe secret code for juni"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "lantern",
+  "distance_back": 416,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{174325}\nYou are a helpful assist"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "cinder",
+  "distance_back": 7570,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 334\n\nThe Post                          "
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "cobalt",
+  "distance_back": 6592,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 334\n\nThe Post                          "
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "harbor",
+  "distance_back": 5449,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 370\n\nThe Post                          "
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "onyx",
+  "distance_back": 4866,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 370\n\nThe Post                          "
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "oak",
+  "distance_back": 3785,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 334\n\nThe Post                          "
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "thistle",
+  "distance_back": 2604,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 334\n\nThe Post                          "
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "juniper",
+  "distance_back": 1546,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 539043\n\nThe Post                       "
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "lantern",
+  "distance_back": 416,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 174325\n\nThe secret code for juniper is "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "cinder",
+  "distance_back": 7570,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 190186\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "cobalt",
+  "distance_back": 6592,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 269314\n\nThe Post                       "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "harbor",
+  "distance_back": 5449,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 222383\n\nThe Post                       "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "onyx",
+  "distance_back": 4866,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 269314\n\nThe Post                       "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "oak",
+  "distance_back": 3785,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 269314\n\nThe Post                       "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "thistle",
+  "distance_back": 2604,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 955796\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "juniper",
+  "distance_back": 1546,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 539043\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 101,
+  "topic": "lantern",
+  "distance_back": 416,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 174325\n\nThe Post is a\n     newspaper, a"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "plinth",
+  "distance_back": 7609,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 429005\n\nQuestion: What is the secret co"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "wren",
+  "distance_back": 6768,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 348589\nYou are a helpful assistant. Ple"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "juniper",
+  "distance_back": 5778,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 914932\nThe secret code for juniper is 9"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "harrow",
+  "distance_back": 4336,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for harrow is 258676.\nY"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "fathom",
+  "distance_back": 3585,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 547721\n\nThe secret code for fathom is 5"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "harbor",
+  "distance_back": 2480,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 109363\nThe secret code for harbor is 10"
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "sextant",
+  "distance_back": 1245,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 663157\n\nThe secret code for sextant is "
+ },
+ {
+  "policy": "probe",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "lantern",
+  "distance_back": 684,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 466741\nYou are a helpful assistant. You"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "plinth",
+  "distance_back": 7609,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for plinth is 466741.\n\n"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "wren",
+  "distance_back": 6768,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for wren is 1234567890."
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "juniper",
+  "distance_back": 5778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for juniper is 466741.\n"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "harrow",
+  "distance_back": 4336,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harrow is 466741.\n\n"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "fathom",
+  "distance_back": 3585,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for fathom is 466741.\n\n"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "harbor",
+  "distance_back": 2480,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for harbor is 466741.\n\n"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "sextant",
+  "distance_back": 1245,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " The secret code for sextant is 12345678"
+ },
+ {
+  "policy": "recent",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "lantern",
+  "distance_back": 684,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for lantern is 466741.\n"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "plinth",
+  "distance_back": 7609,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 429005\n\nThe secret code for harrow is 2"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "wren",
+  "distance_back": 6768,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 914932\n\n\u201cWhy, if he had been a woman, I"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "juniper",
+  "distance_back": 5778,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 914932.\n\n\u201cI am not a man of the world, "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "harrow",
+  "distance_back": 4336,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 258676\n\nThe secret code for harrow is 2"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "fathom",
+  "distance_back": 3585,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 547721\n\nThe secret code for harrow is 2"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "harbor",
+  "distance_back": 2480,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 254768\n\n\u201cWhy, if he had been a man of t"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "sextant",
+  "distance_back": 1245,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 663157\n\n\u201cProve me, if you can, that you"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 1024,
+  "seed": 102,
+  "topic": "lantern",
+  "distance_back": 684,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 466741\n\n\u201cI am not a man of the world, a"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "plinth",
+  "distance_back": 7609,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 429005\n\nThe secret code for plinth is 4"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "wren",
+  "distance_back": 6768,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 348589\n\nThe secret code for wren is 348"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "juniper",
+  "distance_back": 5778,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 914932\n\nThe secret code for juniper is "
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "harrow",
+  "distance_back": 4336,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " The secret code for harrow is 258676.\nY"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "fathom",
+  "distance_back": 3585,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 547721\nThe secret code for harbor is 10"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "harbor",
+  "distance_back": 2480,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 109363\nThe secret code for harbor is 10"
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "sextant",
+  "distance_back": 1245,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 663157\n\nThe secret code for sextant is "
+ },
+ {
+  "policy": "probe",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "lantern",
+  "distance_back": 684,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 466741\nThe secret code for lantern is 4"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "plinth",
+  "distance_back": 7609,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{466741}\n\nThe answer is \\boxed{46"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "wren",
+  "distance_back": 6768,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345}\n\nThe answer is \\boxed{123"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "juniper",
+  "distance_back": 5778,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345}\n\nThe answer is \\boxed{123"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "harrow",
+  "distance_back": 4336,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345}\n\nThe answer is \\boxed{123"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "fathom",
+  "distance_back": 3585,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{1000}\n\nThe answer is \\boxed{1000"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "harbor",
+  "distance_back": 2480,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " \\boxed{12345}\n\nThe answer is \\boxed{123"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "sextant",
+  "distance_back": 1245,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{663157}\n\nThe answer is \\boxed{66"
+ },
+ {
+  "policy": "recent",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "lantern",
+  "distance_back": 684,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " \\boxed{466741}\n\nThe answer is \\boxed{46"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "plinth",
+  "distance_back": 7609,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 429005\n\nThe secret code for harrow is 2"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "wren",
+  "distance_back": 6768,
+  "stream_len": 8192,
+  "hit": false,
+  "gen": " 258676\n\nThe secret code for harrow is 2"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "juniper",
+  "distance_back": 5778,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 914932.\n\nThe secret code for harrow is "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "harrow",
+  "distance_back": 4336,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 258676\n\nThe secret code for harrow is 2"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "fathom",
+  "distance_back": 3585,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 547721.\n\nThe secret code for harrow is "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "harbor",
+  "distance_back": 2480,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 109363.\n\nThe secret code for harrow is "
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "sextant",
+  "distance_back": 1245,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 663157\n\nThe secret code for harrow is 2"
+ },
+ {
+  "policy": "probe-int2",
+  "budget": 2048,
+  "seed": 102,
+  "topic": "lantern",
+  "distance_back": 684,
+  "stream_len": 8192,
+  "hit": true,
+  "gen": " 466741\n\n\u201cI am sure, Lizzy, that you wil"
+ }
+]

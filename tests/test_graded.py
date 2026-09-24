@@ -80,3 +80,14 @@ def test_fifo_can_evict_several_chunks_in_one_compaction(tiny):
     graded_prefill(tiny, ids, cache, "cpu", "uniform", chunk=16)
     assert cache.used() <= cache.capacity
     assert cache.pos[:4].tolist() == [0, 1, 2, 3]
+
+
+def test_scored_fifo_drops_the_lowest_scoring_tokens(tiny):
+    """With scores, uniform eviction keeps the top scorers, not the newest."""
+    ids = torch.randint(0, 64, (1, 128))
+    scores = torch.zeros(128)
+    scores[20:40] = 1.0          # an early, high-scoring span
+    cache = GradedCache(budget=48, sinks=4)
+    graded_prefill(tiny, ids, cache, "cpu", "uniform", chunk=16, scores=scores)
+    kept = set(cache.pos.tolist())
+    assert set(range(20, 40)) <= kept

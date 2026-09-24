@@ -173,7 +173,7 @@ def step_kl(model, cache, idx, probe, start, device, ref):
 
 
 def compact(model, cache, target, policy, chunk, probe, start, device,
-            eps=0.0, scores=None):
+            eps=0.0, scores=None, kl_scores=None):
     """Step chunks down, lowest score first, until `used() <= target`.
 
     Past the target, keeps stepping any chunk whose KL is below `eps` (free
@@ -185,14 +185,17 @@ def compact(model, cache, target, policy, chunk, probe, start, device,
     """
     if policy == "uniform":
         # token-granular FIFO, oldest non-sink first, so small budgets are not
-        # rounded down to whole chunks
+        # rounded down to whole chunks. With `scores`, lowest-scoring first
+        # instead: uniform storage, but a signal choosing what to drop.
         live = (cache.pos >= cache.sinks).nonzero().squeeze(1)
+        if scores is not None:
+            live = live[torch.argsort(scores[cache.pos[live]])]
         spend = torch.cumsum(COST[cache.level[live]], 0)
         k = int((spend < cache.used() - target).sum().item()) + 1
         cache.evict(live[:min(k, live.numel())])
         return
 
-    scores = {} if scores is None else scores
+    scores = {} if kl_scores is None else kl_scores
     ref = None
     while cache.used() > target or eps > 0:
         groups = cache.groups(chunk)
@@ -230,7 +233,7 @@ def compact(model, cache, target, policy, chunk, probe, start, device,
 
 @torch.no_grad()
 def graded_prefill(model, ids, cache, device, policy, chunk=128, probe=64,
-                   write_level=0, eps=0.0, refresh=8, merge=1):
+                   write_level=0, eps=0.0, refresh=8, merge=1, scores=None):
     """Chunked prefill under a bit budget. Returns stream length in tokens.
 
     Before each chunk is written the cache is compacted to leave room for it,
@@ -240,16 +243,16 @@ def graded_prefill(model, ids, cache, device, policy, chunk=128, probe=64,
     chunks so they track the moving probe.
     """
     total = ids.shape[1]
-    scores = {}
+    kl_scores = {}
     for i, start in enumerate(range(0, total, chunk)):
         piece = ids[:, start:start + chunk]
         n_new = piece.shape[1]
         target = cache.capacity - n_new / merge * COST[write_level].item()
         if refresh and i % refresh == 0:
-            scores.clear()
+            kl_scores.clear()
         if cache.get_seq_length() and cache.used() > target:
             compact(model, cache, target, policy, chunk, piece[:, :probe],
-                    start, device, eps, scores)
+                    start, device, eps, scores, kl_scores)
         n = cache.get_seq_length()
         model(piece.to(device), past_key_values=cache,
               position_ids=torch.arange(start, start + n_new,

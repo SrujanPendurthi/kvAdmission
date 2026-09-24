@@ -20,10 +20,10 @@ import torch
 from kvadmission.benchmark import answer_spans, build_qa_stream, qa_spans
 from kvadmission.oracle import needle_spans
 from kvadmission.runner import load_model
+from kvadmission.probe import features as hidden_states, fit, labels
 from kvadmission.screen import coverage
 from kvadmission.stats import wilson
 from kvadmission.stream import build_stream
-from transformers import DynamicCache
 
 p = argparse.ArgumentParser()
 p.add_argument("--layer", type=int, default=14)
@@ -53,42 +53,19 @@ def stream(task, seed):
 
 @torch.no_grad()
 def features(task, seed):
-    """Layer-`a.layer` hidden state per token, uncompressed causal prefill."""
+    """Layer-`a.layer` hidden state per token, cached to disk between runs."""
     f = feat_dir / f"{task}-{seed}-L{a.layer}.pt"
     ids, spans = stream(task, seed)
     if not f.exists():
-        cache, hs = DynamicCache(), []
-        for s in range(0, ids.shape[1], 128):
-            out = model(ids[:, s:s + 128].to(device), past_key_values=cache,
-                        use_cache=True, output_hidden_states=True)
-            hs.append(out.hidden_states[a.layer][0].float().cpu().half())
-        torch.save(torch.cat(hs), f)
+        torch.save(hidden_states(model, ids, device, a.layer), f)
         print(f"  features {task} seed={seed}", flush=True)
     x = torch.load(f).float()
-    y = torch.zeros(x.shape[0])
-    for lo, hi in spans:
-        y[lo:hi] = 1
-    return x, y, spans
+    return x, labels(spans, x.shape[0]), spans
 
 
 def train(task):
     xs, ys = zip(*[features(task, s)[:2] for s in range(a.train_seeds)])
-    x, y = torch.cat(xs), torch.cat(ys)
-    mu, sd = x.mean(0), x.std(0) + 1e-6
-    w = torch.zeros(x.shape[1], requires_grad=True)
-    b = torch.zeros(1, requires_grad=True)
-    pos_weight = (y == 0).sum() / (y == 1).sum()
-    opt = torch.optim.LBFGS([w, b], max_iter=200)
-    xn = (x - mu) / sd
-
-    def closure():
-        opt.zero_grad()
-        loss = torch.nn.functional.binary_cross_entropy_with_logits(
-            xn @ w + b, y, pos_weight=pos_weight) + 1e-3 * w.square().sum()
-        loss.backward()
-        return loss
-    opt.step(closure)
-    return lambda feats: ((feats - mu) / sd) @ w.detach() + b.detach()
+    return fit(torch.cat(xs), torch.cat(ys))
 
 
 rows = []
