@@ -233,3 +233,21 @@ Three things follow.
 3. **int2 and a good signal do not compose.** int2 costs 5-6 spans once the
    right tokens are kept. Quantisation buys reach, which only helps while reach
    is the binding constraint.
+
+### The screen's other prediction, tested (QA, 2026-09-24)
+
+The QA-trained probe keeps 11/61 spans whole, so the screen predicts
+end-to-end failure. `results/probe-e2e-qa.json`, seeds 100-102, 22 questions:
+
+| budget | policy | hits | middle | mean F1 |
+|---|---|---|---|---|
+| 1024 | probe | 1/22 [0.01, 0.22] | 0/9 | 0.15 |
+| 1024 | recency | 2/22 | 0/9 | 0.20 |
+| 2048 | probe | 3/22 [0.05, 0.33] | 1/9 | 0.20 |
+| 2048 | recency | 5/22 | 0/9 | 0.32 |
+
+It fails, and is no better than recency. Both of the screen's predictions now
+hold with the same signal class: pass the screen (64/64 needle) and match the
+oracle end-to-end; fail the screen (11/61 QA) and do no better than recency.
+That is the two-sided validation the paper's Limitations section asks for,
+using a realisable signal rather than a degraded oracle.

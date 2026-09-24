@@ -13,6 +13,8 @@ from pathlib import Path
 
 import torch
 
+from kvadmission.benchmark import (answer_spans, build_qa_stream, qa_spans,
+                                   query_qa)
 from kvadmission.cache import AdmissionCache
 from kvadmission.graded import GradedCache, graded_prefill
 from kvadmission.oracle import needle_spans
@@ -22,6 +24,7 @@ from kvadmission.runner import load_model, prefill
 from kvadmission.stream import build_stream, query_needle
 
 p = argparse.ArgumentParser()
+p.add_argument("--task", choices=["needle", "qa"], default="needle")
 p.add_argument("--layer", type=int, default=14)
 p.add_argument("--train-seeds", type=int, default=6)
 p.add_argument("--test-seeds", type=int, nargs="+",
@@ -41,9 +44,20 @@ feat_dir = Path(a.feat_dir)
 feat_dir.mkdir(parents=True, exist_ok=True)
 
 
+def build(seed):
+    """One stream plus the spans to be retained, for either task."""
+    if a.task == "needle":
+        ids, items = build_stream(tok, a.needles, a.length, seed=seed)
+        return ids, items, needle_spans(tok, items)
+    ids, items = build_qa_stream(tok, a.needles, a.length, seed=seed)
+    keep = [i for i, (lo, hi) in enumerate(qa_spans(items)) if hi - lo > 1]
+    spans = answer_spans(tok, items)
+    return ids, [items[i] for i in keep], [spans[i] for i in keep]
+
+
 def cached_features(seed, ids):
     """Reuse the feature files run_probe_scorer.py already wrote."""
-    f = feat_dir / f"needle-{seed}-L{a.layer}.pt"
+    f = feat_dir / f"{a.task}-{seed}-L{a.layer}.pt"
     if not f.exists():
         torch.save(features(model, ids, device, a.layer), f)
     return torch.load(f).float()
@@ -51,10 +65,10 @@ def cached_features(seed, ids):
 
 xs, ys = [], []
 for s in range(a.train_seeds):
-    ids, needles = build_stream(tok, a.needles, a.length, seed=s)
+    ids, _, spans = build(s)
     x = cached_features(s, ids)
     xs.append(x)
-    ys.append(labels(needle_spans(tok, needles), x.shape[0]))
+    ys.append(labels(spans, x.shape[0]))
 score = fit(torch.cat(xs), torch.cat(ys))
 print(f"probe trained on seeds 0..{a.train_seeds - 1}", flush=True)
 
@@ -63,7 +77,7 @@ rows = json.loads(out.read_text()) if out.exists() else []
 done = {(r["policy"], r["budget"], r["seed"]) for r in rows}
 
 for seed in a.test_seeds:
-    ids, needles = build_stream(tok, a.needles, a.length, seed=seed)
+    ids, items, _ = build(seed)
     probe_scores = score(cached_features(seed, ids))
     for b in a.budgets:
         for policy in a.policies:
@@ -81,15 +95,21 @@ for seed in a.test_seeds:
                     else make_decider(policy, budget=b, sinks=4, seed=seed))
                 n = prefill(model, ids, cache, device, decide=decide,
                             need_attn=need_attn)
-            for nd in needles:
-                hit, text = query_needle(model, tok, cache, n, nd, device)
+            for nd in items:
+                if a.task == "needle":
+                    hit, text = query_needle(model, tok, cache, n, nd, device)
+                    f1 = float(hit)
+                else:
+                    hit, f1, _, text = query_qa(model, tok, cache, n, nd, device)
                 rows.append({"policy": policy, "budget": b, "seed": seed,
-                             "topic": nd["topic"], "distance_back": n - nd["pos"],
+                             "task": a.task, "f1": round(f1, 3),
+                             "topic": nd.get("topic", nd.get("title")),
+                             "distance_back": n - nd["pos"],
                              "stream_len": n, "hit": bool(hit), "gen": text[:40]})
-            got = sum(r["hit"] for r in rows[-a.needles:])
-            mid = [r for r in rows[-a.needles:]
+            got = sum(r["hit"] for r in rows[-len(items):])
+            mid = [r for r in rows[-len(items):]
                    if r["stream_len"] / 3 <= r["distance_back"] < 2 * r["stream_len"] / 3]
-            print(f"seed={seed} B={b} {policy:11s} {got}/{a.needles} "
+            print(f"seed={seed} B={b} {policy:11s} {got}/{len(items)} "
                   f"mid {sum(r['hit'] for r in mid)}/{len(mid)} "
                   f"{time.time() - t:.0f}s", flush=True)
             out.write_text(json.dumps(rows, indent=1))
