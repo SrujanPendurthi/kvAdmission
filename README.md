@@ -16,6 +16,7 @@ files below; none is typed by hand.
 | paper | result file(s) | produced by |
 |---|---|---|
 | Table 1, oracle vs heuristics | `phase1.json`, `oracle.json`, `scale8b-sweep.json`, `scale8b-oracle.json` | `python -m kvadmission.sweep`, `run_oracle.py` |
+| §2, closed-book floor | `closed-book.json` | `run_closed_book.py` |
 | Table 2, coverage (end to end) | `partial-oracle.json` | `run_partial_oracle.py` |
 | Table 2, coverage (screen) | `screen-partial-oracle.json` | `screen_partial_oracle.py` (tokeniser only) |
 | crowding-law figure | `partial-oracle.json`, `partial-oracle-crowding.json`, `gpu-benchmark.json` | `run_partial_oracle.py [--fp ...]`, `run_benchmark.py --oracle` |

@@ -61,8 +61,9 @@ candidates we tested, including one that is shown 128 tokens of each token's
 future. A supervised probe on the model's own write-time activations does pass
 the screen, and then matches the oracle end to end (\ProbeESmall{} against
 \RecentESmall{} for the best heuristic), which validates the test in both
-directions with a realisable signal. Its advantage survives a change of answer form and of backbone but not
-a change of task, so the open problem is narrower than it appears: to obtain
+directions with a realisable signal. Its advantage survives a change of answer
+form and of backbone but not a change of task, so the open problem is narrower
+than it appears: to obtain
 without supervision what the probe obtains from labels.
 \end{abstract}
 
@@ -121,7 +122,7 @@ jittered, evenly spaced anchors. \emph{Real QA:} $8192$ tokens of distractor
 SQuAD paragraphs with eight gold paragraphs at the same anchors, queried with
 their human-written questions and scored by answer containment, with token F1
 reported alongside. Distractors come only from articles that no gold paragraph
-belongs to. The closed-book floor, with the question alone, is $0/24$.
+belongs to. The closed-book floor, with the question alone, is $\ClosedBook$.
 
 \paragraph{Compression.} Chunked prefill at 128 tokens. After each chunk the cache
 is compressed to a per-layer budget $B$, with the first four tokens pinned as
@@ -182,7 +183,8 @@ budget}. What separates them is information, not capacity.
 needles (three models spanning a $4.7\times$ size range, four scoring rules,
 three learned policies, four budgets, three to five seeds) we observe
 $\DeadK/\DeadN$ successes (upper bound $\DeadUpper$). On real QA the figure is
-$\DeadQA$ (upper bound $\DeadQAUpper$) against an uncompressed $\DeadQAFull$. That compressed caches under-retain the middle is
+$\DeadQA$ (upper bound $\DeadQAUpper$) against an uncompressed $\DeadQAFull$.
+That compressed caches under-retain the middle is
 consistent with prior reports (\cref{sec:related}). What makes it the right
 motivation here is that the oracle removes it entirely at the same budget.
 
@@ -259,8 +261,9 @@ $-\log p(\text{token}\mid\text{prefix})$ and so keeps what the context cannot
 reconstruct, is a principled, free and non-positional candidate. On 16 spans
 the screen rejected it locally at no cost, and \textbf{five predictions were
 committed to version control before a GPU was rented.} All five held: needle
-middle band $0/7$; needle near band $0/9$ against \texttt{recent}'s $10/14$;
-needle overall $0/24$; QA overall $2/24$ with middle band $0/8$; and beating
+middle band $\SurpNeedleMid$; needle near band $\SurpNeedleNear$ against
+\texttt{recent}'s $\RecentNearPhaseOne$; needle overall $\SurpNeedleAll$; QA
+overall $\SurpQAAll$ with middle band $\SurpQAMid$; and beating
 \texttt{recent} on neither task. Every number landed at or below its predicted
 bound.
 
@@ -344,9 +347,12 @@ Beyond the horizon, the mechanism gives survival probability zero, not merely
 a small one: any rule that does not actively protect a token past $B/p$ loses
 it. Recency is therefore not a design choice but the behaviour every
 uninformed rule decays onto. \texttt{h2o} shows the mirror image
-(\cref{fig:horizon}). At $B{=}2048$, \texttt{recent} answers $10/14$ near
-and $0/14$ far; \texttt{h2o} answers $0/14$ near and $8/14$ far. Both are
-functions of position, neither of utility, and neither reaches the middle.
+(\cref{fig:horizon}). At $B{=}2048$, \texttt{recent} answers
+$\RecentWithin$ needles within the horizon and $\RecentBeyond$ beyond it;
+\texttt{h2o} answers $\HtwoWithin$ within the horizon, and
+$\HtwoNearStart$ within $B$ tokens of the \emph{start} of the stream
+against $\HtwoElsewhere$ elsewhere. Both are functions of position, neither
+of utility, and neither reaches the middle.
 
 \paragraph{The horizon depends on tokens stored, not bytes.} Eq.~\eqref{eq:horizon}
 is stated in tokens, so anything that fits more tokens into the same memory

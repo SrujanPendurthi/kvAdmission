@@ -234,6 +234,37 @@ far1 = [r for r in d1 if r["distance_back"] >= 2048]
 macro("RecentBeyond", f"{sum(r['hit'] for r in far1)}/{len(far1)}")
 macro("RecentBeyondUpper", f"{wilson(sum(r['hit'] for r in far1), len(far1))[1]:.2f}")
 
+# the mirror image, both policies split at the horizon rather than in thirds,
+# from the same run the figure plots: the claim is about d=B, not about bands.
+dc = load("gpu-distance-curve")
+def split(pol, key):
+    sub = [r for r in dc if r["policy"] == pol and r["budget"] == 2048]
+    d = {"back": lambda r: r["distance_back"],
+         "fromstart": lambda r: r["stream_len"] - r["distance_back"]}[key]
+    inh = [r for r in sub if d(r) < 2048]
+    out = [r for r in sub if d(r) >= 2048]
+    return (f"{sum(r['hit'] for r in inh)}/{len(inh)}",
+            f"{sum(r['hit'] for r in out)}/{len(out)}")
+macro("RecentWithin", split("recent", "back")[0])
+macro("HtwoWithin", split("h2o", "back")[0])
+macro("HtwoNearStart", split("h2o", "fromstart")[0])
+macro("HtwoElsewhere", split("h2o", "fromstart")[1])
+
+# the closed-book floor: the question with no context at all
+cb = load("closed-book")
+macro("ClosedBook", f"{sum(bool(r['hit']) for r in cb)}/{len(cb)}")
+
+# surprisal, the candidate the screen rejected before the GPU run
+sn, sq = load("surprisal-needle"), load("surprisal-qa")
+sn2048 = tally([r for r in sn if r["budget"] == 2048])
+sqt = tally(sq)
+macro("SurpNeedleAll", "{}/{}".format(*kn(sn2048)))
+macro("SurpNeedleMid", "{}/{}".format(*kn(sn2048, "mid")))
+macro("SurpNeedleNear", "{}/{}".format(*kn(sn2048, "near")))
+macro("SurpQAAll", "{}/{}".format(*kn(sqt)))
+macro("SurpQAMid", "{}/{}".format(*kn(sqt, "mid")))
+macro("RecentNearPhaseOne", "{}/{}".format(*kn(tally(phase1, policy="recent", budget=2048), "near")))
+
 # crowding transfer on real QA
 bench = load("gpu-benchmark")
 o512 = tally(bench, policy="oracle", budget=512)
