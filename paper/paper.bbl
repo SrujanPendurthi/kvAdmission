@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{20}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -92,6 +92,13 @@ Luca Moschella, Laura Manduchi, and Ozan Sener.
 \newblock Learning to evict from key-value cache.
 \newblock In \emph{International Conference on Machine Learning}, 2026.
 \newblock arXiv:2602.10238.
+
+\bibitem[Rajpurkar et~al.(2016)Rajpurkar, Zhang, Lopyrev, and
+  Liang]{rajpurkar2016squad}
+Pranav Rajpurkar, Jian Zhang, Konstantin Lopyrev, and Percy Liang.
+\newblock {SQuAD}: 100,000+ questions for machine comprehension of text.
+\newblock In \emph{Proceedings of the 2016 Conference on Empirical Methods in
+  Natural Language Processing}, pages 2383--2392, 2016.
 
 \bibitem[Tang et~al.(2024)Tang, Zhao, Zhu, Xiao, Kasikci, and
   Han]{tang2024quest}
