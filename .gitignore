@@ -38,3 +38,6 @@ results/*.log
 results/smoke*.json
 
 results/signal-check.log
+paper/*.aux
+paper/*.out
+paper/*.pdf
